@@ -17,53 +17,56 @@ class GiveForm extends React.Component {
             
             <>
             
-            <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)}>
-                <div>
-                    <label>Nom de l'objet</label>
-                    <input type= "text" minLength = "2" maxLength="40" required autoFocus></input>
-                </div>
-                
-                <p>
-                    <label for="pays">Dans quel état est votre objet ?</label>
-                    <select name="etat" id="etat" required>
-                        <option value="casse">Cassé</option>
-                        <option value="mauvaisetat">Mauvaise état</option>
-                        <option value="moyen">Moyen</option>
-                        <option value="bon" selected>Bon état</option> 
-                        <option value="tresbon">Très bon état</option>
-                    </select>
-                </p>
-
-
-                <fieldset className="encadre-form">
-                    <legend>Localisation</legend>
-                   
-                    <div className="codepostal">
-                        <label for="codepost">Code postal</label>
-                        <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
-                        <div id = "error-message"></div>
+            <div className="divgiveform">
+                <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)}>
+                    <div className="nomObjet">
+                        <label>Nom de l'objet</label>
+                        <input type= "text" minLength = "2" maxLength="40" required autoFocus></input>
                     </div>
                     
-
-                    <div className="commune">
-                        <label for="dep">Commune</label>
-                        <select name="city" id="city" className="form-control">
+                    <p>
+                        <label for="pays">Dans quel état est votre objet ?</label>
+                        <select name="etat" id="etat" required>
+                            <option value="casse">Cassé</option>
+                            <option value="mauvaisetat">Mauvaise état</option>
+                            <option value="moyen">Moyen</option>
+                            <option value="bon" selected>Bon état</option> 
+                            <option value="tresbon">Très bon état</option>
                         </select>
-                    </div>
+                    </p>
 
+
+                    <fieldset>
+                        <legend className="Localisation">Localisation</legend>
                     
+                        <div className="codepostal">
+                            <label for="codepost">Code postal</label>
+                            <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
+                            <div id = "error-message"></div>
+                        </div>
+                        
 
-                </fieldset>
-                
-                <div>
-                    <label >Commentaires</label>
-                    <textarea maxLength={500}></textarea> 
-                </div>  
-                    <button type="submit" className="btnchercher">Chercher</button>
-            </form>
+                        <div className="commune">
+                            <label for="dep">Commune</label>
+                            <select name="city" id="city" className="form-control">
+                            </select>
+                        </div>
+
+                        
+
+                    </fieldset>
+                    
+                    <div className="commentaire">
+                        <label >Commentaires</label>
+                        <textarea maxLength={500}></textarea> 
+                    </div>  
+                        <button type="submit" className="btnchercher">Chercher</button>
+                </form>
 
 
 
+            </div>
+            
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="script.js"></script>
 

@@ -6,7 +6,7 @@ class Jquery extends React.Component{
     componentDidMount(){
 
         $(document).ready(function(){
-            alert('ggg')
+            // alert('ggg')
             const apiUrl = "https://geo.api.gouv.fr/communes?codePostal=";
             const format = '&format=json'; //on récupère les données en format JSON
         
@@ -22,7 +22,6 @@ class Jquery extends React.Component{
         
                 fetch(url, {method: 'get'}).then(response => response.json()).then(results => {    
                     // console.log(results);
-        
                     $(city).find('option').remove(); 
                     if(results.length){  
                         $.each(results,function(key,value){     

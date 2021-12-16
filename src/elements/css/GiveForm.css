@@ -1,9 +1,27 @@
 
+.divgiveform form{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.nomObjet{
+     display: flex;
+     flex-direction: column;
+}
 textarea
 {
      resize: none;
      width: 634px; 
      height: 98px
+}
+
+.commentaire{
+     display: flex;
+     flex-direction: column;
+}
+
+fieldset{
+     width: 20%;
 }
 
 .giveform{
