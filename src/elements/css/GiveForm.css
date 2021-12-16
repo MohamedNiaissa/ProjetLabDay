@@ -19,3 +19,7 @@ textarea
     display: none; 
     color: #f55;
 }
+
+.encadre-form{
+     width: 30%;
+}

@@ -14,7 +14,7 @@ class App extends React.Component {
     componentDidMount(){
 
         $(document).ready(function(){
-            alert('ggg')
+          //  alert('ggg')
             const apiUrl = "https://geo.api.gouv.fr/communes?codePostal=";
             const format = '&format=json'; //on récupère les données en format JSON
         

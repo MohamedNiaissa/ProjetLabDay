@@ -35,27 +35,26 @@ class GiveForm extends React.Component {
                 </p>
 
 
-                 <div>
-                    <label >Localisation</label>
-                    <input type= "text" minLength = "2" maxLength="40" required></input>
+                <fieldset className="encadre-form">
+                    <legend>Localisation</legend>
+                   
+                    <div className="codepostal">
+                        <label for="codepost">Code postal</label>
+                        <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
+                        <div id = "error-message"></div>
+                    </div>
+                    
 
+                    <div className="commune">
+                        <label for="dep">Commune</label>
+                        <select name="city" id="city" className="form-control">
+                        </select>
+                    </div>
 
-                <div className="codepostal">
-                    <label for="codepost">Code postal</label>
-                    <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
-                    <div id = "error-message"></div>
-                </div>
+                    
+
+                </fieldset>
                 
-
-                <div className="commune">
-                    <label for="dep">Commune</label>
-                    <select name="city" id="city" className="form-control">
-                    </select>
-                </div>
-
-                
-                </div>          
-
                 <div>
                     <label >Commentaires</label>
                     <textarea maxLength={500}></textarea> 
