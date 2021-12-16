@@ -1,0 +1,11 @@
+body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.FormGroup {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+}
