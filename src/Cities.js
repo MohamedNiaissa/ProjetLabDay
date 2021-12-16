@@ -1,4 +1,4 @@
-letallCities = [
+let allCities = [
     {City:"L'Abergement-Clémenciat",ZIPCode:"01001",DCode:"01",RCode:"84"},
     {City:"L'Abergement-de-Varey",ZIPCode:"01002",DCode:"01",RCode:"84"},
     {City:"Ambérieu-en-Bugey",ZIPCode:"01004",DCode:"01",RCode:"84"},
@@ -34969,3 +34969,5 @@ letallCities = [
     {City:"Zuani",ZIPCode:"2B364",DCode:"2B",RCode:"94"},
     {City:"San-Gavino-di-Fiumorbo",ZIPCode:"2B365",DCode:"2B",RCode:"94"},
     {City:"Chisa",ZIPCode:"2B366",DCode:"2B",RCode:"94"}]
+
+    export default allCities;
