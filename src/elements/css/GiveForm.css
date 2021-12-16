@@ -5,3 +5,17 @@ textarea
      width: 634px; 
      height: 98px
 }
+
+.giveform{
+     display: flex;
+     flex-flow: column wrap;
+}
+
+.btnchercher{
+     width: 10%;
+}
+
+#error-message{
+    display: none; 
+    color: #f55;
+}

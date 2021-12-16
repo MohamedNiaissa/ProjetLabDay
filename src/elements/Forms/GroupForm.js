@@ -7,7 +7,6 @@ class GroupForm extends React.Component{
             <div id={this.props.set.id}>
                 <label hidden={this.props.set.visibility}>{this.props.set.label}</label>
                 <input type={this.props.set.type} hidden={this.props.set.visibility}></input>
-             
             </div>
         )
     }
