@@ -6,6 +6,7 @@ const CoreMenu = () => (
         <NavLink to="/Vendre" className="">Vendre</NavLink>
         <NavLink to="/Donner" className="">Donner</NavLink>
         <NavLink to="/Jeter" className="">Jeter</NavLink>
+        <NavLink to="/Contact" className="">Contact</NavLink>
     </div>
 )
 
