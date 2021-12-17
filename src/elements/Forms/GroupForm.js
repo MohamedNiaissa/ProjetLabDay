@@ -13,6 +13,7 @@ class GroupForm extends React.Component {
                 else console.log("Good")
             })
         } else if(this.props.set.property === "location") {
+            this.input.setCustomValidity("Empty Field.");
             this.input.addEventListener("input", function() {
 
                 let checkValidity = false;
@@ -22,23 +23,6 @@ class GroupForm extends React.Component {
                 !this.value.match(/[^a-zA-Z]/) && checkValidity && (this.value.length > 1) ? this.setCustomValidity("") : this.setCustomValidity("Invalid field.");
                 if(this.validity.customError) console.log("Wrong character.")
                 else console.log("Good")
-            })
-        }else if(this.props.set.property === "question") {
-            this.input.addEventListener("input", function() {
-                const loc = document.getElementById("fpvzmxn");
-                loc.childNodes.forEach(element => {
-                    if(element.style.display === "none") {
-                        if(element.nodeName === "INPUT") {
-                            const index = allCities.findIndex(obj => obj.City === element.value);
-                            if(index === -1) element.setCustomValidity("Invalid Field.")
-                        }
-                        element.style.display = "inline";
-                    }
-                    else {
-                        if(element.nodeName === "INPUT") element.setCustomValidity("");
-                        element.style.display = "none";
-                    }
-                })
             })
         }
     }
