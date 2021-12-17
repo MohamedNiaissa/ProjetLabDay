@@ -4,15 +4,15 @@ const FunctionalitiesInfo = () => (
     <div>
         <ul>
             <li>
-                <img src="../logo192.png" alt=""></img>
+                <img src="../logo192.png" alt="" style={{width: "10%"}}></img>
                 Here's the text explaining the Sell functionality.
             </li>
             <li>
-                <img src="../logo192.png" alt=""></img>
+                <img src="../logo192.png" alt="" style={{width: "10%"}}></img>
                 Here's the text explaining the Give functionality.
             </li>
             <li>
-                <img src="../logo192.png" alt=""></img>
+                <img src="../logo192.png" alt="" style={{width: "10%"}}></img>
                 Here's the text explaining the Throw functionality.
             </li>
         </ul>
