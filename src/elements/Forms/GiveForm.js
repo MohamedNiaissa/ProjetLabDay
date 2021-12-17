@@ -77,7 +77,7 @@ class GiveForm extends React.Component {
                     </p>
 
 
-                    <fieldset id="fieldset">
+                    <fieldset id="fieldset" className="scheduler-border">
                         <legend className="Localisation">Localisation</legend>
                     
                         <div className="codepostal">
