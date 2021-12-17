@@ -41,7 +41,7 @@ class GroupForm extends React.Component {
     }
 
     switchFormBlock() {
-        if(this.props.set.property == "material") {
+        if(this.props.set.property === "material") {
             return (
             <div id={this.props.set.id} className={this.props.set.className}>
                 <label style={{display:this.props.set.display}}>{this.props.set.label}</label>
