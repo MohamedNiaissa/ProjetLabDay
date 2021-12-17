@@ -2,10 +2,10 @@ import React from "react";
 import GroupForm from "./GroupForm";
 
 let TF_settings = [
-    {id:"ezpfdbe", className: "FormGroup", label: "Nom de l'objet", type: "text", property:"product", display:"visibility"},
+    {id:"ezpfdbe", className: "FormGroup", label: "Nom de l'objet :", type: "text", property:"product", display:"visibility"},
     {id:"nfozxfm", className: "FormGroup", label: "Quelle est la matière principale de votre objet ?", type: "text", property:"material", display:"visibility"},
     {id:"xbanolm", className: "FormGroup", label: "Est-ce que cet objet est volumineux ?", type: "checkbox", property:"question", display:"visibility"},
-    {id:"fpvzmxn", className: "FormGroup", label: "Location", type: "text", property:"location", display:"none"},
+    {id:"fpvzmxn", className: "FormGroup", label: "Localisation :", type: "text", property:"location", display:"none"},
 ]
 
 class ThrowForm extends React.Component {
