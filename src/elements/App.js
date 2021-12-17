@@ -6,6 +6,8 @@ import FunctionalitiesInfo from "./FunctionalitiesInfo";
 import SellForm from "./Forms/SellForm";
 import GiveForm from "./Forms/GiveForm";
 import ThrowForm from "./Forms/ThrowForm";
+import ContactForm from "./Forms/ContactForm";
+
 
 class App extends React.Component {
     render() {
@@ -21,6 +23,7 @@ class App extends React.Component {
                             <Route path="/Vendre" element={<><CoreMenu /><SellForm /></>}/>
                             <Route path="/Donner" element={<><CoreMenu /><GiveForm /></>}/>
                             <Route path="/Jeter" element={<><CoreMenu /><ThrowForm /></>}/>
+                            <Route path="/Contact" element={<ContactForm />}/>
                         </Switch>
                     </Router>
                 </section>
