@@ -30,8 +30,6 @@ input[type]:focus:valid {
     box-shadow: 0 0 5px rgb(128, 184, 45);
 }
 
-<<<<<<< HEAD
-=======
 .invalid {
     border-color: crimson;
     box-shadow: 0 0 5px crimson;
@@ -42,7 +40,6 @@ input[type]:focus:valid {
     box-shadow: 0 0 5px rgb(128, 184, 45);
 }
 
->>>>>>> ContactForm
 input {
     display: block;
     margin: 10px 20px 20px 20px;
