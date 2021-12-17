@@ -11,11 +11,51 @@ class GiveForm extends React.Component {
         console.log("Je clique")
     }
 
+    
+    componentDidMount(){
+
+        $(document).ready(function(){
+            const apiUrl = "https://geo.api.gouv.fr/communes?codePostal=";
+            const format = '&format=json'; 
+            let zipcode = $("#zipcode"); let city = ('#city'); let errorMessage=('#error-message');
+            $(zipcode).on('blur', function(){   
+                let code = $(this).val();  
+                let url = apiUrl+code+format;
+                fetch(url, {method: 'get'}).then(response => response.json()).then(results => {    
+                    $(city).find('option').remove(); 
+                    if(results.length){  
+                        $.each(results,function(key,value){     
+                            $(errorMessage).text('').hide();
+                            console.log(value.nom)   
+                            $(city).append('<option value ="' +value.nom+ '">' +value.nom + ' </option>')
+                        })
+                    }else{
+                        if($(zipcode).val()){
+                            console.log("Erreur dans la saisie de votre code postal");
+                            $(errorMessage).text('Aucune commune avec ce code postal').show();  
+                        }else{
+                            $(errorMessage).text('').hide(); 
+                        }
+                    }
+        
+                }).catch(err => {  
+                    console.log(err);
+                    $(city).find('option').remove(); 
+        
+                })
+        
+            });
+        
+        })
+        
+    }
     render() {
 
         return (
             
             <>
+
+            <h1 className="titreformdonner"> Formulaire Donner </h1>
             
             <div className="divgiveform">
                 <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)}>
@@ -25,29 +65,30 @@ class GiveForm extends React.Component {
                     </div>
                     
                     <p>
-                        <label for="pays">Dans quel état est votre objet ?</label>
-                        <select name="etat" id="etat" required>
+                        <label htmlFor="pays">Dans quel état est votre objet ?</label>
+                        <select name="etat" id="etat" defaultValue={'DEFAULT'} required>
+                            <option value="DEFAULT" disabled >Choisissez un état</option>
                             <option value="casse">Cassé</option>
                             <option value="mauvaisetat">Mauvaise état</option>
                             <option value="moyen">Moyen</option>
-                            <option value="bon" selected>Bon état</option> 
+                            <option value="bon" >Bon état</option> 
                             <option value="tresbon">Très bon état</option>
                         </select>
                     </p>
 
 
-                    <fieldset>
+                    <fieldset id="fieldset">
                         <legend className="Localisation">Localisation</legend>
                     
                         <div className="codepostal">
-                            <label for="codepost">Code postal</label>
+                            <label htmlFor="codepost">Code postal</label>
                             <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
                             <div id = "error-message"></div>
                         </div>
                         
 
                         <div className="commune">
-                            <label for="dep">Commune</label>
+                            <label htmlFor="dep">Commune</label>
                             <select name="city" id="city" className="form-control">
                             </select>
                         </div>
@@ -58,7 +99,7 @@ class GiveForm extends React.Component {
                     
                     <div className="commentaire">
                         <label >Commentaires</label>
-                        <textarea maxLength={500}></textarea> 
+                        <textarea id="commentaireDonner" maxLength={500}></textarea> 
                     </div>  
                         <button type="submit" className="btnchercher">Chercher</button>
                 </form>

@@ -1,4 +1,10 @@
 
+ .titreformdonner  {
+
+     text-align: center;
+
+}
+
 .divgiveform form{
      display: flex;
      flex-direction: column;
@@ -8,7 +14,7 @@
      display: flex;
      flex-direction: column;
 }
-textarea
+#commentaireDonner 
 {
      resize: none;
      width: 634px; 
@@ -20,8 +26,9 @@ textarea
      flex-direction: column;
 }
 
-fieldset{
-     width: 20%;
+#fieldset{
+     width: 30%;
+     text-align: center;
 }
 
 .giveform{
