@@ -28,7 +28,10 @@ class GroupForm extends React.Component {
                 const loc = document.getElementById("fpvzmxn");
                 loc.childNodes.forEach(element => {
                     if(element.style.display === "none") {
-                        if(element.nodeName === "INPUT") element.setCustomValidity("Invalid Field.")
+                        if(element.nodeName === "INPUT") {
+                            const index = allCities.findIndex(obj => obj.City === element.value);
+                            if(index === -1) element.setCustomValidity("Invalid Field.")
+                        }
                         element.style.display = "inline";
                     }
                     else {
