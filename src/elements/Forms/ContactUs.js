@@ -16,7 +16,7 @@ class ContactUs extends React.Component {
 
             this.input.addEventListener("input", function() {
                 console.log(this.style.className + ", " + this.className)
-                !this.value.match(/[^a-zA-Z0-9"'\[\]`()\s\S]/) && (this.value.length > 10) ? this.className = "valid" : this.className = "invalid";
+                !this.value.match(/[^a-zA-Z0-9"'`()\s\S]/) && (this.value.length > 10) ? this.className = "valid" : this.className = "invalid";
                 if(this.className === "invalid") console.log("Wrong character.")
                 else console.log("Good")
             })

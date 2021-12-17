@@ -7,21 +7,13 @@ import SellForm from "./Forms/SellForm";
 import GiveForm from "./Forms/GiveForm";
 import ThrowForm from "./Forms/ThrowForm";
 import ContactForm from "./Forms/ContactForm";
-import $ from 'jquery'
-import Givefonctionnality from './FormFonctionnalities/Givefonctionnality'
-
+// import $ from 'jquery'
+// import Givefonctionnality from './FormFonctionnalities/Givefonctionnality'
 
 class App extends React.Component {
-    
-   
-
     render() {
-
         return (
-
-
             <>
-            
                 <section id="NavBar">
                     <NavBar />
                 </section>
@@ -35,10 +27,7 @@ class App extends React.Component {
                             <Route path="/Contact" element={<ContactForm />}/>
                         </Switch>
                     </Router>
-
-                    
                 </section>
-
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="Givefonctionnality.js"></script>
             </>
