@@ -1,6 +1,6 @@
 import React from "react";
 import ThrowFormBuild from "./ThrowFormBuild";
-import allCities from "../../Cities";
+import cities from "../../Cities";
 
 class ThrowForm extends React.Component {
 
@@ -40,7 +40,7 @@ class ThrowForm extends React.Component {
                 if(loc.style.display === "none") {
                     loc.style.display = "inline";
                     console.log(this.state.location)
-                    const index = allCities.findIndex(obj => obj.City === this.state.city);
+                    const index = cities.findIndex(obj => obj.name === this.state.city);
                     formValidity.location = (index !== -1) ? true : false;
                 } else  {
                     loc.style.display = "none";
@@ -48,7 +48,7 @@ class ThrowForm extends React.Component {
                 }
                 break;
             case "map":
-                const index = allCities.findIndex(obj => obj.City === value);
+                const index = cities.findIndex(obj => obj.name === value);
                 formValidity.location = (index !== -1) ? true : false;
                 this.state.city = value;
                 e.target.className = (formValidity.location) ? "validL" : "invalidL";
