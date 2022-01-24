@@ -6,7 +6,6 @@ class GroupForm extends React.Component {
     componentDidMount() {
         if(this.props.set.property === "product") {
             this.input.setCustomValidity("Empty Field.");
-
             this.input.addEventListener("input", function() {
                 !this.value.match(/[^a-zA-Z0-9]/) && (this.value.length > 2) ? this.setCustomValidity("") : this.setCustomValidity("Invalid field.");
                 if(this.validity.customError) console.log("Wrong character.")
