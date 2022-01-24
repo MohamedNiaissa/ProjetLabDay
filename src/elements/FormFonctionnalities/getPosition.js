@@ -4,7 +4,6 @@ import Map from "./Map";
 
 import React, { useRef, useState } from 'react';
 
-const defaultcenter = [0,0];
 
 const Getposition = () =>{
     const location = Map();
@@ -12,7 +11,7 @@ const Getposition = () =>{
     return(
         
         <>
-        {console.log("location " + location.coordinates.lat+ " " +location.coordinates.long)}
+        {/* {console.log("location " + location.coordinates.lat+ " " +location.coordinates.long)} */}
         {location.loaded && !location.error && (
 
         <MapContainer center={[location.coordinates.lat,location.coordinates.long]} zoom={13} scrollWheelZoom={false}>
@@ -28,6 +27,21 @@ const Getposition = () =>{
                 </Marker>
         
         </MapContainer>
+        )}
+        {location.error && (
+
+            <MapContainer center={[0,0]} zoom={13} scrollWheelZoom={false}>
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                    <Marker position={[0,0]}>
+                        <Popup>
+                            Default position
+                        </Popup>
+                    </Marker>
+
+            </MapContainer>
         )}
         </>
     )
