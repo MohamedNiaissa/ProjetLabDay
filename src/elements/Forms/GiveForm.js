@@ -1,8 +1,8 @@
 import React from "react";
 import $ from 'jquery';
-import Map from'../FormFonctionnalities/map'
+import Map from'../FormFonctionnalities/Map'
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
-
+import Getposition from "../FormFonctionnalities/getPosition";
 class GiveForm extends React.Component {
 
     handleSubmit = (e) => {
@@ -92,7 +92,6 @@ class GiveForm extends React.Component {
                             </select>
                         </div>
 
-                        
 
                     </fieldset>
                     
@@ -108,7 +107,7 @@ class GiveForm extends React.Component {
                 
 
             </div> 
-            <Map></Map>
+            <Getposition />
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="script.js"></script>
 
