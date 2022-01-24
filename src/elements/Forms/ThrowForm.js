@@ -10,6 +10,7 @@ class ThrowForm extends React.Component {
           isProductValid:  { regex: false, length: false },
           isFormValid: { product: null, material: false, location: true, validity: null },
           city: '',
+          zip: '',
         }
       }
 
@@ -48,9 +49,24 @@ class ThrowForm extends React.Component {
                 }
                 break;
             case "map":
-                const index = cities.findIndex(obj => obj.name === value);
-                formValidity.location = (index !== -1) ? true : false;
-                this.state.city = value;
+                const zip = cities.filter(obj => obj.zip === value);
+                formValidity.location = (zip.length !== 0) ? true : false;
+                if(formValidity.location) {
+                    const com = document.getElementById("city")
+                    zip.forEach(city => {
+                        const option = document.createElement('option');
+                        option.innerHTML = city.name;
+                        com.appendChild(option)
+                    })
+                }else {
+                    const com = document.getElementById("city");
+                    const option = document.createElement('option');
+                    com.innerHTML = '';
+                    option.innerHTML = '...';
+                    option.setAttribute('defaultValue',"defaultValue");
+                    option.style.display = "none";
+                    com.appendChild(option);
+                }
                 e.target.className = (formValidity.location) ? "validL" : "invalidL";
                 break;
             default: break;

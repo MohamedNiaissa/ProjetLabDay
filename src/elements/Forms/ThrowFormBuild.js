@@ -21,6 +21,25 @@ class ThrowFormBuild extends React.Component {
                 </select>
             </div>
             )
+        }else if(this.props.setAtt.inputForm.name === "map") {
+            return (
+            <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
+                <fieldset id="fieldset">
+                    <legend className="Localisation">{this.props.setAtt.labelForm.text}</legend>
+                    <div id="postal" className='postalCode'>
+                        <label>Code postal :</label>
+                        <input className={this.props.setAtt.inputForm.className} type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name}
+                            minLength = "1" maxLength="6" onChange={this.props.event}></input>
+                    </div>
+                    <div id="com" className="commune">
+                        <label>Commune :</label>
+                        <select name="city" id="city" className="form-control" onChange={this.props.event}>
+                            <option value="..." style={{display: "none"}} defaultValue>...</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+            )
         }else {
             return (
             <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>

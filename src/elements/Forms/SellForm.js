@@ -1,6 +1,6 @@
 import React from "react";
 import SellFormBuild from "./SellFormBuild";
-import allCities from "../../Cities";
+import cities from "../../Cities";
 
 class SellForm extends React.Component {
 
@@ -36,9 +36,24 @@ class SellForm extends React.Component {
                 formValidity.material = (value !== "...") ? true : false;
                 break;
             case "map":
-                const index = allCities.findIndex(obj => obj.City === value);
-                formValidity.location = (index !== -1) ? true : false;
-                this.state.city = value;
+                const zip = cities.filter(obj => obj.zip === value);
+                formValidity.location = (zip.length !== 0) ? true : false;
+                if(formValidity.location) {
+                    const com = document.getElementById("city")
+                    zip.forEach(city => {
+                        const option = document.createElement('option');
+                        option.innerHTML = city.name;
+                        com.appendChild(option)
+                    })
+                }else {
+                    const com = document.getElementById("city");
+                    const option = document.createElement('option');
+                    com.innerHTML = '';
+                    option.innerHTML = '...';
+                    option.setAttribute('defaultValue',"defaultValue");
+                    option.style.display = "none";
+                    com.appendChild(option);
+                }
                 e.target.className = (formValidity.location) ? "validL" : "invalidL";
                 break;
             default: break;
