@@ -7,12 +7,13 @@ class ThrowForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-          isProductValid:  { regex: false, length: false },
-          isFormValid: { product: null, material: false, location: true, validity: null },
-          city: '',
-          zip: '',
+            cboxChecked: false,
+            verify: { product: null, material: false, location: true, form: null },
         }
-      }
+
+        this.product = { name: null, material: null }
+        this.city    = { name: null, zip: null, found: false }
+    }
 
     handleUserInput = (e) => {
         const name = e.target.name;
@@ -21,60 +22,67 @@ class ThrowForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
-
-        let formValidity = this.state.isFormValid;
-        let productRGX   = this.state.isProductValid.regex;
-        let productLEN   = this.state.isProductValid.length;
+        const loc = document.getElementById("fpvzmxn");
+        const com = document.getElementById("city")
+        let validated = this.state.verify;
 
         switch(fieldName) {
             case "product":
-                productRGX   = !value.match(/[^a-z0-9]/i);
-                productLEN   = value.length >= 2;
-                formValidity.product = (productRGX && productLEN) ? true : false;
-                e.target.className = (formValidity.product) ? "validP" : "invalidP";
+                validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
+                e.target.className = (validated.product) ? "validP" : "invalidP";
+                this.product.name = value;
                 break;
             case "material":
-                formValidity.material = (value !== "...") ? true : false;
+                validated.material = (value !== "default") ? true : false;
+                this.product.material = value;
                 break;
             case "checkbox":
-                const loc = document.getElementById("fpvzmxn");
-                if(loc.style.display === "none") {
+                this.state.cboxChecked = !this.state.cboxChecked;
+                if(this.state.cboxChecked) {
                     loc.style.display = "inline";
-                    console.log(this.state.location)
-                    const index = cities.findIndex(obj => obj.name === this.state.city);
-                    formValidity.location = (index !== -1) ? true : false;
-                } else  {
+                    const index = cities.findIndex(cityData => cityData.zip === this.city.zip);
+                    validated.location = (index !== -1) ? true : false;
+                }else {
                     loc.style.display = "none";
-                    formValidity.location = true;
+                    validated.location = true;
                 }
                 break;
             case "map":
-                const zip = cities.filter(obj => obj.zip === value);
-                formValidity.location = (zip.length !== 0) ? true : false;
-                if(formValidity.location) {
-                    const com = document.getElementById("city")
-                    zip.forEach(city => {
+                if(e.target.id !== "city") {
+                    const arrayData = cities.filter(cityData => cityData.zip === value);
+                    validated.location = (arrayData.length !== 0) ? true : false;
+                    e.target.className = (validated.location) ? "validL" : "invalidL";
+                    this.city.zip = value;
+
+                    if(validated.location) {
+                        validated.location = false;
+                        this.city.found = true;
+                        arrayData.forEach(cityData => {
+                            const option = document.createElement('option');
+                            option.innerHTML = cityData.name;
+                            com.appendChild(option)
+                        })
+                    }else {
+                        this.city.found = false;
                         const option = document.createElement('option');
-                        option.innerHTML = city.name;
-                        com.appendChild(option)
-                    })
-                }else {
-                    const com = document.getElementById("city");
-                    const option = document.createElement('option');
-                    com.innerHTML = '';
-                    option.innerHTML = '...';
-                    option.setAttribute('defaultValue',"defaultValue");
-                    option.style.display = "none";
-                    com.appendChild(option);
+                        com.innerHTML = '';
+                        option.innerHTML = "...";
+                        option.value = "default";
+                        option.setAttribute("defaultValue","defaultValue");
+                        option.style.display = "none";
+                        com.appendChild(option);
+                    }
+                } else {
+                    validated.location = (value !== "default" && this.city.found) ? true : false;
+                    this.city.name = value;
                 }
-                e.target.className = (formValidity.location) ? "validL" : "invalidL";
                 break;
             default: break;
         }
 
-        formValidity.validity = this.state.isFormValid.product && this.state.isFormValid.material && this.state.isFormValid.location;
-        this.setState(this.state.isFormValid = formValidity);
-        console.log(formValidity)
+        validated.form = this.state.verify.product && this.state.verify.material && this.state.verify.location;
+        this.setState(this.state.verify = validated);
+        console.log(validated)
       }
 
     TF_settings = [
@@ -98,7 +106,7 @@ class ThrowForm extends React.Component {
             divForm:   { className: "FormGroup", display: "none" },
             labelForm: { text: "Localisation :" },
             inputForm: { className: '', type: "text", name: "map" },
-        },
+        }
     ]
 
     render() {
@@ -106,7 +114,7 @@ class ThrowForm extends React.Component {
             <form id="ThrowForm">
                 { this.TF_settings.map((setAtt) => <ThrowFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
 
-                <button type="button" ref={e => (this.btn = e)} disabled={!this.state.isFormValid.validity}>Chercher</button>
+                <button type="button" ref={e => (this.btn = e)} disabled={!this.state.verify.form}>Chercher</button>
             </form>
         )
     } 

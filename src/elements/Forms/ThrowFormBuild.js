@@ -8,7 +8,7 @@ class ThrowFormBuild extends React.Component {
             <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
                 <label>{this.props.setAtt.labelForm.text}</label>
                 <select name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
-                    <option value="..." style={{display: "none"}} defaultValue>...</option>
+                    <option value="default" style={{display: "none"}} defaultValue>Choisissez un matériel</option>
                     <option value="bois">Bois</option>
                     <option value="metal">Métal</option>
                     <option value="ceramique">Céramique</option>
@@ -33,8 +33,8 @@ class ThrowFormBuild extends React.Component {
                     </div>
                     <div id="com" className="commune">
                         <label>Commune :</label>
-                        <select name="city" id="city" className="form-control" onChange={this.props.event}>
-                            <option value="..." style={{display: "none"}} defaultValue>...</option>
+                        <select id="city" type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
+                            <option value="default" style={{display: "none"}} defaultValue>...</option>
                         </select>
                     </div>
                 </fieldset>
