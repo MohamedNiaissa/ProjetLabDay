@@ -1,8 +1,9 @@
 import React from "react";
 import $ from 'jquery';
-import Map from'../FormFonctionnalities/Map'
+import Map from'../FormFonctionnalities/map'
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import Getposition from "../FormFonctionnalities/getPosition";
+
 class GiveForm extends React.Component {
 
     handleSubmit = (e) => {

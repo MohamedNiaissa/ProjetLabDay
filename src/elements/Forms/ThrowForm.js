@@ -1,5 +1,6 @@
 import React from "react";
 import GroupForm from "./GroupForm";
+import Getposition from "../FormFonctionnalities/getPosition";
 
 let TF_settings = [
     {id:"ezpfdbe", className: "FormGroup", label: "Nom de l'objet :", type: "text", property:"product", display:"visibility"},
@@ -31,7 +32,7 @@ class ThrowForm extends React.Component {
         return (
             <form id="ThrowForm">
                 { TF_settings.map((set) => <GroupForm {...this.props} set={set} key={set.id}/>) }
-
+                <Getposition />
                 <button type="button" ref={e => (this.btn = e)}>Chercher</button>
             </form>
         )
