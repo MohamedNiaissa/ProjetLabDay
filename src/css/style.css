@@ -74,3 +74,15 @@ textarea {
     font-size: 16.5px;
     border: 1px solid rgba(0,0,0,0.3);
 }
+
+.blue {
+    filter: opacity(0.5) drop-shadow(0 0 0.001rem blue) saturate(1000%);
+}
+
+.yellow {
+    filter: opacity(0.5) drop-shadow(0 0 0.001rem yellow) saturate(1850%);
+}
+
+.green {
+    filter: opacity(0.5) drop-shadow(0 0 0.001rem green) saturate(1000%);
+}
