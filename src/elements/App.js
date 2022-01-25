@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
-import NavBar from "./Header";
 import CoreMenu from "./CoreMenu";
 import FunctionalitiesInfo from "./FunctionalitiesInfo";
 import SellForm from "./Forms/SellForm";

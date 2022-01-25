@@ -1,19 +1,12 @@
 import React from "react";
+import { useLocation } from "react-router";
 
-class TSub_A extends React.Component {
+const TSub_A = () => {
+    const location = useLocation();
 
-    constructor (props) {
-        super(props);
-        this.state = {
-            none: null
-        }
-    }
-
-    render() {
-        return (
-            <p>I'll do the bin order here</p>
-        )
-    } 
+    return (
+        <p>I'll do the bin order here<br />With {location.state.pName} and {location.state.pMat}</p>
+    )
 }
 
 export default TSub_A;

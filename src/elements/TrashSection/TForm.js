@@ -122,7 +122,7 @@ class TForm extends React.Component {
         return (
             <form id="TForm">
                 { this.TF_settings.map((setAtt) => <TBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-                <ManageLinks link={this.handleResearch()} disabled={!this.state.verify.form}/>
+                <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
             </form>
         )
     } 
