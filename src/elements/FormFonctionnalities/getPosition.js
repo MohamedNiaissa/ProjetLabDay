@@ -28,14 +28,14 @@ const Getposition = () =>{
         
         </MapContainer>
         )}
-        {location.error && (
+        {location.error &&  (
 
-            <MapContainer center={[0,0]} zoom={13} scrollWheelZoom={false}>
+            <MapContainer center={[48.889627,2.347078]} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                    <Marker position={[0,0]}>
+                    <Marker position={[48.889627,2.347078]}>
                         <Popup>
                             Default position
                         </Popup>
