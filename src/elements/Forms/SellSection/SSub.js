@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router";
-import Getposition from "../FormFonctionnalities/getPosition";
+import Getposition from "../../MapLoader/getPosition";
 
-const TSub_B = () => {
+const SSub = () => {
     const location = useLocation();
 
     return (
@@ -15,4 +15,4 @@ const TSub_B = () => {
     )
 }
 
-export default TSub_B;
+export default SSub;

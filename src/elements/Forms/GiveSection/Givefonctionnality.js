@@ -43,15 +43,10 @@ class Jquery extends React.Component{
                     $(city).find('option').remove(); 
         
                 })
-        
             });
-        
         })
         
     }
-    
-    
-
 }
 
 export default Jquery

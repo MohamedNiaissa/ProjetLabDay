@@ -1,7 +1,7 @@
 import React from "react";
 import TBuild from "./TBuild";
-import cities from "../../Cities";
-import ManageLinks from "../ManageLinks";
+import cities from "../../../Cities";
+import ManageLinks from "../../ManageLinks";
 
 class TForm extends React.Component {
 
@@ -81,7 +81,7 @@ class TForm extends React.Component {
                         const self = this;
                         self.city.name = name_dep[0];
                         self.city.department = name_dep[1];
-                        console.log(self)
+                        
                         cities.find(function(city) {
                             if((city.name === self.city.name) && (city.zip === self.city.zip) && (city.department === self.city.department)) {
                                 self.city.lat = city.lat;

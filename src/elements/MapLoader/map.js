@@ -37,6 +37,6 @@ const Map = () =>{
      },[])
 
      return location
-    }
+}
 
 export default Map;

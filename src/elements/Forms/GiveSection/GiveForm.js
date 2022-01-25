@@ -1,8 +1,8 @@
 import React from "react";
 import $ from 'jquery';
-import Map from'../FormFonctionnalities/map'
+import Map from'../../MapLoader/map'
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
-import Getposition from "../FormFonctionnalities/getPosition";
+import Getposition from "../../MapLoader/getPosition";
 
 class GiveForm extends React.Component {
 
