@@ -1,10 +1,10 @@
+import { nodeName } from "jquery";
 import React from "react";
 
 const NavBar = () => (
     <div id="nav" style={{display:'flex'}}>
-        <a>Application Name</a>
-        <img src="../logo192.png" alt="" style={{width: "10%"}}></img>
-        <a href="/">Menu</a>
+        <img src='../NSLogoSVG.svg' alt="loogoo" class="logo" width="184px" height="56px"></img>
+        <a href="/" class="burger">☰</a>
     </div>
 )
 

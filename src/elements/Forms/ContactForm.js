@@ -51,25 +51,25 @@ class ContactForm extends React.Component {
     CF_settings = [
         {   
             id: "zfjfkzv",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Choissiez un topic :" },
             inputForm: { className: '', type: "text", name: "topic" },
         },{ 
             id: "plfbszd",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Votre email :" },
             inputForm: { className: '', type: "email", name: "email" },
         },{
             id: "ijconxa",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Que voulez vous nous dire ?" },
-            inputForm: { className: '', type: "text", name: "textArea" },
+            inputForm: { className: '', type: "text", name: "textArea", class: "flex"},
         }
     ]
 
     render() {
         return (
-            <form id="ThrowForm">
+            <form id="ThrowForm" class="flex">
                 { this.CF_settings.map((setAtt) => <ContactFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
 
                 <button type="button" ref={e => (this.btn = e)} disabled={!this.state.isFormValid.validity}>Envoyer</button>

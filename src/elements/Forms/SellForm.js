@@ -52,17 +52,17 @@ class SellForm extends React.Component {
     TF_settings = [
         {   
             id: "zeacnvv",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Nom de l'objet :" },
             inputForm: { className: '', type: "text", name: "product" },
         },{ 
             id: "ttyuibz",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Quelle est la matière principale de votre objet ?" },
             inputForm: { className: '', type: "text", name: "material" },
         },{
             id: "nbzajcr",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Localisation :" },
             inputForm: { className: '', type: "text", name: "map" },
         },
@@ -70,7 +70,7 @@ class SellForm extends React.Component {
 
     render() {
         return (
-            <form id="ThrowForm">
+            <form id="ThrowForm" class="flex">
                 { this.TF_settings.map((setAtt) => <SellFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
 
                 <button type="button" ref={e => (this.btn = e)} disabled={!this.state.isFormValid.validity}>Chercher</button>

@@ -24,7 +24,7 @@ class ContactFormBuild extends React.Component {
             )
         }else {
             return (
-                <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
+                <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}} class="flex">
                     <label>{this.props.setAtt.labelForm.text}</label>
                     <input className={this.props.setAtt.inputForm.className} type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name}
                         minLength = "2" maxLength="40" onChange={this.props.event}></input>

@@ -38,7 +38,7 @@ class ThrowForm extends React.Component {
             case "checkbox":
                 const loc = document.getElementById("fpvzmxn");
                 if(loc.style.display === "none") {
-                    loc.style.display = "inline";
+                    loc.style.display = "flex";
                     console.log(this.state.location)
                     const index = allCities.findIndex(obj => obj.City === this.state.city);
                     formValidity.location = (index !== -1) ? true : false;
@@ -64,17 +64,17 @@ class ThrowForm extends React.Component {
     TF_settings = [
         {   
             id: "ezpfdbe",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Nom de l'objet :" },
             inputForm: { className: '', type: "text", name: "product" },
         },{ 
             id: "nfozxfm",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Quelle est la matière principale de votre objet ?" },
             inputForm: { className: '', type: "text", name: "material" },
         },{
             id: "xbanolm",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Veuillez cocher cette case si l'objet est volumineux :" },
             inputForm: { type: "checkbox", name: "checkbox" },
         },{
@@ -87,7 +87,7 @@ class ThrowForm extends React.Component {
 
     render() {
         return (
-            <form id="ThrowForm">
+            <form id="ThrowForm" class="flex">
                 { this.TF_settings.map((setAtt) => <ThrowFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
 
                 <button type="button" ref={e => (this.btn = e)} disabled={!this.state.isFormValid.validity}>Chercher</button>
