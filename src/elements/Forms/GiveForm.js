@@ -1,8 +1,7 @@
 import React from "react";
 import $ from 'jquery';
-import Map from'../FormFonctionnalities/Map'
-import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import Getposition from "../FormFonctionnalities/getPosition";
+
 class GiveForm extends React.Component {
 
     handleSubmit = (e) => {
@@ -50,6 +49,7 @@ class GiveForm extends React.Component {
     }
     render() {
 
+        
         return (
             
             <>
@@ -99,7 +99,7 @@ class GiveForm extends React.Component {
                         <label >Commentaires</label>
                         <textarea id="commentaireDonner" maxLength={500}></textarea> 
                     </div>  
-                        <button type="submit" className="btnchercher">Chercher</button>
+                        <button type="submit" className="btnchercher" >Chercher</button>
                 </form> 
 
 
@@ -107,7 +107,9 @@ class GiveForm extends React.Component {
                 
 
             </div> 
-            <Getposition />
+         
+            <Getposition id = "pos" />
+
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="script.js"></script>
 

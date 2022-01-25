@@ -1,15 +1,13 @@
-import react from "react";
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import Map from "./Map";
 
-import React, { useRef, useState } from 'react';
+import React from 'react';
 
 
 const Getposition = () =>{
     const location = Map();
 
     return(
-        
         <>
         {/* {console.log("location " + location.coordinates.lat+ " " +location.coordinates.long)} */}
         {location.loaded && !location.error && (
@@ -45,7 +43,6 @@ const Getposition = () =>{
         )}
         </>
     )
-    
 }
 
 export default Getposition;
