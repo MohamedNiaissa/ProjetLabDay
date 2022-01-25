@@ -19,7 +19,6 @@ function getTrash(loc) {
 
 const TSub_A = () => {
     let T = getTrash(useLocation());
-    console.log(T)
 
     return (
         <fieldset id="trash">

@@ -1,17 +1,17 @@
 import React from "react";
 import { useLocation } from "react-router";
+import Getposition from "../FormFonctionnalities/getPosition";
 
 const TSub_B = () => {
     const location = useLocation();
 
     return (
-        <p>
-            I'll do the big object here
-            <br/>
-            With {location.state.pName} and {location.state.pMat}
-            <br/>
-            Then {location.state.cName} and {location.state.cZip}
-        </p>
+        <fieldset id="yourMap">
+            <legend className="MapLegend">Position : </legend>
+            <div className="map-container">
+                <Getposition state={{location}}/>
+            </div>
+        </fieldset>
     )
 }
 

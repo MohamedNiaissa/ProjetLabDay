@@ -13,7 +13,7 @@ class TForm extends React.Component {
         }
 
         this.product = { name: null, material: null }
-        this.city    = { name: null, zip: null, found: false }
+        this.city    = { name: null, zip: null, department: null, lat: null, long: null, found: false }
     }
 
     handleUserInput = (e) => {
@@ -60,7 +60,7 @@ class TForm extends React.Component {
                         this.city.found = true;
                         arrayData.forEach(cityData => {
                             const option = document.createElement('option');
-                            option.innerHTML = cityData.name;
+                            option.innerHTML = cityData.name + ", " + cityData.department;
                             com.appendChild(option)
                         })
                     }else {
@@ -75,7 +75,23 @@ class TForm extends React.Component {
                     }
                 } else {
                     validated.location = (value !== "default" && this.city.found) ? true : false;
-                    this.city.name = value;
+
+                    if(validated.location) {
+                        const name_dep = value.split(", ");
+                        const self = this;
+                        self.city.name = name_dep[0];
+                        self.city.department = name_dep[1];
+                        console.log(self)
+                        cities.find(function(city) {
+                            if((city.name === self.city.name) && (city.zip === self.city.zip) && (city.department === self.city.department)) {
+                                self.city.lat = city.lat;
+                                self.city.long = city.long;
+                                console.log("found")
+                            }
+                        })
+
+                        console.log(this.city)
+                    }
                 }
                 break;
             default: break;
