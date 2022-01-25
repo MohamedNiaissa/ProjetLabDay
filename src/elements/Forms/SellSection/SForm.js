@@ -4,7 +4,7 @@ import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
 
 class SForm extends React.Component {
-    
+
     constructor (props) {
         super(props);
         this.state = {
@@ -73,8 +73,9 @@ class SForm extends React.Component {
                             if((city.name === self.city.name) && (city.zip === self.city.zip) && (city.department === self.city.department)) {
                                 self.city.lat = city.lat;
                                 self.city.long = city.long;
-                                console.log("found")
                             }
+                            
+                            return null;
                         })
                         console.log(this.city)
                     }

@@ -1,7 +1,5 @@
 import React from "react";
 import $ from 'jquery';
-import Map from'../../MapLoader/map'
-import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import Getposition from "../../MapLoader/getPosition";
 
 class GForm extends React.Component {

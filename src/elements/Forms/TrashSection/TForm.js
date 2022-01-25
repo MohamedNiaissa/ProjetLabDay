@@ -86,11 +86,10 @@ class TForm extends React.Component {
                             if((city.name === self.city.name) && (city.zip === self.city.zip) && (city.department === self.city.department)) {
                                 self.city.lat = city.lat;
                                 self.city.long = city.long;
-                                console.log("found")
                             }
-                        })
 
-                        console.log(this.city)
+                            return null;
+                        })
                     }
                 }
                 break;

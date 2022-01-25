@@ -7,8 +7,8 @@ import SForm from "./Forms/SellSection/SForm";
 import SSub from "./Forms/SellSection/SSub";
 import GiveForm from "./Forms/GiveSection/GForm";
 import TForm from "./Forms/TrashSection/TForm";
-import TSub_A from "./Forms/TrashSection/TSub-A";
-import TSub_B from "./Forms/TrashSection/TSub-B";
+import TSubA from "./Forms/TrashSection/TSub_A";
+import TSubB from "./Forms/TrashSection/TSub_B";
 import ContactForm from "./Forms/ContactSection/ContactForm";
 
 const CoreMenu = () => (
@@ -33,8 +33,8 @@ class App extends React.Component {
                         <Route path="/vendre/resultats" element={<><SSub /></>}/>
                         <Route path="/Donner" element={<>{CoreMenu()}<GiveForm /></>}/>
                         <Route path="/jeter" element={<>{CoreMenu()}<TForm /></>}/>
-                        <Route path="/jeter/poubelles-ecologiques" element={<TSub_A />}/>
-                        <Route path="/jeter/decharge" element={<TSub_B />}/>
+                        <Route path="/jeter/poubelles-ecologiques" element={<TSubA />}/>
+                        <Route path="/jeter/decharge" element={<TSubB />}/>
                         <Route path="/Contact" element={<ContactForm />}/>
                     </Switch>
                 </section>
