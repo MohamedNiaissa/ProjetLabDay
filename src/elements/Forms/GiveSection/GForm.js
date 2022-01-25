@@ -4,7 +4,7 @@ import Map from'../../MapLoader/map'
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
 import Getposition from "../../MapLoader/getPosition";
 
-class GiveForm extends React.Component {
+class GForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -118,4 +118,4 @@ class GiveForm extends React.Component {
     } 
 }
 
-export default GiveForm;
+export default GForm;

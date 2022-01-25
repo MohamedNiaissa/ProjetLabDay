@@ -5,7 +5,7 @@ import Header from "./Header";
 import FunctionalitiesInfo from "./FunctionalitiesInfo";
 import SForm from "./Forms/SellSection/SForm";
 import SSub from "./Forms/SellSection/SSub";
-import GiveForm from "./Forms/GiveSection/GiveForm";
+import GiveForm from "./Forms/GiveSection/GForm";
 import TForm from "./Forms/TrashSection/TForm";
 import TSub_A from "./Forms/TrashSection/TSub-A";
 import TSub_B from "./Forms/TrashSection/TSub-B";
