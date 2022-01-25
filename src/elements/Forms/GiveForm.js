@@ -1,5 +1,8 @@
 import React from "react";
 import $ from 'jquery';
+import Map from'../FormFonctionnalities/map'
+import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
+import Getposition from "../FormFonctionnalities/getPosition";
 
 class GiveForm extends React.Component {
 
@@ -52,7 +55,7 @@ class GiveForm extends React.Component {
             
             <>
 
-            <h1 className="titreformdonner"> Formulaire Donner </h1>
+             <h1 className="titreformdonner"> Formulaire Donner </h1>
             
             <div className="divgiveform">
                 <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)}>
@@ -74,7 +77,7 @@ class GiveForm extends React.Component {
                     </p>
 
 
-                    <fieldset id="fieldset">
+                    <fieldset id="fieldset" className="scheduler-border">
                         <legend className="Localisation">Localisation</legend>
                     
                         <div className="codepostal">
@@ -90,7 +93,6 @@ class GiveForm extends React.Component {
                             </select>
                         </div>
 
-                        
 
                     </fieldset>
                     
@@ -99,12 +101,14 @@ class GiveForm extends React.Component {
                         <textarea id="commentaireDonner" maxLength={500}></textarea> 
                     </div>  
                         <button type="submit" className="btnchercher">Chercher</button>
-                </form>
+                </form> 
 
 
 
-            </div>
-            
+                
+
+            </div> 
+            <Getposition />
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="script.js"></script>
 
