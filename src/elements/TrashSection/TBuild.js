@@ -1,6 +1,6 @@
 import React from "react";
 
-class ThrowFormBuild extends React.Component {
+class TBuild extends React.Component {
 
     switchFormBlock() {
         if(this.props.setAtt.inputForm.name === "material") {
@@ -29,7 +29,7 @@ class ThrowFormBuild extends React.Component {
                     <div id="postal" className='postalCode'>
                         <label>Code postal :</label>
                         <input className={this.props.setAtt.inputForm.className} type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name}
-                            minLength = "1" maxLength="6" onChange={this.props.event}></input>
+                            minLength = "1" maxLength="5" onChange={this.props.event}></input>
                     </div>
                     <div id="com" className="commune">
                         <label>Commune :</label>
@@ -56,4 +56,4 @@ class ThrowFormBuild extends React.Component {
     }
 }
 
-export default ThrowFormBuild;
+export default TBuild;

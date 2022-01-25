@@ -5,8 +5,11 @@ import CoreMenu from "./CoreMenu";
 import FunctionalitiesInfo from "./FunctionalitiesInfo";
 import SellForm from "./Forms/SellForm";
 import GiveForm from "./Forms/GiveForm";
-import ThrowForm from "./Forms/ThrowForm";
 import ContactForm from "./Forms/ContactForm";
+
+import TForm from "./TrashSection/TForm";
+import TSub_A from "./TrashSection/TSub-A";
+import TSub_B from "./TrashSection/TSub-B";
 // import $ from 'jquery'
 // import Givefonctionnality from './FormFonctionnalities/Givefonctionnality'
 
@@ -23,8 +26,11 @@ class App extends React.Component {
                             <Route path="/" element={<><CoreMenu /><FunctionalitiesInfo /></>}/>
                             <Route path="/Vendre" element={<><CoreMenu /><SellForm /></>}/>
                             <Route path="/Donner" element={<><CoreMenu /><GiveForm /></>}/>
-                            <Route path="/Jeter" element={<><CoreMenu /><ThrowForm /></>}/>
                             <Route path="/Contact" element={<ContactForm />}/>
+
+                            <Route path="/jeter" element={<><CoreMenu /><TForm /></>}/>
+                            <Route path="/jeter/poubelles-ecologiques" element={<TSub_A />}/>
+                            <Route path="/jeter/decharge" element={<TSub_B />}/>
                         </Switch>
                     </Router>
                 </section>

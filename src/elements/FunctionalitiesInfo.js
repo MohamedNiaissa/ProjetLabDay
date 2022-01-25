@@ -13,7 +13,7 @@ const FunctionalitiesInfo = () => (
             </li>
             <li>
                 <img src="../logo192.png" alt="" style={{width: "10%"}}></img>
-                Here's the text explaining the Throw functionality.
+                Here's the text explaining the Trash functionality.
             </li>
         </ul>
     </div>

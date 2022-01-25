@@ -1,8 +1,9 @@
 import React from "react";
-import ThrowFormBuild from "./ThrowFormBuild";
+import TBuild from "./TBuild";
 import cities from "../../Cities";
+import ManageLinks from "../ManageLinks";
 
-class ThrowForm extends React.Component {
+class TForm extends React.Component {
 
     constructor (props) {
         super(props);
@@ -108,16 +109,23 @@ class ThrowForm extends React.Component {
             inputForm: { className: '', type: "text", name: "map" },
         }
     ]
+    
+    handleResearch = () => {
+        if(this.state.cboxChecked) {
+            return '/jeter/decharge'
+        }else {
+            return "/jeter/poubelles-ecologiques"
+        }
+    }
 
     render() {
         return (
-            <form id="ThrowForm">
-                { this.TF_settings.map((setAtt) => <ThrowFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-
-                <button type="button" ref={e => (this.btn = e)} disabled={!this.state.verify.form}>Chercher</button>
+            <form id="TForm">
+                { this.TF_settings.map((setAtt) => <TBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
+                <ManageLinks link={this.handleResearch()} disabled={!this.state.verify.form}/>
             </form>
         )
     } 
 }
+export default TForm;
 
-export default ThrowForm;

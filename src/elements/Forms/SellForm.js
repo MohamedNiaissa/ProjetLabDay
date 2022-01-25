@@ -85,7 +85,7 @@ class SellForm extends React.Component {
 
     render() {
         return (
-            <form id="ThrowForm">
+            <form id="TrashForm">
                 { this.TF_settings.map((setAtt) => <SellFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
 
                 <button type="button" ref={e => (this.btn = e)} disabled={!this.state.isFormValid.validity}>Chercher</button>

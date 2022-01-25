@@ -69,7 +69,7 @@ class ContactForm extends React.Component {
 
     render() {
         return (
-            <form id="ThrowForm">
+            <form id="TrashForm">
                 { this.CF_settings.map((setAtt) => <ContactFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
 
                 <button type="button" ref={e => (this.btn = e)} disabled={!this.state.isFormValid.validity}>Envoyer</button>
