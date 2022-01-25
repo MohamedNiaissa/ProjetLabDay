@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router";
+import image from '../../../img/Trash-Template.png';
 
 function getTrash(loc) {
     const material = loc.state.pMat;
@@ -26,7 +27,7 @@ const TSub_A = () => {
             <div className="trash-container">
                 <div className="color-trash">
                     <p>{T.name}</p>
-                    <img className={T.class} src="../././Trash-Template.png"></img>
+                    <img className={T.class} src={image}></img>
                 </div>
             </div>
         </fieldset>
