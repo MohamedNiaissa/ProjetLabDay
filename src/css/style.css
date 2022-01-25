@@ -1,3 +1,3 @@
-@import url(general.css);
-@import url(GiveForm.css);
-@import url(mapstyle.css);
+@import "./general.css";
+@import "./GiveForm.css";
+@import "./mapstyle.css";
