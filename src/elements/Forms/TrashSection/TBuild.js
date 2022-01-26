@@ -10,14 +10,15 @@ class TBuild extends React.Component {
                 <select name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
                     <option value="default" style={{display: "none"}} defaultValue>Choisissez un matériel</option>
                     <option value="bois">Bois</option>
-                    <option value="metal">Métal</option>
+                    <option value="metal">Métaux</option>
                     <option value="ceramique">Céramique</option>
                     <option value="verre">Verre</option>
                     <option value="plastique">Plastique</option>
                     <option value="textile">Textiles</option>
                     <option value="cuir">Cuir</option>
-                    <option value="papier_carton">Papier ou Carton</option> 
+                    <option value="papier_carton">Papier / Carton</option> 
                     <option value="caoutchouc">Caoutchouc</option>
+                    <option value="roche">Roche</option>
                 </select>
             </div>
             )
