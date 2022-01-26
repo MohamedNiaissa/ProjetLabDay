@@ -9,7 +9,8 @@ import GiveForm from "./Forms/GiveSection/GForm";
 import TForm from "./Forms/TrashSection/TForm";
 import TSubA from "./Forms/TrashSection/TSub_A";
 import TSubB from "./Forms/TrashSection/TSub_B";
-import ContactForm from "./Forms/ContactSection/ContactForm";
+import CForm from "./Forms/ContactSection/CForm";
+import CSub from "./Forms/ContactSection/CSub";
 
 const CoreMenu = () => (
     <div className="btn-group">
@@ -35,7 +36,8 @@ class App extends React.Component {
                         <Route path="/jeter" element={<>{CoreMenu()}<TForm /></>}/>
                         <Route path="/jeter/poubelles-ecologiques" element={<TSubA />}/>
                         <Route path="/jeter/decharge" element={<TSubB />}/>
-                        <Route path="/Contact" element={<ContactForm />}/>
+                        <Route path="/Contact" element={<CForm />}/>
+                        <Route path="/contact/redirect" element={<CSub />}/>
                     </Switch>
                 </section>
             </Router>

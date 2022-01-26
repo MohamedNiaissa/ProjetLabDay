@@ -41,6 +41,18 @@ class ManageLinks extends React.Component {
             return (
                 <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled}>Chercher</button></Link>
             )
+        }else if(link === "/contact/redirect") {
+            const url = {
+                pathname: this.props.link,
+                state: { 
+                    email: this.props.form.email, 
+                    topic: this.props.form.topic,
+                    content: this.props.form.content, 
+                }
+            }
+            return (
+                <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled}>Envoyer</button></Link>
+            )
         }
     }
 
