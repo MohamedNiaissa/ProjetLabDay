@@ -52,12 +52,6 @@ class GForm extends React.Component {
         return (
             
             <>
-<<<<<<< HEAD:src/elements/Forms/GiveForm.js
-=======
-
-             <h1 className="titreformdonner"> Formulaire Donner </h1>
->>>>>>> main:src/elements/Forms/GiveSection/GForm.js
-            
             <div className="divgiveform" class="flex">
                 <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)} class="flex">
                     <div className="nomObjet" class="flex">
@@ -78,11 +72,7 @@ class GForm extends React.Component {
                     </div>
 
 
-<<<<<<< HEAD:src/elements/Forms/GiveForm.js
                     <fieldset id="fieldset" class="flex">
-=======
-                    <fieldset id="fieldset" className="scheduler-border">
->>>>>>> main:src/elements/Forms/GiveSection/GForm.js
                         <legend className="Localisation">Localisation</legend>
                     
                         <div className="codepostal" class="flex">

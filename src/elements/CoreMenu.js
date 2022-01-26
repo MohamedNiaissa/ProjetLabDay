@@ -30,7 +30,7 @@ class CoreMenu extends React.Component {
         if(this.checkCurrentPage() === "vendre"){
             return (
             <div className="btn-group">
-                <NavLink to="/" className=""><div class="btn-actif">Vendre</div></NavLink>
+                <NavLink to="/home" className=""><div class="btn-actif">Vendre</div></NavLink>
                 <NavLink to="/Donner" className=""><div class="btn">Donner</div></NavLink>
                 <NavLink to="/Jeter" className=""><div class="btn">Jeter</div></NavLink>
             </div>
@@ -40,7 +40,7 @@ class CoreMenu extends React.Component {
             return (
             <div className="btn-group">
                 <NavLink to="/Vendre" className=""><div class="btn">Vendre</div></NavLink>
-                <NavLink to="/" className=""><div class="btn-actif">Donner</div></NavLink>
+                <NavLink to="/home" className=""><div class="btn-actif">Donner</div></NavLink>
                 <NavLink to="/Jeter" className=""><div class="btn">Jeter</div></NavLink>
             </div>
             )
@@ -50,7 +50,7 @@ class CoreMenu extends React.Component {
             <div className="btn-group">
                 <NavLink to="/Vendre" className=""><div class="btn">Vendre</div></NavLink>
                 <NavLink to="/Donner" className=""><div class="btn">Donner</div></NavLink>
-                <NavLink to="/" className=""><div class="btn-actif">Jeter</div></NavLink>
+                <NavLink to="/home" className=""><div class="btn-actif">Jeter</div></NavLink>
             </div>
             )
         }

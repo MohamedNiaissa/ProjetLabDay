@@ -6,8 +6,7 @@ class Header extends React.Component {
         return (
             <section id="NavBar">
                 <div id="nav" style={{display:'flex'}}>
-                    <a>Application Name</a>
-                    <img src="../logo192.png" alt="" style={{width: "10%"}}></img>
+                    <img src='../NSLogoSVG.svg' alt="loogoo" class="logo" width="184px" height="56px"></img>
                     <ManageLinks link={"/home"}/>
                 </div>
             </section>
