@@ -1,6 +1,7 @@
 import React from "react";
 import CBuild from "./CBuild";
 import ManageLinks from "../../ManageLinks";
+import emailjs from 'emailjs-com';
 
 class CForm extends React.Component {
 
@@ -13,6 +14,8 @@ class CForm extends React.Component {
         this.form = {
             email: null, topic: null, content: null, redirect: false,
         }
+
+        this.handleSubmit = this.handleSubmit.bind(this)
       }
 
     handleUserInput = (e) => {
@@ -66,11 +69,21 @@ class CForm extends React.Component {
         }
     ]
 
+    handleSubmit() {
+        const serviceId = 'service_cjdkap6';
+        const templateId = 'template_2yn66qt';
+        emailjs.init("user_AKLQ6hVQAACxiGu2duCFr");
+        emailjs.send(serviceId, templateId, {topic: this.form.topic, user:'User_Name_Template', content: this.form.content, reply_to: this.form.email})
+        .then(res => {
+            console.log('Email successfully sent!')
+        }).catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+    }
+
     render() {
         return (
             <form id="TrashForm">
                 { this.CF_settings.map((setAtt) => <CBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-                <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity}/>
+                <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
             </form>
         )
     } 

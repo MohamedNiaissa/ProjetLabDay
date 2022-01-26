@@ -51,7 +51,7 @@ class ManageLinks extends React.Component {
                 }
             }
             return (
-                <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled}>Envoyer</button></Link>
+                <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled} onClick={this.props.event}>Envoyer</button></Link>
             )
         }
     }
