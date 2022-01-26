@@ -1,7 +1,7 @@
 import React from "react";
 import $ from 'jquery';
 import GBuild from "./GBuild";
-import Getposition from "../../MapLoader/getPosition";
+// import Getposition from "../../MapLoader/getPosition";
 import image from "../../../img/test.jpg"
 
 class GForm extends React.Component {
@@ -52,7 +52,7 @@ class GForm extends React.Component {
                 <section className="form_section">
                     <div className="form_template">
                         <div className="form_style">
-                            <img className="form_picture" src={image}/>
+                            <img className="form_picture" src={image} alt="pic"/>
                         </div>
                         <div className="form_container"> 
                             <form id="GForm" className="form">

@@ -94,7 +94,7 @@ class SForm extends React.Component {
             <section className="form_section">
                 <div className="form_template">
                     <div className="form_style">
-                        <img className="form_picture" src={image}/>
+                        <img className="form_picture" src={image} alt="pic"/>
                     </div>
                     <div className="form_container"> 
                         <form id="SForm" className="form">
