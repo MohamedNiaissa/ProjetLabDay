@@ -91,8 +91,8 @@ textarea {
     width: 300px;
 
     outline: 0;
-    width: 100%;
-    height: 300px;
+    width: 90%;
+    height: 150px;
     border: 0;
     padding: 0px;
     margin: 0px;
@@ -107,8 +107,8 @@ textarea {
     text-decoration: none;
     color: #008f00;
 }
-.burger:hover {
-    transform: scale(1.1);
+.burger:hover {
+    color:#006600;
 }
 
 .logo {
@@ -142,6 +142,25 @@ textarea {
     color: lightgray;
 }
 
+.btn-actif {
+    border-color: black;
+    background-color: white;
+    width:60px;
+    max-width: 200px;
+    font-size:larger;
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+    color: #008f00;
+    text-decoration: none !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 3px;
+    margin-top:10px;
+}
+.btn-actif:hover{
+    background-color: lightgray;
+}
+
 a {
     text-decoration: none;
 }
@@ -171,6 +190,13 @@ a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     min-height:50px;
     color: white;
+}
+.contact{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+.contact:hover{
+    color: lightgray;
 }
 
 .flex{

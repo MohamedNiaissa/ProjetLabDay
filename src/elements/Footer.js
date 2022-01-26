@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => (
     <div class="footer">
-        <a href="/Contact">Contact us</a>
+        <NavLink to="/Contact"><div class="contact">Contact us</div></NavLink>
     </div>
 )
 

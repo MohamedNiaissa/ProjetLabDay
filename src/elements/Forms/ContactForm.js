@@ -1,5 +1,6 @@
 import React from "react";
 import ContactFormBuild from "./ContactFormBuild";
+import { NavLink } from "react-router-dom";
 
 class ContactForm extends React.Component {
 
@@ -73,6 +74,7 @@ class ContactForm extends React.Component {
                 { this.CF_settings.map((setAtt) => <ContactFormBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
 
                 <button type="button" ref={e => (this.btn = e)} disabled={!this.state.isFormValid.validity}>Envoyer</button>
+                <NavLink to="/"><button type="button" to="/">Retour au menu</button></NavLink>
             </form>
         )
     } 

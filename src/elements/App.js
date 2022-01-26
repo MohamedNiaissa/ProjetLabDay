@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
+
 import CoreMenu from "./CoreMenu";
 import FunctionalitiesInfo from "./FunctionalitiesInfo";
 import SellForm from "./Forms/SellForm";
@@ -15,8 +16,7 @@ class App extends React.Component {
     render() {
         return (
             <>
-                
-                    <div id="avBar">
+                    <div>
                         <NavBar />
                     </div>
                     <section class="formContainer">
@@ -33,7 +33,6 @@ class App extends React.Component {
                     <footer>
                         <Footer />
                     </footer>
-
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="Givefonctionnality.js"></script>
             </>
