@@ -91,17 +91,17 @@ class SForm extends React.Component {
     TF_settings = [
         {   
             id: "zeacnvv",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Nom de l'objet :" },
             inputForm: { className: '', type: "text", name: "product" },
         },{ 
             id: "ttyuibz",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Quelle est la matière principale de votre objet ?" },
             inputForm: { className: '', type: "text", name: "material" },
         },{
             id: "nbzajcr",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Localisation :" },
             inputForm: { className: '', type: "text", name: "map" },
         },
@@ -109,7 +109,7 @@ class SForm extends React.Component {
 
     render() {
         return (
-            <form id="SForm">
+            <form id="SForm" class="flex">
                 { this.TF_settings.map((setAtt) => <SBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
                 <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
             </form>

@@ -91,9 +91,9 @@ class GForm extends React.Component {
 
                     </fieldset>
                     
-                    <div className="commentaire">
+                    <div className="commentaire" class="flex">
                         <label >Commentaires</label>
-                        <textarea id="commentaireDonner" maxLength={500} class="flex"></textarea> 
+                        <textarea id="commentaireDonner" maxLength={500}></textarea> 
                     </div>  
                         <button type="submit" className="btnchercher">Chercher</button>
                 </form> 

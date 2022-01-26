@@ -40,7 +40,7 @@ class TForm extends React.Component {
             case "checkbox":
                 this.state.cboxChecked = !this.state.cboxChecked;
                 if(this.state.cboxChecked) {
-                    loc.style.display = "inline";
+                    loc.style.display = "flex";
                     const index = cities.findIndex(cityData => cityData.zip === this.city.zip);
                     validated.location = (index !== -1) ? true : false;
                 }else {
@@ -104,17 +104,17 @@ class TForm extends React.Component {
     TF_settings = [
         {   
             id: "ezpfdbe",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Nom de l'objet :" },
             inputForm: { className: '', type: "text", name: "product" },
         },{ 
             id: "nfozxfm",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Quelle est la matière principale de votre objet ?" },
             inputForm: { className: '', type: "text", name: "material" },
         },{
             id: "xbanolm",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Veuillez cocher cette case si l'objet est volumineux :" },
             inputForm: { type: "checkbox", name: "checkbox" },
         },{
@@ -135,7 +135,7 @@ class TForm extends React.Component {
 
     render() {
         return (
-            <form id="TForm">
+            <form id="TForm" class="flex">
                 { this.TF_settings.map((setAtt) => <TBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
                 <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
             </form>
