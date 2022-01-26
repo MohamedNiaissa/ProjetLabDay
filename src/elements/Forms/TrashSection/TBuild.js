@@ -31,12 +31,12 @@ class TBuild extends React.Component {
                 </div>
 
                 <div id="fpvzmxn" className="T_form_coord">
-                    <div id="postal" className='coord_zip' class="flex">
+                    <div id="postal" className="coord_zip">
                         <input className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
                                 placeholder="Code postal :" onChange={this.props.event}>
                         </input>
                     </div>
-                    <div id="com" className="coord_city" class="flex">
+                    <div id="com" className="coord_city">
                         <select required id="city" name="map" onChange={this.props.event}>
                             <option value="" defaultValue hidden>Choisissez votre commune</option>
                         </select>

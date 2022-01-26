@@ -8,7 +8,7 @@ class ManageLinks extends React.Component {
 
         if(link === "/home") {
             return (
-                <Link to={this.props.link}><div class="burger">☰</div></Link>
+                <Link to={this.props.link}><div className="burger">☰</div></Link>
             )
         }else if(link === "/vendre/resultats") {
             console.log("hello there")

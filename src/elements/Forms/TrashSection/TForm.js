@@ -118,7 +118,7 @@ class TForm extends React.Component {
                         <img className="form_picture" src={image}/>
                     </div>
                     <div className="form_container"> 
-                        <form id="TForm" class="form">
+                        <form id="TForm" className="form">
                             <TBuild {...this.props} event={this.handleUserInput}/>
                             <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
                         </form>
