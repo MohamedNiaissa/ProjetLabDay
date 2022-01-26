@@ -33,9 +33,9 @@ class CSub extends React.Component {
                 <>
                     <div className="ty-msg">
                         <p>
-                            Merci de nous avoir envoyer un email.
+                            Merci de nous avoir envoyé un email.
                             <br/>
-                            Vous allez être rediriger sur la page d'accueil dans 5 secondes.
+                            Vous allez être redirigé sur la page d'accueil dans 5 secondes.
                         </p>
                     </div>
                 </>

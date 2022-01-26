@@ -24,14 +24,14 @@ class SBuild extends React.Component {
         }else if(this.props.setAtt.inputForm.name === "map") {
                 return (
                     <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
-                    <fieldset id="fieldset">
+                    <fieldset id="fieldset" class="flex">
                         <legend className="Localisation">{this.props.setAtt.labelForm.text}</legend>
-                        <div id="postal" className='postalCode'>
+                        <div id="postal" className='postalCode' class="flex">
                             <label>Code postal :</label>
                             <input className={this.props.setAtt.inputForm.className} type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name}
                                 minLength = "1" maxLength="5" onChange={this.props.event}></input>
                         </div>
-                        <div id="com" className="commune">
+                        <div id="com" className="commune" class="flex">
                             <label>Commune :</label>
                             <select id="city" type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
                                 <option value="default" style={{display: "none"}} defaultValue>...</option>

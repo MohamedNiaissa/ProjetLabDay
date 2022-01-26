@@ -52,17 +52,14 @@ class GForm extends React.Component {
         return (
             
             <>
-
-             <h1 className="titreformdonner"> Formulaire Donner </h1>
-            
-            <div className="divgiveform">
-                <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)}>
-                    <div className="nomObjet">
+            <div className="divgiveform" class="flex">
+                <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)} class="flex">
+                    <div className="nomObjet" class="flex">
                         <label>Nom de l'objet</label>
                         <input type= "text" minLength = "2" maxLength="40" required autoFocus></input>
                     </div>
                     
-                    <p>
+                    <div class="flex">
                         <label htmlFor="pays">Dans quel état est votre objet ?</label>
                         <select name="etat" id="etat" defaultValue={'DEFAULT'} required>
                             <option value="DEFAULT" disabled >Choisissez un état</option>
@@ -72,20 +69,20 @@ class GForm extends React.Component {
                             <option value="bon" >Bon état</option> 
                             <option value="tresbon">Très bon état</option>
                         </select>
-                    </p>
+                    </div>
 
 
-                    <fieldset id="fieldset" className="scheduler-border">
+                    <fieldset id="fieldset" class="flex">
                         <legend className="Localisation">Localisation</legend>
                     
-                        <div className="codepostal">
+                        <div className="codepostal" class="flex">
                             <label htmlFor="codepost">Code postal</label>
                             <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
                             <div id = "error-message"></div>
                         </div>
                         
 
-                        <div className="commune">
+                        <div className="commune" class="flex">
                             <label htmlFor="dep">Commune</label>
                             <select name="city" id="city" className="form-control">
                             </select>
@@ -94,7 +91,7 @@ class GForm extends React.Component {
 
                     </fieldset>
                     
-                    <div className="commentaire">
+                    <div className="commentaire" class="flex">
                         <label >Commentaires</label>
                         <textarea id="commentaireDonner" maxLength={500}></textarea> 
                     </div>  

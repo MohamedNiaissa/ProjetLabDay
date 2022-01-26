@@ -2,6 +2,7 @@ import React from "react";
 import CBuild from "./CBuild";
 import ManageLinks from "../../ManageLinks";
 import emailjs from 'emailjs-com';
+import { NavLink } from "react-router-dom";
 
 class CForm extends React.Component {
 
@@ -53,17 +54,17 @@ class CForm extends React.Component {
     CF_settings = [
         {   
             id: "zfjfkzv",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Choissiez un topic :" },
             inputForm: { className: '', type: "text", name: "topic" },
         },{ 
             id: "plfbszd",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Votre email :" },
             inputForm: { className: '', type: "email", name: "email" },
         },{
             id: "ijconxa",
-            divForm:   { className: "FormGroup", display: "inline" },
+            divForm:   { className: "FormGroup", display: "flex" },
             labelForm: { text: "Que voulez vous nous dire ?" },
             inputForm: { className: '', type: "text", name: "textArea" },
         }
@@ -81,9 +82,10 @@ class CForm extends React.Component {
 
     render() {
         return (
-            <form id="TrashForm">
+            <form id="TrashForm" class="flex">
                 { this.CF_settings.map((setAtt) => <CBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
                 <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
+                <NavLink to="/home"><button>Retourner au menu</button></NavLink>
             </form>
         )
     } 

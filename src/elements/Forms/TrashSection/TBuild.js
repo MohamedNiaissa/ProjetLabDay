@@ -8,7 +8,7 @@ class TBuild extends React.Component {
             <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
                 <label>{this.props.setAtt.labelForm.text}</label>
                 <select name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
-                    <option value="default" style={{display: "none"}} defaultValue>Choisissez un matériel</option>
+                    <option value="default" style={{display: "none"}} defaultValue>Choisissez un matériau</option>
                     <option value="bois">Bois</option>
                     <option value="metal">Métaux</option>
                     <option value="ceramique">Céramique</option>
@@ -25,7 +25,7 @@ class TBuild extends React.Component {
         }else if(this.props.setAtt.inputForm.name === "map") {
             return (
             <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
-                <fieldset id="fieldset">
+                <fieldset id="fieldset" class="flex">
                     <legend className="Localisation">{this.props.setAtt.labelForm.text}</legend>
                     <div id="postal" className='postalCode'>
                         <label>Code postal :</label>
