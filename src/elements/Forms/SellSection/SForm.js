@@ -55,10 +55,10 @@ class SForm extends React.Component {
                         this.city.found = false;
                         const option = document.createElement('option');
                         com.innerHTML = '';
-                        option.innerHTML = "...";
-                        option.value = "default";
+                        option.innerHTML = "Choisissez votre commune";
                         option.setAttribute("defaultValue","defaultValue");
-                        option.style.display = "none";
+                        option.setAttribute("hidden", "hidden");
+                        option.value = "";
                         com.appendChild(option);
                     }
                 } else {
@@ -89,25 +89,6 @@ class SForm extends React.Component {
         console.log(validated)
     }
 
-    TF_settings = [
-        {   
-            id: "zeacnvv",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Nom de l'objet :" },
-            inputForm: { className: '', type: "text", name: "product" },
-        },{ 
-            id: "ttyuibz",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Quelle est la matière principale de votre objet ?" },
-            inputForm: { className: '', type: "text", name: "material" },
-        },{
-            id: "nbzajcr",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Localisation" },
-            inputForm: { className: '', type: "text", name: "map" },
-        },
-    ]
-
     render() {
         return (
             <section className="form_section">
@@ -117,7 +98,7 @@ class SForm extends React.Component {
                     </div>
                     <div className="form_container"> 
                         <form id="SForm" className="form">
-                            { this.TF_settings.map((setAtt) => <SBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
+                            <SBuild {...this.props} event={this.handleUserInput}/>
                             <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
                         </form>
                     </div>
