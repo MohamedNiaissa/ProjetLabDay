@@ -3,6 +3,7 @@ import CBuild from "./CBuild";
 import ManageLinks from "../../ManageLinks";
 import emailjs from 'emailjs-com';
 import { NavLink } from "react-router-dom";
+import image from "../../../img/test.jpg"
 
 class CForm extends React.Component {
 
@@ -82,11 +83,20 @@ class CForm extends React.Component {
 
     render() {
         return (
-            <form id="TrashForm" class="flex">
-                { this.CF_settings.map((setAtt) => <CBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-                <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
-                <NavLink to="/home"><button>Retourner au menu</button></NavLink>
-            </form>
+            <section className="form_section">
+                <div className="form_template">
+                    <div className="form_style">
+                        <img className="form_picture" src={image}/>
+                    </div>
+                    <div className="form_container"> 
+                        <form id="CForm" className="form">
+                            { this.CF_settings.map((setAtt) => <CBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
+                            <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
+                            <NavLink to="/home"><button>Retourner au menu</button></NavLink>
+                        </form>
+                    </div>
+                </div>
+            </section>
         )
     } 
 }

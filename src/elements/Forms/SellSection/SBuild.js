@@ -23,7 +23,7 @@ class SBuild extends React.Component {
             )
         }else if(this.props.setAtt.inputForm.name === "map") {
                 return (
-                    <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
+                <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
                     <fieldset id="fieldset" class="flex">
                         <legend className="Localisation">{this.props.setAtt.labelForm.text}</legend>
                         <div id="postal" className='postalCode' class="flex">

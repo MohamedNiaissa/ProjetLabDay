@@ -2,6 +2,7 @@ import React from "react";
 import SBuild from "./SBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
+import image from "../../../img/test.jpg"
 
 class SForm extends React.Component {
 
@@ -109,10 +110,19 @@ class SForm extends React.Component {
 
     render() {
         return (
-            <form id="SForm" class="flex">
-                { this.TF_settings.map((setAtt) => <SBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-                <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
-            </form>
+            <section className="form_section">
+                <div className="form_template">
+                    <div className="form_style">
+                        <img className="form_picture" src={image}/>
+                    </div>
+                    <div className="form_container"> 
+                        <form id="SForm" className="form">
+                            { this.TF_settings.map((setAtt) => <SBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
+                            <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                        </form>
+                    </div>
+                </div>
+            </section>
         )
     } 
 }

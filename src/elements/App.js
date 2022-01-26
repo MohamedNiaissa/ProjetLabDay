@@ -20,7 +20,7 @@ class App extends React.Component {
             <>
             <Router>
                 <Header />
-                <section id="Core">
+                <section id="Core" className="core_content">
                     <Switch>
                         <Route path="/home" element={<><CoreMenu /><FunctionalitiesInfo /></>}/>
                         <Route path="/vendre" element={<><CoreMenu /><SForm /></>}/>

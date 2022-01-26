@@ -2,6 +2,7 @@ import React from "react";
 import TBuild from "./TBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
+import image from "../../../img/test.jpg"
 
 class TForm extends React.Component {
 
@@ -135,10 +136,19 @@ class TForm extends React.Component {
 
     render() {
         return (
-            <form id="TForm" class="flex">
-                { this.TF_settings.map((setAtt) => <TBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-                <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
-            </form>
+            <section className="form_section">
+                <div className="form_template">
+                    <div className="form_style">
+                        <img className="form_picture" src={image}/>
+                    </div>
+                    <div className="form_container"> 
+                        <form id="TForm" class="form">
+                            { this.TF_settings.map((setAtt) => <TBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
+                            <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                        </form>
+                    </div>
+                </div>
+            </section>
         )
     } 
 }
