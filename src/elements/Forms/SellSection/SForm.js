@@ -102,7 +102,7 @@ class SForm extends React.Component {
         },{
             id: "nbzajcr",
             divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Localisation :" },
+            labelForm: { text: "Localisation" },
             inputForm: { className: '', type: "text", name: "map" },
         },
     ]

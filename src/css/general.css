@@ -11,7 +11,19 @@
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
-
+#poubelle{
+    font-family: "Arial";
+    background-color: white;
+    border-radius: 5px;
+    width:90%;
+    padding: 3px;
+}
+#trash{
+    width:100%;
+    min-width:320px;
+    display:flex;
+    justify-content: center;
+}
 
 html, body {
     max-width: 100%;

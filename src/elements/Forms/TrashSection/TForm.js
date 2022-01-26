@@ -120,7 +120,7 @@ class TForm extends React.Component {
         },{
             id: "fpvzmxn",
             divForm:   { className: "FormGroup", display: "none" },
-            labelForm: { text: "Localisation :" },
+            labelForm: { text: "Localisation" },
             inputForm: { className: '', type: "text", name: "map" },
         }
     ]
