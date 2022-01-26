@@ -13,8 +13,6 @@ class GiveForm extends React.Component {
         
         this.state = {
             displayM : "",
-            click: false,
-            compteur : 0
         }
 
     }
@@ -23,9 +21,7 @@ class GiveForm extends React.Component {
     handleClick(e){
         e.preventDefault();
         this.setState({
-            displayM : (this.state.compteur%2 == 0) ? <Getposition id = "pos"/> : <p>none</p> ,
-            click : true,
-            compteur: this.state.compteur +1
+            displayM : <> <Getposition id = "pos"/> { document.querySelector(".divgiveform").remove()  } </> ,
         });
         console.log(this.state.compteur)
 
@@ -134,10 +130,10 @@ class GiveForm extends React.Component {
                 </form> 
 
 
-            {this.state.displayM}
 
             </div> 
-    
+            {this.state.displayM}
+
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="script.js"></script>
