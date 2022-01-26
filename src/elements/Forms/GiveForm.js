@@ -1,15 +1,44 @@
 import React from "react";
 import $ from 'jquery';
 import Getposition from "../FormFonctionnalities/getPosition";
+import Map from "../FormFonctionnalities/map";
+
 
 class GiveForm extends React.Component {
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("Je clique")
-    }
 
     
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            displayM : "",
+            click: false,
+            compteur : 0
+        }
+
+    }
+
+
+    handleClick(e){
+        e.preventDefault();
+        this.setState({
+            displayM : (this.state.compteur%2 == 0) ? <Getposition id = "pos"/> : <p>none</p> ,
+            click : true,
+            compteur: this.state.compteur +1
+        });
+        console.log(this.state.compteur)
+
+    }
+
+    handleSubmit = (e) => {
+       // e.preventDefault()
+        console.log("Je clique")
+        {<Getposition id = "pos" />}     
+
+    }
+
+
     componentDidMount(){
 
         $(document).ready(function(){
@@ -46,10 +75,11 @@ class GiveForm extends React.Component {
         
         })
         
+
     }
+
     render() {
 
-        
         return (
             
             <>
@@ -57,7 +87,8 @@ class GiveForm extends React.Component {
              <h1 className="titreformdonner"> Formulaire Donner </h1>
             
             <div className="divgiveform">
-                <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)}>
+                <form id="GiveForm" className="giveform" onSubmit={ () => this.handleClick()} >
+                    {/* {this.state.displayM ? () =>  <Getposition id = "pos" /> : console.log("no")} */}
                     <div className="nomObjet">
                         <label>Nom de l'objet</label>
                         <input type= "text" minLength = "2" maxLength="40" required autoFocus></input>
@@ -99,16 +130,14 @@ class GiveForm extends React.Component {
                         <label >Commentaires</label>
                         <textarea id="commentaireDonner" maxLength={500}></textarea> 
                     </div>  
-                        <button type="submit" className="btnchercher" >Chercher</button>
+                        <button type="submit" className="btnchercher" onClick={ (e) => this.handleClick(e)}>Chercher</button>
                 </form> 
 
 
-
-                
+            {this.state.displayM}
 
             </div> 
-         
-            <Getposition id = "pos" />
+    
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="script.js"></script>

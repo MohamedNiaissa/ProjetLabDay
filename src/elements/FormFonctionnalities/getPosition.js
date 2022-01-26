@@ -1,11 +1,13 @@
 import { MapContainer, TileLayer, Marker, Popup  } from 'react-leaflet'
-import Map from "./Map";
+import Map from "./map";
 
 import React from 'react';
 
+ 
 
 const Getposition = () =>{
     const location = Map();
+
 
     return(
         <>

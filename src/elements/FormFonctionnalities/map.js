@@ -4,7 +4,7 @@ import { error } from 'jquery';
 
 
 
-const Map = () =>{
+const Map = () => {
      
      const[location, setLocation] = useState({
          loaded: false,
@@ -20,6 +20,7 @@ const Map = () =>{
             }
         })
      }
+
      const onError = () =>{
          setLocation({
             loaded:true,
