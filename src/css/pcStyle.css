@@ -12,6 +12,15 @@
 
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     /* background: url('/src/img/eco.jpg') no-repeat center center fixed; */
     background: fixed beige;
@@ -22,8 +31,11 @@ body {
 }
 
 .root{
+    display: flex;
+    flex-flow: column wrap;
     min-width: 320px;
     width: 100%;
+    height: 100%;
 }
 
 .nav_container {
@@ -39,14 +51,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 90%;
-
-    /* background-color: rgb(221, 221, 200); */
 }
-
-/* .app_logo {
-
-} */
-
 
 /* Menu */
 
@@ -64,7 +69,6 @@ body {
     justify-content: space-evenly;
     width: 90%;
     margin-top: 10px;
-    /* background-color: rgb(221, 221, 200); */
 }
 
 .btn_container {
@@ -77,12 +81,9 @@ body {
     justify-content: center;
     width: 100%;
     height: 5rem;
-
     text-decoration: none !important;
     border-radius: 3px;
-
     font-size:larger;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
 }
 
@@ -105,15 +106,74 @@ body {
     color: lightgray;
 }
 
+/* Home */
+
+.home_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.form_infos {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    background-color: rgb(150, 201, 120);
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.form_infos > ul {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 40%;
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+
+.infos_case {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+.infos_icon_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+}
+
+.infos_icon {
+    width: 90%;
+}
+
+.infos_text_container {
+    width: 75%;
+    font-size: large;
+}
+
+.solid {
+    width: 99.8%;
+    border-top: 0.5px solid rgb(0, 0, 0);
+}
+
 /* Form */
 
 .core_content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
+    /* height: 100%; */
     margin-top: 10px;
-    flex: 1 0 auto;
 }
 
 .form_section {
@@ -126,7 +186,7 @@ body {
 
 .form_template {
     display: flex;
-    flex-flow: row-wrap;
+    flex-flow: row wrap;
     width: 90%;
     box-shadow: 0 0 0 1px black;
     border-radius: 10px;
@@ -157,11 +217,7 @@ body {
     width: 70%;
 }
 
-
-
-
-
-
+/* Footer */
 
 .footer_container {
     position: fixed;
@@ -176,13 +232,11 @@ body {
     align-items: center;
     width: 100%;
     min-height:50px;
-
     background-color: #008f00;
 }
 
 .contact{
     width: 100%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
 }
 
@@ -190,6 +244,7 @@ body {
     color: lightgray;
 }
 
+/* Rand */
 
 
 
@@ -198,7 +253,19 @@ body {
 
 
 
-#poubelle{
+
+
+
+
+
+
+
+
+
+
+
+
+/* #poubelle{
     font-family: "Arial";
     background-color: white;
     border-radius: 5px;
@@ -305,23 +372,6 @@ a {
     text-decoration: none;
 }
 
-.func{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    background-color: white;
-    margin-left:10px;
-    margin: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left:10px;
-    padding-right:10px;
-    border-radius: 3px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size:large;
-    align-content:center;
-}
-
 .FormGroup{
     display: flex;
     flex-flow: row wrap;
@@ -361,5 +411,5 @@ button{
 }
 legend{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+} */
 
