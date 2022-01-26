@@ -1,8 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { error } from 'jquery';
-
-
 
 const Map = () =>{
      
