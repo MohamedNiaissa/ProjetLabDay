@@ -8,7 +8,7 @@ class SForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            verify: { product: null, material: false, location: true, form: null },
+            verify: { product: null, material: false, location: null, form: null },
         }
 
         this.product = { name: null, material: null }
