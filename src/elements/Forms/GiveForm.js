@@ -10,7 +10,6 @@ class GiveForm extends React.Component {
     
     constructor(props){
         super(props);
-        
         this.state = {
             displayM : "",
         }
@@ -18,23 +17,13 @@ class GiveForm extends React.Component {
     }
 
 
-    handleClick(e){
-        e.preventDefault();
+    handleClick(){
         this.setState({
             displayM : <> <Getposition id = "pos"/> { document.querySelector(".divgiveform").remove()  } </> ,
         });
-        console.log(this.state.compteur)
-
     }
 
-    handleSubmit = (e) => {
-       // e.preventDefault()
-        console.log("Je clique")
-        {<Getposition id = "pos" />}     
-
-    }
-
-
+ 
     componentDidMount(){
 
         $(document).ready(function(){
@@ -83,8 +72,7 @@ class GiveForm extends React.Component {
              <h1 className="titreformdonner"> Formulaire Donner </h1>
             
             <div className="divgiveform">
-                <form id="GiveForm" className="giveform" onSubmit={ () => this.handleClick()} >
-                    {/* {this.state.displayM ? () =>  <Getposition id = "pos" /> : console.log("no")} */}
+                <form id="GiveForm" className="giveform">
                     <div className="nomObjet">
                         <label>Nom de l'objet</label>
                         <input type= "text" minLength = "2" maxLength="40" required autoFocus></input>
@@ -126,7 +114,7 @@ class GiveForm extends React.Component {
                         <label >Commentaires</label>
                         <textarea id="commentaireDonner" maxLength={500}></textarea> 
                     </div>  
-                        <button type="submit" className="btnchercher" onClick={ (e) => this.handleClick(e)}>Chercher</button>
+                        <button type="submit" className="btnchercher" onClick={() => this.handleClick()}>Chercher</button>
                 </form> 
 
 
