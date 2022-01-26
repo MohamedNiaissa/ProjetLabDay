@@ -5,12 +5,24 @@ import image from "../../../img/test.jpg"
 
 class GForm extends React.Component {
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("Je clique")
-    }
 
     
+    constructor(props){
+        super(props);
+        this.state = {
+            displayM : "",
+        }
+
+    }
+
+
+    handleClick(){
+        this.setState({
+            displayM : <> <fieldset><legend>Position :</legend> <Getposition id = "pos"/></fieldset>  { document.querySelector(".form_template").remove()  } </> ,
+        });
+    }
+
+ 
     componentDidMount(){
 
         $(document).ready(function(){
@@ -47,7 +59,9 @@ class GForm extends React.Component {
         
         })
         
+
     }
+
     render() {
 
         return (
@@ -101,12 +115,12 @@ class GForm extends React.Component {
                                 <label >Commentaires</label>
                                 <textarea id="commentaireDonner" maxLength={500}></textarea> 
                             </div>  
-                                <button type="submit" className="btnchercher">Chercher</button>
+                                <button type="submit" className="btnchercher" onClick={ () => this.handleClick()}>Chercher</button>
                         </form> 
                     </div>
                 </div>
+                {this.state.displayM}
             </section>
-            <Getposition />
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="script.js"></script>
         </>
