@@ -253,3 +253,6 @@ select{
 button{
     margin:5px;
 }
+/* @import "./general.css";
+@import "./GiveForm.css";
+@import "./mapstyle.css"; */

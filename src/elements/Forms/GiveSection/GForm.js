@@ -1,7 +1,8 @@
 import React from "react";
 import $ from 'jquery';
+import Getposition from "../../MapLoader/getPosition";
 
-class GiveForm extends React.Component {
+class GForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -51,6 +52,11 @@ class GiveForm extends React.Component {
         return (
             
             <>
+<<<<<<< HEAD:src/elements/Forms/GiveForm.js
+=======
+
+             <h1 className="titreformdonner"> Formulaire Donner </h1>
+>>>>>>> main:src/elements/Forms/GiveSection/GForm.js
             
             <div className="divgiveform" class="flex">
                 <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)} class="flex">
@@ -72,7 +78,11 @@ class GiveForm extends React.Component {
                     </div>
 
 
+<<<<<<< HEAD:src/elements/Forms/GiveForm.js
                     <fieldset id="fieldset" class="flex">
+=======
+                    <fieldset id="fieldset" className="scheduler-border">
+>>>>>>> main:src/elements/Forms/GiveSection/GForm.js
                         <legend className="Localisation">Localisation</legend>
                     
                         <div className="codepostal" class="flex">
@@ -88,7 +98,6 @@ class GiveForm extends React.Component {
                             </select>
                         </div>
 
-                        
 
                     </fieldset>
                     
@@ -97,12 +106,14 @@ class GiveForm extends React.Component {
                         <textarea id="commentaireDonner" maxLength={500} class="flex"></textarea> 
                     </div>  
                         <button type="submit" className="btnchercher">Chercher</button>
-                </form>
+                </form> 
 
 
 
-            </div>
-            
+                
+
+            </div> 
+            <Getposition />
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="script.js"></script>
 
@@ -112,4 +123,4 @@ class GiveForm extends React.Component {
     } 
 }
 
-export default GiveForm;
+export default GForm;

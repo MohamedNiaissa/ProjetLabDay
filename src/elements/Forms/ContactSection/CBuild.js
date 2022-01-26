@@ -1,6 +1,6 @@
 import React from "react";
 
-class ContactFormBuild extends React.Component {
+class CBuild extends React.Component {
 
     switchFormBlock() {
         if(this.props.setAtt.inputForm.name === "textArea") {
@@ -16,9 +16,9 @@ class ContactFormBuild extends React.Component {
             <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
                 <label>{this.props.setAtt.labelForm.text}</label>
                 <select name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
-                        <option value="..." style={{display: "none"}} defaultValue>...</option>
-                        <option value="amelioration">Proposition d'amélioration</option>
-                        <option value="bug">Raport d'un bug</option>
+                        <option value="default" style={{display: "none"}} defaultValue>...</option>
+                        <option value="Proposition d'amélioration">Proposition d'amélioration</option>
+                        <option value="Raport d'un bug">Raport d'un bug</option>
                 </select>
             </div>
             )
@@ -38,4 +38,4 @@ class ContactFormBuild extends React.Component {
     }
 }
 
-export default ContactFormBuild;
+export default CBuild;
