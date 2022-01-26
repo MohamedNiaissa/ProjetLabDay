@@ -52,25 +52,6 @@ class CForm extends React.Component {
         console.log(validated)
       }
 
-    CF_settings = [
-        {   
-            id: "zfjfkzv",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Choissiez un topic :" },
-            inputForm: { className: '', type: "text", name: "topic" },
-        },{ 
-            id: "plfbszd",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Votre email :" },
-            inputForm: { className: '', type: "email", name: "email" },
-        },{
-            id: "ijconxa",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Que voulez vous nous dire ?" },
-            inputForm: { className: '', type: "text", name: "textArea" },
-        }
-    ]
-
     handleSubmit() {
         const serviceId = 'service_cjdkap6';
         const templateId = 'template_2yn66qt';
@@ -90,7 +71,7 @@ class CForm extends React.Component {
                     </div>
                     <div className="form_container"> 
                         <form id="CForm" className="form">
-                            { this.CF_settings.map((setAtt) => <CBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
+                            <CBuild {...this.props} event={this.handleUserInput}/>
                             <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
                             <NavLink to="/home"><button>Retourner au menu</button></NavLink>
                         </form>

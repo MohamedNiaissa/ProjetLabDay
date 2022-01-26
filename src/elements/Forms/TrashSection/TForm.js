@@ -68,10 +68,10 @@ class TForm extends React.Component {
                         this.city.found = false;
                         const option = document.createElement('option');
                         com.innerHTML = '';
-                        option.innerHTML = "...";
-                        option.value = "default";
+                        option.innerHTML = "Choisissez votre commune";
                         option.setAttribute("defaultValue","defaultValue");
-                        option.style.display = "none";
+                        option.setAttribute("hidden", "hidden");
+                        option.value = "";
                         com.appendChild(option);
                     }
                 } else {
@@ -101,30 +101,6 @@ class TForm extends React.Component {
         this.setState(this.state.verify = validated);
         console.log(validated)
       }
-
-    TF_settings = [
-        {   
-            id: "ezpfdbe",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Nom de l'objet :" },
-            inputForm: { className: '', type: "text", name: "product" },
-        },{ 
-            id: "nfozxfm",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Quelle est la matière principale de votre objet ?" },
-            inputForm: { className: '', type: "text", name: "material" },
-        },{
-            id: "xbanolm",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Veuillez cocher cette case si l'objet est volumineux :" },
-            inputForm: { type: "checkbox", name: "checkbox" },
-        },{
-            id: "fpvzmxn",
-            divForm:   { className: "FormGroup", display: "none" },
-            labelForm: { text: "Localisation" },
-            inputForm: { className: '', type: "text", name: "map" },
-        }
-    ]
     
     handleResearch = () => {
         if(this.state.cboxChecked) {
@@ -143,7 +119,7 @@ class TForm extends React.Component {
                     </div>
                     <div className="form_container"> 
                         <form id="TForm" class="form">
-                            { this.TF_settings.map((setAtt) => <TBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
+                            <TBuild {...this.props} event={this.handleUserInput}/>
                             <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
                         </form>
                     </div>
