@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -6,6 +7,11 @@ import L from "leaflet";
 export default function Getposition() {
 
     function LocationMarker() {
+        const posFromForm = useLocation().state;
+        const pos = posFromForm  === null ? null : {
+            lat: posFromForm.cLat,
+            lng: posFromForm.cLong
+        }
 
         const [position, setPosition] = useState([0, 0]);
         const map = useMap();
@@ -19,11 +25,11 @@ export default function Getposition() {
 
         useEffect(() => {
             map.locate().on("locationfound", function (e) {
-                console.log(e)
-                setPosition(e.latlng);
-                map.flyTo(e.latlng, map.getZoom());
+                const latLng = pos === null ? e.latlng : pos;
                 const radius = e.accuracy;
-                const circle = L.circle(e.latlng, radius);
+                const circle = L.circle(latLng, radius);
+                setPosition(latLng);
+                map.flyTo(latLng, map.getZoom());
                 circle.addTo(map);
                 console.log(e.bounds)
             });

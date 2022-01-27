@@ -6,8 +6,6 @@ import image from "../../../img/test.jpg"
 
 class GForm extends React.Component {
 
-
-    
     constructor(props){
         super(props);
         this.state = {
@@ -16,7 +14,6 @@ class GForm extends React.Component {
         }
 
     }
-
 
     handleClick(){
         this.setState({
