@@ -5,7 +5,8 @@ import Header from "./Header";
 import FunctionalitiesInfo from "./FunctionalitiesInfo";
 import SForm from "./Forms/SellSection/SForm";
 import SSub from "./Forms/SellSection/SSub";
-import GiveForm from "./Forms/GiveSection/GForm";
+import GForm from "./Forms/GiveSection/GForm";
+import GSub from "./Forms/GiveSection/GSub";
 import TForm from "./Forms/TrashSection/TForm";
 import TSubA from "./Forms/TrashSection/TSub_A";
 import TSubB from "./Forms/TrashSection/TSub_B";
@@ -24,10 +25,11 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/home"                        element={<><CoreMenu /><FunctionalitiesInfo /></>}/>
                         <Route path="/vendre"                      element={<><CoreMenu /><SForm /></>              }/>
-                        <Route path="/donner"                      element={<><CoreMenu /><GiveForm /></>           }/>
+                        <Route path="/donner"                      element={<><CoreMenu /><GForm /></>              }/>
                         <Route path="/jeter"                       element={<><CoreMenu /><TForm /></>              }/>
                         
                         <Route path="/vendre/resultats"            element={<SSub /> }/>
+                        <Route path="/donner/resultats"            element={<GSub /> }/>
                         <Route path="/jeter/poubelles-ecologiques" element={<TSubA />}/>
                         <Route path="/jeter/decharge"              element={<TSubB />}/>
                         <Route path="/contact"                     element={<CForm />}/>

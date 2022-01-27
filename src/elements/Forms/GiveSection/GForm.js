@@ -1,8 +1,8 @@
 import React from "react";
 import $ from 'jquery';
 import GBuild from "./GBuild";
-import Getposition from "../../MapLoader/getPosition";
 import image from "../../../img/test.jpg"
+import ManageLinks from "../../ManageLinks";
 
 class GForm extends React.Component {
 
@@ -12,22 +12,6 @@ class GForm extends React.Component {
             displayM : "",
            // bouton : "disable"
         }
-
-    }
-
-    handleClick(){
-        this.setState({
-            ...this.state,
-            displayM : 
-                <>
-                    <div className="map_container">
-                        <fieldset className="map_pos">
-                            <legend>Position :</legend> 
-                            <Getposition id = "pos"/>
-                        </fieldset>  { document.querySelector(".form_template").remove()  } 
-                    </div>
-                </>,
-        });
     }
 
     verifyButtonState(){
@@ -89,7 +73,7 @@ class GForm extends React.Component {
                                     <GBuild {...this.props} event={this.handleSubmit} />
                                 </div>
                                 <div className="GForm_Button">
-                                    <button type="submit" className="btnchercher" disabled={this.state.bouton} onClick={ () => this.handleClick()}>Chercher</button>
+                                    <ManageLinks link={"/donner/resultats"} disabled={this.state.bouton}/>
                                 </div>
                             </form> 
                         </div>

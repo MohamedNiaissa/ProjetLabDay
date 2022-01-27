@@ -53,6 +53,10 @@ class ManageLinks extends React.Component {
             return (
                 <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled} onClick={this.props.event}>Envoyer</button></Link>
             )
+        }else if(link === "/donner/resultats") {
+            return (
+                <Link to={this.props.link}><button disabled={this.props.disabled}>Chercher</button></Link>
+            )
         }
     }
 

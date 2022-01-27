@@ -24,15 +24,22 @@ export default function Getposition() {
         });
 
         useEffect(() => {
-            map.locate().on("locationfound", function (e) {
-                const latLng = pos === null ? e.latlng : pos;
-                const radius = e.accuracy;
-                const circle = L.circle(latLng, radius);
-                setPosition(latLng);
-                map.flyTo(latLng, map.getZoom());
+            if(pos === null) {
+                map.locate().on("locationfound", function (e) {
+                    const radius = e.accuracy;
+                    const circle = L.circle(e.latlng, radius);
+                    setPosition(e.latlng);
+                    map.flyTo(e.latlng, map.getZoom());
+                    circle.addTo(map);
+                    console.log(e.bounds)
+                });
+            }else {
+                const radius = 2000;
+                const circle = L.circle(pos, radius);
+                setPosition(pos);
+                map.flyTo(pos, map.getZoom());
                 circle.addTo(map);
-                console.log(e.bounds)
-            });
+            }
         }, [map]);
 
         const defaultPosition = () => {
