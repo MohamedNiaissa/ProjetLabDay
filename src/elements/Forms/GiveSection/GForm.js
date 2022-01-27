@@ -23,10 +23,12 @@ class GForm extends React.Component {
             ...this.state,
             displayM : 
                 <>
-                    <fieldset id="fieldset">
-                        <legend>Position :</legend> 
-                        <Getposition id = "pos"/>
-                    </fieldset>  { document.querySelector(".form_template").remove()  } 
+                    <div className="map_container">
+                        <fieldset className="map_pos">
+                            <legend>Position :</legend> 
+                            <Getposition id = "pos"/>
+                        </fieldset>  { document.querySelector(".form_template").remove()  } 
+                    </div>
                 </>,
         });
     }
