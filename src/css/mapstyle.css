@@ -3,3 +3,7 @@
     height: 50vh;
     z-index: 1;
   }
+
+  #fieldset{
+    width: 50%;
+  }
