@@ -24,7 +24,8 @@ class TForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
-        const loc = document.getElementById("fpvzmxn");
+        const loc_zip = document.getElementById("fpvzmxn");
+        const loc_city = document.getElementById("ibizbef");
         const com = document.getElementById("city")
         let validated = this.state.verify;
 
@@ -41,11 +42,13 @@ class TForm extends React.Component {
             case "checkbox":
                 this.state.cboxChecked = !this.state.cboxChecked;
                 if(this.state.cboxChecked) {
-                    loc.style.display = "flex";
+                    loc_zip.style.display = "flex";
+                    loc_city.style.display = "flex";
                     const index = cities.findIndex(cityData => cityData.zip === this.city.zip);
                     validated.location = (index !== -1) ? true : false;
                 }else {
-                    loc.style.display = "none";
+                    loc_zip.style.display = "none";
+                    loc_city.style.display = "none";
                     validated.location = true;
                 }
                 break;
@@ -119,8 +122,15 @@ class TForm extends React.Component {
                     </div>
                     <div className="form_container"> 
                         <form id="TForm" className="form">
-                            <TBuild {...this.props} event={this.handleUserInput}/>
-                            <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                            <div className="TForm_Title">
+                                    <h2>Formulaire Jeter</h2>
+                            </div>
+                            <div className="TForm_Content">
+                                <TBuild {...this.props} event={this.handleUserInput}/>
+                            </div>
+                            <div className="TForm_Button">
+                                <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                            </div>
                         </form>
                     </div>
                 </div>

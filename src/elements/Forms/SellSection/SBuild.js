@@ -11,7 +11,7 @@ class SBuild extends React.Component {
                 </div>
 
                 <div id="ttyuibz" className="form_material">
-                    <select required className="select_mat" name="material" onChange={this.props.event}>
+                    <select className="select_mat" name="material" onChange={this.props.event} required>
                         <option value="" defaultValue hidden>Choisissez un matériel</option>
                         <option value="bois">Bois</option>
                         <option value="metal">Métal</option>
