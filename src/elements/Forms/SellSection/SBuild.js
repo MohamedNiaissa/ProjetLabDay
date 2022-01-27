@@ -11,7 +11,7 @@ class SBuild extends React.Component {
                 </div>
 
                 <div id="ttyuibz" className="form_material">
-                    <select required name="material" onChange={this.props.event}>
+                    <select required className="select_mat" name="material" onChange={this.props.event}>
                         <option value="" defaultValue hidden>Choisissez un matériel</option>
                         <option value="bois">Bois</option>
                         <option value="metal">Métal</option>
@@ -25,17 +25,16 @@ class SBuild extends React.Component {
                     </select>
                 </div>
 
-                <div id="nbzajcr" className="form_coord">
-                    <div id="postal" className='coord_zip'>
-                        <input className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
-                                placeholder="Code postal :" onChange={this.props.event}>
-                        </input>
-                    </div>
-                    <div id="com" className="coord_city">
-                        <select required id="city" name="map" onChange={this.props.event}>
-                            <option value="" defaultValue hidden>Choisissez votre commune</option>
-                        </select>
-                    </div>
+                <div id="nbzajcr" className='form_coord_zip'>
+                    <input className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
+                            placeholder="Code postal :" onChange={this.props.event}>
+                    </input>
+                </div>
+
+                <div id="jzbfkjb" className="form_coord_city">
+                    <select id="city" className="select_city" name="map" onChange={this.props.event} required>
+                        <option value="" defaultValue hidden>Choisissez votre commune</option>
+                    </select>
                 </div>
             </>
         )

@@ -15,6 +15,9 @@
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration: none;
+    box-sizing: border-box;
+    margin: 0;
+    /* padding: 0; */
 }
 
 html, body {
@@ -174,6 +177,7 @@ body {
 .solid {
     width: 99.8%;
     border-top: 0.5px solid rgb(0, 0, 0);
+    margin: 10px 0 10px 0;
 }
 
 /* Form */
@@ -225,7 +229,12 @@ body {
 }
 
 .form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column wrap;
     width: 80%;
+    height: 90%;
 }
 
 /* Footer */

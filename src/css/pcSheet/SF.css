@@ -1,30 +1,67 @@
-.form_name {
+/* .SForm_Title {
     display: flex;
+    align-items: center;
+    justify-content: baseline;
+} */
+
+.SForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-flow: column wrap;
+    width: 70%;
+    height: 55%;
+}
+
+.SForm_Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
+
+.form_name {
+    width: 70%;
 }
 
 .form_material {
-    display: flex;
-    flex-flow: column wrap;
+    width: 70%;
 }
 
 .form_coord {
-    display: flex;
-    flex-flow: column wrap;
+    width: 70%;
 }
 
-.T_form_coord {
+.form_coord_zip {
+    width: 70%;
+}
+
+.form_coord_city {
+    width: 70%;
+}
+
+
+.input_name {
+    width: 100%;
+}
+
+.select_mat {
+    width: 100%;
+}
+
+.input_zip {
+    width: 100%;
+}
+
+.select_city {
+    width: 100%;
+}
+
+
+/* .T_form_coord {
     display: none;
     flex-flow: column wrap;
-}
-
-.coord_zip {
-    width: 100%;
-}
-
-.coord_city {
-    width: 100%;
-}
+} */
 
 select option {
     color: black;
@@ -33,27 +70,6 @@ select option {
 select:invalid, select option[value="default"] {
     color: #999999;
 }
-
-/* .FormGroup {
-    display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-    min-width:320px;
-}
-
-.FormGroup{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-
-    font-size: 17px;
-    flex-flow:column;
-    padding:0px;
-    margin:0px;
-} */
-
 
 .invalidP, .invalidL, .invalidE, .invalidTA {
     border-color: crimson;
