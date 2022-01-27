@@ -18,7 +18,7 @@ class GForm extends React.Component {
 
     handleClick(){
         this.setState({
-            displayM : <> <fieldset><legend>Position :</legend> <Getposition id = "pos"/></fieldset>  { document.querySelector(".form_template").remove()  } </> ,
+            displayM : <> <fieldset id="fieldset"><legend>Position :</legend> <Getposition id = "pos"/></fieldset>  { document.querySelector(".form_template").remove()  } </> ,
         });
     }
 
