@@ -1,0 +1,21 @@
+/* .CForm_Title {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+} */
+
+.CForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column wrap;
+    width: 70%;
+    height: 55%;
+}
+
+.CForm_Button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 55%;
+}

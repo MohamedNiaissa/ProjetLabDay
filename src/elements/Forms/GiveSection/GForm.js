@@ -1,6 +1,7 @@
 import React from "react";
 import $ from 'jquery';
-import Getposition from "../../MapLoader/getPosition";
+import GBuild from "./GBuild";
+// import Getposition from "../../MapLoader/getPosition";
 import image from "../../../img/test.jpg"
 
 class GForm extends React.Component {
@@ -24,7 +25,6 @@ class GForm extends React.Component {
 
  
     componentDidMount(){
-
         $(document).ready(function(){
             const apiUrl = "https://geo.api.gouv.fr/communes?codePostal=";
             const format = '&format=json'; 
@@ -63,67 +63,32 @@ class GForm extends React.Component {
     }
 
     render() {
-
         return (
-            
             <>
-            <section className="form_section">
-                <div className="form_template">
-                    <div className="form_style">
-                        <img className="form_picture" src={image}/>
-                    </div>
-                    <div className="form_container"> 
-                        <form id="GForm" className="form" onSubmit={(e) => this.handleSubmit(e)} class="flex">
-                            <div className="nomObjet" class="flex">
-                                <label>Nom de l'objet</label>
-                                <input type= "text" minLength = "2" maxLength="40" required autoFocus></input>
-                            </div>
-                            
-                            <div class="flex">
-                                <label htmlFor="pays">Dans quel état est votre objet ?</label>
-                                <select name="etat" id="etat" defaultValue={'DEFAULT'} required>
-                                    <option value="DEFAULT" disabled >Choisissez un état</option>
-                                    <option value="casse">Cassé</option>
-                                    <option value="mauvaisetat">Mauvaise état</option>
-                                    <option value="moyen">Moyen</option>
-                                    <option value="bon" >Bon état</option> 
-                                    <option value="tresbon">Très bon état</option>
-                                </select>
-                            </div>
-
-
-                            <fieldset id="fieldset" class="flex">
-                                <legend className="Localisation">Localisation</legend>
-                            
-                                <div className="codepostal" class="flex">
-                                    <label htmlFor="codepost">Code postal</label>
-                                    <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
-                                    <div id = "error-message"></div>
+                <section className="form_section">
+                    <div className="form_template">
+                        <div className="form_style">
+                            <img className="form_picture" src={image} alt="pic"/>
+                        </div>
+                        <div className="form_container"> 
+                            <form id="GForm" className="form">
+                                <div className="GForm_Title">
+                                        <h2>Formulaire Donner</h2>
                                 </div>
-                                
-
-                                <div className="commune" class="flex">
-                                    <label htmlFor="dep">Commune</label>
-                                    <select name="city" id="city" className="form-control">
-                                    </select>
+                                <div className="GForm_Content">
+                                    <GBuild {...this.props} event={this.handleSubmit}/>
                                 </div>
-
-
-                            </fieldset>
-                            
-                            <div className="commentaire" class="flex">
-                                <label >Commentaires</label>
-                                <textarea id="commentaireDonner" maxLength={500}></textarea> 
-                            </div>  
-                                <button type="submit" className="btnchercher" onClick={ () => this.handleClick()}>Chercher</button>
-                        </form> 
+                                <div className="GForm_Button">
+                                    <button type="submit" className="btnchercher">Chercher</button>
+                                </div>
+                            </form> 
+                        </div>
                     </div>
-                </div>
-                {this.state.displayM}
-            </section>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="script.js"></script>
-        </>
+                </section>
+                {/* <Getposition /> */}
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="script.js"></script>
+            </>
         )
     } 
 }

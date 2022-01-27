@@ -29,7 +29,7 @@ class SForm extends React.Component {
         switch(fieldName) {
             case "product":
                 validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-                e.target.className = (validated.product) ? "validP" : "invalidP";
+                e.target.className = (validated.product) ? "input_name validP" : "input_name invalidP";
                 this.product.name = value;
                 break;
             case "material":
@@ -40,7 +40,7 @@ class SForm extends React.Component {
                 if(e.target.id !== "city") {
                     const arrayData = cities.filter(cityData => cityData.zip === value);
                     validated.location = (arrayData.length !== 0) ? true : false;
-                    e.target.className = (validated.location) ? "validL" : "invalidL";
+                    e.target.className = (validated.location) ? "input_zip validL" : "input_zip invalidL";
                     this.city.zip = value;
 
                     if(validated.location) {
@@ -94,12 +94,19 @@ class SForm extends React.Component {
             <section className="form_section">
                 <div className="form_template">
                     <div className="form_style">
-                        <img className="form_picture" src={image}/>
+                        <img className="form_picture" src={image} alt="pic"/>
                     </div>
                     <div className="form_container"> 
                         <form id="SForm" className="form">
-                            <SBuild {...this.props} event={this.handleUserInput}/>
-                            <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                            <div className="SForm_Title">
+                                <h2>Formulaire Vendre</h2>
+                            </div>
+                            <div className="SForm_Content">
+                                <SBuild {...this.props} event={this.handleUserInput}/>
+                            </div>
+                            <div className="SForm_Button">
+                                <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                            </div>
                         </form>
                     </div>
                 </div>

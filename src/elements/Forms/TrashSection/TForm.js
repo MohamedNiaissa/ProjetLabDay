@@ -24,14 +24,15 @@ class TForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
-        const loc = document.getElementById("fpvzmxn");
+        const loc_zip = document.getElementById("fpvzmxn");
+        const loc_city = document.getElementById("ibizbef");
         const com = document.getElementById("city")
         let validated = this.state.verify;
 
         switch(fieldName) {
             case "product":
                 validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-                e.target.className = (validated.product) ? "validP" : "invalidP";
+                e.target.className = (validated.product) ? "input_name validP" : "input_name invalidP";
                 this.product.name = value;
                 break;
             case "material":
@@ -41,11 +42,13 @@ class TForm extends React.Component {
             case "checkbox":
                 this.state.cboxChecked = !this.state.cboxChecked;
                 if(this.state.cboxChecked) {
-                    loc.style.display = "flex";
+                    loc_zip.removeAttribute("disabled");
+                    loc_city.removeAttribute("disabled");
                     const index = cities.findIndex(cityData => cityData.zip === this.city.zip);
                     validated.location = (index !== -1) ? true : false;
                 }else {
-                    loc.style.display = "none";
+                    loc_zip.setAttribute("disabled", true);
+                    loc_city.setAttribute("disabled", true);
                     validated.location = true;
                 }
                 break;
@@ -53,7 +56,7 @@ class TForm extends React.Component {
                 if(e.target.id !== "city") {
                     const arrayData = cities.filter(cityData => cityData.zip === value);
                     validated.location = (arrayData.length !== 0) ? true : false;
-                    e.target.className = (validated.location) ? "validL" : "invalidL";
+                    e.target.className = (validated.location) ? "input_zip validL" : "input_zip invalidL";
                     this.city.zip = value;
 
                     if(validated.location) {
@@ -115,12 +118,19 @@ class TForm extends React.Component {
             <section className="form_section">
                 <div className="form_template">
                     <div className="form_style">
-                        <img className="form_picture" src={image}/>
+                        <img className="form_picture" src={image} alt="pic"/>
                     </div>
                     <div className="form_container"> 
-                        <form id="TForm" class="form">
-                            <TBuild {...this.props} event={this.handleUserInput}/>
-                            <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                        <form id="TForm" className="form">
+                            <div className="TForm_Title">
+                                    <h2>Formulaire Jeter</h2>
+                            </div>
+                            <div className="TForm_Content">
+                                <TBuild {...this.props} event={this.handleUserInput}/>
+                            </div>
+                            <div className="TForm_Button">
+                                <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                            </div>
                         </form>
                     </div>
                 </div>

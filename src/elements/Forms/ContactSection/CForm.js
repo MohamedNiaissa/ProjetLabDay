@@ -67,13 +67,20 @@ class CForm extends React.Component {
             <section className="form_section">
                 <div className="form_template">
                     <div className="form_style">
-                        <img className="form_picture" src={image}/>
+                        <img className="form_picture" src={image} alt="pic"/>
                     </div>
                     <div className="form_container"> 
                         <form id="CForm" className="form">
+                        <div className="CForm_Title">
+                            <h2>Formulaire Contact</h2>
+                        </div>
+                        <div className="CForm_Content">
                             <CBuild {...this.props} event={this.handleUserInput}/>
+                        </div>
+                        <div className="CForm_Button">
                             <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
                             <NavLink to="/home"><button>Retourner au menu</button></NavLink>
+                        </div>
                         </form>
                     </div>
                 </div>
