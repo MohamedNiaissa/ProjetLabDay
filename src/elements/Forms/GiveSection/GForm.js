@@ -56,8 +56,15 @@ class GForm extends React.Component {
                         </div>
                         <div className="form_container"> 
                             <form id="GForm" className="form">
-                                <GBuild {...this.props} event={this.handleSubmit}/>
-                                <button type="submit" className="btnchercher">Chercher</button>
+                                <div className="GForm_Title">
+                                        <h2>Formulaire Donner</h2>
+                                </div>
+                                <div className="GForm_Content">
+                                    <GBuild {...this.props} event={this.handleSubmit}/>
+                                </div>
+                                <div className="GForm_Button">
+                                    <button type="submit" className="btnchercher">Chercher</button>
+                                </div>
                             </form> 
                         </div>
                     </div>

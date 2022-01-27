@@ -5,7 +5,7 @@ class TBuild extends React.Component {
         return (
             <>
                 <div id="xbanolm" className="form_checkbox">
-                    <label>L'objet est volumineux ? (Optionel)</label>
+                    <label>L'objet est-il volumineux ? (Optionel)</label>
                     <input className="input_checkbox" type="checkbox" name="checkbox" onChange={this.props.event}></input>
                 </div>
 

@@ -11,7 +11,7 @@ class GBuild extends React.Component {
                 </div>
 
                 <div id="fuusrtd" className="form_state">
-                    <select required name="state" onChange={this.props.event}>
+                    <select className="select_state" name="state" onChange={this.props.event} required>
                         <option value="" defaultValue hidden>Choisissez un état</option>
                         <option value="casse">Cassé</option>
                         <option value="mauvaisetat">Mauvaise état</option>
@@ -21,21 +21,20 @@ class GBuild extends React.Component {
                     </select>
                 </div>
 
-                <div id="ijorger" className="form_coord">
-                    <div id="postal" className='coord_zip'>
-                        <input id="zipcode" className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
-                                placeholder="Code postal :" onChange={this.props.event}>
-                        </input>
-                    </div>
-                    <div id="com" className="coord_city">
-                        <select required id="city" name="map" onChange={this.props.event}>
-                            <option value="" defaultValue hidden>Choisissez votre commune</option>
-                        </select>
-                    </div>
+                <div id="ijorger" className='form_coord_zip'>
+                    <input id="zipcode" className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
+                            placeholder="Code postal :" onChange={this.props.event}>
+                    </input>
+                </div>
+
+                <div id="zoenzc" className="form_coord_city">
+                    <select id="city" className="select_city" name="map" onChange={this.props.event} required>
+                        <option value="" defaultValue hidden>Choisissez votre commune</option>
+                    </select>
                 </div>
                 
                 <div id="opajeio" className="form_content">
-                    <textarea id="commentaireDonner" placeholder="Votre message :" maxLength={500}></textarea> 
+                    <textarea className="text_content" id="commentaireDonner" placeholder="Votre message :" maxLength={500}></textarea> 
                 </div>
             </>
         )

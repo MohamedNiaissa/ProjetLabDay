@@ -1,0 +1,21 @@
+/* .GForm_Title {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+} */
+
+.GForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column wrap;
+    width: 70%;
+    height: 55%;
+}
+
+.GForm_Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
