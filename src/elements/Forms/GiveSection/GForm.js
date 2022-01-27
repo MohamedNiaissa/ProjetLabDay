@@ -20,7 +20,14 @@ class GForm extends React.Component {
 
     handleClick(){
         this.setState({
-            displayM : <> <fieldset id="fieldset"><legend>Position :</legend> <Getposition id = "pos"/></fieldset>  { document.querySelector(".form_template").remove()  } </> ,
+            ...this.state,
+            displayM : 
+                <>
+                    <fieldset id="fieldset">
+                        <legend>Position :</legend> 
+                        <Getposition id = "pos"/>
+                    </fieldset>  { document.querySelector(".form_template").remove()  } 
+                </>,
         });
     }
 
@@ -83,7 +90,7 @@ class GForm extends React.Component {
                                     <GBuild {...this.props} event={this.handleSubmit} />
                                 </div>
                                 <div className="GForm_Button">
-                                    <button type="submit" className="btnchercher" disabled = {this.state.bouton} onClick={ () => this.handleClick()}>Chercher</button>
+                                    <button type="submit" className="btnchercher" disabled={this.state.bouton} onClick={ () => this.handleClick()}>Chercher</button>
                                 </div>
                             </form> 
                         </div>

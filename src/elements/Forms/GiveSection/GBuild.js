@@ -1,19 +1,10 @@
 import React from "react";
 
-class GBuild extends React.Component {
-
-    verifyInput(e){
-        let value = e.target.value
-        console.log(value)
-
-        // value == "lol" ? true : false
-
-    }
- 
+class GBuild extends React.Component { 
     render() {
         return (
             <>
-                <div id="zfzefff" className="form_name" onInput = { (e) => this.verifyInput(e) }>
+                <div id="zfzefff" className="form_name">
                     <input className="input_name" type="text" name="product" minLength = "2" maxLength="40" 
                         placeholder="Nom de l'objet" onChange={this.props.event}>
                     </input>
