@@ -71,9 +71,16 @@ class CForm extends React.Component {
                     </div>
                     <div className="form_container"> 
                         <form id="CForm" className="form">
+                        <div className="CForm_Title">
+                            <h2>Formulaire Contact</h2>
+                        </div>
+                        <div className="CForm_Content">
                             <CBuild {...this.props} event={this.handleUserInput}/>
+                        </div>
+                        <div className="CForm_Button">
                             <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
                             <NavLink to="/home"><button>Retourner au menu</button></NavLink>
+                        </div>
                         </form>
                     </div>
                 </div>

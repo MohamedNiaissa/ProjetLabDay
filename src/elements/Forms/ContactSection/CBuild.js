@@ -5,7 +5,7 @@ class CBuild extends React.Component {
         return (
             <>
                 <div id="zfjfkzv" className="form_topic">
-                    <select required name="topic" onChange={this.props.event}>
+                    <select className="select_topic" name="topic" onChange={this.props.event} required>
                             <option value="" defaultValue hidden>Choisissez un sujet</option>
                             <option value="Proposition d'amélioration">Proposition d'amélioration</option>
                             <option value="Raport d'un bug">Raport d'un bug</option>
