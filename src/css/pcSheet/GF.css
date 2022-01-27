@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: space-between;
     flex-flow: column wrap;
+    flex-grow: 1;
     width: 70%;
     height: 55%;
 }

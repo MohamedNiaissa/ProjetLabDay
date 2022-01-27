@@ -226,13 +226,15 @@ body {
     background-color: rgb(150, 201, 120);
     box-shadow: -8px 0 8px -3px black;
     border-radius: 0 9.5px 9.5px 0;
+    flex-grow: 1;
 }
 
 .form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-flow: column wrap;
+    flex-flow: column;
+    flex-grow: 1;
     width: 80%;
     height: 90%;
 }
@@ -262,4 +264,8 @@ body {
 
 .contact:hover{
     color: lightgray;
+}
+
+input:focus {
+    outline: none;
 }

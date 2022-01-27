@@ -22,14 +22,22 @@
 
 .form_name, .form_material, .form_coord, .form_coord_zip, 
 .form_coord_city, .form_content, .form_state, .form_email,
-.form_topic, .form_textarea {
+.form_topic {
     width: 70%;
 }
 
+.form_textarea {
+    flex-grow: 1;
+}
+
 .input_name, .select_mat, .input_zip, .select_city, 
-.select_state, .text_content, .select_topic, .input_email,
-.textarea_content {
+.select_state, .text_content, .select_topic, .input_email {
     width: 100%;
+}
+
+.text_content {
+    width: 100%;
+    resize: vertical;
 }
 
 select option {
