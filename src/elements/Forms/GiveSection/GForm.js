@@ -1,7 +1,7 @@
 import React from "react";
 import $ from 'jquery';
 import GBuild from "./GBuild";
-// import Getposition from "../../MapLoader/getPosition";
+import Getposition from "../../MapLoader/getPosition";
 import image from "../../../img/test.jpg"
 
 class GForm extends React.Component {
@@ -12,6 +12,7 @@ class GForm extends React.Component {
         super(props);
         this.state = {
             displayM : "",
+           // bouton : "disable"
         }
 
     }
@@ -23,7 +24,10 @@ class GForm extends React.Component {
         });
     }
 
- 
+    verifyButtonState(){
+    
+    }
+
     componentDidMount(){
         $(document).ready(function(){
             const apiUrl = "https://geo.api.gouv.fr/communes?codePostal=";
@@ -76,16 +80,16 @@ class GForm extends React.Component {
                                         <h2>Formulaire Donner</h2>
                                 </div>
                                 <div className="GForm_Content">
-                                    <GBuild {...this.props} event={this.handleSubmit}/>
+                                    <GBuild {...this.props} event={this.handleSubmit} />
                                 </div>
                                 <div className="GForm_Button">
-                                    <button type="submit" className="btnchercher">Chercher</button>
+                                    <button type="submit" className="btnchercher" disabled = {this.state.bouton} onClick={ () => this.handleClick()}>Chercher</button>
                                 </div>
                             </form> 
                         </div>
                     </div>
+                    {this.state.displayM}
                 </section>
-                {/* <Getposition /> */}
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script src="script.js"></script>
             </>
