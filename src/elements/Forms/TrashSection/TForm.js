@@ -32,7 +32,7 @@ class TForm extends React.Component {
         switch(fieldName) {
             case "product":
                 validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-                e.target.className = (validated.product) ? "validP" : "invalidP";
+                e.target.className = (validated.product) ? "input_name validP" : "input_name invalidP";
                 this.product.name = value;
                 break;
             case "material":
@@ -42,13 +42,13 @@ class TForm extends React.Component {
             case "checkbox":
                 this.state.cboxChecked = !this.state.cboxChecked;
                 if(this.state.cboxChecked) {
-                    loc_zip.style.display = "flex";
-                    loc_city.style.display = "flex";
+                    loc_zip.removeAttribute("disabled");
+                    loc_city.removeAttribute("disabled");
                     const index = cities.findIndex(cityData => cityData.zip === this.city.zip);
                     validated.location = (index !== -1) ? true : false;
                 }else {
-                    loc_zip.style.display = "none";
-                    loc_city.style.display = "none";
+                    loc_zip.setAttribute("disabled", true);
+                    loc_city.setAttribute("disabled", true);
                     validated.location = true;
                 }
                 break;
@@ -56,7 +56,7 @@ class TForm extends React.Component {
                 if(e.target.id !== "city") {
                     const arrayData = cities.filter(cityData => cityData.zip === value);
                     validated.location = (arrayData.length !== 0) ? true : false;
-                    e.target.className = (validated.location) ? "validL" : "invalidL";
+                    e.target.className = (validated.location) ? "input_zip validL" : "input_zip invalidL";
                     this.city.zip = value;
 
                     if(validated.location) {

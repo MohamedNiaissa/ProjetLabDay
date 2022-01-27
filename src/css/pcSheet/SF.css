@@ -54,3 +54,8 @@ select:invalid, select option[value="default"] {
     border-color: rgb(33, 130, 241);
     box-shadow: 0 0 5px rgb(33, 130, 241);
 }
+
+div[disabled] {
+    pointer-events: none;
+    opacity: 0.4; 
+}

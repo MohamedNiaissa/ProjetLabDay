@@ -30,13 +30,13 @@ class TBuild extends React.Component {
                     </select>
                 </div>
 
-                <div id="fpvzmxn" className="form_coord_zip" style={{display: "none"}}>
+                <div id="fpvzmxn" className="form_coord_zip" disabled>
                     <input className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
                             placeholder="Code postal :" onChange={this.props.event}>
                     </input>
                 </div>
 
-                <div id="ibizbef" className="form_coord_city" style={{display: "none"}}>
+                <div id="ibizbef" className="form_coord_city" disabled>
                     <select id="city" className="select_city" name="map" onChange={this.props.event} required>
                         <option value="" defaultValue hidden>Choisissez votre commune</option>
                     </select>
