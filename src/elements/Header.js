@@ -7,9 +7,9 @@ class Header extends React.Component {
             <section id="NavBar">
                 <div id="nav" style={{display:'flex'}}>
                     <img src='../NSLogoSVG.svg' alt="loogoo" class="logo" width="184px" height="56px"></img>
-					<input id="toggle" type="checkbox"></input>
+					{/* <input id="toggle" type="checkbox"></input> */}
                     <label class="burger" for="toggle">☰</label>
-                    <div class="nav">
+                    {/* <div class="nav">
                         <ul class="nav-wrapper">
                             <li>Aaaaa</li>
                             <li>Bbbbb</li>
@@ -17,7 +17,7 @@ class Header extends React.Component {
                             <li>Ddddd</li>
                             <li>Eeeee</li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </section>
         )
