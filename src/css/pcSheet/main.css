@@ -392,3 +392,25 @@ input:focus {
     background-color: #cfd8dc94;
 }
 
+.msg_cont {
+    margin-top: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    font-size: x-large;
+    background-color: rgb(184, 228, 158);
+    border-radius: 10px;
+}
+
+.ty-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ty-msg > p {
+    text-align: center;
+}

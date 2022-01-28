@@ -7,16 +7,11 @@ import L from "leaflet";
 export default function Getposition() {
 
     function LocationMarker() {
-        const a = navigator.geolocation.getCurrentPosition(function (pos) {
-            console.log(pos.coords)
-        });
         const posFromForm = useLocation().state;
         const pos = posFromForm  === null ? null : {
             lat: posFromForm.cLat,
             lng: posFromForm.cLong
         }
-
-        console.log(a)
 
         const [position, setPosition] = useState([0, 0]);
         const map = useMap();

@@ -17,16 +17,16 @@ class Header extends React.Component {
                     <Link to="/home">
                         <img src={this.imagesStatic['NSLogoSVG.svg']} alt="logo" className="app_logo" width="184px" height="56px"></img>
                     </Link>
-                    <div class="hamburger-menu">
+                    <div className="hamburger-menu">
                         <input id="menu__toggle" type="checkbox" />
-                        <label class="menu__btn" for="menu__toggle">
+                        <label className="menu__btn" htmlFor="menu__toggle">
                             <span></span>
                         </label>
 
-                        <div class="menu_img" />
-                        <ul class="menu__box">
-                        <li><Link to="/home"><a class="menu__item" href="#">Home</a></Link></li>
-                        <li><Link to="/contact"><a class="menu__item" href="#">Contact</a></Link></li>
+                        <div className="menu_img" />
+                        <ul className="menu__box">
+                        <li><Link to="/home"><span className="menu__item">Home</span></Link></li>
+                        <li><Link to="/contact"><span className="menu__item">Contact</span></Link></li>
                         </ul>
                     </div>
                 </div>

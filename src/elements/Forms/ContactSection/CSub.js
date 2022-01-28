@@ -31,12 +31,14 @@ class CSub extends React.Component {
             console.log(this.props)
             return (
                 <>
-                    <div className="ty-msg">
-                        <p>
-                            Merci de nous avoir envoyé un email.
-                            <br/>
-                            Vous allez être redirigé sur la page d'accueil dans 5 secondes.
-                        </p>
+                    <div className="msg_cont">
+                        <div className="ty-msg">
+                            <p>
+                                Merci de nous avoir envoyé un email.
+                                <br/>
+                                Vous allez être redirigé sur la page d'accueil dans 5 secondes.
+                            </p>
+                        </div>
                     </div>
                 </>
             );
