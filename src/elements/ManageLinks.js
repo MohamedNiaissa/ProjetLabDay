@@ -55,7 +55,7 @@ class ManageLinks extends React.Component {
             )
         }else if(link === "/donner/resultats") {
             return (
-                <Link to={this.props.link}><button disabled={this.props.disabled}>Chercher</button></Link>
+                <Link to={this.props.link}><button className="button button--mimas" disabled={this.props.disabled}><span>Chercher</span></button></Link>
             )
         }
     }
