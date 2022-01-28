@@ -87,6 +87,11 @@ class CForm extends React.Component {
         }).catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
     }
 
+    componentDidMount() {
+        //bad fix
+        document.getElementById('fetchBug').classList.remove('active');
+    }
+
     render() {
         return (
             <section className="form_section">
