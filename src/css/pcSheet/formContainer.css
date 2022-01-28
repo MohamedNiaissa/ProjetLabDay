@@ -69,3 +69,77 @@ div[disabled] {
     pointer-events: none;
     opacity: 0.4; 
 }
+
+.CForm_Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.CForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    flex-basis: content;
+    width: 80%;
+}
+
+.CForm_Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.text_content {
+    width: 100%;
+}
+
+.GForm_Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.GForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    flex-basis: content;
+    width: 80%;
+}
+
+.GForm_Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
+
+.TForm_Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.TForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    flex-basis: content;
+    width: 80%;
+}
+
+.TForm_Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
