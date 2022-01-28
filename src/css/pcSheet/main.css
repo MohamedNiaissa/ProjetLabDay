@@ -49,7 +49,8 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 10px;
+    background: #4dad4dbb;
+    padding: 10px 50px 20px 0;
 }
 
 .nav {
@@ -78,16 +79,17 @@ body {
 }
 
 .btn_group {
-    height: 5rem;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 90%;
-    margin-top: 10px;
+    width: 100%;
+    /* margin-top: 10px; */
 }
 
 .btn_container {
-    width: 15%;
+    width: 33.3%;
+    height: 3rem;
 }
 
 .btn {
@@ -95,15 +97,17 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 5rem;
+    height: 3rem;
     text-decoration: none !important;
-    border-radius: 3px;
+    border: 1px solid black;
+    border-left: 0;
+    /* border-radius: 3px; */
     font-size:larger;
-    color: white;
+    color: black;
 }
 
 .active {
-    background-color: white;
+    background-color: rgb(221, 221, 221);
     color: black;
 }
 
@@ -113,12 +117,12 @@ body {
 }
 
 .inactive {
-    background-color: #008f00;
+    background-color: rgb(184, 228, 158);
 }
 
 .inactive:hover{
-    background-color: #006600;
-    color: lightgray;
+    background-color: rgb(160, 185, 146);
+    color: black;
 }
 
 /* Home */
@@ -189,7 +193,6 @@ body {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    margin-top: 10px;
 }
 
 .form_section {

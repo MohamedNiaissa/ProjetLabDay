@@ -114,7 +114,6 @@ $focus-color: #2962ff;
     background: $focus-color;
     border: none;
     padding: .5rem 1.5rem;
-    // margin: 0;
     margin-top: 3vh;
     font-family: inherit;
     font-size: inherit;
@@ -187,5 +186,27 @@ $focus-color: #2962ff;
     100% {
         left: 120%;
         background-color: black;
+    }
+}
+
+.button_return {
+    display: inline-block;
+    position: relative;
+    pointer-events: auto;
+    flex-basis: content;
+    color: #fff;
+    background: black;
+    border: none;
+    padding: .5rem 1.5rem;
+    margin-top: 3vh;
+    font-family: inherit;
+    font-size: inherit;
+
+    &::before, &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 103%;
+        height: 103%;
     }
 }

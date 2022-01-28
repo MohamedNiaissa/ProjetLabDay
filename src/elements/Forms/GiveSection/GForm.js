@@ -191,7 +191,7 @@ class GForm extends React.Component {
                                     <GBuild {...this.props} event={this.handleUserInput}/>
                                 </div>
                                 <div className="GForm_Button">
-                                    <ManageLinks link={"/donner/resultats"} disabled={this.state.bouton}/>
+                                    <ManageLinks link={"/donner/resultats"} disabled={!this.state.verify.form}/>
                                 </div>
                             </form> 
                         </div>

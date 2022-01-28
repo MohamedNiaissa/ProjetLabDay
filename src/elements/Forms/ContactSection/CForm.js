@@ -27,6 +27,10 @@ class CForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
+        const link = document.querySelector(".CForm_Button").firstChild;
+        const btn = document.querySelector(".button");
+        const span = document.createElement('span');
+        const nodes = e.currentTarget.parentNode.childNodes;
         let validated = this.state.verify;
 
         switch(fieldName) {
@@ -36,11 +40,19 @@ class CForm extends React.Component {
                 break;
             case "email":
                 validated.email = value.match(/^(?=.{6,30}@)[0-9a-zA-Z]+(?:\.[0-9a-z]+)*@[a-z0-9-]{2,}(?:\.[a-z]{2,})+$/) ? true : false;
-                e.target.className = validated.email ? "validE" : "invalidE";
+
+                if(!validated.email) {
+                    nodes[1].style.color = "crimson";
+                    nodes[2].style.backgroundColor = "crimson";
+                }else {
+                    nodes[1].style.color = "#2962ff";
+                    nodes[2].style.backgroundColor = "#2962ff";
+                }
+
                 this.form.email = value;
                 break;
             case "textArea":
-                validated.textArea = (!value.match(/[^a-zA-Z0-9"'`()\s\S]/) && value.length >= 10) ? true : false;
+                validated.textArea = (/*!value.match(/[^a-zA-Z0-9"'`éèàâ()\s\S]/i) &&*/ value.length >= 10) ? true : false;
                 e.target.className = validated.textArea ? "validTA" : "invalidTA";
                 this.form.content = value;
                 break;
@@ -48,8 +60,21 @@ class CForm extends React.Component {
         }
 
         validated.validity = this.state.verify.email && this.state.verify.topic && this.state.verify.textArea;
-        this.setState(this.state.verify = validated);
         console.log(validated)
+        this.setState({
+            ...this.state.verify,
+            validity: validated.validity,
+        });
+
+        if(validated.validity) {
+            btn.classList.remove("button--mimas");
+            link.innerHTML = '';
+
+            link.appendChild(btn);
+            btn.appendChild(span);
+
+            btn.classList.add('button_anime');
+        }
       }
 
     handleSubmit() {
@@ -79,7 +104,7 @@ class CForm extends React.Component {
                         </div>
                         <div className="CForm_Button">
                             <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
-                            <NavLink to="/home"><button>Retourner au menu</button></NavLink>
+                            <NavLink to="/home"><button className="button_return button_anime"><span>Retourner au menu</span></button></NavLink>
                         </div>
                         </form>
                     </div>

@@ -20,26 +20,3 @@
     justify-content: center;
     width: 35%;
 }
-
-.SForm_Title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.SForm_Content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-flow: column;
-    flex-basis: content;
-    width: 80%;
-}
-
-.SForm_Button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35%;
-}
