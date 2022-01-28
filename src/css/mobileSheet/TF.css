@@ -1,0 +1,19 @@
+.TForm_Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.TForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    flex-basis: content;
+    width: 80%;
+}
+
+.TForm_Button {
+    width: 35%;
+}

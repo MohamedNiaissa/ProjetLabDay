@@ -105,12 +105,13 @@ select{
     outline: 0;
     width: 90%;
     border: 0;
-    padding: 10px 12px;
+    padding: 0px;
     border-radius: 3px;
     font-size: 17px;
     border: 1px solid rgba(0,0,0,0.3);
     min-width: 100px;
 }
+
 
 textarea {
     display: flex;
@@ -130,6 +131,7 @@ textarea {
 #nav{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     
     width: 100%;
     min-width:320px;
@@ -144,11 +146,11 @@ textarea {
     margin-right:auto;
 }
 
-.btn-group{
+.btn_group{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: center;
-    width: 95%;
+    width: 90%;
     margin-left:auto;
     margin-right:auto;
 }
@@ -172,7 +174,7 @@ textarea {
     color: lightgray;
 }
 
-.btn-actif {
+.active {
     border-color: black;
     background-color: white;
     min-width:60px;
@@ -186,7 +188,7 @@ textarea {
     border-radius: 3px;
     margin-top:10px;
 }
-.btn-actif:hover{
+.active:hover{
     background-color: lightgray;
 }
 
@@ -194,7 +196,7 @@ a {
     text-decoration: none;
 }
 
-.func{
+.infos_case{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -256,16 +258,16 @@ a {
     flex-flow:column;
     padding:0px;
     margin:0px;
+    background-color: white;
 }
 
-.formContainer{
+.form_container{
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin:auto;
     outline: 0;
-    max-width: 300px;
+
     width: 100%;
     border: 0;
 
@@ -299,4 +301,33 @@ legend{
 }
 .burger:hover {
     color:#006600;
+}
+
+.form_picture {
+    display:none;
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form {
+    margin-top:10px;
+    background-color: white;
+    border-radius: 5px;
+    width: 95%;
+}
+.infos_icon {
+    width:50px;
+    height:50px;
+}
+ul>li{
+    list-style-type: none;
+}
+ul{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+span{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
