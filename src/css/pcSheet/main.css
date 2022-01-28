@@ -135,7 +135,7 @@ body {
     display: flex;
     align-items: center;
     width: 50%;
-    background-color: rgb(150, 201, 120);
+    background-color: rgb(184, 228, 158);
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -188,6 +188,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
+    height: 100%;
     margin-top: 10px;
 }
 
@@ -202,9 +203,10 @@ body {
 .form_template {
     display: flex;
     flex-flow: row wrap;
-    width: 70%;
-    box-shadow: 0 0 0 1px black;
+    width: 55%;
+    height: 55vh;
     border-radius: 10px;
+    flex-basis: auto;
 }
 
 .form_style {
@@ -223,16 +225,16 @@ body {
     align-items: center;
     justify-content: center;
     width: 55%;
-    background-color: rgb(150, 201, 120);
+    background-color: rgb(184, 228, 158);
     box-shadow: -8px 0 8px -3px black;
     border-radius: 0 9.5px 9.5px 0;
-    flex-basis: auto;
+    /* flex-basis: auto; */
 }
 
 .form {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-flow: column;
     flex-basis: auto;
     width: 80%;

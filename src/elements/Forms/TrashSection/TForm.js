@@ -2,7 +2,7 @@ import React from "react";
 import TBuild from "./TBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
-import image from "../../../img/test.jpg"
+import image from "../../../img/eco.jpg"
 
 class TForm extends React.Component {
 

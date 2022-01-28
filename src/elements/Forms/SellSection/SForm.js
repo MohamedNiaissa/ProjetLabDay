@@ -2,7 +2,7 @@ import React from "react";
 import SBuild from "./SBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
-import image from "../../../img/test.jpg"
+import image from "../../../img/sell.jpg"
 
 class SForm extends React.Component {
 

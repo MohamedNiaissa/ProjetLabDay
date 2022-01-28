@@ -1,7 +1,7 @@
 import React from "react";
 import $ from 'jquery';
 import GBuild from "./GBuild";
-import image from "../../../img/test.jpg"
+import image from "../../../img/give.jpg"
 import ManageLinks from "../../ManageLinks";
 
 class GForm extends React.Component {

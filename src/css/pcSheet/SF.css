@@ -1,17 +1,18 @@
-/* .SForm_Title {
+.SForm_Title {
     display: flex;
     align-items: center;
-    justify-content: baseline;
-} */
+    justify-content: center;
+    margin-top: 10px;
+}
 
 .SForm_Content {
-    display: inline-block;
-    /* align-items: center; */
-    /* justify-content: space-between; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-flow: column;
     flex-basis: content;
-    width: 60%;
-    height: 55%;
+    width: 80%;
+    /* height: 80%; */
 }
 
 .SForm_Button {
