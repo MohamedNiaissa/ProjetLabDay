@@ -24,7 +24,7 @@ class ManageLinks extends React.Component {
                 }
             }
             return (
-                <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled}>Chercher</button></Link>
+                <Link to={url.pathname} state={url.state}><button className="button button--mimas" disabled={this.props.disabled}><span>Chercher</span></button></Link>
             )
         }else if(link === "/jeter/poubelles-ecologiques" || link === "/jeter/decharge") {
             const url = {

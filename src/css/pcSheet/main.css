@@ -226,7 +226,7 @@ body {
     background-color: rgb(150, 201, 120);
     box-shadow: -8px 0 8px -3px black;
     border-radius: 0 9.5px 9.5px 0;
-    flex-grow: 1;
+    flex-basis: auto;
 }
 
 .form {
@@ -234,7 +234,7 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-flow: column;
-    flex-grow: 1;
+    flex-basis: auto;
     width: 80%;
     height: 90%;
 }

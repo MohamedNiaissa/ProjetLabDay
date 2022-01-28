@@ -5,11 +5,12 @@
 } */
 
 .SForm_Content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-flow: column wrap;
-    width: 70%;
+    display: inline-block;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    flex-flow: column;
+    flex-basis: content;
+    width: 60%;
     height: 55%;
 }
 
@@ -20,17 +21,17 @@
     width: 35%;
 }
 
-.form_name, .form_material, .form_coord, .form_coord_zip, 
+.form_name, .form_material, .form_coord, .form_coord_zip,
 .form_coord_city, .form_content, .form_state, .form_email,
 .form_topic {
-    width: 70%;
+    width: 100%;
 }
 
 .form_textarea {
     flex-grow: 1;
 }
 
-.input_name, .select_mat, .input_zip, .select_city, 
+.input_name, .select_mat, /*.input_zip,*/ .select_city, 
 .select_state, .text_content, .select_topic, .input_email {
     width: 100%;
 }
