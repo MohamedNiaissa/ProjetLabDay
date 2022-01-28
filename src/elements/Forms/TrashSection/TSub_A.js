@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router";
 import image from '../../../img/Trash-Template.png';
 import ManageLinks from "../../ManageLinks";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function getTrash(loc) {
     const material = loc.state.pMat;
@@ -29,7 +29,7 @@ const TSub_A = () => {
                 <div className="color-trash">
                     <p id="poubelle">{T.name}</p> 
                     <img className={T.class} src={image} alt=''></img>
-                    <NavLink to="/home"><button>Retourner au menu</button></NavLink>
+                    <Link to="/home"><button>Retourner au menu</button></Link>
                 </div>
             </div>
         </fieldset>

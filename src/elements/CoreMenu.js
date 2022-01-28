@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class CoreMenu extends React.Component {
 
@@ -32,11 +32,11 @@ class CoreMenu extends React.Component {
             <section className="form_menu">
                 <div className="btn_group">
                     <div className="btn_container">
-                        <NavLink className={this.handleClickEvent("/vendre")} to={this.handleLinksPointer("/vendre")}>Vendre</NavLink></div>
+                        <Link className={this.handleClickEvent("/vendre")} to={this.handleLinksPointer("/vendre")}>Vendre</Link></div>
                     <div className="btn_container">
-                        <NavLink className={this.handleClickEvent("/donner")} to={this.handleLinksPointer("/donner")}>Donner</NavLink></div>
+                        <Link className={this.handleClickEvent("/donner")} to={this.handleLinksPointer("/donner")}>Donner</Link></div>
                     <div className="btn_container">
-                        <NavLink className={this.handleClickEvent("/jeter")} to={this.handleLinksPointer("/jeter")}>Jeter</NavLink></div>
+                        <Link className={this.handleClickEvent("/jeter")} to={this.handleLinksPointer("/jeter")}>Jeter</Link></div>
                 </div>
             </section>
         )
