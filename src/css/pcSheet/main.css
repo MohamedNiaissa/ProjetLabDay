@@ -223,6 +223,11 @@ body {
     border-radius: 9.5px 0 0 9.5px;
 }
 
+.infos_icon {
+    filter: drop-shadow(0 0 3px white);
+    /* filter: drop-shadow(3px 3px 0 white); */
+}
+
 .form_container {
     display: flex;
     align-items: center;
