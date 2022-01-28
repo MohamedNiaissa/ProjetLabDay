@@ -24,7 +24,7 @@ const functionalitiesInfo = () => {
                             </p>
                         </div>
                     </li>
-                    <hr className="solid"/>
+                    {/* <hr className="solid"/> */}
                     <li className="infos_case">
                         <div className="infos_icon_container">
                             <img className="infos_icon" src={imagesStatic['donner.svg']} alt="icon"/>
@@ -35,7 +35,7 @@ const functionalitiesInfo = () => {
                             </p>
                         </div>
                     </li>
-                    <hr className="solid"/>
+                    {/* <hr className="solid"/> */}
                     <li className="infos_case">
                         <div className="infos_icon_container">
                             <img className="infos_icon" src={imagesStatic['jeter.svg']} alt="icon"/>

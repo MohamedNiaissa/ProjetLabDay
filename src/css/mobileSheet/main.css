@@ -70,21 +70,6 @@ main {
     min-width:320px;
 }
 
-.invalidP, .invalidL, .invalidE, .invalidTA {
-    border-color: crimson;
-    box-shadow: 0 0 5px crimson;
-    transition: .3s ease-in-out;
-}
-
-.validP, .validL, .validE, .validTA {
-    transition: all .3s ease-in-out;
-}
-
-.validP:focus, .validL:focus, .validE:focus, .validTA:focus {
-    border-color: rgb(33, 130, 241);
-    box-shadow: 0 0 5px rgb(33, 130, 241);
-}
-
 input {
     display: flex;
     margin: 0;

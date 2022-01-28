@@ -212,6 +212,7 @@ $focus-color: #2962ff;
         height: 103%;
     }
 }
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////:
@@ -425,5 +426,45 @@ $focus-color: #2962ff;
             width: 103%;
             height: 103%;
         }
+
+
+.button_anime_back {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+    background: black;
+    
+
+    span {
+        position: relative;
+        mix-blend-mode: difference;
+        color: #fff;
+    }
+
+    &::before {
+        content: '';
+        background: black;
+        width: 120%;
+        left: -10%;
+        transform: skew(30deg);
+        transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
+        animation: moveback 4s forwards;
+        // animation: name duration timing-function delay iteration-count direction fill-mode;
     }
 }
+
+@keyframes moveback {
+    0% {
+        left: 120%;
+    }
+    100% {
+        left: -10%;
+        background-color: $initial-color;
+        
+    }
+}}}
