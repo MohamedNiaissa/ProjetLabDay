@@ -2,13 +2,14 @@ import React from "react";
 import SBuild from "./SBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
+import image from "../../../img/sell.jpg"
 
 class SForm extends React.Component {
 
     constructor (props) {
         super(props);
         this.state = {
-            verify: { product: null, material: false, location: true, form: null },
+            verify: { product: null, material: false, location: null, form: null },
         }
 
         this.product = { name: null, material: null }
@@ -22,13 +23,25 @@ class SForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
-        const com = document.getElementById("city")
+        const com = document.getElementById("city");
+        const link = document.querySelector(".SForm_Button").firstChild;
+        const btn = document.querySelector(".button");
+        const span = document.createElement('span');
+        const nodes = e.currentTarget.parentNode.childNodes;
         let validated = this.state.verify;
 
         switch(fieldName) {
             case "product":
                 validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-                e.target.className = (validated.product) ? "validP" : "invalidP";
+
+                if(!validated.product) {
+                    nodes[1].style.color = "crimson";
+                    nodes[2].style.backgroundColor = "crimson";
+                }else {
+                    nodes[1].style.color = "#2962ff";
+                    nodes[2].style.backgroundColor = "#2962ff";
+                }
+
                 this.product.name = value;
                 break;
             case "material":
@@ -39,7 +52,15 @@ class SForm extends React.Component {
                 if(e.target.id !== "city") {
                     const arrayData = cities.filter(cityData => cityData.zip === value);
                     validated.location = (arrayData.length !== 0) ? true : false;
-                    e.target.className = (validated.location) ? "validL" : "invalidL";
+
+                    if(!validated.location) {
+                        nodes[1].style.color = "crimson";
+                        nodes[2].style.backgroundColor = "crimson";
+                    }else {
+                        nodes[1].style.color = "#2962ff";
+                        nodes[2].style.backgroundColor = "#2962ff";
+                    }
+
                     this.city.zip = value;
 
                     if(validated.location) {
@@ -54,10 +75,9 @@ class SForm extends React.Component {
                         this.city.found = false;
                         const option = document.createElement('option');
                         com.innerHTML = '';
-                        option.innerHTML = "...";
-                        option.value = "default";
                         option.setAttribute("defaultValue","defaultValue");
-                        option.style.display = "none";
+                        option.setAttribute("hidden", "hidden");
+                        option.value = "";
                         com.appendChild(option);
                     }
                 } else {
@@ -77,42 +97,50 @@ class SForm extends React.Component {
                             
                             return null;
                         })
-                        console.log(this.city)
                     }
                 }
                 break;
             default: break;
         }
         validated.form = this.state.verify.product && this.state.verify.material && this.state.verify.location;
-        this.setState(this.state.verify = validated);
-        console.log(validated)
-    }
+        this.setState({
+            ...this.state.verify,
+            form: validated.form,
+        });
 
-    TF_settings = [
-        {   
-            id: "zeacnvv",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Nom de l'objet :" },
-            inputForm: { className: '', type: "text", name: "product" },
-        },{ 
-            id: "ttyuibz",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Quelle est la matière principale de votre objet ?" },
-            inputForm: { className: '', type: "text", name: "material" },
-        },{
-            id: "nbzajcr",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Localisation" },
-            inputForm: { className: '', type: "text", name: "map" },
-        },
-    ]
+        if(validated.form) {
+            btn.classList.remove("button--mimas");
+            link.innerHTML = '';
+
+            link.appendChild(btn);
+            btn.appendChild(span);
+
+            btn.classList.add('button_anime');
+        }
+    }
 
     render() {
         return (
-            <form id="SForm" class="flex">
-                { this.TF_settings.map((setAtt) => <SBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-                <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
-            </form>
+            <section className="form_section">
+                <div className="form_template">
+                    <div className="form_style">
+                        <img className="form_picture" src={image} alt="pic"/>
+                    </div>
+                    <div className="form_container"> 
+                        <form id="SForm" className="form">
+                            <div className="SForm_Title">
+                                <h2>Formulaire Vendre</h2>
+                            </div>
+                            <div className="SForm_Content">
+                                <SBuild {...this.props} event={this.handleUserInput}/>
+                            </div>
+                            <div className="SForm_Button">
+                                <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
         )
     } 
 }

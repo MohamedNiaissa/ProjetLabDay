@@ -1,23 +1,21 @@
 import React from "react";
 import ManageLinks from "./ManageLinks";
 
+function importAll(r) {
+    let images = {};
+    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
+    return images;
+}
+
 class Header extends React.Component {
+    imagesStatic = importAll(require.context('../img', false, /\.(png|jpe?g|svg)$/));
+
     render() {
         return (
-            <section id="NavBar">
-                <div id="nav" style={{display:'flex'}}>
-                    <img src='../NSLogoSVG.svg' alt="loogoo" class="logo" width="184px" height="56px"></img>
-					{/* <input id="toggle" type="checkbox"></input> */}
-                    <label class="burger" for="toggle">☰</label>
-                    {/* <div class="nav">
-                        <ul class="nav-wrapper">
-                            <li>Aaaaa</li>
-                            <li>Bbbbb</li>
-                            <li>Ccccc</li>
-                            <li>Ddddd</li>
-                            <li>Eeeee</li>
-                        </ul>
-                    </div> */}
+            <section className="nav_container">
+                <div id="nav" className="nav">
+                    <img src={this.imagesStatic['NSLogoSVG.svg']} alt="logo" className="app_logo" width="184px" height="56px"></img>
+                    <ManageLinks link={"/home"}/>
                 </div>
             </section>
         )

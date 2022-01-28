@@ -1,114 +1,206 @@
 import React from "react";
-import $ from 'jquery';
-import Getposition from "../../MapLoader/getPosition";
+// import $ from 'jquery';
+import GBuild from "./GBuild";
+import image from "../../../img/give.jpg"
+import ManageLinks from "../../ManageLinks";
+import cities from "../../../Cities";
 
 class GForm extends React.Component {
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("Je clique")
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         displayM : "",
+    //        // bouton : "disable"
+    //     }
+    // }
 
+    // verifyButtonState(){
     
-    componentDidMount(){
+    // }
 
-        $(document).ready(function(){
-            const apiUrl = "https://geo.api.gouv.fr/communes?codePostal=";
-            const format = '&format=json'; 
-            let zipcode = $("#zipcode"); let city = ('#city'); let errorMessage=('#error-message');
-            $(zipcode).on('blur', function(){   
-                let code = $(this).val();  
-                let url = apiUrl+code+format;
-                fetch(url, {method: 'get'}).then(response => response.json()).then(results => {    
-                    $(city).find('option').remove(); 
-                    if(results.length){  
-                        $.each(results,function(key,value){     
-                            $(errorMessage).text('').hide();
-                            console.log(value.nom)   
-                            $(city).append('<option value ="' +value.nom+ '">' +value.nom + ' </option>')
-                        })
-                    }else{
-                        if($(zipcode).val()){
-                            console.log("Erreur dans la saisie de votre code postal");
-                            $(errorMessage).text('Aucune commune avec ce code postal').show();  
-                        }else{
-                            $(errorMessage).text('').hide(); 
-                        }
-                    }
+    // componentDidMount(){
+    //     $(document).ready(function(){
+    //         const apiUrl = "https://geo.api.gouv.fr/communes?codePostal=";
+    //         const format = '&format=json'; 
+    //         let zipcode = $("#zipcode"); let city = ('#city'); let errorMessage=('#error-message');
+    //         $(zipcode).on('blur', function(){   
+    //             let code = $(this).val();  
+    //             let url = apiUrl+code+format;
+    //             fetch(url, {method: 'get'}).then(response => response.json()).then(results => {    
+    //                 $(city).find('option').remove(); 
+    //                 if(results.length){  
+    //                     $.each(results,function(key,value){     
+    //                         $(errorMessage).text('').hide();
+    //                         console.log(value.nom)   
+    //                         $(city).append('<option value ="' +value.nom+ '">' +value.nom + ' </option>')
+    //                     })
+    //                 }else{
+    //                     if($(zipcode).val()){
+    //                         console.log("Erreur dans la saisie de votre code postal");
+    //                         $(errorMessage).text('Aucune commune avec ce code postal').show();  
+    //                     }else{
+    //                         $(errorMessage).text('').hide(); 
+    //                     }
+    //                 }
         
-                }).catch(err => {  
-                    console.log(err);
-                    $(city).find('option').remove(); 
+    //             }).catch(err => {  
+    //                 console.log(err);
+    //                 $(city).find('option').remove(); 
         
-                })
+    //             })
         
-            });
+    //         });
         
-        })
-        
+    //     })
+    // }
+
+    constructor (props) {
+        super(props);
+        this.state = {
+            verify: { product: null, material: false, location: null, form: null },
+        }
+
+        this.product = { name: null, material: null }
+        this.city    = { name: null, zip: null, department: null, lat: null, long: null, found: false }
+        this.description = null;
+      }
+
+    handleUserInput = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.validateField(name, value, e);
     }
-    render() {
 
-        return (
-            
-            <>
-            <div className="divgiveform" class="flex">
-                <form id="GiveForm" className="giveform" onSubmit={(e) => this.handleSubmit(e)} class="flex">
-                    <div className="nomObjet" class="flex">
-                        <label>Nom de l'objet</label>
-                        <input type= "text" minLength = "2" maxLength="40" required autoFocus></input>
-                    </div>
-                    
-                    <div class="flex">
-                        <label htmlFor="pays">Dans quel état est votre objet ?</label>
-                        <select name="etat" id="etat" defaultValue={'DEFAULT'} required>
-                            <option value="DEFAULT" disabled >Choisissez un état</option>
-                            <option value="casse">Cassé</option>
-                            <option value="mauvaisetat">Mauvaise état</option>
-                            <option value="moyen">Moyen</option>
-                            <option value="bon" >Bon état</option> 
-                            <option value="tresbon">Très bon état</option>
-                        </select>
-                    </div>
+    validateField(fieldName, value, e) {
+        const com = document.getElementById("city");
+        const link = document.querySelector(".GForm_Button").firstChild;
+        const btn = document.querySelector(".button");
+        const span = document.createElement('span');
+        const nodes = e.currentTarget.parentNode.childNodes;
+        let validated = this.state.verify;
 
+        switch(fieldName) {
+            case "product":
+                validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
 
-                    <fieldset id="fieldset" class="flex">
-                        <legend className="Localisation">Localisation</legend>
-                    
-                        <div className="codepostal" class="flex">
-                            <label htmlFor="codepost">Code postal</label>
-                            <input type="text" placeholder="code postal" required className="inputcodepostal" id = "zipcode" />
-                            <div id = "error-message"></div>
-                        </div>
+                if(!validated.product) {
+                    nodes[1].style.color = "crimson";
+                    nodes[2].style.backgroundColor = "crimson";
+                }else {
+                    nodes[1].style.color = "#2962ff";
+                    nodes[2].style.backgroundColor = "#2962ff";
+                }
+
+                this.product.name = value;
+                break;
+            case "state":
+                validated.material = (value !== "default") ? true : false;
+                this.product.material = value;
+                break;
+            case "map":
+                if(e.target.id !== "city") {
+                    const arrayData = cities.filter(cityData => cityData.zip === value);
+                    validated.location = (arrayData.length !== 0) ? true : false;
+
+                    if(!validated.location) {
+                        nodes[1].style.color = "crimson";
+                        nodes[2].style.backgroundColor = "crimson";
+                    }else {
+                        nodes[1].style.color = "#2962ff";
+                        nodes[2].style.backgroundColor = "#2962ff";
+                    }
+
+                    this.city.zip = value;
+
+                    if(validated.location) {
+                        validated.location = false;
+                        this.city.found = true;
+                        arrayData.forEach(cityData => {
+                            const option = document.createElement('option');
+                            option.innerHTML = cityData.name + ", " + cityData.department;
+                            com.appendChild(option)
+                        })
+                    }else {
+                        this.city.found = false;
+                        const option = document.createElement('option');
+                        com.innerHTML = '';
+                        option.setAttribute("defaultValue","defaultValue");
+                        option.setAttribute("hidden", "hidden");
+                        option.value = "";
+                        com.appendChild(option);
+                    }
+                } else {
+                    validated.location = (value !== "default" && this.city.found) ? true : false;
+
+                    if(validated.location) {
+                        const name_dep = value.split(", ");
+                        const self = this;
+                        self.city.name = name_dep[0];
+                        self.city.department = name_dep[1];
                         
+                        cities.find(function(city) {
+                            if((city.name === self.city.name) && (city.zip === self.city.zip) && (city.department === self.city.department)) {
+                                self.city.lat = city.lat;
+                                self.city.long = city.long;
+                            }
+                            
+                            return null;
+                        })
+                    }
+                }
+                break;
+            case "textArea": {
+                this.description = e.target.value;
+                break;
+            }
+            default: break;
+        }
+        validated.form = this.state.verify.product && this.state.verify.material && this.state.verify.location;
+        this.setState({
+            ...this.state.verify,
+            form: validated.form,
+        });
 
-                        <div className="commune" class="flex">
-                            <label htmlFor="dep">Commune</label>
-                            <select name="city" id="city" className="form-control">
-                            </select>
+        if(validated.form) {
+            btn.classList.remove("button--mimas");
+            link.innerHTML = '';
+
+            link.appendChild(btn);
+            btn.appendChild(span);
+
+            btn.classList.add('button_anime');
+        }
+    }
+
+
+    render() {
+        return (
+            <>
+                <section className="form_section">
+                    <div className="form_template">
+                        <div className="form_style">
+                            <img className="form_picture" src={image} alt="pic"/>
                         </div>
-
-
-                    </fieldset>
-                    
-                    <div className="commentaire" class="flex">
-                        <label >Commentaires</label>
-                        <textarea id="commentaireDonner" maxLength={500}></textarea> 
-                    </div>  
-                        <button type="submit" className="btnchercher">Chercher</button>
-                </form> 
-
-
-
-                
-
-            </div> 
-            <Getposition />
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="script.js"></script>
-
-            
-        </>
+                        <div className="form_container"> 
+                            <form id="GForm" className="form">
+                                <div className="GForm_Title">
+                                        <h2>Formulaire Donner</h2>
+                                </div>
+                                <div className="GForm_Content">
+                                    <GBuild {...this.props} event={this.handleUserInput}/>
+                                </div>
+                                <div className="GForm_Button">
+                                    <ManageLinks link={"/donner/resultats"} disabled={!this.state.verify.form}/>
+                                </div>
+                            </form> 
+                        </div>
+                    </div>
+                    {this.state.displayM}
+                </section>
+                {/* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="script.js"></script> */}
+            </>
         )
     } 
 }

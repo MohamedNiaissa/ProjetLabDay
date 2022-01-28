@@ -1,0 +1,71 @@
+.SForm_Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.SForm_Content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    flex-basis: content;
+    width: 80%;
+    /* height: 80%; */
+}
+
+.SForm_Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
+
+.form_name, .form_material, .form_coord, .form_coord_zip,
+.form_coord_city, .form_content, .form_state, .form_email,
+.form_topic {
+    width: 100%;
+}
+
+.form_textarea {
+    flex-grow: 1;
+}
+
+.input_name, .select_mat, /*.input_zip,*/ .select_city, 
+.select_state, .text_content, .select_topic, .input_email {
+    width: 100%;
+}
+
+.text_content {
+    width: 100%;
+    resize: vertical;
+}
+
+select option {
+    color: black;
+}
+
+select:invalid, select option[value="default"] {
+    color: #999999;
+}
+
+.invalidP, .invalidL, .invalidE, .invalidTA {
+    border-color: crimson;
+    box-shadow: 0 0 5px crimson;
+    transition: .3s ease-in-out;
+}
+
+.validP, .validL, .validE, .validTA {
+    transition: all .3s ease-in-out;
+}
+
+.validP:focus, .validL:focus, .validE:focus, .validTA:focus {
+    border-color: rgb(33, 130, 241);
+    box-shadow: 0 0 5px rgb(33, 130, 241);
+}
+
+div[disabled] {
+    pointer-events: none;
+    opacity: 0.4; 
+}

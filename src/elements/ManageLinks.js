@@ -8,7 +8,7 @@ class ManageLinks extends React.Component {
 
         if(link === "/home") {
             return (
-                <Link to={this.props.link}><div>Retourner au menu</div></Link>
+                <Link to={this.props.link}><div className="burger">☰</div></Link>
             )
         }else if(link === "/vendre/resultats") {
             console.log("hello there")
@@ -24,7 +24,7 @@ class ManageLinks extends React.Component {
                 }
             }
             return (
-                <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled}>Chercher</button></Link>
+                <Link to={url.pathname} state={url.state}><button className="button button--mimas" disabled={this.props.disabled}><span>Chercher</span></button></Link>
             )
         }else if(link === "/jeter/poubelles-ecologiques" || link === "/jeter/decharge") {
             const url = {
@@ -39,7 +39,7 @@ class ManageLinks extends React.Component {
                 }
             }
             return (
-                <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled}>Chercher</button></Link>
+                <Link to={url.pathname} state={url.state}><button className="button button--mimas" disabled={this.props.disabled}><span>Chercher</span></button></Link>
             )
         }else if(link === "/contact/redirect") {
             const url = {
@@ -51,7 +51,11 @@ class ManageLinks extends React.Component {
                 }
             }
             return (
-                <Link to={url.pathname} state={url.state}><button disabled={this.props.disabled}>Envoyer</button></Link>
+                <Link to={url.pathname} state={url.state}><button className="button button--mimas" disabled={this.props.disabled} onClick={this.props.event}><span>Envoyer</span></button></Link>
+            )
+        }else if(link === "/donner/resultats") {
+            return (
+                <Link to={this.props.link}><button className="button button--mimas" disabled={this.props.disabled}><span>Chercher</span></button></Link>
             )
         }
     }

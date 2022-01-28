@@ -1,2 +1,5 @@
-@import "./generalMobile.css";
-@import "./mapstyle.css";
+@import "./normalize.css" screen and (min-width: 426px);
+@import "./mapstyle.css" screen and (min-width: 426px);
+@import "./pcStyle.css" screen and (min-width: 426px);
+
+@import "./generalMobile.css" screen and (max-width: 425px);

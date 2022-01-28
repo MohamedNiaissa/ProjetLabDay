@@ -1,58 +1,70 @@
 import React from "react";
 
 class TBuild extends React.Component {
-
-    switchFormBlock() {
-        if(this.props.setAtt.inputForm.name === "material") {
-            return (
-            <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
-                <label>{this.props.setAtt.labelForm.text}</label>
-                <select name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
-                    <option value="default" style={{display: "none"}} defaultValue>Choisissez un matériau</option>
-                    <option value="bois">Bois</option>
-                    <option value="metal">Métal</option>
-                    <option value="ceramique">Céramique</option>
-                    <option value="verre">Verre</option>
-                    <option value="plastique">Plastique</option>
-                    <option value="textile">Textiles</option>
-                    <option value="cuir">Cuir</option>
-                    <option value="papier_carton">Papier ou Carton</option> 
-                    <option value="caoutchouc">Caoutchouc</option>
-                </select>
-            </div>
-            )
-        }else if(this.props.setAtt.inputForm.name === "map") {
-            return (
-            <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
-                <fieldset id="fieldset" class="flex">
-                    <legend className="Localisation">{this.props.setAtt.labelForm.text}</legend>
-                    <div id="postal" className='postalCode'>
-                        <label>Code postal :</label>
-                        <input className={this.props.setAtt.inputForm.className} type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name}
-                            minLength = "1" maxLength="5" onChange={this.props.event}></input>
-                    </div>
-                    <div id="com" className="commune">
-                        <label>Commune :</label>
-                        <select id="city" type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name} onChange={this.props.event}>
-                            <option value="default" style={{display: "none"}} defaultValue>...</option>
-                        </select>
-                    </div>
-                </fieldset>
-            </div>
-            )
-        }else {
-            return (
-            <div id={this.props.setAtt.id} className={this.props.setAtt.divForm.className} style={{display: this.props.setAtt.divForm.display}}>
-                <label>{this.props.setAtt.labelForm.text}</label>
-                <input className={this.props.setAtt.inputForm.className} type={this.props.setAtt.inputForm.type} name={this.props.setAtt.inputForm.name}
-                    minLength = "2" maxLength="40" onChange={this.props.event}></input>
-            </div>
-            )
-        }
-    }
-
     render() {
-        return (this.switchFormBlock())
+        return (
+            <>
+                <div id="xbanolm" className="form_checkbox">
+                    <label>L'objet est-il volumineux ? (Optionel)</label>
+                    <input className="input_checkbox" type="checkbox" name="checkbox" onChange={this.props.event}></input>
+                </div>
+
+                <div id="ezpfdbe" className="form_name">
+                    <dl className="inputbox">
+                        <dd className="inputbox-content">
+                            <input className="input_name" type="text" name="product" minLength = "1" maxLength="40" 
+                                   onChange={this.props.event} required/>
+                            <label className="name_label" htmlFor="input_name">Nom de l'objet :</label>
+                            <span className="underline"></span>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div id="nfozxfm" className="form_material">
+                <dl className="inputbox">
+                        <dd className="inputbox-content">
+                            <select className="select_mat" name="material" onChange={this.props.event} required>
+                                <option value="" defaultValue hidden/>
+                                <option value="bois">Bois</option>
+                                <option value="metal">Métal</option>
+                                <option value="ceramique">Céramique</option>
+                                <option value="verre">Verre</option>
+                                <option value="plastique">Plastique</option>
+                                <option value="textile">Textiles</option>
+                                <option value="cuir">Cuir</option>
+                                <option value="papier_carton">Papier ou Carton</option> 
+                                <option value="caoutchouc">Caoutchouc</option>
+                            </select>
+                            <label className="select1_label" htmlFor="select_mat">Matériel de l'objet :</label>
+                            <span className="underline"></span>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div id="fpvzmxn" className="form_coord_zip" disabled>
+                    <dl className="inputbox">
+                        <dd className="inputbox-content">
+                            <input className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
+                                    onChange={this.props.event} required/>
+                            <label className="zip_label" htmlFor="input_zip">Code Postal :</label>
+                            <span className="underline"></span>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div id="ibizbef" className="form_coord_city" disabled>
+                <dl className="inputbox">
+                        <dd className="inputbox-content">
+                            <select id="city" className="select_city" name="map" onChange={this.props.event} required>
+                                <option value="" defaultValue hidden/>
+                            </select>
+                            <label className="select2_label" htmlFor="select_city">Ville :</label>
+                            <span className="underline"></span>
+                        </dd>
+                    </dl>
+                </div>
+            </>
+        )
     }
 }
 

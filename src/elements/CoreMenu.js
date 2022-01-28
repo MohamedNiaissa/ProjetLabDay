@@ -3,60 +3,44 @@ import { NavLink } from "react-router-dom";
 
 class CoreMenu extends React.Component {
 
-    checkCurrentPage(){
-        if(window.location.pathname === "/Contact"){
-            return "contact"
-        }else if(window.location.pathname === "/Donner"){
-            return "donner"
-        }else if(window.location.pathname === "/Jeter"){
-            return "jeter"
-        }else if(window.location.pathname === "/Vendre"){
-            return "vendre"
-        }else{
-            return "menu"
+    constructor (props) {
+        super(props);
+        this.state = { linkToHome: false }
+        this.handleClickEvent = this.handleClickEvent.bind(this)
+        this.handleLinksPointer = this.handleLinksPointer.bind(this)
+    }
+
+    handleClickEvent(page) {
+        const btnState = (page === window.location.pathname) ? "btn active" : "btn inactive";
+        if(btnState !== "btn inactive" && !this.state.linkToHome) {
+            this.state.linkToHome = true;
         }
+
+        return btnState;
+    }
+
+    handleLinksPointer(path) {
+        const btnPath = this.state.linkToHome ? "/home" : path
+        if(btnPath !== path && this.state.linkToHome) {
+            this.state.linkToHome = false;
+        }
+        return btnPath;
     }
 
     render() {
-        if(this.checkCurrentPage() === "menu" || this.checkCurrentPage() === "contact"){
         return (
-        <div className="btn-group">
-            <NavLink to="/Vendre" className=""><div class="btn">Vendre</div></NavLink>
-            <NavLink to="/Donner" className=""><div class="btn">Donner</div></NavLink>
-            <NavLink to="/Jeter" className=""><div class="btn">Jeter</div></NavLink>
-        </div>
-            )
-        }
-        if(this.checkCurrentPage() === "vendre"){
-            return (
-            <div className="btn-group">
-                <NavLink to="/home" className=""><div class="btn-actif">Vendre</div></NavLink>
-                <NavLink to="/Donner" className=""><div class="btn">Donner</div></NavLink>
-                <NavLink to="/Jeter" className=""><div class="btn">Jeter</div></NavLink>
-            </div>
-            )
-        }
-        if(this.checkCurrentPage() === "donner"){
-            return (
-            <div className="btn-group">
-                <NavLink to="/Vendre" className=""><div class="btn">Vendre</div></NavLink>
-                <NavLink to="/home" className=""><div class="btn-actif">Donner</div></NavLink>
-                <NavLink to="/Jeter" className=""><div class="btn">Jeter</div></NavLink>
-            </div>
-            )
-        }
-        if(this.checkCurrentPage() === "jeter"){
-            return (
-            <div className="btn-group">
-                <NavLink to="/Vendre" className=""><div class="btn">Vendre</div></NavLink>
-                <NavLink to="/Donner" className=""><div class="btn">Donner</div></NavLink>
-                <NavLink to="/home" className=""><div class="btn-actif">Jeter</div></NavLink>
-            </div>
-            )
-        }
+            <section className="form_menu">
+                <div className="btn_group">
+                    <div className="btn_container">
+                        <NavLink className={this.handleClickEvent("/vendre")} to={this.handleLinksPointer("/vendre")}>Vendre</NavLink></div>
+                    <div className="btn_container">
+                        <NavLink className={this.handleClickEvent("/donner")} to={this.handleLinksPointer("/donner")}>Donner</NavLink></div>
+                    <div className="btn_container">
+                        <NavLink className={this.handleClickEvent("/jeter")} to={this.handleLinksPointer("/jeter")}>Jeter</NavLink></div>
+                </div>
+            </section>
+        )
     }
 }
 
 export default CoreMenu;
-
-{/* <NavLink to="/Contact" className="" class="btn">Contact</NavLink> */}

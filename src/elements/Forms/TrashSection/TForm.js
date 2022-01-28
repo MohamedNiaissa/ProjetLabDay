@@ -2,6 +2,7 @@ import React from "react";
 import TBuild from "./TBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
+import image from "../../../img/eco.jpg"
 
 class TForm extends React.Component {
 
@@ -23,14 +24,27 @@ class TForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
-        const loc = document.getElementById("fpvzmxn");
+        const loc_zip = document.getElementById("fpvzmxn");
+        const loc_city = document.getElementById("ibizbef");
+        const link = document.querySelector(".TForm_Button").firstChild;
+        const btn = document.querySelector(".button");
+        const span = document.createElement('span');
         const com = document.getElementById("city")
+        const nodes = e.currentTarget.parentNode.childNodes;
         let validated = this.state.verify;
 
         switch(fieldName) {
             case "product":
                 validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-                e.target.className = (validated.product) ? "validP" : "invalidP";
+                
+                if(!validated.product) {
+                    nodes[1].style.color = "crimson";
+                    nodes[2].style.backgroundColor = "crimson";
+                }else {
+                    nodes[1].style.color = "#2962ff";
+                    nodes[2].style.backgroundColor = "#2962ff";
+                }
+
                 this.product.name = value;
                 break;
             case "material":
@@ -40,11 +54,13 @@ class TForm extends React.Component {
             case "checkbox":
                 this.state.cboxChecked = !this.state.cboxChecked;
                 if(this.state.cboxChecked) {
-                    loc.style.display = "flex";
+                    loc_zip.removeAttribute("disabled");
+                    loc_city.removeAttribute("disabled");
                     const index = cities.findIndex(cityData => cityData.zip === this.city.zip);
                     validated.location = (index !== -1) ? true : false;
                 }else {
-                    loc.style.display = "none";
+                    loc_zip.setAttribute("disabled", true);
+                    loc_city.setAttribute("disabled", true);
                     validated.location = true;
                 }
                 break;
@@ -52,7 +68,15 @@ class TForm extends React.Component {
                 if(e.target.id !== "city") {
                     const arrayData = cities.filter(cityData => cityData.zip === value);
                     validated.location = (arrayData.length !== 0) ? true : false;
-                    e.target.className = (validated.location) ? "validL" : "invalidL";
+                    
+                    if(!validated.location) {
+                        nodes[1].style.color = "crimson";
+                        nodes[2].style.backgroundColor = "crimson";
+                    }else {
+                        nodes[1].style.color = "#2962ff";
+                        nodes[2].style.backgroundColor = "#2962ff";
+                    }
+
                     this.city.zip = value;
 
                     if(validated.location) {
@@ -67,10 +91,10 @@ class TForm extends React.Component {
                         this.city.found = false;
                         const option = document.createElement('option');
                         com.innerHTML = '';
-                        option.innerHTML = "...";
-                        option.value = "default";
+                        option.innerHTML = "Choisissez votre commune";
                         option.setAttribute("defaultValue","defaultValue");
-                        option.style.display = "none";
+                        option.setAttribute("hidden", "hidden");
+                        option.value = "";
                         com.appendChild(option);
                     }
                 } else {
@@ -97,33 +121,21 @@ class TForm extends React.Component {
         }
 
         validated.form = this.state.verify.product && this.state.verify.material && this.state.verify.location;
-        this.setState(this.state.verify = validated);
-        console.log(validated)
-      }
+        this.setState({
+            ...this.state.verify,
+            form: validated.form,
+        });
 
-    TF_settings = [
-        {   
-            id: "ezpfdbe",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Nom de l'objet :" },
-            inputForm: { className: '', type: "text", name: "product" },
-        },{ 
-            id: "nfozxfm",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Quelle est la matière principale de votre objet ?" },
-            inputForm: { className: '', type: "text", name: "material" },
-        },{
-            id: "xbanolm",
-            divForm:   { className: "FormGroup", display: "flex" },
-            labelForm: { text: "Veuillez cocher cette case si l'objet est volumineux :" },
-            inputForm: { type: "checkbox", name: "checkbox" },
-        },{
-            id: "fpvzmxn",
-            divForm:   { className: "FormGroup", display: "none" },
-            labelForm: { text: "Localisation" },
-            inputForm: { className: '', type: "text", name: "map" },
+        if(validated.form) {
+            btn.classList.remove("button--mimas");
+            link.innerHTML = '';
+
+            link.appendChild(btn);
+            btn.appendChild(span);
+
+            btn.classList.add('button_anime');
         }
-    ]
+      }
     
     handleResearch = () => {
         if(this.state.cboxChecked) {
@@ -135,10 +147,26 @@ class TForm extends React.Component {
 
     render() {
         return (
-            <form id="TForm" class="flex">
-                { this.TF_settings.map((setAtt) => <TBuild {...this.props} setAtt={setAtt} key={setAtt.id} event={this.handleUserInput}/>) }
-                <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
-            </form>
+            <section className="form_section">
+                <div className="form_template">
+                    <div className="form_style">
+                        <img className="form_picture" src={image} alt="pic"/>
+                    </div>
+                    <div className="form_container"> 
+                        <form id="TForm" className="form">
+                            <div className="TForm_Title">
+                                    <h2>Formulaire Jeter</h2>
+                            </div>
+                            <div className="TForm_Content">
+                                <TBuild {...this.props} event={this.handleUserInput}/>
+                            </div>
+                            <div className="TForm_Button">
+                                <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
         )
     } 
 }
