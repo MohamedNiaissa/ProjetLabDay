@@ -50,7 +50,7 @@ body {
     justify-content: center;
     width: 100%;
     background: #4dad4dbb;
-    padding: 10px 50px 20px 0;
+    padding: 10px 0 20px 0;
 }
 
 .nav {
@@ -286,3 +286,109 @@ body {
 input:focus {
     outline: none;
 }
+
+
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 10%;
+    height: 3.5rem;
+    margin-left: 30px;
+}
+
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked + .menu__btn > span {
+    transform: scaleX(0.9);
+}
+
+#menu__toggle:checked + .menu__btn > span::before {
+    transform: rotateZ(45deg) scaleX(0.6) translate(20px, -10px);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+    transform: rotateZ(-45deg) scaleX(0.6) translate(20px, 10px);
+}
+#menu__toggle:checked ~ .menu__box, #menu__toggle:checked ~ .menu_img {
+    right: 0 !important;
+}
+
+/* Design */ 
+.menu__btn {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 2.5rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: #008f00;
+    transition-duration: .4s;
+}
+
+.menu__btn > span::before {
+    content: '';
+    top: -10px;
+}
+
+.menu__btn > span::after {
+    content: '';
+    top: 4px;
+}
+
+/*///////*/
+
+.menu_img {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 20%;
+    height: 100%;
+    padding: 80px 0;
+    list-style: none;
+    opacity: 0.9;
+    background: rgb(218, 230, 218);
+    filter: blur(4px);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 20%;
+    height: 100%;
+    padding: 80px 0;
+    list-style: none;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+
+.menu__item:hover {
+    background-color: #cfd8dc94;
+}
+
