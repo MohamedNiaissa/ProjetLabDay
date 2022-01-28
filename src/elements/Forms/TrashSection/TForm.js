@@ -10,7 +10,8 @@ class TForm extends React.Component {
         super(props);
         this.state = {
             cboxChecked: false,
-            verify: { product: null, material: false, location: true, form: null },
+            verify: { product: null, material: false, location: true, form: null, test: false },
+            btnTriggered: false,
         }
 
         this.product = { name: null, material: null }
@@ -63,6 +64,19 @@ class TForm extends React.Component {
                     loc_city.setAttribute("disabled", true);
                     validated.location = true;
                 }
+
+                if(validated.form && this.state.btnTriggered) {
+                    console.log("Bullshit")
+                    btn.classList.remove('button_anime');
+                    link.innerHTML = '';
+
+                    link.appendChild(btn);
+                    btn.appendChild(span);
+
+                    btn.classList.add('button_anime_back');
+                    this.state.btnTriggered = false;
+                }
+
                 break;
             case "map":
                 if(e.target.id !== "city") {
@@ -124,16 +138,32 @@ class TForm extends React.Component {
         this.setState({
             ...this.state.verify,
             form: validated.form,
+
         });
+        
+        if(validated.form && !this.state.btnTriggered) {
+            if(this.city.name === null) {
+                btn.classList.remove("button_anime_back");
+                btn.classList.remove("button--mimas");
+                link.innerHTML = '';
 
-        if(validated.form) {
-            btn.classList.remove("button--mimas");
-            link.innerHTML = '';
+                link.appendChild(btn);
+                btn.appendChild(span);
 
-            link.appendChild(btn);
-            btn.appendChild(span);
+                btn.classList.add('button_anime');
+                this.state.btnTriggered = true;
+            }else if(this.city.name !== null && !this.state.verify.test) {
+                btn.classList.remove("button_anime_back");
+                btn.classList.remove("button--mimas");
+                link.innerHTML = '';
 
-            btn.classList.add('button_anime');
+                link.appendChild(btn);
+                btn.appendChild(span);
+
+                btn.classList.add('button_anime');
+                this.state.verify.test = true;
+                this.state.btnTriggered = false;
+            }
         }
       }
     

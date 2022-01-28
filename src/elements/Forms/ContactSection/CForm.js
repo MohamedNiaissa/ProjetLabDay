@@ -2,7 +2,7 @@ import React from "react";
 import CBuild from "./CBuild";
 import ManageLinks from "../../ManageLinks";
 import emailjs from 'emailjs-com';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import image from "../../../img/test.jpg"
 
 class CForm extends React.Component {
@@ -87,6 +87,11 @@ class CForm extends React.Component {
         }).catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
     }
 
+    componentDidMount() {
+        //bad fix
+        document.getElementById('fetchBug').classList.remove('active');
+    }
+
     render() {
         return (
             <section className="form_section">
@@ -104,7 +109,7 @@ class CForm extends React.Component {
                         </div>
                         <div className="CForm_Button">
                             <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
-                            <NavLink to="/home"><button className="button_return button_anime"><span>Retourner au menu</span></button></NavLink>
+                            <Link to="/home"><button className="button_return button_anime"><span>Retourner au menu</span></button></Link>
                         </div>
                         </form>
                     </div>
