@@ -20,29 +20,29 @@ const functionalitiesInfo = () => {
                         </div>
                         <div className="infos_text_container">
                             <p>
-                                Here's the text explaining the Sell functionality.
+                                Entrez en contact facilement avec les acheteurs potentiels de votre région, et vendez votre objet en quelques clics.
                             </p>
                         </div>
                     </li>
-                    <hr className="solid"/>
+                    {/* <hr className="solid"/> */}
                     <li className="infos_case">
                         <div className="infos_icon_container">
                             <img className="infos_icon" src={imagesStatic['donner.svg']} alt="icon"/>
                         </div>
                         <div className="infos_text_container">
                             <p>
-                                Here's the text explaining the Give functionality.
+                                Découvrez les associations et particuliers qui reprendront vos objets et leur redonneront vie.
                             </p>
                         </div>
                     </li>
-                    <hr className="solid"/>
+                    {/* <hr className="solid"/> */}
                     <li className="infos_case">
                         <div className="infos_icon_container">
                             <img className="infos_icon" src={imagesStatic['jeter.svg']} alt="icon"/>
                         </div>
                         <div className="infos_text_container">
                             <p>
-                                Here's the text explaining the Throw functionality.
+                                Apprenez à trier vos déchets et encombrants dans les poubelles écologiques et déchetteries locales.
                             </p>
                         </div>
                     </li>

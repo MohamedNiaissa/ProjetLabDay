@@ -139,9 +139,7 @@ body {
     display: flex;
     align-items: center;
     width: 50%;
-    background-color: rgb(184, 228, 158);
-    border-radius: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .form_infos > ul {
@@ -160,6 +158,15 @@ body {
     justify-content: space-around;
     width: 100%;
     margin: 10px 0px 10px 0px;
+    background-color: rgb(184, 228, 158);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.137);
+    transition: transform .3s;
+}
+
+.infos_case:hover {
+    transform: scale(1.02);
 }
 
 .infos_icon_container {
