@@ -1,0 +1,166 @@
+$initial-color: rgb(112, 112, 112);
+$focus-color: #2962ff;
+
+.inputbox {
+    padding-top: 20px;
+    &-content {
+        position: relative;
+
+        input {
+            width: 100%;
+            height: 30px;
+            box-sizing: border-box;
+            border: none;
+            background: none;
+            border-bottom: 1px solid $initial-color;
+            -webkit-appearance: none;
+
+            &:focus, &:valid {
+                &~label {
+                    color: $focus-color;
+                    transform: translateY(-20px);
+                    font-size:0.825em;
+                }
+            }
+
+            &:not(:focus) {
+                &~label {
+                    color: $initial-color;
+                }
+            }
+
+            &:focus {
+                &~.underline {
+                    width: 100%;
+                }
+            }
+        }
+
+        select {
+            width: 100%;
+            height: 30px;
+            box-sizing: border-box;
+            border: none;
+            background: none;
+            border-bottom: 1px solid $initial-color;
+            -webkit-appearance: none;
+
+            &:focus, &:valid {
+                &~label {
+                    color: $focus-color;
+                    transform: translateY(-20px);
+                    font-size:0.825em;
+                }
+            }
+
+            &:focus {
+                &~.underline {
+                    width: 100%;
+                }
+            }
+        }
+
+        label {
+            position: absolute;
+            margin-top: 5px;
+            left:0;
+            color: $initial-color;
+            transition: all 250ms ease-out;
+            z-index: 10;
+        }
+
+        .underline {
+            position: absolute;
+            bottom: 0;
+            left:0;
+            width: 0;
+            height: 2px;
+            background: $focus-color;
+            transition: all 225ms ease-out;
+        }
+    }
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    pointer-events: auto;
+    flex-basis: content;
+    color: #fff;
+    background: $focus-color;
+    border: none;
+    padding: .5rem 1.5rem;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+
+    &::before, &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 103%;
+        height: 103%;
+    }
+}
+
+.button--mimas {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    color: #fff;
+    background: $initial-color;
+
+    span {
+        position: relative;
+        mix-blend-mode: difference;
+        color:#fff;
+    }
+}
+
+.button_anime {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+    background: black;
+    
+
+    span {
+        position: relative;
+        mix-blend-mode: difference;
+        color: #fff;
+    }
+
+    &::before {
+        content: '';
+        background: $initial-color;
+        width: 120%;
+        left: -10%;
+        transform: skew(30deg);
+        transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
+        animation: move 4s forwards;
+        // animation: name duration timing-function delay iteration-count direction fill-mode;
+    }
+
+    &:hover {
+        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.432);
+        transition: .4s ease-in-out;
+    }
+}
+
+@keyframes move {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 120%;
+        background-color: black;
+    }
+}
