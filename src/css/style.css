@@ -1,4 +1,4 @@
 @import "./normalize.css";
-@import "./general.css" screen and (max-width: 768px);
+@import "./general.css" screen and (max-width: 425px);
 @import "./mapstyle.css";
 @import "./pcStyle.css";
