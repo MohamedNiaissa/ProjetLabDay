@@ -6,12 +6,14 @@ const TSub_B = () => {
     const location = useLocation();
 
     return (
-        <fieldset id="yourMap">
-            <legend className="MapLegend">Position : </legend>
-            <div className="map-container">
-                <Getposition state={{location}}/>
-            </div>
-        </fieldset>
+        <div className="result_container">
+            <fieldset className="map_field">
+                <legend className="map_legend">Position : </legend>
+                <div className="map_container">
+                    <Getposition state={{location}}/>
+                </div>
+            </fieldset>
+        </div>
     )
 }
 

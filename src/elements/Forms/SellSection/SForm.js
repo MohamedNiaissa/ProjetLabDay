@@ -2,7 +2,7 @@ import React from "react";
 import SBuild from "./SBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
-import image from "../../../img/test.jpg"
+import image from "../../../img/sell.jpg"
 
 class SForm extends React.Component {
 
@@ -23,13 +23,25 @@ class SForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
-        const com = document.getElementById("city")
+        const com = document.getElementById("city");
+        const link = document.querySelector(".SForm_Button").firstChild;
+        const btn = document.querySelector(".button");
+        const span = document.createElement('span');
+        const nodes = e.currentTarget.parentNode.childNodes;
         let validated = this.state.verify;
 
         switch(fieldName) {
             case "product":
                 validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-                e.target.className = (validated.product) ? "input_name validP" : "input_name invalidP";
+
+                if(!validated.product) {
+                    nodes[1].style.color = "crimson";
+                    nodes[2].style.backgroundColor = "crimson";
+                }else {
+                    nodes[1].style.color = "#2962ff";
+                    nodes[2].style.backgroundColor = "#2962ff";
+                }
+
                 this.product.name = value;
                 break;
             case "material":
@@ -40,7 +52,15 @@ class SForm extends React.Component {
                 if(e.target.id !== "city") {
                     const arrayData = cities.filter(cityData => cityData.zip === value);
                     validated.location = (arrayData.length !== 0) ? true : false;
-                    e.target.className = (validated.location) ? "input_zip validL" : "input_zip invalidL";
+
+                    if(!validated.location) {
+                        nodes[1].style.color = "crimson";
+                        nodes[2].style.backgroundColor = "crimson";
+                    }else {
+                        nodes[1].style.color = "#2962ff";
+                        nodes[2].style.backgroundColor = "#2962ff";
+                    }
+
                     this.city.zip = value;
 
                     if(validated.location) {
@@ -55,7 +75,6 @@ class SForm extends React.Component {
                         this.city.found = false;
                         const option = document.createElement('option');
                         com.innerHTML = '';
-                        option.innerHTML = "Choisissez votre commune";
                         option.setAttribute("defaultValue","defaultValue");
                         option.setAttribute("hidden", "hidden");
                         option.value = "";
@@ -78,15 +97,26 @@ class SForm extends React.Component {
                             
                             return null;
                         })
-                        console.log(this.city)
                     }
                 }
                 break;
             default: break;
         }
         validated.form = this.state.verify.product && this.state.verify.material && this.state.verify.location;
-        this.setState(this.state.verify = validated);
-        console.log(validated)
+        this.setState({
+            ...this.state.verify,
+            form: validated.form,
+        });
+
+        if(validated.form) {
+            btn.classList.remove("button--mimas");
+            link.innerHTML = '';
+
+            link.appendChild(btn);
+            btn.appendChild(span);
+
+            btn.classList.add('button_anime');
+        }
     }
 
     render() {

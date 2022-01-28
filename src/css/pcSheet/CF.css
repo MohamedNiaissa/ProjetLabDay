@@ -1,21 +1,27 @@
-/* .CForm_Title {
+.CForm_Title {
     display: flex;
     align-items: center;
-    justify-content: baseline;
-} */
+    justify-content: center;
+    margin-top: 10px;
+}
 
 .CForm_Content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-flow: column wrap;
-    width: 70%;
-    height: 55%;
+    flex-flow: column;
+    flex-basis: content;
+    width: 80%;
 }
 
 .CForm_Button {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 55%;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.text_content {
+    width: 100%;
 }

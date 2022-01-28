@@ -1,59 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import Map from "./map";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
+export default function Getposition() {
 
-const Getposition = () =>{
-    const loc = useLocation();
+    function LocationMarker() {
+        const posFromForm = useLocation().state;
+        const pos = posFromForm  === null ? null : {
+            lat: posFromForm.cLat,
+            lng: posFromForm.cLong
+        }
 
-    if(loc.state !== null) {
-        const pointerLat = loc.state.cLat;
-        const pointerLong = loc.state.cLong;
-    
-        return(
-            <>
-                <MapContainer center={[pointerLat,pointerLong]} zoom={13} scrollWheelZoom={false}>
-                    <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-                        <Marker position={[pointerLat,pointerLong]}>
-                            <Popup>
-                                Here you are :-)
-                            </Popup>
-                        </Marker>
-                </MapContainer>
-            </>
-        )
-    }else {
-        const location = Map();
+        const [position, setPosition] = useState([0, 0]);
+        const map = useMap();
+        const icon = L.icon({
+            iconSize: [25, 41],
+            iconAnchor: [10, 41],
+            popupAnchor: [2, -40],
+            iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
+            shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png"
+        });
 
-        return(
-            <>
-                {location.loaded && !location.error && (
-                    <MapContainer center={[location.coordinates.lat,location.coordinates.long]} zoom={13} scrollWheelZoom={false}>
-                        <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-                            <Marker position={[location.coordinates.lat,location.coordinates.long]}>
-                                <Popup>
-                                    Here you are :-)
-                                </Popup>
-                            </Marker>
-                    </MapContainer>
-                    )}
-                {location.error &&  (
-                    <MapContainer center={[48.889627,2.347078]} zoom={13} scrollWheelZoom={false}>
-                        <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-                            <Marker position={[48.889627,2.347078]}>
-                                <Popup>
-                                    Default position
-                                </Popup>
-                            </Marker>
-                    </MapContainer>
-                )}
-            </>
-        )
+        useEffect(() => {
+            if(pos === null) {
+                map.locate().on("locationfound", function (e) {
+                    const radius = e.accuracy;
+                    const circle = L.circle(e.latlng, radius);
+                    setPosition(e.latlng);
+                    map.flyTo(e.latlng, map.getZoom());
+                    circle.addTo(map);
+                    console.log(e.bounds)
+                });
+            }else {
+                const radius = 2000;
+                const circle = L.circle(pos, radius);
+                setPosition(pos);
+                map.flyTo(pos, map.getZoom());
+                circle.addTo(map);
+            }
+        }, [map]);
+
+        const defaultPosition = () => {
+            return (
+                <>
+                    <Marker position={[48.889627,2.347078]} icon={icon}>
+                        <Popup>
+                            Position par defaut.
+                        </Popup>
+                    </Marker>
+                </>
+            )
+        };
+
+        const foundPosition = () => {
+            return (
+                <>
+                    <Marker position={position} icon={icon}>
+                        <Popup>
+                            You are here.
+                        </Popup>
+                    </Marker>
+                </>
+            )
+        };
+
+        return position === null ? defaultPosition() : foundPosition();
     }
-}
 
-export default Getposition;
+    return (
+        <>
+            <MapContainer center={[48.889627,2.347078]} zoom={13} scrollWheelZoom style={{ height: "60vh" }}>
+                <TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+                <LocationMarker />
+            </MapContainer>
+        </>
+    );
+}
