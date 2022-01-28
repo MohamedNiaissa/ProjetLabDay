@@ -26,13 +26,25 @@ class TForm extends React.Component {
     validateField(fieldName, value, e) {
         const loc_zip = document.getElementById("fpvzmxn");
         const loc_city = document.getElementById("ibizbef");
+        const link = document.querySelector(".TForm_Button").firstChild;
+        const btn = document.querySelector(".button");
+        const span = document.createElement('span');
         const com = document.getElementById("city")
+        const nodes = e.currentTarget.parentNode.childNodes;
         let validated = this.state.verify;
 
         switch(fieldName) {
             case "product":
                 validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-                e.target.className = (validated.product) ? "input_name validP" : "input_name invalidP";
+                
+                if(!validated.product) {
+                    nodes[1].style.color = "crimson";
+                    nodes[2].style.backgroundColor = "crimson";
+                }else {
+                    nodes[1].style.color = "#2962ff";
+                    nodes[2].style.backgroundColor = "#2962ff";
+                }
+
                 this.product.name = value;
                 break;
             case "material":
@@ -56,7 +68,15 @@ class TForm extends React.Component {
                 if(e.target.id !== "city") {
                     const arrayData = cities.filter(cityData => cityData.zip === value);
                     validated.location = (arrayData.length !== 0) ? true : false;
-                    e.target.className = (validated.location) ? "input_zip validL" : "input_zip invalidL";
+                    
+                    if(!validated.location) {
+                        nodes[1].style.color = "crimson";
+                        nodes[2].style.backgroundColor = "crimson";
+                    }else {
+                        nodes[1].style.color = "#2962ff";
+                        nodes[2].style.backgroundColor = "#2962ff";
+                    }
+
                     this.city.zip = value;
 
                     if(validated.location) {
@@ -101,8 +121,20 @@ class TForm extends React.Component {
         }
 
         validated.form = this.state.verify.product && this.state.verify.material && this.state.verify.location;
-        this.setState(this.state.verify = validated);
-        console.log(validated)
+        this.setState({
+            ...this.state.verify,
+            form: validated.form,
+        });
+
+        if(validated.form) {
+            btn.classList.remove("button--mimas");
+            link.innerHTML = '';
+
+            link.appendChild(btn);
+            btn.appendChild(span);
+
+            btn.classList.add('button_anime');
+        }
       }
     
     handleResearch = () => {

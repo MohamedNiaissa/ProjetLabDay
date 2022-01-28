@@ -1,16 +1,18 @@
-/* .TForm_Title {
+.TForm_Title {
     display: flex;
     align-items: center;
-    justify-content: baseline;
-} */
+    justify-content: center;
+    margin-top: 10px;
+}
 
 .TForm_Content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-flow: column wrap;
-    width: 70%;
-    height: 55%;
+    flex-flow: column;
+    flex-basis: content;
+    width: 80%;
+    /* height: 80%; */
 }
 
 .TForm_Button {
