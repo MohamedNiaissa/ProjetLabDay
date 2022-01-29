@@ -26,7 +26,7 @@ class GBuild extends React.Component {
                                 <option value="bon" >Bon état</option> 
                                 <option value="tresbon">Très bon état</option>
                             </select>
-                            <label className="select1_label" htmlFor="select_mat">Matériel de l'objet :</label>
+                            <label className="select1_label" htmlFor="select_mat">Etat de l'objet :</label>
                             <span className="underline"></span>
                         </dd>
                     </dl>
