@@ -6,6 +6,10 @@ class ManageLinks extends React.Component {
     getLink() {
         const link = this.props.link;
 
+
+        // const url = this.props.link
+
+
         if(link === "/home") {
             return (
                 <Link to={this.props.link}><div className="burger">☰</div></Link>
