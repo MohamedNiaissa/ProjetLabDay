@@ -24,7 +24,8 @@ class ManageLinks extends React.Component {
                     cName: this.props.city.name, 
                     cZip: this.props.city.zip,
                     cLat: this.props.city.lat,
-                    cLong: this.props.city.long, 
+                    cLong: this.props.city.long,
+                    form: "sell",
                 }
             }
             return (
@@ -39,7 +40,8 @@ class ManageLinks extends React.Component {
                     cName: this.props.city.name, 
                     cZip: this.props.city.zip,
                     cLat: this.props.city.lat,
-                    cLong: this.props.city.long, 
+                    cLong: this.props.city.long,
+                    form: "trash", 
                 }
             }
             return (

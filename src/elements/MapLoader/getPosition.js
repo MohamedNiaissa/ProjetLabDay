@@ -72,9 +72,13 @@ export default function Getposition() {
     }
 
     function LocationGarbage() {
-        const dep =  useLocation().state.cZip.slice(0,2);
-        const items = garbages.find(el => el.dep === `${dep}`).content;
+        const data = useLocation().state;
         const map = useMap();
+        
+        if(data.form !== "trash") return null;
+
+        const dep =  data.cZip.slice(0,2);
+        const items = garbages.find(el => el.dep === `${dep}`).content;
         const red_icon = L.icon({
             iconSize: [25, 41],
             iconAnchor: [10, 41],
