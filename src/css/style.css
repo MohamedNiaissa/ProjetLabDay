@@ -1,5 +1,15 @@
 @import "./normalize.css" screen and (min-width: 426px);
 @import "./mapstyle.css" screen and (min-width: 426px);
+/* @import "./pcStyle.css" screen and (min-width: 426px); */
 
-@import "./pcStyle.css" screen and (min-width: 426px);
-@import "./mobileStyle.css" screen and (max-width: 425px);
+@import "./component/main.sass";
+
+
+
+
+
+
+
+
+
+/* @import "./mobileStyle.css" screen and (max-width: 425px); */
