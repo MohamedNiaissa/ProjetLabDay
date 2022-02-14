@@ -3,17 +3,18 @@ import { useLocation } from "react-router";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import garbages from '../../Garbage'
+import garbages from '../../Garbage';
+
 
 export default function Getposition() {
 
-    function LocationMarker() {
-        const posFromForm = useLocation().state;
-        const pos = posFromForm  === null ? null : {
-            lat: posFromForm.cLat,
-            lng: posFromForm.cLong
-        }
+    const posFromForm = useLocation().state;
+    const pos = posFromForm  === null ? null : {
+        lat: posFromForm.cLat,
+        lng: posFromForm.cLong
+    }
 
+    function LocationMarker() {
         const map = useMap();
         const icon = L.icon({
             iconSize: [25, 41],

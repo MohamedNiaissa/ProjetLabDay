@@ -54,7 +54,7 @@ class TForm extends React.Component {
                 this.product.material = value;
                 break;
             case "checkbox":
-                this.state.cboxChecked = !this.state.cboxChecked;
+                this.setState({...this.state, cboxChecked: !this.state.cboxChecked});
                 if(this.state.cboxChecked) {
                     loc_zip.removeAttribute("disabled");
                     loc_city.removeAttribute("disabled");
@@ -74,7 +74,7 @@ class TForm extends React.Component {
                     btn.appendChild(span);
 
                     btn.classList.add('button_anime_back');
-                    this.state.btnTriggered = false;
+                    this.setState({...this.state, btnTriggered: false});
                 }
 
                 break;
@@ -151,7 +151,7 @@ class TForm extends React.Component {
                 btn.appendChild(span);
 
                 btn.classList.add('button_anime');
-                this.state.btnTriggered = true;
+                this.setState({...this.state, btnTriggered: true});
             }else if(this.city.name !== null && !this.state.verify.test) {
                 btn.classList.remove("button_anime_back");
                 btn.classList.remove("button--mimas");
@@ -161,8 +161,8 @@ class TForm extends React.Component {
                 btn.appendChild(span);
 
                 btn.classList.add('button_anime');
-                this.state.verify.test = true;
-                this.state.btnTriggered = false;
+                this.setState({...this.state.verify, test: true});
+                this.setState({...this.state, btnTriggered: false});
             }
         }
       }
