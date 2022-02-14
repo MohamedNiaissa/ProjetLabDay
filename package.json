@@ -2,6 +2,7 @@
   "name": "newapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://localhost:3000/home",
   "dependencies": {
     "@emailjs/browser": "^3.4.0",
     "@testing-library/jest-dom": "^5.16.1",
