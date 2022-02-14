@@ -15,7 +15,6 @@ class ManageLinks extends React.Component {
                 <Link to={this.props.link}><div className="burger">☰</div></Link>
             )
         }else if(link === "/vendre/resultats") {
-            console.log("hello there")
             const url = {
                 pathname: this.props.link,
                 state: { 
@@ -60,8 +59,20 @@ class ManageLinks extends React.Component {
                 <Link to={url.pathname} state={url.state}><button className="button button--mimas" disabled={this.props.disabled} onClick={this.props.event}><span>Envoyer</span></button></Link>
             )
         }else if(link === "/donner/resultats") {
+            const url = {
+                pathname: this.props.link,
+                state: { 
+                    pName: this.props.product.name, 
+                    pMat: this.props.product.material,
+                    cName: this.props.city.name, 
+                    cZip: this.props.city.zip,
+                    cLat: this.props.city.lat,
+                    cLong: this.props.city.long,
+                    form: "give", 
+                }
+            }
             return (
-                <Link to={this.props.link}><button className="button button--mimas" disabled={this.props.disabled}><span>Chercher</span></button></Link>
+                <Link to={url.pathname} state={url.state}><button className="button button--mimas" disabled={this.props.disabled}><span>Chercher</span></button></Link>
             )
         }
     }

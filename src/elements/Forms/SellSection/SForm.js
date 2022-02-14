@@ -3,6 +3,7 @@ import SBuild from "./SBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
 import image from "../../../img/sell.jpg"
+import Layout from "../../Layout";
 
 class SForm extends React.Component {
 
@@ -24,7 +25,7 @@ class SForm extends React.Component {
 
     validateField(fieldName, value, e) {
         const com = document.getElementById("city");
-        const link = document.querySelector(".SForm_Button").firstChild;
+        const link = document.querySelector(".form-btn").firstChild;
         const btn = document.querySelector(".button");
         const span = document.createElement('span');
         const nodes = e.currentTarget.parentNode.childNodes;
@@ -121,26 +122,29 @@ class SForm extends React.Component {
 
     render() {
         return (
-            <section className="form_section">
-                <div className="form_template">
-                    <div className="form_style">
-                        <img className="form_picture" src={image} alt="pic"/>
+            <Layout>
+                <main className="forms" id="main-content">
+                    <div className="forms-box">
+                        <div className="picture-wrapper">
+                            <img className="picture" src={image} alt="pic"/>
+                        </div>
+
+                        <div className="form-wrapper">
+                            <form className="form">
+                                <div className="form-title">
+                                    <h2>Formulaire Vendre</h2>
+                                </div>
+                                <div className="form-fields">
+                                    <SBuild {...this.props} event={this.handleUserInput}/>
+                                </div>
+                                <div className="form-btn">
+                                    <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div className="form_container"> 
-                        <form id="SForm" className="form">
-                            <div className="SForm_Title">
-                                <h2>Formulaire Vendre</h2>
-                            </div>
-                            <div className="SForm_Content">
-                                <SBuild {...this.props} event={this.handleUserInput}/>
-                            </div>
-                            <div className="SForm_Button">
-                                <ManageLinks link={"/vendre/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
+                </main>
+            </Layout>
         )
     } 
 }

@@ -2,23 +2,24 @@ import React from "react";
 
 class SBuild extends React.Component {
     render() {
+        console.log("hey");
         return (
             <>
-                <div id="zeacnvv" className="form_name">
+                <div id="zeacnvv" className="form-field">
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <input className="input_name" type="text" name="product" minLength = "1" maxLength="40" 
+                            <input className="content-data" type="text" name="product" minLength = "1" maxLength="40" 
                                    onChange={this.props.event} required/>
-                            <label className="name_label" htmlFor="input_name">Nom de l'objet :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation">Nom de l'objet :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>
 
-                <div id="ttyuibz" className="form_material">
+                <div id="ttyuibz" className="form-field">
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <select className="select_mat" name="material" onChange={this.props.event} required>
+                            <select className="content-data" name="material" onChange={this.props.event} required>
                                 <option value="" defaultValue hidden/>
                                 <option value="bois">Bois</option>
                                 <option value="metal">Métal</option>
@@ -30,31 +31,31 @@ class SBuild extends React.Component {
                                 <option value="papier_carton">Papier ou Carton</option> 
                                 <option value="caoutchouc">Caoutchouc</option>
                             </select>
-                            <label className="select1_label" htmlFor="select_mat">Matériel de l'objet :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation" htmlFor="content-data">Matériel de l'objet :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>
 
-                <div id="nbzajcr" className='form_coord_zip'>
+                <div id="nbzajcr" className='form-field'>
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <input className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
+                            <input className="content-data" type="text" name="map" minLength = "1" maxLength="5" 
                                     onChange={this.props.event} required/>
-                            <label className="zip_label" htmlFor="input_zip">Code Postal :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation" htmlFor="content-data">Code Postal :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>
 
-                <div id="jzbfkjb" className="form_coord_city">
+                <div id="jzbfkjb" className="form-field">
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <select id="city" className="select_city" name="map" onChange={this.props.event} required>
+                            <select id="city" className="content-data" name="map" onChange={this.props.event} required>
                                 <option value="" defaultValue hidden/>
                             </select>
-                            <label className="select2_label" htmlFor="select_city">Ville :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation" htmlFor="content-data">Ville :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>

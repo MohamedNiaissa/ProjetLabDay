@@ -4,21 +4,21 @@ class GBuild extends React.Component {
     render() {
         return (
             <>
-                <div id="zfzefff" className="form_name">
+                <div id="zfzefff" className="form-field">
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <input className="input_name" type="text" name="product" minLength = "1" maxLength="40" 
+                            <input className="content-data" type="text" name="product" minLength = "1" maxLength="40" 
                                    onChange={this.props.event} required/>
-                            <label className="name_label" htmlFor="input_name">Nom de l'objet :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation" htmlFor="content-data">Nom de l'objet :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>
 
-                <div id="fuusrtd" className="form_state">
+                <div id="fuusrtd" className="form-field">
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <select className="select_state" name="state" onChange={this.props.event} required>
+                            <select className="content-data" name="state" onChange={this.props.event} required>
                                 <option value="" defaultValue hidden/>
                                 <option value="casse">Cassé</option>
                                 <option value="mauvaisetat">Mauvaise état</option>
@@ -26,41 +26,41 @@ class GBuild extends React.Component {
                                 <option value="bon" >Bon état</option> 
                                 <option value="tresbon">Très bon état</option>
                             </select>
-                            <label className="select1_label" htmlFor="select_mat">Etat de l'objet :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation" htmlFor="content-data">Etat de l'objet :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>
 
-                <div id="ijorger" className='form_coord_zip'>
+                <div id="ijorger" className='form-field'>
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <input className="input_zip" type="text" name="map" minLength = "1" maxLength="5" 
+                            <input className="content-data" type="text" name="map" minLength = "1" maxLength="5" 
                                     onChange={this.props.event} required/>
-                            <label className="zip_label" htmlFor="input_zip">Code Postal :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation" htmlFor="content-data">Code Postal :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>
 
-                <div id="zoenzc" className="form_coord_city">
+                <div id="zoenzc" className="form-field">
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <select id="city" className="select_city" name="map" onChange={this.props.event} required>
+                            <select id="city" className="content-data" name="map" onChange={this.props.event} required>
                                 <option value="" defaultValue hidden/>
                             </select>
-                            <label className="select2_label" htmlFor="select_city">Ville :</label>
-                            <span className="underline"></span>
+                            <label className="label-animation" htmlFor="content-data">Ville :</label>
+                            <span className="underline-animation"></span>
                         </dd>
                     </dl>
                 </div>
                 
-                <div id="opajeio" className="form_content">
+                <div id="opajeio" className="form-field">
                     <dl className="inputbox">
                         <dd className="inputbox-content">
-                            <textarea className="text_content" name="textArea" placeholder="Description du produit :" minLength="1" maxLength={500}/>
+                            <textarea className="label-animation" name="textArea" placeholder="Description du produit :" minLength="1" maxLength={500}/>
                             {/* <label className="content_label" htmlFor="text_content">Description du produit :</label>
-                            <span className="underline"></span> */}
+                            <span className="underline-animation"></span> */}
                         </dd>
                     </dl>
                 </div>

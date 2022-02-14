@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Book from "./Book";
 
 function importAll(r) {
     let images = {};
@@ -8,29 +9,55 @@ function importAll(r) {
 }
 
 class Header extends React.Component {
-    imagesStatic = importAll(require.context('../img', false, /\.(png|jpe?g|svg)$/));
+    constructor (props) {
+        super(props);
+        this.imagesStatic = importAll(require.context('../img', false, /\.(png|jpe?g|svg)$/));
+    }
+
+    componentDidMount() {
+        const header = document.getElementById("header");
+        const burger = document.getElementById("toggle-burger");
+        const label = document.getElementById("burger-anim");
+        const main = document.getElementById("main-content")
+        const footer = document.getElementById("footer");
+        const burger_menu = document.getElementById("burger-content");
+
+        burger.onchange = (e) => {
+            if (e.target.checked) {
+                header.style.transform = "translate3d(-260px, 0, 0)";
+                main.style.transform = "translate3d(-260px, 0, 0)";
+                footer.style.transform = "translate3d(-260px, 0, 0)";
+                burger_menu.style.margin = 0;
+            } else {
+                label.animate({ transform: 'rotate(-180deg)' }, 800);
+                header.style.transform = "translate3d(0, 0, 0)";
+                main.style.transform = "translate3d(0, 0, 0)";
+                footer.style.transform = "translate3d(0, 0, 0)";
+                burger_menu.style.margin = '0 -260px 0 0';
+            }
+        }
+    }
 
     render() {
         return (
-            <section className="nav_container">
-                <div id="nav" className="nav">
+            <header className="header" id="header" >
+                <div className="logo-wrapper">
                     <Link to="/home">
-                        <img src={this.imagesStatic['NSLogoSVG.svg']} alt="logo" className="app_logo" width="184px" height="56px"></img>
+                        <img className="logo" src={this.imagesStatic['NextStep.jpg']} alt="logo"/>
                     </Link>
-                    <div className="hamburger-menu">
-                        <input id="menu__toggle" type="checkbox" />
-                        <label className="menu__btn" htmlFor="menu__toggle">
-                            <span></span>
-                        </label>
-
-                        <div className="menu_img" />
-                        <ul className="menu__box">
-                        <li><Link to="/home"><span className="menu__item">Home</span></Link></li>
-                        <li><Link to="/contact"><span className="menu__item">Contact</span></Link></li>
-                        </ul>
-                    </div>
                 </div>
-            </section>
+                <nav className="menu-wrapper">
+                    <ul>
+                        <Book/>
+                        <li>
+                            <div className="option-burger">
+                                <input className="burger-action" id="toggle-burger" type="checkbox" ></input>
+                                <label id="burger-anim" htmlFor="toggle-burger"><img className="burger" src={this.imagesStatic['nut.png']} alt="burger"/></label>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
         )
     } 
 }

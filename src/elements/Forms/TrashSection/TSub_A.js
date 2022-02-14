@@ -1,8 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router";
 import image from '../../../img/Trash-Template.png';
-import ManageLinks from "../../ManageLinks";
-import { Link } from "react-router-dom";
+import Layout from "../../Layout";
 
 function getTrash(loc) {
     const material = loc.state.pMat;
@@ -23,16 +22,15 @@ const TSub_A = () => {
     let T = getTrash(useLocation());
 
     return (
-        <fieldset id="trash">
-            <legend className="legend">Poubelle Ecologique :</legend>
-            <div className="trash-container">
-                <div className="color-trash">
-                    <p id="poubelle">{T.name}</p> 
-                    <img className={T.class} src={image} alt=''></img>
-                    <Link to="/home"><button>Retourner au menu</button></Link>
+        <Layout>
+            <main className="trash" id="main-content">
+                <div className="trash-wrapper">
+                    <div className="trash-color">
+                        <img className={T.class} src={image} alt='trash'></img>
+                    </div>
                 </div>
-            </div>
-        </fieldset>
+            </main>
+        </Layout>
     )
 }
 

@@ -2,8 +2,8 @@ import React from "react";
 import CBuild from "./CBuild";
 import ManageLinks from "../../ManageLinks";
 import emailjs from 'emailjs-com';
-import { Link } from "react-router-dom";
-import image from "../../../img/test.jpg"
+import image from "../../../img/test.jpg";
+import Layout from "../../Layout";
 
 class CForm extends React.Component {
 
@@ -27,7 +27,7 @@ class CForm extends React.Component {
     }
 
     validateField(fieldName, value, e) {
-        const link = document.querySelector(".CForm_Button").firstChild;
+        const link = document.querySelector(".form-btn").firstChild;
         const btn = document.querySelector(".button");
         const span = document.createElement('span');
         const nodes = e.currentTarget.parentNode.childNodes;
@@ -87,34 +87,31 @@ class CForm extends React.Component {
         }).catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
     }
 
-    componentDidMount() {
-        //bad fix
-        document.getElementById('fetchBug').classList.remove('active');
-    }
-
     render() {
         return (
-            <section className="form_section">
-                <div className="form_template">
-                    <div className="form_style">
-                        <img className="form_picture" src={image} alt="pic"/>
+            <Layout>
+                <main className="forms" id="main-content">
+                    <div className="forms-box">
+                        <div className="picture-wrapper">
+                            <img className="picture" src={image} alt="pic"/>
+                        </div>
+
+                        <div className="form-wrapper">
+                            <form className="form">
+                                <div className="form-title">
+                                    <h2>Formulaire Contact</h2>
+                                </div>
+                                <div className="form-fields">
+                                    <CBuild {...this.props} event={this.handleUserInput}/>
+                                </div>
+                                <div className="form-btn">
+                                    <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div className="form_container"> 
-                        <form id="CForm" className="form">
-                        <div className="CForm_Title">
-                            <h2>Formulaire Contact</h2>
-                        </div>
-                        <div className="CForm_Content">
-                            <CBuild {...this.props} event={this.handleUserInput}/>
-                        </div>
-                        <div className="CForm_Button">
-                            <ManageLinks link={"/contact/redirect"} form={this.form} disabled={!this.state.verify.validity} event={this.handleSubmit}/>
-                            <Link to="/home"><button className="button_return button_anime"><span>Retourner au menu</span></button></Link>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
+                </main>
+            </Layout>
         )
     } 
 }

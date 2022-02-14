@@ -1,19 +1,21 @@
 import React from "react";
 import { useLocation } from "react-router";
 import Getposition from "../../MapLoader/getPosition";
+import Layout from "../../Layout";
 
 const SSub = () => {
     const location = useLocation();
 
     return (
-        <div className="result_container">
-            <fieldset className="map_field">
-                <legend className="map_legend">Position : </legend>
-                <div className="map_container">
-                    <Getposition state={{location}}/>
+        <Layout>
+            <main className="map" id="main-content">
+                <div className="map-field">
+                    <div className="map-field-wrapper">
+                        <Getposition state={{location}}/>
+                    </div>
                 </div>
-            </fieldset>
-        </div>
+            </main>
+        </Layout>
     )
 }
 

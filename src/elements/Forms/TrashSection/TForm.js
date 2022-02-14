@@ -2,7 +2,8 @@ import React from "react";
 import TBuild from "./TBuild";
 import cities from "../../../Cities";
 import ManageLinks from "../../ManageLinks";
-import image from "../../../img/eco.jpg"
+import image from "../../../img/eco.jpg";
+import Layout from "../../Layout";
 
 class TForm extends React.Component {
 
@@ -27,7 +28,7 @@ class TForm extends React.Component {
     validateField(fieldName, value, e) {
         const loc_zip = document.getElementById("fpvzmxn");
         const loc_city = document.getElementById("ibizbef");
-        const link = document.querySelector(".TForm_Button").firstChild;
+        const link = document.querySelector(".form-btn").firstChild;
         const btn = document.querySelector(".button");
         const span = document.createElement('span');
         const com = document.getElementById("city")
@@ -66,7 +67,6 @@ class TForm extends React.Component {
                 }
 
                 if(validated.form && this.state.btnTriggered) {
-                    console.log("Bullshit")
                     btn.classList.remove('button_anime');
                     link.innerHTML = '';
 
@@ -177,26 +177,29 @@ class TForm extends React.Component {
 
     render() {
         return (
-            <section className="form_section">
-                <div className="form_template">
-                    <div className="form_style">
-                        <img className="form_picture" src={image} alt="pic"/>
-                    </div>
-                    <div className="form_container"> 
-                        <form id="TForm" className="form">
-                            <div className="TForm_Title">
+            <Layout>
+                <main className="forms" id="main-content">
+                    <div className="forms-box">
+                        <div className="picture-wrapper">
+                            <img className="picture" src={image} alt="pic"/>
+                        </div>
+
+                        <div className="form-wrapper">
+                            <form className="form">
+                                <div className="form-title">
                                     <h2>Formulaire Jeter</h2>
-                            </div>
-                            <div className="TForm_Content">
-                                <TBuild {...this.props} event={this.handleUserInput}/>
-                            </div>
-                            <div className="TForm_Button">
-                                <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
-                            </div>
-                        </form>
+                                </div>
+                                <div className="form-fields">
+                                    <TBuild {...this.props} event={this.handleUserInput}/>
+                                </div>
+                                <div className="form-btn">
+                                    <ManageLinks link={this.handleResearch()} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </main>
+            </Layout>
         )
     } 
 }

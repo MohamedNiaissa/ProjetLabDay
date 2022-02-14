@@ -1,0 +1,105 @@
+.home {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 84vh;
+    transition-delay: 1.3s;
+    transition-duration: 0.4s;
+    background-color: rgb(53, 53, 53);
+
+    & > div.content-sell {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+
+        width: 100%;
+        height: 33.3334%;
+        background-image: linear-gradient(to right, #051937, #00203a, #00273a, #002d38, #053236);
+
+        & > div.sell-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            height: 100%;
+        }
+
+        & > div.sell-text-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+            height: 100%;
+        }
+    }
+
+    & > div.content-give {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row-reverse;
+
+        width: 100%;
+        height: 33.3334%;
+        background-image: linear-gradient(to left, #051937, #00203a, #00273a, #002d38, #053236);
+    
+        & > div.give-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            height: 100%;
+        }
+
+        & > div.give-text-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+            height: 100%;
+        }
+    }
+
+    & > div.content-throw {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+        
+        width: 100%;
+        height: 33.3334%;
+        background-image: linear-gradient(to right, #051937, #00203a, #00273a, #002d38, #053236);
+    
+        & > div.throw-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            height: 100%;
+        }
+
+        & > div.throw-text-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+            height: 100%;
+        }
+    }
+
+    & * img.icon {
+        transition: transform .4s;
+        object-fit: contain;
+        width: 80%;
+        height: 90%;
+    }
+
+    & * p {
+        text-align: center;
+        color: white;
+        padding: 30px 70px;
+    }
+}

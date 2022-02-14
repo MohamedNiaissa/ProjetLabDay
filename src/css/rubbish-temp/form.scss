@@ -172,7 +172,6 @@ $focus-color: #2962ff;
         transform: skew(30deg);
         transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
         animation: move 4s forwards;
-        // animation: name duration timing-function delay iteration-count direction fill-mode;
     }
 
     &:hover {
@@ -239,7 +238,6 @@ $focus-color: #2962ff;
         transform: skew(30deg);
         transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
         animation: moveback 4s forwards;
-        // animation: name duration timing-function delay iteration-count direction fill-mode;
     }
 }
 
