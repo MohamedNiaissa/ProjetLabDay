@@ -21,19 +21,6 @@ const Book = () => {
         return btnPath;
     }
 
-    // toggleView() {
-    //     const forms = document.querySelectorAll(".option");
-    //     console.log(forms)
-    //     const links = ["/vendre", "/donner", "/jeter"];
-    //     let count = 0;
-
-    //     forms.forEach(form => {
-    //         form.classList.remove(...form.classList);
-    //         form.classList.add(...this.handleClickEvent(links[count]).split(" "));
-    //         form.href = this.handleLinksPointer(links[count++]);
-    //     })
-    // }
-
     return (
         <>
             <li><Link className={handleClickEvent("/vendre")} to={handleLinksPointer("/vendre")}><span className="menu-item">Vendre</span></Link></li>

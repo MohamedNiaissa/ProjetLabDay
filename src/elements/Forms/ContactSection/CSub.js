@@ -28,7 +28,6 @@ class CSub extends React.Component {
 
     render() {
         if(!this.state.redirect) {
-            console.log(this.props)
             return (
                 <>
                     <div className="msg_cont">

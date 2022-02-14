@@ -60,7 +60,6 @@ class CForm extends React.Component {
         }
 
         validated.validity = this.state.verify.email && this.state.verify.topic && this.state.verify.textArea;
-        console.log(validated)
         this.setState({
             ...this.state.verify,
             validity: validated.validity,

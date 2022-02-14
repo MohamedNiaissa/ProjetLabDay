@@ -34,7 +34,6 @@ export default function Getposition() {
                     setPosition(e.latlng);
                     map.flyTo(e.latlng, map.getZoom());
                     circle.addTo(map);
-                    console.log(e.bounds)
                 });
             }else {
                 const radius = 2000;

@@ -11,6 +11,7 @@ import TSubA from "./Forms/TrashSection/TSub_A";
 import TSubB from "./Forms/TrashSection/TSub_B";
 import CForm from "./Forms/ContactSection/CForm";
 import CSub from "./Forms/ContactSection/CSub";
+import Error404 from "./Error404"
 
 
 class App extends React.Component {
@@ -34,6 +35,8 @@ class App extends React.Component {
                     <Route path="/jeter/decharge"              element={<TSubB />}/>
                     <Route path="/contact"                     element={<CForm />}/>
                     <Route path="/contact/redirect"            element={<CSub /> }/>
+
+                    <Route path="*" element={<Error404 />}/>
                 </Switch>
             </Router>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
