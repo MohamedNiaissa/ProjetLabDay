@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './elements/App';
-import "./css/packet.scss";
+import App from './content/views/App';
+import "./www/assets/css/packet.scss";
 
 const loader = document.querySelector('.loader');
 const showLoader = () => loader.classList.remove('loader-hide');
