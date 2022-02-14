@@ -12,7 +12,12 @@ import TSubB from "./Forms/TrashSection/TSub_B";
 import CForm from "./Forms/ContactSection/CForm";
 import CSub from "./Forms/ContactSection/CSub";
 
+
 class App extends React.Component {
+    componentDidMount() {
+        this.props.hideLoader();
+    }
+
     render() {
         return (
             <>
