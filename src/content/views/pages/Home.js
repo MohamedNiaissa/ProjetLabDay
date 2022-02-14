@@ -1,52 +1,43 @@
 import React from "react";
 import Layout from "../partials/Layout";
+import { importImages } from "../../../www/actions/Functions";
 
 
-function importAll(r) {
-    let images = {};
-    r.keys().map((item) => ( images[item.replace('./', '')] = r(item) ));
-    return images;
-}
-
-const Home = () => {
-    const imagesStatic = importAll(require.context('../../img', false, /\.(png|jpe?g|svg)$/));
-
-    return (
-        <Layout>
-            <main className="home" id="main-content">
-                <div className="content-sell">
-                    <div className="sell-icon-wrapper">
-                        <img className="icon" src={imagesStatic['sellIcon.svg']} alt="icon"/>
-                    </div>
-                    <div className="sell-text-wrapper">
-                        <p>
-                            Entrez en contact facilement avec les acheteurs potentiels de votre région, et vendez votre objet en quelques clics.
-                        </p>
-                    </div>
+const Home = () => (
+    <Layout>
+        <main className="home" id="main-content">
+            <div className="content-sell">
+                <div className="sell-icon-wrapper">
+                    <img className="icon" src={importImages('sellIcon.svg')} alt="icon"/>
                 </div>
-                <div className="content-give">
-                <   div className="give-icon-wrapper">
-                        <img className="icon" src={imagesStatic['giveIcon.svg']} alt="icon"/>
-                    </div>
-                    <div className="give-text-wrapper">
-                        <p>
-                            Découvrez les associations et particuliers qui reprendront vos objets et leur redonneront vie.
-                        </p>
-                    </div>
+                <div className="sell-text-wrapper">
+                    <p>
+                        Entrez en contact facilement avec les acheteurs potentiels de votre région, et vendez votre objet en quelques clics.
+                    </p>
                 </div>
-                <div className="content-throw">
-                    <div className="throw-icon-wrapper">
-                        <img className="icon" src={imagesStatic['discardIcon.svg']} alt="icon"/>
-                    </div>
-                    <div className="throw-text-wrapper">
-                        <p>
-                            Apprenez à trier vos déchets et encombrants dans les poubelles écologiques et déchetteries locales.
-                        </p>
-                    </div>
+            </div>
+            <div className="content-give">
+            <div className="give-icon-wrapper">
+                    <img className="icon" src={importImages('giveIcon.svg')} alt="icon"/>
                 </div>
-            </main>
-        </Layout>
-    )
-}
+                <div className="give-text-wrapper">
+                    <p>
+                        Découvrez les associations et particuliers qui reprendront vos objets et leur redonneront vie.
+                    </p>
+                </div>
+            </div>
+            <div className="content-throw">
+                <div className="throw-icon-wrapper">
+                    <img className="icon" src={importImages('discardIcon.svg')} alt="icon"/>
+                </div>
+                <div className="throw-text-wrapper">
+                    <p>
+                        Apprenez à trier vos déchets et encombrants dans les poubelles écologiques et déchetteries locales.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </Layout>
+)
 
 export default Home;

@@ -4,22 +4,17 @@ import Footer from "./Footer";
 import Burger from "./Burger";
 
 
-class Layout extends React.Component {
-    render() {
-        return (
-            <>
-            <div className="root-content" id="root-content">
-                <Header />
-                    { this.props.children }
-                <Footer />
-            </div>
-            <div className="burger-side" id="burger-side">
-                <Burger />
-            </div>
-            </>
-
-        )
-    }
-}
+const Layout = props => (
+<>
+    <div className="root-content" id="root-content">
+        <Header />
+            { props.children }
+        <Footer />
+    </div>
+    <div className="burger-side" id="burger-side">
+        <Burger />
+    </div>
+</>
+)
 
 export default Layout;
