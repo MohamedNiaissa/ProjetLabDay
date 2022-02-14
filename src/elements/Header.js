@@ -15,25 +15,19 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        const header = document.getElementById("header");
+        const mainView = document.getElementById("root-content");
+        const burgerMenu = document.getElementById("burger-side");
         const burger = document.getElementById("toggle-burger");
         const label = document.getElementById("burger-anim");
-        const main = document.getElementById("main-content")
-        const footer = document.getElementById("footer");
-        const burger_menu = document.getElementById("burger-content");
 
         burger.onchange = (e) => {
             if (e.target.checked) {
-                header.style.transform = "translate3d(-260px, 0, 0)";
-                main.style.transform = "translate3d(-260px, 0, 0)";
-                footer.style.transform = "translate3d(-260px, 0, 0)";
-                burger_menu.style.margin = 0;
+                mainView.style.width = "80%";
+                burgerMenu.style.width = "20%";
             } else {
                 label.animate({ transform: 'rotate(-180deg)' }, 800);
-                header.style.transform = "translate3d(0, 0, 0)";
-                main.style.transform = "translate3d(0, 0, 0)";
-                footer.style.transform = "translate3d(0, 0, 0)";
-                burger_menu.style.margin = '0 -260px 0 0';
+                mainView.style.width = "100%";
+                burgerMenu.style.width = "0%";
             }
         }
     }

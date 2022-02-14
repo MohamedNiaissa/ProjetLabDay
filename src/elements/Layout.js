@@ -7,10 +7,14 @@ class Layout extends React.Component {
     render() {
         return (
             <>
-            <Header />
-            <Burger />
-                { this.props.children }
-            <Footer />
+            <div className="root-content" id="root-content">
+                <Header />
+                    { this.props.children }
+                <Footer />
+            </div>
+            <div className="burger-side" id="burger-side">
+                <Burger />
+            </div>
             </>
 
         )
