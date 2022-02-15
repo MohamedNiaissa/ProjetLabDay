@@ -19,7 +19,7 @@ export function triggerBurgerMenu() {
             mainView.style.width = "100%";
             burgerMenu.style.width = "0%";
 
-            el("burger-anim").animate({ transform: 'rotate(-180deg)' }, 800);
+            el("burger-anim").animate({ transform: 'rotate(-90deg)' }, 800);
         }
     }
 }
@@ -30,4 +30,15 @@ export function stateOnPage(mode, page) {
     }else if(mode === "link") {
         return (page === window.location.pathname) ? "/home" : page;
     }
+}
+
+export function getTrashColor(material) {
+    const regx = new RegExp('\\b' + material + '\\b', 'i');
+    const green = "bois";
+    const yellow = "metal plastique caoutchouc papier_carton";
+    const blue = "ceramique cuir textile";
+
+    return regx.test(green)  ? "T green"  :
+           regx.test(yellow) ? "T yellow" :
+           regx.test(blue)   ? "T blue"   : "T";
 }

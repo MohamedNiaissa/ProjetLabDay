@@ -23,11 +23,11 @@ $focus-color: #2962ff;
                 }
             }
 
-            &:not(:focus) {
-                &~label {
-                    color: $initial-color;
-                }
-            }
+            // &:not(:focus) {
+            //     &~label {
+            //         color: $initial-color;
+            //     }
+            // }
 
             &:focus {
                 &~.underline-animation {
@@ -93,6 +93,8 @@ $focus-color: #2962ff;
             color: $initial-color;
             transition: all 250ms ease-out;
             z-index: 1;
+            display: block;
+            pointer-events: none;
         }
 
         .underline-animation {

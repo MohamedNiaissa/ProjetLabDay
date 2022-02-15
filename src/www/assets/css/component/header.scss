@@ -92,7 +92,7 @@
                         &:checked {
 
                             & + label {
-                                animation: spinner 1.3s cubic-bezier(.58,-1.09,.71,1.26);
+                                animation: spinner .8s cubic-bezier(.58,-1.09,.71,1.26);
                             }
                         }
                     }
@@ -120,6 +120,6 @@
 
 @keyframes spinner {
     to {
-        transform: rotate(180deg);
+        transform: rotate(90deg);
     }
 }

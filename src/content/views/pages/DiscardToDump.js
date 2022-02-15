@@ -4,20 +4,16 @@ import Map from "../partials/Map";
 import Layout from "../partials/Layout";
 
 
-const DiscardToDump = () => {
-    const location = useLocation();
-
-    return (
-        <Layout>
-            <main className="map" id="main-content">
-                <div className="map-field">
-                    <div className="map-field-wrapper">
-                        <Map state={{location}}/>
-                    </div>
+const DiscardToDump = () => (
+    <Layout>
+        <main className="map" id="main-content">
+            <div className="map-field">
+                <div className="map-field-wrapper">
+                    <Map location={useLocation().state}/>
                 </div>
-            </main>
-        </Layout>
-    )
-}
+            </div>
+        </main>
+    </Layout>
+)
 
 export default DiscardToDump;
