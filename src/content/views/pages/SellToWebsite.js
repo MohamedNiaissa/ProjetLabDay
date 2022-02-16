@@ -9,7 +9,7 @@ const SellToWebsite = () => (
         <main className="map" id="main-content">
             <div className="map-field">
                 <div className="map-field-wrapper">
-                    <Map location={useLocation().state}/>
+                    <Map location={useLocation().state.city}/>
                 </div>
             </div>
         </main>

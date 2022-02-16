@@ -38,7 +38,7 @@ const SBuild = ({event}) => (
     <div id="nbzajcr" className='form-field'>
         <dl className="inputbox">
             <dd className="inputbox-content">
-                <input className="content-data" type="text" name="map" minLength = "1" maxLength="5" 
+                <input className="content-data" type="text" name="zip" minLength = "1" maxLength="5" 
                         onChange={event} required/>
                 <label className="label-animation" htmlFor="content-data">Code Postal :</label>
                 <span className="underline-animation"></span>
@@ -49,7 +49,7 @@ const SBuild = ({event}) => (
     <div id="jzbfkjb" className="form-field">
         <dl className="inputbox">
             <dd className="inputbox-content">
-                <select id="city" className="content-data" name="map" onChange={event} required>
+                <select id="city" className="content-data" name="city" onChange={event} required>
                     <option value="" defaultValue hidden/>
                 </select>
                 <label className="label-animation" htmlFor="content-data">Ville :</label>

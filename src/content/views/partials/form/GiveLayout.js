@@ -34,7 +34,7 @@ const GBuild = ({event}) => (
     <div id="ijorger" className='form-field'>
         <dl className="inputbox">
             <dd className="inputbox-content">
-                <input className="content-data" type="text" name="map" minLength = "1" maxLength="5" 
+                <input className="content-data" type="text" name="zip" minLength = "1" maxLength="5" 
                         onChange={event} required/>
                 <label className="label-animation" htmlFor="content-data">Code Postal :</label>
                 <span className="underline-animation"></span>
@@ -45,7 +45,7 @@ const GBuild = ({event}) => (
     <div id="zoenzc" className="form-field">
         <dl className="inputbox">
             <dd className="inputbox-content">
-                <select id="city" className="content-data" name="map" onChange={event} required>
+                <select id="city" className="content-data" name="city" onChange={event} required>
                     <option value="" defaultValue hidden/>
                 </select>
                 <label className="label-animation" htmlFor="content-data">Ville :</label>
@@ -54,15 +54,17 @@ const GBuild = ({event}) => (
         </dl>
     </div>
     
-    <div id="opajeio" className="form-field">
+    { //? Should we keep this ? 
+    }
+    {/* <div id="opajeio" className="form-field">
         <dl className="inputbox">
             <dd className="inputbox-content">
-                <textarea className="label-animation" name="textArea" placeholder="Description du produit :" minLength="1" maxLength={500}/>
-                {/* <label className="content_label" htmlFor="text_content">Description du produit :</label>
-                <span className="underline-animation"></span> */}
+                <textarea className="content-data" name="textArea" placeholder="Description du produit :" minLength="1" maxLength={500}/>
+                <label className="content_label" htmlFor="text_content">Description du produit :</label>
+                <span className="underline-animation"></span>
             </dd>
         </dl>
-    </div>
+    </div> */}
 </>
 )
 

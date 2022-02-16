@@ -4,12 +4,12 @@ import Layout from "../partials/Layout";
 import { importImages, getTrashColor } from "../../../www/actions/Functions";
 
 
-const DiscardToTrash = () => (
+const DiscardToTrash = props => (
     <Layout>
         <main className="trash" id="main-content">
             <div className="trash-wrapper">
                 <div className="trash-color">
-                    <img className={getTrashColor(useLocation().state.pMat)} src={importImages("trash.png")} alt='trash'></img>
+                    <img className={getTrashColor(useLocation().state.product)} src={importImages("trash.png")} alt='trash'></img>
                 </div>
             </div>
         </main>

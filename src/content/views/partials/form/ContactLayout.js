@@ -31,7 +31,7 @@ const ContactLayout = ({event}) => (
     <div id="ijconxa" className="form-field">
         <dl className="inputbox">
             <dd className="inputbox-content">
-                <textarea className="content-data" type="text" name="textArea" placeholder="Description de votre requête :" 
+                <textarea className="content-data" type="text" name="textarea" placeholder="Description de votre requête :" 
                             minLength="1" maxLength={1000} onChange={event} required/>
                 {/* <label className="content_label" htmlFor="text_content">Description du produit :</label>
                 <span className="underline"></span> */}

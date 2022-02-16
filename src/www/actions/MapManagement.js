@@ -2,7 +2,7 @@ import { useMap } from "react-leaflet";
 
 export const DisplayMarker = ({leaflet, location, dump}) => {
     const map = useMap();
-    if(location.form === "trash") fetchDumpMarkers(leaflet, location, map, dump);
+    if(location.form === "discard") fetchDumpMarkers(leaflet, location, map, dump);
     fetchMarker(leaflet, location, map);
 
     return null;
@@ -26,7 +26,7 @@ function fetchDumpMarkers(leaflet, location, map, dump) {
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
     });
 
-    const dep = location.cZip.slice(0,2);
+    const dep = location.zip.slice(0,2);
     const items = dump.find(el => el.dep === `${dep}`).content;
 
     items.forEach(el => {
@@ -37,8 +37,8 @@ function fetchDumpMarkers(leaflet, location, map, dump) {
 
 function fetchPosition(leaflet, map, location) {
     const position = {
-        lat : location.cLat,
-        lng: location.cLong
+        lat : location.lat,
+        lng: location.long
     } 
 
     const approx_radius = 2000;

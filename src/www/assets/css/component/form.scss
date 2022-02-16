@@ -40,21 +40,21 @@
 
             & > form.form {
                 display: flex;
-                // align-items: center;
+                align-items: center;
                 justify-content: space-evenly;
                 flex-flow: column;
                 flex-basis: auto;
                 width: 80%;
                 height: 90%;
 
-                &-title {
+                & > .form-title {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     margin-top: 10px;
                 }
 
-                &-fields {
+                & > .form-fields {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -63,11 +63,11 @@
                     width: 100%;
 
                     & > .form-field {
-                        width: 80%;
+                        width: 90%;
                     }
                 }
 
-                &-btn {
+                & > .form-btn {
                     display: flex;
                     align-items: center;
                     justify-content: center;

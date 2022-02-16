@@ -32,8 +32,8 @@ export function stateOnPage(mode, page) {
     }
 }
 
-export function getTrashColor(material) {
-    const regx = new RegExp('\\b' + material + '\\b', 'i');
+export function getTrashColor(p) {
+    const regx = new RegExp('\\b' + p.material + '\\b', 'i');
     const green = "bois";
     const yellow = "metal plastique caoutchouc papier_carton";
     const blue = "ceramique cuir textile";

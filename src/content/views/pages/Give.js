@@ -1,165 +1,59 @@
-import React from "react";
-import GBuild from "../partials/form/GiveLayout";
-import Redirect from "../../../www/actions/Redirect";
-import cities from "../../../www/json/Cities";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import GiveLayout from "../partials/form/GiveLayout";
 import Layout from "../partials/Layout";
+import { importImages } from "../../../www/actions/Functions";
+import { Formulaire } from "../../../www/actions/FormManagement";
 
 
-function importAll(r) {
-    let images = {};
-    r.keys().map((item) => ( images[item.replace('./', '')] = r(item) ));
-    return images;
-}
+const form = new Formulaire("give");
 
-class Give extends React.Component {
-    imagesStatic = importAll(require.context('../../img', false, /\.(png|jpe?g|svg)$/));
-
-    constructor (props) {
-        super(props);
-        this.state = {
-            verify: { product: null, material: false, location: null, form: null },
-        }
-
-        this.product = { name: null, material: null }
-        this.city    = { name: null, zip: null, department: null, lat: null, long: null, found: false }
-        this.description = null;
-      }
-
-    handleUserInput = (e) => {
+const Give = () => {
+    const [formState, setFormState] = useState({product: null, state: null, zip: null, city: null});
+    
+    const handleUserInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        this.validateField(name, value, e);
-    }
-
-    validateField(fieldName, value, e) {
-        const com = document.getElementById("city");
-        const link = document.querySelector(".form-btn").firstChild;
-        const btn = document.querySelector(".button");
-        const span = document.createElement('span');
         const nodes = e.currentTarget.parentNode.childNodes;
-        let validated = this.state.verify;
 
-        switch(fieldName) {
-            case "product":
-                validated.product = (!value.match(/[^a-zéèêâà']/i) && value.length >= 2) ? true : false;
-
-                if(!validated.product) {
-                    nodes[1].style.color = "crimson";
-                    nodes[2].style.backgroundColor = "crimson";
-                }else {
-                    nodes[1].style.color = "#2962ff";
-                    nodes[2].style.backgroundColor = "#2962ff";
-                }
-
-                this.product.name = value;
-                break;
-            case "state":
-                validated.material = (value !== "default") ? true : false;
-                this.product.material = value;
-                break;
-            case "map":
-                if(e.target.id !== "city") {
-                    const arrayData = cities.filter(cityData => cityData.zip === value);
-                    validated.location = (arrayData.length !== 0) ? true : false;
-
-                    if(!validated.location) {
-                        nodes[1].style.color = "crimson";
-                        nodes[2].style.backgroundColor = "crimson";
-                    }else {
-                        nodes[1].style.color = "#2962ff";
-                        nodes[2].style.backgroundColor = "#2962ff";
-                    }
-
-                    this.city.zip = value;
-
-                    if(validated.location) {
-                        validated.location = false;
-                        this.city.found = true;
-                        arrayData.forEach(cityData => {
-                            const option = document.createElement('option');
-                            option.innerHTML = cityData.name + ", " + cityData.department;
-                            com.appendChild(option)
-                        })
-                    }else {
-                        this.city.found = false;
-                        const option = document.createElement('option');
-                        com.innerHTML = '';
-                        option.setAttribute("defaultValue","defaultValue");
-                        option.setAttribute("hidden", "hidden");
-                        option.value = "";
-                        com.appendChild(option);
-                    }
-                } else {
-                    validated.location = (value !== "default" && this.city.found) ? true : false;
-
-                    if(validated.location) {
-                        const name_dep = value.split(", ");
-                        const self = this;
-                        self.city.name = name_dep[0];
-                        self.city.department = name_dep[1];
-                        
-                        cities.find(function(city) {
-                            if((city.name === self.city.name) && (city.zip === self.city.zip) && (city.department === self.city.department)) {
-                                self.city.lat = city.lat;
-                                self.city.long = city.long;
-                            }
-                            
-                            return null;
-                        })
-                    }
-                }
-                break;
-            case "textArea": {
-                this.description = e.target.value;
-                break;
-            }
-            default: break;
-        }
-        validated.form = this.state.verify.product && this.state.verify.material && this.state.verify.location;
-        this.setState({
-            ...this.state.verify,
-            form: validated.form,
-        });
-
-        if(validated.form) {
-            btn.classList.remove("button--mimas");
-            link.innerHTML = '';
-
-            link.appendChild(btn);
-            btn.appendChild(span);
-
-            btn.classList.add('button_anime');
-        }
+             if(name === "product") setFormState(valid => ({...valid, product: form.verifyProductName(value, nodes)}));
+        else if(name === "state"  ) setFormState(valid => ({...valid, state: form.verifyProductCondition(value)}));
+        else if(name === "zip"    ) setFormState(valid => ({...valid, zip: form.verifyZipValidity(value, nodes)}));
+        else if(name === "city"   ) setFormState(valid => ({...valid, city: form.verifyCityValidity(value)}));
     }
 
-
-    render() {
-        return (
-            <Layout>
-                <main className="forms" id="main-content">
-                    <div className="forms-box">
-                        <div className="picture-wrapper">
-                            <img className="picture" src={this.imagesStatic["give.jpg"]} alt="pic"/>
-                        </div>
-
-                        <div className="form-wrapper">
-                            <form className="form">
-                                <div className="form-title">
-                                    <h2>Formulaire Donner</h2>
-                                </div>
-                                <div className="form-fields">
-                                    <GBuild {...this.props} event={this.handleUserInput}/>
-                                </div>
-                                <div className="form-btn">
-                                    <Redirect link={"/donner/resultats"} product={this.product} city={this.city} disabled={!this.state.verify.form}/>
-                                </div>
-                            </form>
-                        </div>
+    return (
+        <Layout>
+            <main className="forms" id="main-content">
+                <div className="forms-box">
+                    <div className="picture-wrapper">
+                        <img className="picture" src={importImages("give.jpg")} alt="pic"/>
                     </div>
-                </main>
-            </Layout>
-        )
-    } 
+
+                    <div className="form-wrapper">
+                        <form className="form">
+                            <div className="form-title">
+                                <h2>Formulaire Donner</h2>
+                            </div>
+                            <div className="form-fields">
+                                <GiveLayout event={handleUserInput}/>
+                            </div>
+                            <div className="form-btn">
+                            { 
+                                form.verifyFormValidity(formState) ?
+                                <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
+                                    <button className="button button_anime"><span>Chercher</span></button>
+                                </Link>
+                                :
+                                <Link to="#"><button className="button button_anime_back" disabled><span>Chercher</span></button></Link>
+                            }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </Layout>
+    )
 }
 
 export default Give;
