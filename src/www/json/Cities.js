@@ -1,4 +1,4 @@
-let cities = [
+const cities = [
     { name: "L'Abergement-Clémenciat", zip: "01400", department: "01", region: "84", lat: "46.1567", long: "4.926" },
     { name: "L'Abergement-de-Varey", zip: "01640", department: "01", region: "84", lat: "46.01", long: "5.4284" },
     { name: "Ambérieu-en-Bugey", zip: "01500", department: "01", region: "84", lat: "45.9594", long: "5.3775" },

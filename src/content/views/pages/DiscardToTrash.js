@@ -4,7 +4,7 @@ import Layout from "../partials/Layout";
 import { importImages, getTrashColor } from "../../../www/actions/Functions";
 
 
-const DiscardToTrash = props => (
+const DiscardToTrash = () => (
     <Layout>
         <main className="trash" id="main-content">
             <div className="trash-wrapper">

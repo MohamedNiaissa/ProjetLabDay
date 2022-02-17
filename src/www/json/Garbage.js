@@ -1,4 +1,4 @@
-let garbage = 
+const garbage = 
 [    
     {
         dep: "01",
