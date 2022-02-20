@@ -9,6 +9,7 @@ const app = express();
 app.use(bodyParser.json({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
+// app.get('/favicon.ico', (req, res) => res.status(404));
 app.use('/department', api);
   
 app.listen(PORT, () => {

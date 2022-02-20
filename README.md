@@ -13,3 +13,4 @@ Server side :
 Config :
 - Create a config folder in the server folder.
 - Create a file config in the folder config and write the auth for BDD.
+- BDD used is Postgres.
