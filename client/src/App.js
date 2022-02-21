@@ -20,7 +20,7 @@ const App = ({hideLoader}) => {
                 <Route path="/jeter/decharge"              element={<DiscardToDump />   }/>
                 <Route path="/contact"                     element={<Contact />         }/>
                 <Route path="/contact/redirect"            element={<ContactRedirect /> }/>
-                <Route path="*"                            element={<Error404 />        }/>
+                {/* <Route path="*"                            element={<Error404 />        }/> */}
             </Switch>
         </Router>
     )

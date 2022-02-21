@@ -4,102 +4,127 @@
     flex-direction: column;
 
     width: 100%;
-    height: 84vh;
+    min-height: 84vh;
     transition-delay: 1.3s;
     transition-duration: 0.4s;
-    background-color: rgb(53, 53, 53);
+    // background-color: black;
 
-    & > div.content-sell {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        flex-direction: row;
-
+    & > div.view {
         width: 100%;
-        height: 33.3334%;
-        background-image: linear-gradient(to right, #051937, #00203a, #00273a, #002d38, #053236);
-
-        & > div.sell-icon-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40%;
-            height: 100%;
-        }
-
-        & > div.sell-text-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60%;
-            height: 100%;
-        }
-    }
-
-    & > div.content-give {
+        height: 90vh;
         display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: space-evenly;
-        flex-direction: row-reverse;
+        position: relative;
+        background-color: #5065779a;
+        margin: 5%;
+        border-radius: 400px 30px 400px 30px;
+        pointer-events: none;
 
-        width: 100%;
-        height: 33.3334%;
-        background-image: linear-gradient(to left, #051937, #00203a, #00273a, #002d38, #053236);
-    
-        & > div.give-icon-wrapper {
+        & > .content {
+            color: #fff;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            width: 40%;
-            height: 100%;
+            align-items: flex-start;
+            position: absolute;
+            // overflow: hidden;
+            width: 80%;
+            top: 50%;
+            -webkit-transform: translate3d(0, -50%, 0);
+            transform: translate3d(0, -50%, 0);
+            z-index: 10;
+
+            & > .title {
+                width: 100%;
+                font-size: clamp(70px, 10vw, 10vw);
+                letter-spacing: 0.1em;
+                padding-left: 5%;
+                padding-bottom: 1rem;
+                font-family: "futura_m";
+                font-weight: normal;
+                text-shadow: rgba(0, 0, 0, 0.274) 10px 10px 5px;
+            }
+
+            & > .desc {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+
+                & > .container {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    width: 60%;
+                    height: 35vh;
+                    // padding-left: 4%;
+
+                    .main{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: clamp(100px, 40vw, 40vw);
+                        height: 60%;
+                        color: rgb(8, 0, 0);
+                        background: rgba(255, 255, 255, 0.733);
+                        border: 1px solid rgba(255,255,255,0.3);
+                        box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+                        border-radius: 20px;
+                        padding: 2em;
+                        z-index: 1;
+                        font-size: 2rem;
+                    }
+                }       
+                  
+                & > .page {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    // overflow-y: hidden;
+                    font-size: clamp(70px, 8vw, 8vw);
+                    color: #fff;
+                    font-family: "Abril Fatface";
+                    padding-right: 7.5%;
+
+                    & > .page-number {
+                        text-shadow: rgba(0, 0, 0, 0.274) 10px 10px 5px;
+                    }
+                }
+            }
         }
 
-        & > div.give-text-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60%;
-            height: 100%;
+        & > .body {
+
+            width: 50%;
+            height: 60%;
+            box-shadow: 0 0 90px 4px rgba(0, 0, 0, 0.685);
+            margin-left: 10%;
+            border-radius: 10px;
+            pointer-events: visible;
+            // z-index: -1;
+
+            & > .image-wrapper {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                transition: ease-in-out .4s;
+                // overflow: hidden;
+
+                &:hover {
+                    transform: scale(1.029);
+                    
+                }
+
+                & > img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
         }
-    }
-
-    & > div.content-throw {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        flex-direction: row;
-        
-        width: 100%;
-        height: 33.3334%;
-        background-image: linear-gradient(to right, #051937, #00203a, #00273a, #002d38, #053236);
-    
-        & > div.throw-icon-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40%;
-            height: 100%;
-        }
-
-        & > div.throw-text-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60%;
-            height: 100%;
-        }
-    }
-
-    & * img.icon {
-        transition: transform .4s;
-        object-fit: contain;
-        width: 80%;
-        height: 90%;
-    }
-
-    & * p {
-        text-align: center;
-        color: white;
-        padding: 30px 70px;
     }
 }

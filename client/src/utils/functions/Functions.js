@@ -10,13 +10,16 @@ export function triggerBurgerMenu() {
     const el = (str) => document.getElementById(str);
     const mainView = el("root-content");
     const burgerMenu = el("burger-side");
+    const navBar = el("header");
 
     el("toggle-burger").onchange = (e) => {
         if (e.target.checked) {
             mainView.style.width = "80%";
+            navBar.style.width = "80%";
             burgerMenu.style.width = "20%";
         } else {
             mainView.style.width = "100%";
+            navBar.style.width = "100%";
             burgerMenu.style.width = "0%";
 
             el("burger-anim").animate({ transform: 'rotate(-90deg)' }, 800);
