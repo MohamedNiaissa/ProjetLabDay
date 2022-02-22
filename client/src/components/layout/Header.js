@@ -11,7 +11,7 @@ const Header = () => {
         <header className="header" id="header" >
             <div className="logo-wrapper">
                 <Link to="/home">
-                    <img className="logo" src={importImages('NextStep.jpg')} alt="logo"/>
+                    <img className="logo" src={importImages("NextStep.webp")} alt="logo"/>
                 </Link>
             </div>
             <nav className="menu-wrapper">
@@ -20,7 +20,7 @@ const Header = () => {
                     <li>
                         <div className="option-burger">
                             <input className="burger-action" id="toggle-burger" type="checkbox" ></input>
-                            <label id="burger-anim" htmlFor="toggle-burger"><img className="burger" src={importImages('nut.png')} alt="burger"/></label>
+                            <label id="burger-anim" htmlFor="toggle-burger"><img className="burger" src={importImages("nut.webp")} alt="burger"/></label>
                         </div>
                     </li>
                 </ul>

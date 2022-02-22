@@ -1,0 +1,44 @@
+.loader{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-hide {
+    display: none;
+}
+
+.loader .circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    animation: spin 1s ease-in-out infinite;
+}
+
+.loader .circle:nth-child(1){
+    border-top: 2px solid red;
+}
+
+.loader .circle:nth-child(2){
+    border-bottom: 2px solid orangered;
+    width: 120px;
+    height: 120px;
+}
+
+.loader .circle:nth-child(3){
+    border-left: 2px solid violet;
+    width: 180px;
+    height: 180px;
+}
+
+@keyframes spin{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(720deg)}
+}
