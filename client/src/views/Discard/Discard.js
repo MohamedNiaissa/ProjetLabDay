@@ -29,7 +29,7 @@ const Discard = () => {
             <main className="forms" id="main-content">
                 <div className="forms-box">
                     <div className="picture-wrapper">
-                        <img className="picture" src={importImages("discard.jpg")} alt="pic"/>
+                        <img className="picture" src={importImages("discard.webp")} alt="pic"/>
                     </div>
 
                     <div className="form-wrapper">

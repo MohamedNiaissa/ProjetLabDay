@@ -27,7 +27,7 @@ const Sell = () => {
             <main className="forms" id="main-content">
                 <div className="forms-box">
                     <div className="picture-wrapper">
-                        <img className="picture" src={importImages("sell.jpg")} alt="pic"/>
+                        <img className="picture" src={importImages("sell.webp")} alt="pic"/>
                     </div>
 
                     <div className="form-wrapper">
