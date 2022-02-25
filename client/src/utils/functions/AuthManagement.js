@@ -6,6 +6,7 @@ export function slide() {
         
         const animationDirection = window.location.hash === "#signUp" ? "right" : "left";
         el.add(animationDirection);
+        setTimeout(() => {el.remove(animationDirection)}, 2500);
     })
 }
 
