@@ -7,8 +7,8 @@ const Burger = () => (
         <ul>
             <li><Link to="/home">Home</Link></li>
             <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/home">Log In</Link></li>
-            <li><Link to="/home">Sign Up</Link></li>
+            <li><Link to="/auth#logIn">Log In</Link></li>
+            <li><Link to="/auth#signUp">Sign Up</Link></li>
         </ul>
     </nav>
 )

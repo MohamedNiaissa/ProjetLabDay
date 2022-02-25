@@ -6,10 +6,10 @@ import DiscardToTrash from "./Discard/DiscardToTrash";
 import Give from "./Give/Give";
 import GiveToAsso from "./Give/GiveToAsso";
 import Home from "./Home/Home";
-// import Layout from "./Login-Signup/Layout";
+import AuthLayout from "./Login-Signup/AuthLayout";
 import Sell from "./Sell/Sell";
 import SellToWebsite from "./Sell/SellToWebsite";
 import Error404 from "./Error404";
 
 export { Contact, ContactRedirect, Discard, DiscardToDump, DiscardToTrash, 
-    Give, GiveToAsso, Home, Sell, SellToWebsite, Error404 };
+    Give, GiveToAsso, Home, AuthLayout, Sell, SellToWebsite, Error404 };

@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
 
 import { Home, Sell, SellToWebsite, Give, GiveToAsso, Discard, 
-    DiscardToDump, DiscardToTrash, Contact, ContactRedirect, Error404 } from "./views";
+    DiscardToDump, DiscardToTrash, Contact, ContactRedirect, AuthLayout, Error404 } from "./views";
 
 const App = ({hideLoader}) => {
     useEffect(() => hideLoader(), [hideLoader]);
@@ -20,7 +20,8 @@ const App = ({hideLoader}) => {
                 <Route path="/jeter/decharge"              element={<DiscardToDump />   }/>
                 <Route path="/contact"                     element={<Contact />         }/>
                 <Route path="/contact/redirect"            element={<ContactRedirect /> }/>
-                {/* <Route path="*"                            element={<Error404 />        }/> */}
+                <Route path="/auth"                        element={<AuthLayout />      }/>
+                <Route path="*"                            element={<Error404 />        }/>
             </Switch>
         </Router>
     )
