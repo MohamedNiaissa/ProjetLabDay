@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DiscardLayout from "../../components/forms/DiscardLayout";
 import Layout from "../../components/layout/Layout";
-import { importImages } from "../../utils/functions/Functions";
 import { Formulaire } from "../../utils/functions/FormManagement";
 
 
@@ -25,29 +24,25 @@ const Discard = () => {
     }
 
     return (
-        <Layout>
+        <Layout bg="sell-bg">
             <main className="forms" id="main-content">
                 <div className="forms-box">
-                    <div className="picture-wrapper">
-                        <img className="picture" src={importImages("discard.webp")} alt="pic"/>
+                    <div className="form-title">
+                        <h2>Formulaire Jeter</h2>
                     </div>
 
                     <div className="form-wrapper">
                         <form className="form">
-                            <div className="form-title">
-                                <h2>Formulaire Jeter</h2>
-                            </div>
-                            <div className="form-fields">
-                                <DiscardLayout event={handleUserInput} checked={cboxState}/>
-                            </div>
+                            <DiscardLayout event={handleUserInput} checked={cboxState}/>
+
                             <div className="form-btn">
                             { 
                                 form.verifyDiscardValidity(formState, cboxState) ?
                                 <Link to={(cboxState ? "/jeter/decharge" : "/jeter/poubelles-ecologiques")} state={{product: form.fetchProduct(), city: form.fetchCity()}}>
-                                    <button className="button button_anime"><span>Chercher</span></button>
+                                    <button className="button button_anime">Chercher</button>
                                 </Link>
                                 :
-                                <Link to="#"><button className="button button_anime_back" disabled><span>Chercher</span></button></Link>
+                                <Link to="#"><button className="button button_anime_back" disabled>Chercher</button></Link>
                             }
                             </div>
                         </form>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SellLayout from "../../components/forms/SellLayout";
 import Layout from "../../components/layout/Layout";
 import { Formulaire } from "../../utils/functions/FormManagement";
-import { importImages } from "../../utils/functions/Functions";
 
 
 const form = new Formulaire("sell");
@@ -23,29 +22,24 @@ const Sell = () => {
     }
 
     return (
-        <Layout>
+        <Layout bg="sell-bg">
             <main className="forms" id="main-content">
                 <div className="forms-box">
-                    <div className="picture-wrapper">
-                        <img className="picture" src={importImages("sell.webp")} alt="pic"/>
+                    <div className="form-title">
+                        <h2>Formulaire Vendre</h2>
                     </div>
-
                     <div className="form-wrapper">
                         <form className="form">
-                            <div className="form-title">
-                                <h2>Formulaire Vendre</h2>
-                            </div>
-                            <div className="form-fields">
-                                <SellLayout event={handleUserInput}/>
-                            </div>
+                            <SellLayout event={handleUserInput}/>
+
                             <div className="form-btn">
                             { 
                                 form.verifyFormValidity(formState) ?
                                 <Link to="/vendre/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
-                                    <button className="button button_anime"><span>Chercher</span></button>
+                                    <button className="button valid">Chercher</button>
                                 </Link>
                                 :
-                                <Link to="#"><button className="button button_anime_back" disabled><span>Chercher</span></button></Link>
+                                <Link to="#"><button className="button" disabled>Chercher</button></Link>
                             }
                             </div>
                         </form>

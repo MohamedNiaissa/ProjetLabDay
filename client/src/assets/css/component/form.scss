@@ -1,7 +1,7 @@
 .forms {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
 
     width: 100%;
@@ -9,78 +9,57 @@
     height: 100%;
     transition-delay: 1.3s;
     transition-duration: 0.4s;
-    background-color: rgb(33, 53, 70);
-    padding: 40px 0;
+    padding: 90px 0 0 0;
 
     &-box {
         display: flex;
-        flex-flow: row wrap;
-        width: 55%;
-        min-height: 55vh;
-        border-radius: 10px;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 70%;
+        height: 80%;
         flex-basis: auto;
 
-        & > div.picture-wrapper {
-            width: 45%;
-
-            & > img.picture {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 9.5px 0 0 9.5px;
-            }
+        & > .form-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
 
         & > div.form-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 55%;
-            background-color: rgb(184, 228, 158);
-            box-shadow: -8px 0 8px -3px black;
-            border-radius: 0 9.5px 9.5px 0;
+            width: 45%;
+            height: 100%;
 
             & > form.form {
                 display: flex;
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: space-around;
                 flex-flow: column;
                 flex-basis: auto;
                 width: 100%;
-                height: 100%;
-                padding: 10px;
+                height: 80%;
 
-                & > .form-title {
+                & > .form-field {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
-                    margin-top: 10px;
-                }
-
-                & > .form-fields {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     flex-flow: column;
                     flex-basis: content;
                     width: 100%;
-
-                    & > .form-field {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        flex-flow: column;
-                        flex-basis: content;
-                        width: 100%;
-                        height: 70%;
-                    }
+                    height: 70%;
                 }
 
                 & > .form-btn {
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    justify-self: flex-end;
                     width: 40%;
+                    height: 20%
                 }
             }
         }

@@ -111,148 +111,174 @@ $focus-color: #2962ff;
 }
 
 .button {
-    display: inline-block;
-    position: relative;
-    pointer-events: auto;
-    flex-basis: content;
-    color: #fff;
-    background: $focus-color;
-    border: none;
-    padding: .5rem 1.5rem;
-    margin-top: 3vh;
-    font-family: inherit;
-    font-size: inherit;
-
-    &::before, &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 103%;
-        height: 103%;
-    }
+    padding: 7px 30px;
+    border-radius: 20px;
+    border: solid 3px rgb(192, 192, 192);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
+    font-size: small;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #5f5f5f;
+    color: rgb(143, 143, 143);
+    transition: 0.3s ease-in-out;
 }
 
-.button--mimas {
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    font-weight: 700;
-    font-size: 0.85rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    color: #fff;
-    background: $initial-color;
-
-    span {
-        position: relative;
-        mix-blend-mode: difference;
-        color:#fff;
-    }
-}
-
-.button_anime {
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    font-weight: 700;
-    font-size: 0.85rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    color: #fff;
+.valid {
+    background-color: #213546;
+    color: rgb(55, 168, 172);
+    border: solid 3px rgb(55, 168, 172);
     cursor: pointer;
-    background: black;
     
-
-    span {
-        position: relative;
-        mix-blend-mode: difference;
-        color: #fff;
-    }
-
-    &::before {
-        content: '';
-        background: $initial-color;
-        width: 120%;
-        left: -10%;
-        transform: skew(30deg);
-        transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
-        animation: move 4s forwards;
-    }
-
     &:hover {
-        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.432);
-        transition: .4s ease-in-out;
+        background-color: rgb(55, 168, 172);
+        color: white;
+        transform: scale(1.03);
     }
 }
 
-@keyframes move {
-    0% {
-        left: -10%;
-    }
-    100% {
-        left: 120%;
-        background-color: black;
-    }
-}
+// .button {
+//     display: inline-block;
+//     position: relative;
+//     pointer-events: auto;
+//     flex-basis: content;
+//     color: #fff;
+//     background: $focus-color;
+//     border: none;
+//     padding: .5rem 1.5rem;
+//     margin-top: 3vh;
+//     font-family: inherit;
+//     font-size: inherit;
 
-.button_return {
-    display: inline-block;
-    position: relative;
-    pointer-events: auto;
-    flex-basis: content;
-    color: #fff;
-    background: black;
-    border: none;
-    padding: .5rem 1.5rem;
-    margin-top: 3vh;
-    font-family: inherit;
-    font-size: inherit;
+//     &::before, &::after {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 103%;
+//         height: 103%;
+//     }
+// }
 
-    &::before, &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 103%;
-        height: 103%;
-    }
-}
+// .button--mimas {
+//     text-transform: uppercase;
+//     letter-spacing: 0.05rem;
+//     font-weight: 700;
+//     font-size: 0.85rem;
+//     border-radius: 0.5rem;
+//     overflow: hidden;
+//     color: #fff;
+//     background: $initial-color;
 
-.button_anime_back {
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    font-weight: 700;
-    font-size: 0.85rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    color: #fff;
-    cursor: pointer;
-    background: black;
+//     span {
+//         position: relative;
+//         mix-blend-mode: difference;
+//         color:#fff;
+//     }
+// }
+
+// .button_anime {
+//     text-transform: uppercase;
+//     letter-spacing: 0.05rem;
+//     font-weight: 700;
+//     font-size: 0.85rem;
+//     border-radius: 0.5rem;
+//     overflow: hidden;
+//     color: #fff;
+//     cursor: pointer;
+//     background: black;
     
 
-    span {
-        position: relative;
-        mix-blend-mode: difference;
-        color: #fff;
-    }
+//     span {
+//         position: relative;
+//         mix-blend-mode: difference;
+//         color: #fff;
+//     }
 
-    &::before {
-        content: '';
-        background: black;
-        width: 120%;
-        left: -10%;
-        transform: skew(30deg);
-        transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
-        animation: moveback 4s forwards;
-    }
-}
+//     &::before {
+//         content: '';
+//         background: $initial-color;
+//         width: 120%;
+//         left: -10%;
+//         transform: skew(30deg);
+//         transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
+//         animation: move 4s forwards;
+//     }
 
-@keyframes moveback {
-    0% {
-        left: 120%;
-    }
-    100% {
-        left: -10%;
-        background-color: $initial-color;
-    }
-}
+//     &:hover {
+//         box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.432);
+//         transition: .4s ease-in-out;
+//     }
+// }
+
+// @keyframes move {
+//     0% {
+//         left: -10%;
+//     }
+//     100% {
+//         left: 120%;
+//         background-color: black;
+//     }
+// }
+
+// .button_return {
+//     display: inline-block;
+//     position: relative;
+//     pointer-events: auto;
+//     flex-basis: content;
+//     color: #fff;
+//     background: black;
+//     border: none;
+//     padding: .5rem 1.5rem;
+//     margin-top: 3vh;
+//     font-family: inherit;
+//     font-size: inherit;
+
+//     &::before, &::after {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 103%;
+//         height: 103%;
+//     }
+// }
+
+// .button_anime_back {
+//     text-transform: uppercase;
+//     letter-spacing: 0.05rem;
+//     font-weight: 700;
+//     font-size: 0.85rem;
+//     border-radius: 0.5rem;
+//     overflow: hidden;
+//     color: #fff;
+//     cursor: pointer;
+//     background: black;
+    
+
+//     span {
+//         position: relative;
+//         mix-blend-mode: difference;
+//         color: #fff;
+//     }
+
+//     &::before {
+//         content: '';
+//         background: black;
+//         width: 120%;
+//         left: -10%;
+//         transform: skew(30deg);
+//         transition: transform 1.3s cubic-bezier(0.3, 1, 0.8, 1);
+//         animation: moveback 4s forwards;
+//     }
+// }
+
+// @keyframes moveback {
+//     0% {
+//         left: 120%;
+//     }
+//     100% {
+//         left: -10%;
+//         background-color: $initial-color;
+//     }
+// }
 
 div[disabled] {
     pointer-events: none;

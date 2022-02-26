@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import ContactLayout from "../../components/forms/ContactLayout";
 import emailjs from 'emailjs-com';
 import Layout from "../../components/layout/Layout";
-import { importImages } from "../../utils/functions/Functions";
 import { Formulaire } from "../../utils/functions/FormManagement";
 
 
@@ -33,21 +32,17 @@ const Contact = () => {
     }
 
     return (
-        <Layout>
+        <Layout bg="sell-bg">
             <main className="forms" id="main-content">
                 <div className="forms-box">
-                    <div className="picture-wrapper">
-                        <img className="picture" src={importImages("test.webp")} alt="pic"/>
+                    <div className="form-title">
+                        <h2>Formulaire Contact</h2>
                     </div>
 
                     <div className="form-wrapper">
                         <form className="form">
-                            <div className="form-title">
-                                <h2>Formulaire Contact</h2>
-                            </div>
-                            <div className="form-fields">
-                                <ContactLayout event={handleUserInput}/>
-                            </div>
+                            <ContactLayout event={handleUserInput}/>
+
                             <div className="form-btn">
                             { 
                                 form.verifyFormValidity(formState) ?

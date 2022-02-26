@@ -6,7 +6,7 @@ import Burger from "./Burger";
 
 const Layout = props => (
 <>
-    <div className="root-content" id="root-content">
+    <div className={props.bg ? `root-content ${props.bg}` : "root-content"} id="root-content">
         <Header />
             { props.children }
         <Footer />

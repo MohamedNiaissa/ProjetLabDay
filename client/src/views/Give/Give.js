@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import GiveLayout from "../../components/forms/GiveLayout";
 import Layout from "../../components/layout/Layout";
-import { importImages } from "../../utils/functions/Functions";
 import { Formulaire } from "../../utils/functions/FormManagement";
 
 
@@ -23,21 +22,16 @@ const Give = () => {
     }
 
     return (
-        <Layout>
+        <Layout bg="sell-bg">
             <main className="forms" id="main-content">
                 <div className="forms-box">
-                    <div className="picture-wrapper">
-                        <img className="picture" src={importImages("give.webp")} alt="pic"/>
+                    <div className="form-title">
+                        <h2>Formulaire Donner</h2>
                     </div>
-
                     <div className="form-wrapper">
                         <form className="form">
-                            <div className="form-title">
-                                <h2>Formulaire Donner</h2>
-                            </div>
-                            <div className="form-fields">
-                                <GiveLayout event={handleUserInput}/>
-                            </div>
+                            <GiveLayout event={handleUserInput}/>
+
                             <div className="form-btn">
                             { 
                                 form.verifyFormValidity(formState) ?
