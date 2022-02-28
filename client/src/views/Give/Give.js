@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import GiveLayout from "../../components/forms/GiveLayout";
 import Layout from "../../components/layout/Layout";
+import Background from "../../components/layout/Background";
+import Switch from "../../components/others/Switch";
 import { Formulaire } from "../../utils/functions/FormManagement";
 
 
@@ -22,31 +24,39 @@ const Give = () => {
     }
 
     return (
-        <Layout bg="give-bg">
-            <main className="forms" id="main-content">
-                <div className="form-title">
-                    <h2>Formulaire Donner</h2>
-                </div>
-                <div className="forms-box">
-                    <div className="form-wrapper">
-                        <form className="form">
-                            <GiveLayout event={handleUserInput}/>
-
-                            <div className="form-btn">
-                            { 
-                                form.verifyFormValidity(formState) ?
-                                <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
-                                    <button className="button valid"><span>Chercher</span></button>
-                                </Link>
-                                :
-                                <Link to="#"><button className="button" disabled><span>Chercher</span></button></Link>
-                            }
-                            </div>
-                        </form>
+        <>
+            <Layout bg="give-bg">
+                <main className="forms" id="main-content">
+                    <div className="form-title">
+                        <h1>Formulaire Donner</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet dolore sunt est maxime fugiat omnis ea commodi debitis, repellat illum libero tempore odio ex, molestias recusandae placeat ad et.</p>
                     </div>
-                </div>
-            </main>
-        </Layout>
+                    <div className="forms-box">
+                        <div className="form-wrapper">
+                            <form className="form">
+                                <GiveLayout event={handleUserInput}/>
+
+                                <div className="form-btn">
+                                { 
+                                    form.verifyFormValidity(formState) ?
+                                    <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
+                                        <button className="button valid"><span>Chercher</span></button>
+                                    </Link>
+                                    :
+                                    <Link to="#"><button className="button" disabled><span>Chercher</span></button></Link>
+                                }
+                                    <div className="geo-switch">
+                                        <label>Activer la geolocalisation ? </label>
+                                        <Switch event={null} off="NON" on="OUI" nameID={"geo"}/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </Layout>
+            <Background color={"purple"}/>
+        </>
     )
 }
 

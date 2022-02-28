@@ -6,21 +6,25 @@ import Login from "./Login";
 import Signup from "./Signup";
 import AuthSwitch from "./AuthSwitch";
 import Layout from "../../components/layout/Layout";
+import Background from "../../components/layout/Background";
 import { slide, init } from "../../utils/functions/AuthManagement";
 
 const AuthLayout = () => {
     useEffect(() => slide(), []);
 
     return (
-        <Layout>
-            <main className="auth">
-                <div className="auth-box">
-                    <Login />
-                    <AuthSwitch {...init(useLocation().hash)} />
-                    <Signup />
-                </div>
-            </main>
-        </Layout>
+        <>
+            <Layout>
+                <main className="auth">
+                    <div className="auth-box">
+                        <Login />
+                        <AuthSwitch {...init(useLocation().hash)} />
+                        <Signup />
+                    </div>
+                </main>
+            </Layout>
+            <Background color={"darkblue"}/>
+        </>
     )
 }
 

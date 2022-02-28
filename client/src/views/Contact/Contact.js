@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ContactLayout from "../../components/forms/ContactLayout";
 import emailjs from 'emailjs-com';
 import Layout from "../../components/layout/Layout";
+import Background from "../../components/layout/Background";
 import { Formulaire } from "../../utils/functions/FormManagement";
 
 
@@ -32,31 +33,34 @@ const Contact = () => {
     }
 
     return (
-        <Layout bg="sell-bg">
-            <main className="forms" id="main-content">
-                <div className="form-title">
-                    <h2>Formulaire Contact</h2>
-                </div>
-                <div className="forms-box">
-                    <div className="form-wrapper">
-                        <form className="form">
-                            <ContactLayout event={handleUserInput}/>
-
-                            <div className="form-btn">
-                            { 
-                                form.verifyFormValidity(formState) ?
-                                <Link to="/contact/redirect">
-                                    <button className="button valid" onClick={handleSubmit}><span>Envoyer</span></button>
-                                </Link>
-                                :
-                                <Link to="#"><button className="button" disabled><span>Envoyer</span></button></Link>
-                            }
-                            </div>
-                        </form>
+        <>
+            <Layout bg="sell-bg">
+                <main className="forms" id="main-content">
+                    <div className="form-title">
+                        <h2>Formulaire Contact</h2>
                     </div>
-                </div>
-            </main>
-        </Layout>
+                    <div className="forms-box">
+                        <div className="form-wrapper">
+                            <form className="form">
+                                <ContactLayout event={handleUserInput}/>
+
+                                <div className="form-btn">
+                                { 
+                                    form.verifyFormValidity(formState) ?
+                                    <Link to="/contact/redirect">
+                                        <button className="button valid" onClick={handleSubmit}><span>Envoyer</span></button>
+                                    </Link>
+                                    :
+                                    <Link to="#"><button className="button" disabled><span>Envoyer</span></button></Link>
+                                }
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </Layout>
+            <Background color={"purple"}/>
+        </>
     )
 }
 

@@ -37,7 +37,7 @@ const DiscardLayout = ({event, checked}) => (
 
     <div id="xbanolm" className="form-field" style={{flexDirection: "row"}}>
         <label style={{color: "white"}}>Encombrant ?</label>
-        <Switch event={event} off="NON" on="OUI"/>
+        <Switch event={event} off="NON" on="OUI" nameID={"controller"}/>
     </div>
 
     <div id="fpvzmxn" className="form-field" disabled={checked ? false : true}>

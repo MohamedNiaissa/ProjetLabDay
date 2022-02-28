@@ -1,0 +1,88 @@
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 20%;
+
+    & > .controller {
+        display: none;
+
+        &:checked ~ .slider {
+            background-color: rgb(55, 168, 172);
+            
+            & > .slider-box {
+                &:before {
+                    opacity: 0;
+                }
+
+                &:after {
+                    opacity: 1;
+                }
+
+                & > .ball {
+                    left: -20px;
+                    padding: 50%;
+                    background-color: rgb(55, 168, 172);
+                }
+            }
+        }
+    }
+
+    & > .slider {
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+
+        width: 80px;
+        height: 30px;
+        background-color: #213546;
+        border-radius: 20px;
+        border: solid 3px rgb(55, 168, 172);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
+        transition: 1s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+        
+        cursor: pointer;
+
+        & > .slider-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            width: 100%;
+
+            &:before, &:after {
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+                color: #fff;
+            }
+
+            &:before {
+                position: absolute;
+                content: attr(data-off);
+                right: calc(0% + 15%);
+                transition: 0.7s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+                color: rgb(55, 168, 172);
+            }
+
+            &:after {
+                opacity: 0;
+                display: flex;
+                content: attr(data-on);
+                transition: 0.8s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+                z-index: 1;
+            }
+
+            & > .ball {
+                position: absolute;
+                padding: 13%;
+                left: 4%;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.726);
+                transition: 1.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+            }
+        }
+    }
+}
