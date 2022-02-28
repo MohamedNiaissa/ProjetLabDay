@@ -24,13 +24,12 @@ const Discard = () => {
     }
 
     return (
-        <Layout bg="sell-bg">
+        <Layout bg="discard-bg">
             <main className="forms" id="main-content">
+                <div className="form-title">
+                    <h2>Formulaire Jeter</h2>
+                </div>
                 <div className="forms-box">
-                    <div className="form-title">
-                        <h2>Formulaire Jeter</h2>
-                    </div>
-
                     <div className="form-wrapper">
                         <form className="form">
                             <DiscardLayout event={handleUserInput} checked={cboxState}/>
@@ -39,10 +38,10 @@ const Discard = () => {
                             { 
                                 form.verifyDiscardValidity(formState, cboxState) ?
                                 <Link to={(cboxState ? "/jeter/decharge" : "/jeter/poubelles-ecologiques")} state={{product: form.fetchProduct(), city: form.fetchCity()}}>
-                                    <button className="button button_anime">Chercher</button>
+                                    <button className="button valid">Chercher</button>
                                 </Link>
                                 :
-                                <Link to="#"><button className="button button_anime_back" disabled>Chercher</button></Link>
+                                <Link to="#"><button className="button" disabled>Chercher</button></Link>
                             }
                             </div>
                         </form>

@@ -34,11 +34,10 @@ const Contact = () => {
     return (
         <Layout bg="sell-bg">
             <main className="forms" id="main-content">
+                <div className="form-title">
+                    <h2>Formulaire Contact</h2>
+                </div>
                 <div className="forms-box">
-                    <div className="form-title">
-                        <h2>Formulaire Contact</h2>
-                    </div>
-
                     <div className="form-wrapper">
                         <form className="form">
                             <ContactLayout event={handleUserInput}/>
@@ -47,10 +46,10 @@ const Contact = () => {
                             { 
                                 form.verifyFormValidity(formState) ?
                                 <Link to="/contact/redirect">
-                                    <button className="button button_anime" onClick={handleSubmit}><span>Envoyer</span></button>
+                                    <button className="button valid" onClick={handleSubmit}><span>Envoyer</span></button>
                                 </Link>
                                 :
-                                <Link to="#"><button className="button button_anime_back" disabled><span>Envoyer</span></button></Link>
+                                <Link to="#"><button className="button" disabled><span>Envoyer</span></button></Link>
                             }
                             </div>
                         </form>

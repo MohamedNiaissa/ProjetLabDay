@@ -22,12 +22,12 @@ const Give = () => {
     }
 
     return (
-        <Layout bg="sell-bg">
+        <Layout bg="give-bg">
             <main className="forms" id="main-content">
+                <div className="form-title">
+                    <h2>Formulaire Donner</h2>
+                </div>
                 <div className="forms-box">
-                    <div className="form-title">
-                        <h2>Formulaire Donner</h2>
-                    </div>
                     <div className="form-wrapper">
                         <form className="form">
                             <GiveLayout event={handleUserInput}/>
@@ -36,10 +36,10 @@ const Give = () => {
                             { 
                                 form.verifyFormValidity(formState) ?
                                 <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
-                                    <button className="button button_anime"><span>Chercher</span></button>
+                                    <button className="button valid"><span>Chercher</span></button>
                                 </Link>
                                 :
-                                <Link to="#"><button className="button button_anime_back" disabled><span>Chercher</span></button></Link>
+                                <Link to="#"><button className="button" disabled><span>Chercher</span></button></Link>
                             }
                             </div>
                         </form>

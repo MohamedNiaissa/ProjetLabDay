@@ -1,5 +1,6 @@
 .forms {
     display: flex;
+    align-items: center;
     justify-content: center;
     align-items: flex-end;
     flex-direction: column;
@@ -11,59 +12,79 @@
     transition-duration: 0.4s;
     padding: 90px 0 0 0;
 
+    & > .form-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        width: 100%;
+        height: 20%;
+    }
+
     &-box {
         display: flex;
         align-items: center;
         justify-content: space-around;
         flex-direction: column;
-        width: 70%;
+        width: 60%;
         height: 80%;
         flex-basis: auto;
-
-        & > .form-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
+        background-position: 60%;
 
         & > div.form-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 45%;
+            background: url("../../img/blob.svg") no-repeat center;
+            width: 100%;
             height: 100%;
 
             & > form.form {
                 display: flex;
                 align-items: center;
-                justify-content: space-around;
+                justify-content: space-between;
                 flex-flow: column;
                 flex-basis: auto;
-                width: 100%;
-                height: 80%;
+                width: 50%;
+                height: 100%;
+                padding: 11.5% 1px 8% 1px;
 
                 & > .form-field {
                     display: flex;
                     align-items: center;
-                    justify-content: space-around;
+                    justify-content: center;
                     flex-flow: column;
                     flex-basis: content;
-                    width: 100%;
+                    width: 90%;
                     height: 70%;
+                    margin-right: 10%;
                 }
 
                 & > .form-btn {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
-                    justify-self: flex-end;
-                    width: 40%;
-                    height: 20%
+                    justify-content: flex-start;
+                    width: 100%;
+                    height: 20%;
                 }
             }
         }
     }
+}
+
+.sell-bg {
+    background-image: url("../../img/sell.svg");
+    background-repeat: no-repeat;
+}
+
+.give-bg {
+    background-image: url("../../img/give.svg");
+    background-repeat: no-repeat;
+}
+
+.discard-bg {
+    background-image: url("../../img/discard.svg");
+    background-repeat: no-repeat;
 }
 
 @import "./formContent.scss";

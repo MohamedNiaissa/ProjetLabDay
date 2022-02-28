@@ -10,8 +10,8 @@ export class Formulaire {
 
     colorValidity(valid, nodes) {
         if(valid) {
-            nodes[1].style.color = "#2962ff";
-            nodes[2].style.backgroundColor = "#2962ff";
+            nodes[1].style.color = "#d8d8d8b0";
+            nodes[2].style.backgroundColor = "#d8d8d8b0";
         }else {
             nodes[1].style.color = "crimson";
             nodes[2].style.backgroundColor = "crimson";

@@ -24,10 +24,10 @@ const Sell = () => {
     return (
         <Layout bg="sell-bg">
             <main className="forms" id="main-content">
+                <div className="form-title">
+                    <h2>Formulaire Vendre</h2>
+                </div>
                 <div className="forms-box">
-                    <div className="form-title">
-                        <h2>Formulaire Vendre</h2>
-                    </div>
                     <div className="form-wrapper">
                         <form className="form">
                             <SellLayout event={handleUserInput}/>
