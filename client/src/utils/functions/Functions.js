@@ -45,3 +45,13 @@ export function getTrashColor(p) {
            regx.test(yellow) ? "T yellow" :
            regx.test(blue)   ? "T blue"   : "T";
 }
+
+export function smoothAnimation() {
+    const cards = document.querySelectorAll(".card-content");
+
+    cards.forEach(card => {
+        card.addEventListener('mouseover', function() {
+          this.classList.add('flipped');
+        });
+    })
+}
