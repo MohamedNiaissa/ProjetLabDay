@@ -52,9 +52,6 @@
     & > .flipped {
         animation-play-state: running;
     }
-    // &:hover &-content {
-    //     animation-play-state: running;
-    // }
 }
 
 @keyframes flip {

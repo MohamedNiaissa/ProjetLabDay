@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
-
 import { Home, Sell, SellToWebsite, Give, GiveToAsso, Discard, 
     DiscardToDump, DiscardToTrash, Contact, ContactRedirect, AuthLayout, Error404 } from "./views";
 
+    
 const App = ({hideLoader}) => {
     useEffect(() => hideLoader(), [hideLoader]);
 

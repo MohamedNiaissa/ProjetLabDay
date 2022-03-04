@@ -2,35 +2,85 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    flex-direction: column;
     position: fixed;
 
-    width: 40vh;
+    width: 20%;
     min-height: 100vh;
     height: 100%;
+    background: #222;
     overflow: hidden;
+
+    & > .user-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        border-bottom: 1px solid #333;
+        width: 100%;
+        height: 40%;
+
+        & > .user-pic {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px white solid;
+            overflow: hidden;
+
+            & > .picta {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        & > .user-settings {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 
     & > ul {
         width: 100%;
-        min-height: 100vh;
-        height: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
 
         list-style: none;
-        background: #222;
         overflow: hidden;
 
-        & > li > a { 
-            color: #fff;
-            font-size: 1em;
-            text-decoration: none;
-            display: block;
-            padding: 12px 15px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            border-bottom: 1px solid #333;
+        & > li {
+            width: 100%;
 
-            &:hover {
-                background: #111;
+            & > a { 
+                width: 100%;
+                color: #fff;
+                font-size: 1em;
+                text-decoration: none;
+                display: block;
+                padding: 12px 15px;
+                font-weight: 300;
+                letter-spacing: 2px;
+                border-bottom: 1px solid #333;
+                text-align: center;
+
+                &:hover {
+                    background: #111;
+                }
             }
+        }
+
+        & > .links-bottom {
+            position: absolute;
+            border-top: 1px solid #333;
+            bottom: 0;
         }
     }
 }

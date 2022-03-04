@@ -6,27 +6,6 @@ export function importImages(str) {
     return array[str];
 }
 
-export function triggerBurgerMenu() {
-    const el = (str) => document.getElementById(str);
-    const mainView = el("root-content");
-    const burgerMenu = el("burger-side");
-    const navBar = el("header");
-
-    el("toggle-burger").onchange = (e) => {
-        if (e.target.checked) {
-            mainView.style.width = "80%";
-            navBar.style.width = "80%";
-            burgerMenu.style.width = "20%";
-        } else {
-            mainView.style.width = "100%";
-            navBar.style.width = "100%";
-            burgerMenu.style.width = "0%";
-
-            el("burger-anim").animate({ transform: 'rotate(-90deg)' }, 800);
-        }
-    }
-}
-
 export function stateOnPage(mode, page) {
     if(mode === "bg") {
         return (page === window.location.pathname) ? "option active" : "option inactive";
@@ -50,8 +29,64 @@ export function smoothAnimation() {
     const cards = document.querySelectorAll(".card-content");
 
     cards.forEach(card => {
-        card.addEventListener('mouseover', function() {
-          this.classList.add('flipped');
+            card.addEventListener('mouseover', function() {
+            this.classList.add('flipped');
         });
     })
+}
+
+
+export function triggerBurgerMenu() {
+    const el = (str) => document.getElementById(str);
+    const burgerMenu = el("burger-side");
+    const navBar = el("header");
+
+    el("toggle-burger").onchange = (e) => {
+        if (e.target.checked) {
+            navBar.style.width = "80%";
+            burgerMenu.style.width = "20%";
+            burgerMenu.classList.add("open");
+            addForceClose();
+
+        } else {
+            navBar.style.width = "100%";
+            burgerMenu.style.width = "0%";
+            burgerMenu.classList.remove("open");
+            removeForceClose();
+
+            el("burger-anim").animate({ transform: 'rotate(-90deg)' }, 800);
+        }
+    }
+}
+
+function addForceClose() {
+    document.addEventListener("click", forceClose, true);
+}
+
+function removeForceClose() {
+    document.removeEventListener("click", forceClose, true);
+}
+
+function forceClose(e) {
+    const isElement = e.target.closest("nav");
+    if(isElement !== null) return;
+    
+    const burger = document.getElementById("burger-side");
+    if(!burger.classList.contains("open")) return;
+
+    triggerForceClose();
+}
+
+function triggerForceClose() {
+    const el = (str) => document.getElementById(str);
+    const burgerMenu = el("burger-side");
+    const navBar = el("header");
+
+    navBar.style.width = "100%";
+    burgerMenu.style.width = "0%";
+    burgerMenu.classList.remove("open");
+    el("toggle-burger").checked = false;
+    removeForceClose();
+
+    el("burger-anim").animate({ transform: 'rotate(-90deg)' }, 800);
 }

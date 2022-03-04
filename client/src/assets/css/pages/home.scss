@@ -143,6 +143,7 @@
 
         & > div.func-main {
             width: 100%;
+            height: calc(100% - 94vh);
             position: relative;
             z-index: 2;
 
@@ -268,4 +269,6 @@
 .svg-bg {
     background-image: url("../../img/homeContent.svg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
 }
