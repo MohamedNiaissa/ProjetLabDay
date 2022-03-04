@@ -8,27 +8,27 @@ const Login = () => (
         </div>
         <form className="login">
             <div className="login-field">
-                <div className="inputbox">
-                    <div className="inputbox-content">
-                        <input className="content-data" type="email" name="email" minLength = "1" maxLength="40" required/>
-                        <label className="label-animation" htmlFor="content-data">Adresse email :</label>
-                        <span className="underline-animation"></span>
+                <div className="second-design">
+                    <div className="second-design-content">
+                        <input className="design-field" type="email" name="email" minLength = "1" maxLength="40" required/>
+                        <label htmlFor="design-field">Adresse email :</label>
+                        <span className="simple-underline"></span>
                     </div>
                 </div>
             </div>
 
             <div className="login-field">
-                <div className="inputbox">
-                    <div className="inputbox-content">
-                        <input className="content-data" type="password" name="pass" minLength = "1" maxLength="40" required/>
-                        <label className="label-animation" htmlFor="content-data">Mot de passe :</label>
-                        <span className="underline-animation"></span>
+                <div className="second-design">
+                    <div className="second-design-content">
+                        <input className="design-field" type="password" name="pass" minLength = "1" maxLength="40" required/>
+                        <label htmlFor="design-field">Mot de passe :</label>
+                        <span className="simple-underline"></span>
                     </div>
                 </div>
             </div>
 
             <div className="login-field">
-                <button className="content-data" name="submit" value="Envoyer">Envoyer</button>
+                <button className="design-field" name="submit" value="Envoyer">Envoyer</button>
             </div>
         </form>
     </div>

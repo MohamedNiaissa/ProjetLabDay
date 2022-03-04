@@ -8,37 +8,37 @@ const Signup = () => (
         </div>
         <form className="signup">
             <div className="signup-field">
-                <div className="inputbox">
-                    <div className="inputbox-content">
-                        <input className="content-data" type="email" name="email" minLength = "1" maxLength="40" required/>
-                        <label className="label-animation" htmlFor="content-data">Adresse email :</label>
-                        <span className="underline-animation"></span>
+                <div className="second-design">
+                    <div className="second-design-content">
+                        <input className="design-field" type="email" name="email" minLength = "1" maxLength="40" required/>
+                        <label htmlFor="design-field">Adresse email :</label>
+                        <span className="simple-underline"></span>
                     </div>
                 </div>
             </div>
 
             <div className="signup-field">
-                <div className="inputbox">
-                    <div className="inputbox-content">
-                        <input className="content-data" type="password" name="pass" minLength = "1" maxLength="40" required/>
-                        <label className="label-animation" htmlFor="content-data">Mot de passe :</label>
-                        <span className="underline-animation"></span>
+                <div className="second-design">
+                    <div className="second-design-content">
+                        <input className="design-field" type="password" name="pass" minLength = "1" maxLength="40" required/>
+                        <label htmlFor="design-field">Mot de passe :</label>
+                        <span className="simple-underline"></span>
                     </div>
                 </div>
             </div>
 
             <div className="signup-field">
-                <div className="inputbox">
-                    <div className="inputbox-content">
-                        <input className="content-data" type="password" name="pass2" minLength = "1" maxLength="40" required/>
-                        <label className="label-animation" htmlFor="content-data">Verification du mot de passe :</label>
-                        <span className="underline-animation"></span>
+                <div className="second-design">
+                    <div className="second-design-content">
+                        <input className="design-field" type="password" name="pass2" minLength = "1" maxLength="40" required/>
+                        <label htmlFor="design-field">Verification du mot de passe :</label>
+                        <span className="simple-underline"></span>
                     </div>
                 </div>
             </div>
 
             <div className="signup-field">
-                <button className="content-data" name="submit" value="Envoyer">Envoyer</button>
+                <button className="design-field" name="submit" value="Envoyer">Envoyer</button>
             </div>
         </form>
     </div>

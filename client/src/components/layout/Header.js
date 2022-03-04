@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import MainNav from "./MainNav";
+import Nut from "./Nut";
 import {importImages, triggerBurgerMenu} from "../../utils/functions/Functions";
 
 
@@ -9,21 +10,14 @@ const Header = () => {
 
     return (
         <header className="header" id="header" >
-            <div className="logo-wrapper">
+            <div className="header-logo">
                 <Link to="/home">
                     <img className="logo" src={importImages("NextStep.webp")} alt="logo"/>
                 </Link>
             </div>
-            <nav className="menu-wrapper">
-                <ul>
-                    <MainNav/>
-                    <li>
-                        <div className="option-burger">
-                            <input className="burger-action" id="toggle-burger" type="checkbox" ></input>
-                            <label id="burger-anim" htmlFor="toggle-burger"><img className="burger" src={importImages("nut.webp")} alt="burger"/></label>
-                        </div>
-                    </li>
-                </ul>
+            <nav className="header-nav">
+                <MainNav/>
+                <Nut />
             </nav>
         </header>
     )

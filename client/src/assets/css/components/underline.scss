@@ -1,0 +1,32 @@
+.underline {
+    &:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        left: 50%;
+        background: rgb(187, 27, 27);
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    }
+    
+    &:hover:after, &.active:after { 
+        width: 50%; 
+        left: 0; 
+    }
+    
+    &:hover, &.active {
+        color: red;
+    }
+    
+    &.active:hover {
+        color: white;
+    
+        &:after {
+            content: "";
+            height: 2px;
+            width: 0;
+            left: 50%;
+            background: rgb(255, 255, 255);
+            transition: width 0.3s ease 2s, left 0.3s ease 0s;
+        }
+    }
+}

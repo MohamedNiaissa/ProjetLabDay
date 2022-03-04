@@ -6,12 +6,12 @@ import Burger from "./Burger";
 
 const Layout = props => (
 <>
-    <div className={props.bg ? `root-content ${props.bg}` : "root-content"} id="root-content">
+    <div className={props.bg ? `view ${props.bg}` : "view"} id="root-content">
         <Header />
             { props.children }
         <Footer />
     </div>
-    <div className="burger-side" id="burger-side">
+    <div className="burger" id="burger-side">
         <Burger />
     </div>
 </>

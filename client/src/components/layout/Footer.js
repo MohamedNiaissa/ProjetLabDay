@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => (
     <footer className="footer">
         <div className="footer-waves">
-            <svg className="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+            <svg viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
                 <defs>
                     <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                 </defs>
@@ -18,9 +18,7 @@ const Footer = () => (
             </svg>
         </div>
         <div className="footer-content">
-            <Link id="fetchBug" to="/contact">
-                <span className="contact">Contactez nous</span>
-            </Link>
+            <Link id="fetchBug" to="/contact">Contactez nous</Link>
         </div>
     </footer>
 )

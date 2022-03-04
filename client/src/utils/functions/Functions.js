@@ -8,7 +8,7 @@ export function importImages(str) {
 
 export function stateOnPage(mode, page) {
     if(mode === "bg") {
-        return (page === window.location.pathname) ? "option active" : "option inactive";
+        return (page === window.location.pathname) ? "underline active" : "underline inactive";
     }else if(mode === "link") {
         return (page === window.location.pathname) ? "/home" : page;
     }
@@ -39,6 +39,7 @@ export function smoothAnimation() {
 export function triggerBurgerMenu() {
     const el = (str) => document.getElementById(str);
     const burgerMenu = el("burger-side");
+    const burgerNut = el("burger-anim");
     const navBar = el("header");
 
     el("toggle-burger").onchange = (e) => {
@@ -46,15 +47,15 @@ export function triggerBurgerMenu() {
             navBar.style.width = "80%";
             burgerMenu.style.width = "20%";
             burgerMenu.classList.add("open");
+            burgerNut.style.transform = "rotate(90deg)";
             addForceClose();
 
         } else {
             navBar.style.width = "100%";
             burgerMenu.style.width = "0%";
             burgerMenu.classList.remove("open");
+            burgerNut.style.transform = "rotate(-90deg)";
             removeForceClose();
-
-            el("burger-anim").animate({ transform: 'rotate(-90deg)' }, 800);
         }
     }
 }
@@ -86,7 +87,6 @@ function triggerForceClose() {
     burgerMenu.style.width = "0%";
     burgerMenu.classList.remove("open");
     el("toggle-burger").checked = false;
+    el("burger-anim").style.transform = "rotate(-90deg)";
     removeForceClose();
-
-    el("burger-anim").animate({ transform: 'rotate(-90deg)' }, 800);
 }
