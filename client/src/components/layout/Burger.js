@@ -11,7 +11,7 @@ const Burger = () => (
                 <img className="picta" src={importImages("sell.webp")}/>
             </div>
             <div className="user-settings">
-                <Link to="/home" className="button valid">Settings</Link>
+                <Link to="/settings" className="button valid">Settings</Link>
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
 import { Home, Sell, SellToWebsite, Give, GiveToAsso, Discard, 
-    DiscardToDump, DiscardToTrash, Contact, ContactRedirect, AuthLayout, Error404 } from "./views";
+    DiscardToDump, DiscardToTrash, Contact, ContactRedirect, AuthLayout, Settings, Error404 } from "./views";
 
     
 const App = ({hideLoader}) => {
@@ -21,6 +21,7 @@ const App = ({hideLoader}) => {
                 <Route path="/contact"                     element={<Contact />         }/>
                 <Route path="/contact/redirect"            element={<ContactRedirect /> }/>
                 <Route path="/auth"                        element={<AuthLayout />      }/>
+                <Route path="/settings"                    element={<Settings/>         }/>
                 <Route path="*"                            element={<Error404 />        }/>
             </Switch>
         </Router>

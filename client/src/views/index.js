@@ -9,7 +9,8 @@ import Home from "./Home/Home";
 import AuthLayout from "./Login-Signup/AuthLayout";
 import Sell from "./Sell/Sell";
 import SellToWebsite from "./Sell/SellToWebsite";
+import Settings from "./Settings/Settings";
 import Error404 from "./Error404";
 
 export { Contact, ContactRedirect, Discard, DiscardToDump, DiscardToTrash, 
-    Give, GiveToAsso, Home, AuthLayout, Sell, SellToWebsite, Error404 };
+    Give, GiveToAsso, Home, AuthLayout, Sell, SellToWebsite, Settings, Error404 };
