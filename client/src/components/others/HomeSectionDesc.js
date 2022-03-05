@@ -2,12 +2,12 @@ import React from "react";
 import { importImages } from "../../utils/functions/Functions";
 
 const HomeSectionDesc = ({title, text}) => (
-    <section className="main-desc">
-        <div className="marg"></div>
-        <div className="part1">
-            <img className="svg" src={importImages("IllustrationTeam.svg")} />
+    <section className="description">
+        <div className="marg" />
+        <div className="description__svg">
+            <img src={importImages("IllustrationTeam.svg")} />
         </div>
-        <div className="part2">
+        <div className="description__presentation">
             <h1>{title}</h1>
             <p>{text}</p>
         </div>

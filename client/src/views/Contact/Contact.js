@@ -35,26 +35,30 @@ const Contact = () => {
     return (
         <>
             <Layout bg="sell-bg">
-                <main className="forms" id="main-content">
-                    <div className="form-title">
-                        <h2>Formulaire Contact</h2>
-                    </div>
-                    <div className="forms-box">
-                        <div className="form-wrapper">
-                            <form className="form">
-                                <ContactLayout event={handleUserInput}/>
+                <main className="functionality" id="main-content">
+                    <div className="marg" />
+                    <div className="functionality-content">
+                        <div className="functionality-content__title">
+                            <h1>Formulaire Contact</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet dolore sunt est maxime fugiat omnis ea commodi debitis, repellat illum libero tempore odio ex, molestias recusandae placeat ad et.</p>
+                        </div>
+                        <div className="functionality-content__form">
+                            <div className="form-wrapper">
+                                <form className="form">
+                                    <ContactLayout event={handleUserInput}/>
 
-                                <div className="form-btn">
-                                { 
-                                    form.verifyFormValidity(formState) ?
-                                    <Link to="/contact/redirect">
-                                        <button className="button valid" onClick={handleSubmit}><span>Envoyer</span></button>
-                                    </Link>
-                                    :
-                                    <Link to="#"><button className="button" disabled><span>Envoyer</span></button></Link>
-                                }
-                                </div>
-                            </form>
+                                    <div className="form-button">
+                                    { 
+                                        form.verifyFormValidity(formState) ?
+                                        <Link to="/contact/redirect">
+                                            <button className="button col-origin valid" onClick={handleSubmit}><span>Envoyer</span></button>
+                                        </Link>
+                                        :
+                                        <Link to="#"><button className="button col-disabled" disabled><span>Envoyer</span></button></Link>
+                                    }
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </main>

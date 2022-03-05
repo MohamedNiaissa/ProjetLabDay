@@ -8,14 +8,17 @@
     transition-delay: 1.3s;
     transition-duration: 0.4s;
 
-    & > div.intro-wrapper {
-        width: 100%;
-        height: 100vh;
+    &-intro {
         display: flex;
         position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: url("../../img/home.svg");
+        background-attachment: fixed;
+        background-size: cover;
         z-index: 0;
 
-        & > div.intro-content {
+        .intro {
             display: flex;
             position: fixed;
             justify-content: center;
@@ -26,34 +29,34 @@
             width: 50%;
             height: 100%;
             z-index: 1;
-
-            & > div.intro-title {
+        
+            &-title {
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
                 margin-top: 5%;
                 width: 80%;
                 height: 10%;
-
+        
                 & > h1 {
                     color:white;
                 }
             }
-
-            & > div.intro-desc {
+        
+            &-description {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 80%;
                 height: 20%;
-
+        
                 & > * {
                     color:white;
                     text-align: center;
                 }
             }
-
-            & > div.intro-button {
+        
+            &-button {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -61,34 +64,15 @@
                 height: 30%;
             }
         }
-    
-        & > div.intro-background {
-            position: absolute;
-            background-color: black;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-    
-            & > div.intro-img {
-                background-image: url("../../img/home.svg");
-                background-attachment: fixed;
-                background-size: cover;
-                width: 100%;
-                height: 100%;
-                position: relative;
-            }
-        }
     }
 
-//! /////////////////////////
-
-    & > div.home-main {
+    &-content {
         width: 100%;
         position: relative;
         background-color: #1c1149;
         z-index: 2;
 
-        & > section.main-desc {
+        .description {
             width: 100%;
             height: 100vh;
             display: flex;
@@ -96,14 +80,12 @@
             justify-content: center;
             align-items: center;
 
-            & > .marg {
+            .marg {
                 width: 100%;
-                min-height: 8vh;
-                max-height: 8vh;
                 height: 8vh;
             }
             
-            & > .part1 {
+            &__svg {
                 width: 40%;
                 height: 92vh;
                 display: flex;
@@ -111,13 +93,13 @@
                 justify-content: center;
                 align-items: center;
 
-                & > .svg {
+                & > image {
                     width: 100%;
                     height: 70%;
                 }
             }
 
-            & > .part2 {
+            &__presentation {
                 width: 40%;
                 height: 100%;
                 display: flex;
@@ -141,13 +123,13 @@
             }
         }
 
-        & > div.func-main {
+        .service-wrapper {
             width: 100%;
             height: calc(100% - 94vh);
             position: relative;
             z-index: 2;
 
-            & > section.main-view {
+            .service {
                 width: 100%;
                 height: 100vh;
                 display: flex;
@@ -162,14 +144,14 @@
                     height: 8vh;
                 }
                 
-                & > .part1 {
+                &__svg-description {
                     width: 60%;
                     height: 92vh;
                     display: flex;
                     flex-direction: column;
                     z-index: 1;
 
-                    & > .svg {
+                    .svg {
                         width: 90%;
                         height: 70%;
                         display: flex;
@@ -177,12 +159,6 @@
                         justify-content: flex-start;
                         align-items: flex-end;
                         object-fit: cover;
-
-                        & > img {
-                            width: 85%;
-                            height: 85%;
-                            margin-left: 8%;
-                        }
 
                         & > h1 {
                             margin-top: 7%;
@@ -196,9 +172,15 @@
                             font-weight: normal;
                             text-shadow: rgba(0, 0, 0, 0.274) 10px 10px 5px;
                         }
+
+                        & > img {
+                            width: 85%;
+                            height: 85%;
+                            margin-left: 8%;
+                        }
                     }
 
-                    & > .wrapper-txt {
+                    .description {
                         width: 100%;
                         height: 40%;
                         display: flex;
@@ -227,14 +209,14 @@
                     }
                 }
 
-                & > .part2 {
+                &__list {
                     width: 40%;
                     height: 92vh;
                     display: flex;
                     justify-content: flex-start;
                     z-index: 1;
 
-                    & > .tuile-wrapper {
+                    &-content {
                         width: 70%;
                         height: 70%;
                         display: flex;
@@ -244,7 +226,7 @@
                         margin-left: 5%;
                         margin-bottom: 5%;
                         
-                        & > .tuiloe {
+                        .card-wrapper {
                             width: 100%;
                             height: 80%;
                             display: flex;
@@ -252,7 +234,7 @@
                             justify-content: space-between;
                         }
                         
-                        & > .buttonoe {
+                        .goto {
                             width: 100%;
                             height: 10%;
                             display: flex;

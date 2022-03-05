@@ -47,11 +47,9 @@
             }
         }
 
-        & > textarea.design-field { height: 100px; }
+        & > textarea.design-field { 
+            height: 100px; 
+            resize: vertical;
+        }
     }
-}
-
-div[disabled] {
-    pointer-events: none;
-    opacity: 0.4;
 }

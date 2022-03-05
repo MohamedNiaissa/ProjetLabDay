@@ -1,25 +1,29 @@
-.button {
+@mixin button-color($border, $background, $text) {
+    border: solid 3px $border;
+    background-color: $background;
+    color: $text;
+}
+
+.button, .auth-button {
     padding: 7px 30px;
     border-radius: 20px;
-    border: solid 3px rgb(192, 192, 192);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
     font-size: small;
     text-align: center;
     text-transform: uppercase;
-    background-color: #5f5f5f;
-    color: rgb(143, 143, 143);
     transition: 0.3s ease-in-out;
 }
 
-.valid {
-    background-color: #213546;
-    color: rgb(55, 168, 172);
-    border: solid 3px rgb(55, 168, 172);
+.valid, .auth-button {
     cursor: pointer;
-    
+
     &:hover {
         background-color: rgb(55, 168, 172);
         color: white;
         transform: scale(1.03);
     }
 }
+
+.col-origin   { @include button-color(#37a8ac, #213546, #37a8ac); }
+.col-disabled { @include button-color(#c0c0c0, #5f5f5f, #8f8f8f); }
+.col-white    { @include button-color(#37a8ac, #e2d5d5, #37a8ac); }

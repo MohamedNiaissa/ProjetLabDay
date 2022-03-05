@@ -3,22 +3,22 @@ import { importImages } from "../../utils/functions/Functions";
 import { Link } from "react-router-dom";
 
 const HomeSection = ({link, img, title, text}) => (
-    <section className="main-view">
+    <section className="service">
         <div className="marg"></div>
 
-        <div className="part1">
+        <div className="service__svg-description">
             <div className="svg">
                 <h1>{title}</h1>
                 <img src={importImages(img)}></img>
             </div>
-            <div className="wrapper-txt">
+            <div className="description">
                 <p>{text}</p>
             </div>
         </div>
 
-        <div className="part2">
-            <div className="tuile-wrapper">
-                <div className="tuiloe">
+        <div className="service__list">
+            <div className="service__list-content">
+                <div className="card-wrapper">
 
                     <div className="card">
                         <div className="card-content">
@@ -73,8 +73,8 @@ const HomeSection = ({link, img, title, text}) => (
                     </div>
 
                 </div>
-                <div className="buttonoe">
-                    <Link to={link} className="button valid">En savoir plus {'=>'}</Link>
+                <div className="goto">
+                    <Link to={link} className="auth-button col-origin">En savoir plus {'=>'}</Link>
                 </div>
             </div>
         </div>

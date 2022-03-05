@@ -2,11 +2,11 @@ import React from "react";
 
 
 const Signup = () => (
-    <div className="signup-wrapper">
-        <div className="signup-title">
+    <div className="signup">
+        <div className="signup__title">
             <h2>Créer votre compte</h2>
         </div>
-        <form className="signup">
+        <form className="signup__form">
             <div className="signup-field">
                 <div className="second-design">
                     <div className="second-design-content">
@@ -38,7 +38,7 @@ const Signup = () => (
             </div>
 
             <div className="signup-field">
-                <button className="design-field" name="submit" value="Envoyer">Envoyer</button>
+                <button className="auth-button col-origin" name="submit" value="Envoyer">Envoyer</button>
             </div>
         </form>
     </div>

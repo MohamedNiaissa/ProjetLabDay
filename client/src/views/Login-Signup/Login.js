@@ -2,11 +2,11 @@ import React from "react";
 
 
 const Login = () => (
-    <div className="login-wrapper">
-        <div className="login-title">
+    <div className="login">
+        <div className="login__title">
             <h2 >Connectez vous</h2>
         </div>
-        <form className="login">
+        <form className="login__form">
             <div className="login-field">
                 <div className="second-design">
                     <div className="second-design-content">
@@ -28,7 +28,7 @@ const Login = () => (
             </div>
 
             <div className="login-field">
-                <button className="design-field" name="submit" value="Envoyer">Envoyer</button>
+                <button className="auth-button col-origin" name="submit" value="Envoyer">Envoyer</button>
             </div>
         </form>
     </div>

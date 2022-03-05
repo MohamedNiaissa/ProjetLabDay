@@ -16,7 +16,8 @@ const AuthLayout = () => {
         <>
             <Layout>
                 <main className="auth">
-                    <div className="auth-box">
+                    <div className="marg" />
+                    <div className="auth-content">
                         <Login />
                         <AuthSwitch {...init(useLocation().hash)} />
                         <Signup />

@@ -1,104 +1,65 @@
+@mixin shift($right, $left, $border) {
+    right: $right;
+    left: $left;
+    border-radius: $border;
+}
+
+@keyframes animate-right {
+    0% { @include shift(50%, 0, 10px 0 0 10px); }
+  100% { @include shift(0, 50%, 0 10px 10px 0);  }
+}
+
+@keyframes animate-left {
+    0% { @include shift(0, 50%, 0 10px 10px 0);  }
+  100% { @include shift(50%, 0%, 10px 0 0 10px); }
+}
+
 .auth {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
 
     width: 100%;
-    min-height: 84vh;
-    height: 100%;
+    height: 88vh;
     transition-delay: 1.3s;
     transition-duration: 0.4s;
-    padding: 70px 0 0 0;
 
-    &-box {
+    .marg {
+        width: 100%;
+        height: 8vh;
+    }
+
+    &-content {
         display: flex;
+        position: relative;
         align-items: center;
         justify-content: center;
         flex-flow: row wrap;
         width: 55%;
-        // min-height: 55vh;
-        height: 90%;
-        flex-basis: auto;
-        position: relative;
+        height: 80%;
 
-        & > .login-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: column;
-            width: 50%;
-            height: 100%;
+        .login  { 
             background-image: url("../../img/sun.webp");
-            background-repeat: no-repeat;
-            background-size: cover;
-            box-shadow: inset 0 0 40px -20px #000000;
             border-radius: 10px 0 0 10px;
-
-            & > .login-title {
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                width: 100%;
-                height: 15%;
-
-                & > h2 {
-                    color: white;
-                }
-            }
-
-            & > .login {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                flex-direction: column;
-                width: 100%;
-                height: 55%;
-
-                & > .login-field {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    flex-flow: column;
-                    flex-basis: content;
-                    width: 100%;
-
-                    & > button {
-                        padding: 7px 30px;
-                        border-radius: 20px;
-                        border: solid 3px rgb(55, 168, 172);
-                        box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
-                        font-size: small;
-                        text-align: center;
-                        text-transform: uppercase;
-                        background-color: #213546;
-                        color: rgb(55, 168, 172);
-                        transition: 0.3s ease-in-out;
-
-                        &:hover {
-                            background-color: rgb(55, 168, 172);
-                            color: white;
-                            transform: scale(1.03);
-                        }
-                    }
-                }
-            }
+        }
+        .signup { 
+            background-image: url("../../img/moon.webp"); 
+            border-radius: 0 10px 10px 0;
         }
 
-        & > .signup-wrapper {
+        .login, .signup {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-direction: column;
             width: 50%;
             height: 100%;
-            background-image: url("../../img/moon.webp");
+            box-shadow: inset 0 0 40px -20px #000000;
             background-repeat: no-repeat;
             background-size: cover;
-            box-shadow: inset 0 0 40px -20px #000000;
-            border-radius: 0 10px 10px 0;
 
-            & > .signup-title {
+            &__title {
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
@@ -110,75 +71,38 @@
                 }
             }
 
-            & > .signup {
+            &__form {
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
                 flex-direction: column;
                 width: 100%;
                 height: 55%;
-
-                & > .signup-field {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    flex-flow: column;
-                    flex-basis: content;
-                    width: 100%;
-                    height: 70%;
-
-                    & > button {
-                        padding: 7px 30px;
-                        border-radius: 20px;
-                        border: solid 3px rgb(55, 168, 172);
-                        box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
-                        font-size: small;
-                        text-align: center;
-                        text-transform: uppercase;
-                        color: rgb(55, 168, 172);
-                        background-color: #213546;
-                        transition: 0.3s ease-in-out;
-
-                        &:hover {
-                            background-color: rgb(55, 168, 172);
-                            color: white;
-                            transform: scale(1.03);
-                        }
-                    }
-                }
             }
         }
 
-        & > .auth-switch {
+        .shift {
             display: flex;
+            position: absolute;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             width: 50%;
             height: 100%;
-            right: 0;
-            left: 50%;
-            background-color: #e2d5d5;
             box-shadow: inset 0 0 30px 5px rgba(0, 0, 0, 0.397);
-            position: absolute;
+            background-color: #e2d5d5;
             z-index: 10;
 
-            &.left {
-                animation: animateLeft 2.5s ease-in-out forwards;
-            }
+            &.left { animation: animate-left 2.5s ease-in-out forwards; }
+            &.right { animation: animate-right 2.5s ease-in-out forwards; }
 
-            &.right {
-                animation: animateRight 2.5s ease-in-out forwards;
-            }
-
-            & > .switch-title {
+            &__title {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                height: 50%;
+                height: 40%;
                 width: 100%;
-                margin-top: 20px;
 
                 & > h2 {
                     text-align: center;
@@ -193,57 +117,21 @@
                 }
             }
 
-            & > .switch-btn {
+            &__button {
                 display: flex;
                 align-items: flex-start;
                 justify-content: center;
                 height: 20%;
                 width: 100%;
-
-                & > a {
-                    padding: 7px 30px;
-                    border-radius: 20px;
-                    border: solid 3px rgb(55, 168, 172);
-                    box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
-                    font-size: small;
-                    text-align: center;
-                    text-transform: uppercase;
-                    color: rgb(55, 168, 172);
-                    transition: 0.3s ease-in-out;
-
-                    &:hover {
-                        background-color: rgb(55, 168, 172);
-                        color: white;
-                        transform: scale(1.03);
-                    }
-                }
             }
         }
     }
 }
 
-@keyframes animateRight {
-    0% {
-        left: 0;
-        right: 50%;
-        border-radius: 10px 0 0 10px;
-    }
-    100% {
-        left: 50%;
-        right: 0;
-        border-radius: 0 10px 10px 0;
-    }
-}
-
-@keyframes animateLeft {
-    0% {
-        right: 0;
-        left: 50%;
-        border-radius: 0 10px 10px 0;
-    }
-    100% {
-        right: 50%;
-        left: 0;
-        border-radius: 10px 0 0 10px;
-    }
+.login-field, .signup-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: column;
+    width: 100%;
 }
