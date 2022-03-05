@@ -1,6 +1,3 @@
-import React from "react";
-
-
 const GBuild = ({event}) => ( 
 <>
     <div id="zfzefff" className="form-field">

@@ -1,6 +1,3 @@
-import React from "react";
-
-
 const ContactLayout = ({event}) => (
 <>
     <div id="zfjfkzv" className="form-field">

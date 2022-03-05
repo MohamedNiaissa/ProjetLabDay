@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation } from "react-router";
 import Map from "../../components/others/Map";
 import Layout from "../../components/layout/Layout";

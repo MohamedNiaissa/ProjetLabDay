@@ -1,5 +1,3 @@
-import React from "react";
-
 const HomeIntro = ({title, text}) => (
     <div className="home-intro">
         <div className="intro">

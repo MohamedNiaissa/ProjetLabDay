@@ -1,5 +1,3 @@
-import React from "react";
-
 const Switch = ({event, off, on, nameID}) => (
     <div className="switch">
         <input id={nameID} className="switch-checkbox" type="checkbox" name="checkbox" onClick={event} />

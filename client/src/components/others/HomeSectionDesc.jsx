@@ -1,4 +1,3 @@
-import React from "react";
 import { importImages } from "../../utils/functions/Functions";
 
 const HomeSectionDesc = ({title, text}) => (

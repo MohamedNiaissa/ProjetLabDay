@@ -1,5 +1,3 @@
-import React from "react";
-
 const AuthSwitch = ({left, right, radius, title, href, text}) => (
     <div className="shift" id="switch" style={{left: left, right: right, borderRadius: radius}}>
         <div className="shift__title">

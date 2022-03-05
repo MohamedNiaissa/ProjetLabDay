@@ -1,4 +1,3 @@
-import React from "react";
 import website from "../../utils/json/Website";
 
 const WebsiteCells = () => (

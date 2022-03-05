@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
 import { get } from "./views";
 
