@@ -39,7 +39,6 @@
 
                 width: 100%;
                 padding: 10px 15px;
-                font-weight: 100;
                 font-size: 15px;
                 letter-spacing: 0.05em;
                 color: #d8d8d8b0;
@@ -50,6 +49,14 @@
         & > textarea.design-field { 
             height: 100px; 
             resize: vertical;
+        }
+
+        & > select.design-field {
+            appearance: none;
+            background: url("../../img/selectArrow.svg"), linear-gradient(120deg, rgba(102, 90, 122, 0.822), rgba(255, 255, 255, 0.288));
+            background-repeat: no-repeat;
+            background-position: right .4em top 50%, 0 0;
+            background-size:  1.5em auto, 100%;
         }
     }
 }

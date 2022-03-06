@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     width: 60%;
-    height: 20%;
+    height: 40px;
 
     &-checkbox:checked ~ &-content {
         background-color: rgb(55, 168, 172);
@@ -21,8 +21,8 @@
             &:after  { opacity: 1; }
 
             & > span.ball {
-                left: -20px;
-                padding: 50%;
+                left: 0px;
+                padding: 40%;
                 background-color: rgb(55, 168, 172);
             }
         }
@@ -30,17 +30,18 @@
 
     &-content {
         display: flex;
-        align-items: center;
         position: relative;
+        align-items: center;
         overflow: hidden;
         transition: 1s cubic-bezier(0.18, 0.89, 0.35, 1.15);
         width: 80px;
         height: 30px;
-        background-color: #213546;
         border-radius: 20px;
+        background-color: #213546;
         border: solid 3px rgb(55, 168, 172);
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
         cursor: pointer;
+        z-index: 4;
 
         .switch-state {
             display: flex;
@@ -54,13 +55,14 @@
                 right: calc(0% + 15%);
                 color: rgb(55, 168, 172);
                 @include text-state(data-off, 0.7s);
+                z-index: 0;
             }
 
             &:after {
                 opacity: 0;
                 color: white;
-                z-index: 1;
                 @include text-state(data-on, 0.8s);
+                z-index: 2;
             }
 
             & > span.ball {
@@ -68,8 +70,9 @@
                 padding: 13%;
                 left: 4%;
                 border-radius: 50%;
-                background-color: rgba(255, 255, 255, 0.726);
+                background-color: rgb(204, 204, 204);
                 transition: 1.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+                z-index: 2;
             }
         }
     }
