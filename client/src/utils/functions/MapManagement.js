@@ -31,7 +31,7 @@ async function fetchDumpMarkers(leaflet, location, map) {
     //Pretty sure that's not safe agaisnt sql injection, even tho i splice it, i dunno yet.
     try {
         const dep = location.zip.slice(0,2);
-        fetchedDump = await fetch(`http://localhost:5000/department/${dep}/dumps`).then((res) => res.json());
+        fetchedDump = await fetch(`http://localhost:5001/department/${dep}/dumps`).then((res) => res.json());
     } catch (error) {
         console.log(error.message);
     }
