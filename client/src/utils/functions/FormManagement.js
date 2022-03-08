@@ -41,7 +41,7 @@ export class Formulaire {
         try {
             const dep = value.slice(0,2);
             const zip = value.slice(0,5);
-            fetchedCity = await fetch(`http://localhost:5001/department/${dep}/cities?zip=${zip}`).then((res) => res.json());
+            fetchedCity = await fetch(`http://localhost:5001/api/department/${dep}/cities?zip=${zip}`).then((res) => res.json());
         } catch (error) {
             console.log(error.message);
         }

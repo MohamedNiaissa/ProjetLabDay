@@ -12,6 +12,7 @@
             border: none;
             background: none;
             border-bottom: 1px solid rgb(112, 112, 112);
+            color: white;
 
             &:focus, &:valid {
                 & ~ label {
