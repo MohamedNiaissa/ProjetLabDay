@@ -2,7 +2,6 @@ import {useState } from "react";
 import { Link } from "react-router-dom";
 import ContactLayout from "../../components/forms/ContactLayout";
 import emailjs from 'emailjs-com';
-import Layout from "../../components/layout/Layout";
 import Background from "../../components/layout/Background";
 import { Formulaire } from "../../utils/functions/FormManagement";
 
@@ -34,7 +33,6 @@ const Contact = () => {
 
     return (
         <>
-            <Layout bg="sell-bg">
                 <main className="functionality" id="main-content">
                     <div className="marg" />
                     <div className="functionality-content">
@@ -62,8 +60,7 @@ const Contact = () => {
                         </div>
                     </div>
                 </main>
-            </Layout>
-            <Background color={"purple"}/>
+            <Background color={"page-background purple"}/>
         </>
     )
 }

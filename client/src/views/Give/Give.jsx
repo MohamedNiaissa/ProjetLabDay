@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import GiveLayout from "../../components/forms/GiveLayout";
-import Layout from "../../components/layout/Layout";
 import Background from "../../components/layout/Background";
 import Switch from "../../components/others/Switch";
 import { Formulaire } from "../../utils/functions/FormManagement";
@@ -25,40 +24,39 @@ const Give = () => {
 
     return (
         <>
-            <Layout bg="give-bg">
-                <main className="functionality" id="main-content">
-                    <div className="marg" />
-                    <div className="functionality-content">
-                        <div className="functionality-content__title">
-                            <h1>Formulaire Donner</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet dolore sunt est maxime fugiat omnis ea commodi debitis, repellat illum libero tempore odio ex, molestias recusandae placeat ad et.</p>
-                        </div>
-                        <div className="functionality-content__form">
-                            <div className="form-wrapper">
-                                <form className="form">
-                                    <GiveLayout event={handleUserInput}/>
+            <main className="functionality" id="main-content">
+                <div className="marg" />
+                <div className="functionality-content">
+                    <div className="functionality-content__title">
+                        <h1>Formulaire Donner</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet dolore sunt est maxime fugiat omnis ea commodi debitis, repellat illum libero tempore odio ex, molestias recusandae placeat ad et.</p>
+                    </div>
+                    <div className="functionality-content__form">
+                        <div className="form-wrapper">
+                            <form className="form">
+                                <GiveLayout event={handleUserInput}/>
 
-                                    <div className="form-button">
-                                    { 
-                                        form.verifyFormValidity(formState) ?
-                                        <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
-                                            <button className="button col-origin valid"><span>Chercher</span></button>
-                                        </Link>
-                                        :
-                                        <Link to="#"><button className="button col-disabled" disabled><span>Chercher</span></button></Link>
-                                    }
-                                        <div className="geo-switch">
-                                            <label>Activer la geolocalisation ? </label>
-                                            <Switch event={null} off="NON" on="OUI" nameID={"geo"}/>
-                                        </div>
+                                <div className="form-button">
+                                { 
+                                    form.verifyFormValidity(formState) ?
+                                    <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
+                                        <button className="button col-origin valid"><span>Chercher</span></button>
+                                    </Link>
+                                    :
+                                    <Link to="#"><button className="button col-disabled" disabled><span>Chercher</span></button></Link>
+                                }
+                                    <div className="geo-switch">
+                                        <label>Activer la geolocalisation ? </label>
+                                        <Switch event={null} off="NON" on="OUI" nameID={"geo"}/>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </main>
-            </Layout>
-            <Background color={"purple"}/>
+                </div>
+            </main>
+            <Background color={"page-background purple"}/>
+            <Background color={"page-image give-bg"}/>
         </>
     )
 }

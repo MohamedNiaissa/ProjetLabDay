@@ -1,5 +1,5 @@
 const Background = ({color}) => (
-    <div className={`page-background ${color}`} />
+    <div className={`${color}`} />
 )
 
 export default Background;

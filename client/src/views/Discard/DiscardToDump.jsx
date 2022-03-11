@@ -16,6 +16,7 @@ import { DisplayMarkerLocal } from "../../utils/functions/MapManagement";
 
 const Locateuser = () => {
 
+<<<<<<< HEAD
     
 // On s'assure que la page est chargée
 
@@ -29,6 +30,20 @@ window.onload = function(){
         console.log(error.message);
     }
     console.log(fetchedDump)
+=======
+// On s'assure que la page est chargée
+
+window.onload = function(){
+    // let fetchedDump;
+    //Pretty sure that's not safe agaisnt sql injection, even tho i splice it, i dunno yet.
+    // try {
+    //     // const dep = L.zip.slice(0,2);
+    //     fetchedDump =  fetch(`http://localhost:5001/department/77/dumps`).then((res) => res.json());
+    // } catch (error) {
+    //     console.log(error.message);
+    // }
+    // console.log(fetchedDump)
+>>>>>>> main
     // const poslat = location.lat;
     // const poslong = location.long;
 
@@ -152,6 +167,7 @@ macarte.once('click', async function(e) {
 
 const DiscardToDump = () => {
     const {location, city} = useLocation().state;
+<<<<<<< HEAD
 
     console.log(location)
 
@@ -164,6 +180,24 @@ const DiscardToDump = () => {
                             <Maplocation event={Locateuser()}/> 
                             :
                             <Map location={city} />
+=======
+
+    console.log(location)
+
+    return (
+        <Layout>
+            <main className="map" id="main-content">
+                <div className="map-field">
+                    <div className="map-field-wrapper" >
+                        {location ?        
+                            null
+                            :
+                            <>
+                            {/* <Map location={city} />    */}
+                            <Maplocation event={Locateuser()}/>
+                            </>
+
+>>>>>>> main
                         }
                     </div>
                 </div>
@@ -171,5 +205,39 @@ const DiscardToDump = () => {
         </Layout>
     )
 }
+<<<<<<< HEAD
+=======
 
 export default DiscardToDump;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useLocation } from "react-router";
+// import Map from "../../components/others/Map";
+
+
+// const DiscardToDump = () => (
+//     <main className="map" id="main-content">
+//         <div className="map-field">
+//             <div className="map-field-wrapper">
+//                 <Map location={useLocation().state.city}/>
+//             </div>
+//         </div>
+//     </main>
+// )
+>>>>>>> main
+
+// export default DiscardToDump;
