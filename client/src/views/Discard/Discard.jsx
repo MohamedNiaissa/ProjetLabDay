@@ -6,12 +6,12 @@ import Background from "../../components/layout/Background";
 import Switch from "../../components/others/Switch";
 import { Formulaire } from "../../utils/functions/FormManagement";
 
-
 const form = new Formulaire("discard");
 
 const Discard = () => {
     const [formState, setFormState] = useState({product: null, material: null, zip: null, city: null});
     const [cboxState, setCboxState] = useState(false);
+    const [cboxLocation,setCboxLocation] = useState(false);
     
     const handleUserInput = (e) => {
         const name = e.target.name;
@@ -19,11 +19,13 @@ const Discard = () => {
         const nodes = e.currentTarget.parentNode.childNodes;
 
              if(name === "checkbox") setCboxState(valid => valid = !cboxState);
+        else if(name === "location") setCboxLocation(valid => valid = !cboxLocation);
         else if(name === "product" ) setFormState(valid => ({...valid, product: form.verifyProductName(value, nodes)}));
         else if(name === "material") setFormState(valid => ({...valid, material: form.verifyProductCondition(value)}));
         else if(name === "zip"     ) setFormState(valid => ({...valid, zip: form.verifyZipValidity(value, nodes)}));
         else if(name === "city"    ) setFormState(valid => ({...valid, city: form.verifyCityValidity(value)}));
     }
+
 
     return (
         <>
@@ -38,20 +40,20 @@ const Discard = () => {
                         <div className="functionality-content__form">
                             <div className="form-wrapper">
                                 <form className="form">
-                                    <DiscardLayout event={handleUserInput} checked={cboxState}/>
+                                    <DiscardLayout event={handleUserInput} name={"checkbox"} checked={cboxState}/>
 
                                     <div className="form-button">
                                     { 
                                         form.verifyDiscardValidity(formState, cboxState) ?
-                                        <Link to={(cboxState ? "/jeter/decharge" : "/jeter/poubelles-ecologiques")} state={{product: form.fetchProduct(), city: form.fetchCity()}}>
+                                        <Link to={(cboxState ? "/jeter/decharge" : "/jeter/poubelles-ecologiques")} state={{product: form.fetchProduct(), city: form.fetchCity(), location: cboxLocation}}>
                                             <button className="button col-origin valid">Chercher</button>
                                         </Link>
                                         :
                                         <Link to="#"><button className="button col-disabled" disabled>Chercher</button></Link>
                                     }
                                         <div className="geo-switch">
-                                            <label>Activer la geolocalisation ? </label>
-                                            <Switch event={null} off="NON" on="OUI" nameID={"geo"}/>
+                                            <label>Activer la geolocalisation ?</label>
+                                            <Switch event={handleUserInput} name={"location"} off="NON" on="OUI" nameID={"geo"}/>
                                         </div>
                                     </div>
                                 </form>
