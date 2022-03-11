@@ -1,6 +1,6 @@
 import Switch from "../others/Switch";
 
-const DiscardLayout = ({event, checked}) => (
+const DiscardLayout = ({event, name, checked}) => (
 <>
     <div id="ezpfdbe" className="form-field">
         <div className="first-design">
@@ -36,7 +36,7 @@ const DiscardLayout = ({event, checked}) => (
 
     <div id="xbanolm" className="form-field" style={{flexDirection: "row"}}>
         <label style={{color: "white"}}>Encombrant ?</label>
-        <Switch event={event} off="NON" on="OUI" nameID={"controller"}/>
+        <Switch event={event} name={name} off="NON" on="OUI" nameID={"controller"}/>
     </div>
 
     <div id="fpvzmxn" className="form-field" disabled={checked ? false : true}>

@@ -8,7 +8,7 @@ const HomeSection = ({link, img, title, text}) => (
         <div className="service__svg-description">
             <div className="svg">
                 <h1>{title}</h1>
-                <img src={importImages(img)}></img>
+                <img src={importImages(img)} alt="func"></img>
             </div>
             <div className="description">
                 <p>{text}</p>
@@ -22,7 +22,7 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} />
+                                <img src={importImages("nut2.webp")} alt="icon-func1"/>
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">
@@ -35,7 +35,7 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} />
+                                <img src={importImages("nut2.webp")} alt="icon-func2"/>
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">
@@ -48,7 +48,7 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} />
+                                <img src={importImages("nut2.webp")} alt="icon-func3"/>
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">
@@ -61,7 +61,7 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} />
+                                <img src={importImages("nut2.webp")} alt="icon-func4"/>
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">

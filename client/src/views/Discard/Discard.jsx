@@ -11,6 +11,7 @@ const form = new Formulaire("discard");
 const Discard = () => {
     const [formState, setFormState] = useState({product: null, material: null, zip: null, city: null});
     const [cboxState, setCboxState] = useState(false);
+    const [geoLState, setGeoLState] = useState(false);
     
     const handleUserInput = (e) => {
         const name = e.target.name;
@@ -18,6 +19,7 @@ const Discard = () => {
         const nodes = e.currentTarget.parentNode.childNodes;
 
              if(name === "checkbox") setCboxState(valid => valid = !cboxState);
+        else if(name === "location") setGeoLState(valid => valid = !geoLState);
         else if(name === "product" ) setFormState(valid => ({...valid, product: form.verifyProductName(value, nodes)}));
         else if(name === "material") setFormState(valid => ({...valid, material: form.verifyProductCondition(value)}));
         else if(name === "zip"     ) setFormState(valid => ({...valid, zip: form.verifyZipValidity(value, nodes)}));
@@ -36,7 +38,7 @@ const Discard = () => {
                     <div className="functionality-content__form">
                         <div className="form-wrapper">
                             <form className="form">
-                                <DiscardLayout event={handleUserInput} checked={cboxState}/>
+                                <DiscardLayout event={handleUserInput} name={"checkbox"} checked={cboxState}/>
 
                                 <div className="form-button">
                                 { 
@@ -49,7 +51,7 @@ const Discard = () => {
                                 }
                                     <div className="geo-switch">
                                         <label>Activer la geolocalisation ? </label>
-                                        <Switch event={null} off="NON" on="OUI" nameID={"geo"}/>
+                                        <Switch event={null} name={"location"} off="NON" on="OUI" nameID={"geo"}/>
                                     </div>
                                 </div>
                             </form>

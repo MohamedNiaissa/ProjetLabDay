@@ -10,16 +10,18 @@ const form = new Formulaire("give");
 
 const Give = () => {
     const [formState, setFormState] = useState({product: null, state: null, zip: null, city: null});
+    const [geoLState, setGeoLState] = useState(false);
     
     const handleUserInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         const nodes = e.currentTarget.parentNode.childNodes;
 
-             if(name === "product") setFormState(valid => ({...valid, product: form.verifyProductName(value, nodes)}));
-        else if(name === "state"  ) setFormState(valid => ({...valid, state: form.verifyProductCondition(value)}));
-        else if(name === "zip"    ) setFormState(valid => ({...valid, zip: form.verifyZipValidity(value, nodes)}));
-        else if(name === "city"   ) setFormState(valid => ({...valid, city: form.verifyCityValidity(value)}));
+             if(name === "location") setGeoLState(valid => valid = !geoLState);
+        else if(name === "product" ) setFormState(valid => ({...valid, product: form.verifyProductName(value, nodes)}));
+        else if(name === "state"   ) setFormState(valid => ({...valid, state: form.verifyProductCondition(value)}));
+        else if(name === "zip"     ) setFormState(valid => ({...valid, zip: form.verifyZipValidity(value, nodes)}));
+        else if(name === "city"    ) setFormState(valid => ({...valid, city: form.verifyCityValidity(value)}));
     }
 
     return (
@@ -47,7 +49,7 @@ const Give = () => {
                                 }
                                     <div className="geo-switch">
                                         <label>Activer la geolocalisation ? </label>
-                                        <Switch event={null} off="NON" on="OUI" nameID={"geo"}/>
+                                        <Switch event={null} name={"location"} off="NON" on="OUI" nameID={"geo"}/>
                                     </div>
                                 </div>
                             </form>
