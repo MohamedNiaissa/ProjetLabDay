@@ -33,9 +33,6 @@ export const getSession =  async (req, res, next) => {
 }
 
 export const delSession = async (req, res) => {
-    console.log(res.locals.user);
-    console.log(res.locals.card);
-    console.log(res.locals.sid);
     try {
         const result = await dbFetch.query("DELETE FROM sessions WHERE sid = $1;",[res.locals.sid]);
         if(result.rowCount === 0) throw new Error("User not found");

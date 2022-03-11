@@ -6,8 +6,7 @@ export const getUserById = async (req, res) => {
     const { email } = req.body;
 
     try {
-        const result = await dbFetch.query("SELECT id FROM users WHERE email = $1", [email]);
-        console.log(result);
+        await dbFetch.query("SELECT id FROM users WHERE email = $1", [email]);
         res.status(201).json({ message: 'User successfully fetched' });
     } catch (error) {
         res.status(409).json({ message: error.message });
