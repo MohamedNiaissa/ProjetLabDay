@@ -6,12 +6,8 @@ export function importImages(str) {
     return array[str];
 }
 
-export function stateOnPage(mode, page) {
-    if(mode === "bg") {
-        return (page === window.location.pathname) ? "underline active" : "underline inactive";
-    }else if(mode === "link") {
-        return (page === window.location.pathname) ? "/home" : page;
-    }
+export function stateOnPage(page) {
+    return page ===  "/home" ? "underline active" : "underline inactive";
 }
 
 export function getTrashColor(p) {
@@ -75,18 +71,34 @@ function forceClose(e) {
     const burger = document.getElementById("burger-side");
     if(!burger.classList.contains("open")) return;
 
-    triggerForceClose();
+    triggerForceClose("verified");
 }
 
-function triggerForceClose() {
+function triggerForceClose(mode) {
     const el = (str) => document.getElementById(str);
     const burgerMenu = el("burger-side");
     const navBar = el("header");
+
+    if(mode === "verified") {
+        navBar.style.width = "100%";
+        burgerMenu.style.width = "0%";
+        burgerMenu.classList.remove("open");
+        el("toggle-burger").checked = false;
+        el("burger-anim").style.transform = "rotate(-90deg)";
+        removeForceClose();
+    }else if(burgerMenu.classList.contains("open")) {
+    }
+}
+
+export function burgerOverride() {
+    const el = (str) => document.getElementById(str);
+    const burgerMenu = el("burger-side");
+    const navBar = el("header");
+    if(!burgerMenu.classList.contains("open")) return;
 
     navBar.style.width = "100%";
     burgerMenu.style.width = "0%";
     burgerMenu.classList.remove("open");
     el("toggle-burger").checked = false;
     el("burger-anim").style.transform = "rotate(-90deg)";
-    removeForceClose();
 }

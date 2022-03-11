@@ -7,9 +7,9 @@ const Login = ({submit, event}) => (
             <div className="login-field">
                 <div className="second-design">
                     <div className="second-design-content">
-                        <input className="design-field" type="email" name="email" minLength = "1" maxLength="40" 
+                        <input className="design-field" type="text" name="username" minLength = "1" maxLength="40" 
                             onChange={event} required/>
-                        <label htmlFor="design-field">Adresse email :</label>
+                        <label htmlFor="design-field">Pseudo :</label>
                         <span className="simple-underline"></span>
                     </div>
                 </div>
@@ -19,7 +19,7 @@ const Login = ({submit, event}) => (
                 <div className="second-design">
                     <div className="second-design-content">
                         <input className="design-field" type="password" name="password" minLength = "1" maxLength="40" 
-                            onChange={event}onChange={event} required/>
+                            onChange={event} required/>
                         <label htmlFor="design-field">Mot de passe :</label>
                         <span className="simple-underline"></span>
                     </div>

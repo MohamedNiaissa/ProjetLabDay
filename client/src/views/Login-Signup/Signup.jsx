@@ -7,6 +7,17 @@ const Signup = ({submit, event}) => (
             <div className="signup-field">
                 <div className="second-design">
                     <div className="second-design-content">
+                        <input className="design-field" type="text" name="username" minLength = "1" maxLength="40" 
+                            onChange={event} required/>
+                        <label htmlFor="design-field">Pseudo :</label>
+                        <span className="simple-underline"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div className="signup-field">
+                <div className="second-design">
+                    <div className="second-design-content">
                         <input className="design-field" type="email" name="email" minLength = "1" maxLength="40" 
                             onChange={event} required/>
                         <label htmlFor="design-field">Adresse email :</label>

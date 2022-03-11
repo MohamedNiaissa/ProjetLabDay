@@ -1,12 +1,7 @@
-import Layout from "../../components/layout/Layout";
-
-
 const Error404 = () => (
-    <Layout>
-        <main className="error"> 
-            <span>Not Found : 404</span>
-        </main>
-    </Layout>
+    <main className="error"> 
+        <span>Not Found : 404</span>
+    </main>
 )
 
 export default Error404;

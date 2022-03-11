@@ -1,23 +1,25 @@
 import dbFetch from "../config/config.js";
+import { encrypt, decrypt, glue, unglue } from "../middleware/crypto.js";
+import { randomBytes } from 'crypto';
 
 export const getUserById = async (req, res) => {
     const { email } = req.body;
 
     try {
         const result = await dbFetch.query("SELECT id FROM users WHERE email = $1", [email]);
-        res.status(201).send(`User successfully fetched`);
+        console.log(result);
+        res.status(201).json({ message: 'User successfully fetched' });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
 }
 
 export const createUser = async (req, res) => {
-    const { email, password } = req.body;
-
-    //! Need to hash the password;
+    const { username, email } = req.body;
+    const password = encrypt(req.body.password, randomBytes(16));
 
     try {
-        await dbFetch.query('INSERT INTO users (email, password) VALUES ($1, $2)', [email, password]);
+        await dbFetch.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)', [username, email, password]);
         res.status(201).send(`User successfully added`);
     } catch (error) {
         res.status(409).json({ message: error.message });
@@ -47,11 +49,20 @@ export const deleteUser = async (req, res) => {
     }
 }
 
-export const doesUserExist = async (email) => {
-    try {
-        const result = await dbFetch.query("SELECT '' FROM users WHERE email = $1", [email]);
-        return result.rowCount > 0 ? true : false;
-    } catch {
-        res.status(409).json({ message: error.message });
+export const doesUserExist = async (value, query) => {
+    if(query === "email") {
+        try {
+            const result = await dbFetch.query("SELECT '' FROM users WHERE email = $1", [value]);
+            return result.rowCount > 0 ? true : false;
+        } catch {
+            res.status(409).json({ message: error.message });
+        }
+    }else {
+        try {
+            const result = await dbFetch.query("SELECT '' FROM users WHERE name = $1", [value]);
+            return result.rowCount > 0 ? true : false;
+        } catch {
+            res.status(409).json({ message: error.message });
+        }
     }
 }

@@ -1,18 +1,15 @@
 import { useLocation } from "react-router";
-import Layout from "../../components/layout/Layout";
 import { importImages, getTrashColor } from "../../utils/functions/Functions";
 
 
 const DiscardToTrash = () => (
-    <Layout>
-        <main className="trash" id="main-content">
-            <div className="trash-wrapper">
-                <div className="trash-color">
-                    <img className={getTrashColor(useLocation().state.product)} src={importImages("trash.webp")} alt='trash'></img>
-                </div>
+    <main className="trash" id="main-content">
+        <div className="trash-wrapper">
+            <div className="trash-color">
+                <img className={getTrashColor(useLocation().state.product)} src={importImages("trash.webp")} alt='trash'></img>
             </div>
-        </main>
-    </Layout>
+        </div>
+    </main>
 )
 
 export default DiscardToTrash;

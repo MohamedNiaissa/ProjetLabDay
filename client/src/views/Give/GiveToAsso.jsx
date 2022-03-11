@@ -1,18 +1,15 @@
 import { useLocation } from "react-router";
 import Map from "../../components/others/Map";
-import Layout from "../../components/layout/Layout";
 
 
 const GiveToAsso = () => (
-    <Layout>
-        <main className="map" id="main-content">
-            <div className="map-field">
-                <div className="map-field-wrapper">
-                    <Map location={useLocation().state.city}/>
-                </div>
+    <main className="map" id="main-content">
+        <div className="map-field">
+            <div className="map-field-wrapper">
+                <Map location={useLocation().state.city}/>
             </div>
-        </main>
-    </Layout>
+        </div>
+    </main>
 )
 
 export default GiveToAsso;
