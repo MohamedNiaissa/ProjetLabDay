@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DiscardLayout from "../../components/forms/DiscardLayout";
 import Background from "../../components/layout/Background";
@@ -26,6 +26,13 @@ const Discard = () => {
         else if(name === "city"    ) setFormState(valid => ({...valid, city: form.verifyCityValidity(value)}));
     }
 
+    useEffect(() => { 
+        if(cboxState === false) {
+            document.getElementById('geo').checked = false;
+            setGeoLState(valid => valid = false);
+        }
+    }, [cboxState]);
+
     return (
         <>
             <main className="functionality" id="main-content">
@@ -38,12 +45,12 @@ const Discard = () => {
                     <div className="functionality-content__form">
                         <div className="form-wrapper">
                             <form className="form">
-                                <DiscardLayout event={handleUserInput} name={"checkbox"} checked={cboxState}/>
+                                <DiscardLayout event={handleUserInput} name={"checkbox"} checked={cboxState} locChecked={geoLState}/>
 
                                 <div className="form-button">
                                 { 
-                                    form.verifyDiscardValidity(formState, cboxState) ?
-                                    <Link to={(cboxState ? "/jeter/decharge" : "/jeter/poubelles-ecologiques")} state={{product: form.fetchProduct(), city: form.fetchCity()}}>
+                                    form.verifyDiscardValidity(formState, cboxState, geoLState) ?
+                                    <Link to={(cboxState ? "/jeter/decharge" : "/jeter/poubelles-ecologiques")} state={{product: form.fetchProduct(), city: form.fetchCity(), location: geoLState}}>
                                         <button className="button col-origin valid">Chercher</button>
                                     </Link>
                                     :
@@ -51,7 +58,11 @@ const Discard = () => {
                                 }
                                     <div className="geo-switch">
                                         <label>Activer la geolocalisation ? </label>
-                                        <Switch event={null} name={"location"} off="NON" on="OUI" nameID={"geo"}/>
+                                        {cboxState ? 
+                                            <Switch event={handleUserInput} name="location" off="NON" on="OUI" nameID="geo" state={false} color="swi-origin"/>
+                                        :
+                                            <Switch event={null} name="location" off="NON" on="OUI" nameID="geo" state={true} color="swi-disabled"/>
+                                        }
                                     </div>
                                 </div>
                             </form>

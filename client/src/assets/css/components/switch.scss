@@ -6,6 +6,11 @@
     font-size: 14px;
 }
 
+@mixin switch-color($border, $background) {
+    border: solid 3px $border;
+    background-color: $background;
+}
+
 .switch {
     display: flex;
     align-items: center;
@@ -37,8 +42,8 @@
         width: 80px;
         height: 30px;
         border-radius: 20px;
-        background-color: #213546;
-        border: solid 3px rgb(55, 168, 172);
+        // background-color: #213546;
+        // border: solid 3px rgb(55, 168, 172);
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
         cursor: pointer;
         z-index: 4;
@@ -53,7 +58,6 @@
             &:before {
                 position: absolute;
                 right: calc(0% + 15%);
-                color: rgb(55, 168, 172);
                 @include text-state(data-off, 0.7s);
                 z-index: 0;
             }
@@ -76,4 +80,13 @@
             }
         }
     }
+}
+
+.swi-origin { 
+    @include switch-color(#37a8ac, #213546);
+    .switch-state:before { color: #37a8ac; }
+}
+.swi-disabled {
+    @include switch-color(#c0c0c0, #5f5f5f);
+    .switch-state:before { color: #8f8f8f; }
 }

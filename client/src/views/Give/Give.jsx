@@ -41,7 +41,7 @@ const Give = () => {
                                 <div className="form-button">
                                 { 
                                     form.verifyFormValidity(formState) ?
-                                    <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
+                                    <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity(), location: geoLState}}>
                                         <button className="button col-origin valid"><span>Chercher</span></button>
                                     </Link>
                                     :
@@ -49,7 +49,7 @@ const Give = () => {
                                 }
                                     <div className="geo-switch">
                                         <label>Activer la geolocalisation ? </label>
-                                        <Switch event={null} name={"location"} off="NON" on="OUI" nameID={"geo"}/>
+                                        <Switch event={handleUserInput} name={"location"} off="NON" on="OUI" nameID={"geo"} state={false} color="swi-origin"/>
                                     </div>
                                 </div>
                             </form>

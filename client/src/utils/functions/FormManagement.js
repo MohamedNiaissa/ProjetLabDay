@@ -33,11 +33,9 @@ export class Formulaire {
 
     async verifyZipValidity(value, nodes) {
         if(value.length !== 5) { this.colorValidity(false, nodes); return false };
-        //Kinda tried to limit api call.
 
         let fetchedCity, coords = [];
 
-        //Pretty sure that's not safe agaisnt sql injection, even tho i splice it, i dunno yet.
         try {
             const dep = value.slice(0,2);
             const zip = value.slice(0,5);
@@ -104,8 +102,9 @@ export class Formulaire {
         return valid;
     }
 
-    verifyDiscardValidity(states, cbox) {
-        if(cbox) return Object.values(states).every(Boolean);
+    verifyDiscardValidity(states, cbox, geo) {
+        if(geo) return (states.product && states.material && states.zip) ? true : false;
+        else if(cbox) return Object.values(states).every(Boolean);
         else return (states.product && states.material) ? true : false;
     }
 
