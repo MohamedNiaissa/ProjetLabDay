@@ -1,4 +1,4 @@
-import { importImages } from "../../utils/functions/Functions";
+import { importImages } from "../../../utils/functions/Functions";
 
 const HomeSectionDesc = ({title, text}) => (
     <section className="description">

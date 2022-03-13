@@ -1,9 +1,9 @@
-const Login = ({submit, event}) => (
+const Login = ({submit, refresh, data, event, navigate}) => (
     <div className="login">
         <div className="login__title">
             <h2 >Connectez vous</h2>
         </div>
-        <form className="login__form" onSubmit={(e) => { e.preventDefault(); submit()}}>
+        <form className="login__form" onSubmit={(e) => { e.preventDefault(); submit(data, navigate, refresh)}}>
             <div className="login-field">
                 <div className="second-design">
                     <div className="second-design-content">

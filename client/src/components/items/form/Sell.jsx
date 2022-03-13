@@ -1,4 +1,4 @@
-const SellLayout = ({event}) => (
+const Sell = ({event}) => (
 <>
     <div id="zeacnvv" className="form-field">
         <div className="first-design">
@@ -56,4 +56,4 @@ const SellLayout = ({event}) => (
 </>
 )
 
-export default SellLayout;
+export default Sell;

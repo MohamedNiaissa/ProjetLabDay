@@ -1,53 +1,37 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import SellLayout from "../../components/forms/SellLayout";
-import Background from "../../components/layout/Background";
+import { Background } from "../../components/~items";
 import { Formulaire } from "../../utils/functions/FormManagement";
+import { FormLayout } from "../../components/~layout";
 
 
 const form = new Formulaire("sell");
 
 const Sell = () => {
     const [formState, setFormState] = useState({product: null, material: null, zip: null, city: null});
-    
-    const handleUserInput = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        const nodes = e.currentTarget.parentNode.childNodes;
 
-             if(name === "product" ) setFormState(valid => ({...valid, product: form.verifyProductName(value, nodes)}));
-        else if(name === "material") setFormState(valid => ({...valid, material: form.verifyProductCondition(value)}));
-        else if(name === "zip"     ) setFormState(valid => ({...valid, zip: form.verifyZipValidity(value, nodes)}));
-        else if(name === "city"    ) setFormState(valid => ({...valid, city: form.verifyCityValidity(value)}));
+    const fieldState = (name, $value, $nodes) => ({
+        product  : () => setFormState(valid => ({...valid, product: form.verifyProductName($value, $nodes)})),
+        material : () => setFormState(valid => ({...valid, material: form.verifyProductCondition($value)})),
+        zip      : () => setFormState(valid => ({...valid, zip: form.verifyZipValidity($value, $nodes)})),
+        city     : () => setFormState(valid => ({...valid, city: form.verifyCityValidity($value)})),
+    })[name]()
+
+    const userInput = (e) => {
+        try {
+            const { name, value } = e.target, nodes = e.currentTarget.parentNode.childNodes;
+            fieldState(name, value, nodes);
+        }catch (error) {
+            console.log("%c An internal error occured in the form, please do not change the html attributes.", "color:red;");
+        }
     }
 
     return (
         <> 
             <main className="functionality" id="main-content">
-                <div className="marg" />
+                <div className="marg"/>
                 <div className="functionality-content">
-                    <div className="functionality-content__title">
-                        <h1>Formulaire Vendre</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet dolore sunt est maxime fugiat omnis ea commodi debitis, repellat illum libero tempore odio ex, molestias recusandae placeat ad et.</p>
-                    </div>
-                    <div className="functionality-content__form">
-                        <div className="form-wrapper">
-                            <form className="form">
-                                <SellLayout event={handleUserInput}/>
-
-                                <div className="form-button">
-                                { 
-                                    form.verifyFormValidity(formState) ?
-                                    <Link to="/vendre/resultats" state={{product: form.fetchProduct(), city: form.fetchCity()}}>
-                                        <button className="button col-origin valid">Chercher</button>
-                                    </Link>
-                                    :
-                                    <Link to="#"><button className="button col-disabled" disabled>Chercher</button></Link>
-                                }
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <FormLayout name="sell" userInput={userInput} validity={form.verifyFormValidity(formState)}
+                        state={{product: form.fetchProduct(), city: form.fetchCity()}} cbox={null}/>
                 </div>
             </main>
             <Background color={"page-background purple"}/>

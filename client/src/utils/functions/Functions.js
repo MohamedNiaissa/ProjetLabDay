@@ -102,3 +102,26 @@ export function burgerOverride() {
     el("toggle-burger").checked = false;
     el("burger-anim").style.transform = "rotate(-90deg)";
 }
+
+export function isLogged() {
+    return localStorage.getItem("user") ? true : false;
+}
+
+export function clearAuth() {
+    localStorage.clear();
+    sessionStorage.clear();
+
+    document.cookie.replace(
+        /(?<=^|;).+?(?=|;|$)/g, 
+        document.cookie=`token=null;max-age=0;path=/;domain=localhost;SameSite=Lax;Secure`
+    );
+}
+
+export function setAuth({user, set}) {
+    localStorage.setItem('user', user);
+    document.cookie = `token=${set.token};max-age=604800;domain=localhost;SameSite=Lax;Secure`;
+}
+
+export function getToken() {
+    return { token: document.cookie?.slice(6,) };
+}

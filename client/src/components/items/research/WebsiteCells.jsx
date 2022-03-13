@@ -1,4 +1,4 @@
-import website from "../../utils/json/Website";
+import website from "../../../utils/json/Website";
 
 const WebsiteCells = () => (
     website.map(el => {

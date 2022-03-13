@@ -1,4 +1,4 @@
-const ContactLayout = ({event}) => (
+const Contact = ({event}) => (
 <>
     <div id="zfjfkzv" className="form-field">
         <div className="first-design">
@@ -36,4 +36,4 @@ const ContactLayout = ({event}) => (
 </>
 )
 
-export default ContactLayout;
+export default Contact;

@@ -1,4 +1,4 @@
-import { importImages } from "../../utils/functions/Functions";
+import { importImages } from "../../../utils/functions/Functions";
 
 const Nut = () => (
     <div className="nav__nut">

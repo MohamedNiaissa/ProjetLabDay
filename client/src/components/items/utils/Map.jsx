@@ -1,6 +1,6 @@
+import { DisplayMarker } from "../../../utils/functions/MapManagement";
 import { MapContainer, TileLayer } from "react-leaflet";
 import Leaflet from "leaflet";
-import { DisplayMarker } from "../../utils/functions/MapManagement";
 import "leaflet/dist/leaflet.css";
 
 

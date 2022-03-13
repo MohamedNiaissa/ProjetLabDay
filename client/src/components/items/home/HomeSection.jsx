@@ -1,4 +1,4 @@
-import { importImages } from "../../utils/functions/Functions";
+import { importImages } from "../../../utils/functions/Functions";
 import { Link } from "react-router-dom";
 
 const HomeSection = ({link, img, title, text}) => (

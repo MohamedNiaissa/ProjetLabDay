@@ -1,7 +1,5 @@
 import { useEffect } from "react";
-import HomeIntro from "../../components/others/HomeIntro";
-import HomeSection from "../../components/others/HomeSection";
-import HomeSectionDesc from "../../components/others/HomeSectionDesc";
+import { HomeIntro, HomeSection, HomeSectionDesc } from "../../components/~items";
 import { homeData } from "../../utils/json/HomeData";
 import { smoothAnimation } from "../../utils/functions/Functions";
 

@@ -1,6 +1,8 @@
-const GBuild = ({event}) => ( 
+import Switch from "../utils/Switch";
+
+const Discard = ({event, locChecked, checked}) => (
 <>
-    <div id="zfzefff" className="form-field">
+    <div id="ezpfdbe" className="form-field">
         <div className="first-design">
             <div className="first-design-content">
                 <input className="design-field" type="text" name="product" minLength = "1" maxLength="40" 
@@ -11,24 +13,33 @@ const GBuild = ({event}) => (
         </div>
     </div>
 
-    <div id="fuusrtd" className="form-field">
+    <div id="nfozxfm" className="form-field">
         <div className="first-design">
             <div className="first-design-content">
-                <select className="design-field" name="state" onChange={event} required>
+                <select className="design-field" name="material" onChange={event} required>
                     <option value="" defaultValue hidden/>
-                    <option value="casse">Cassé</option>
-                    <option value="mauvaisetat">Mauvaise état</option>
-                    <option value="moyen">Moyen</option>
-                    <option value="bon">Bon état</option> 
-                    <option value="tresbon">Très bon état</option>
+                    <option value="bois">Bois</option>
+                    <option value="metal">Métal</option>
+                    <option value="ceramique">Céramique</option>
+                    <option value="verre">Verre</option>
+                    <option value="plastique">Plastique</option>
+                    <option value="textile">Textiles</option>
+                    <option value="cuir">Cuir</option>
+                    <option value="papier_carton">Papier ou Carton</option> 
+                    <option value="caoutchouc">Caoutchouc</option>
                 </select>
-                <label htmlFor="design-field"><strong>Etat de l'objet :</strong></label>
+                <label htmlFor="design-field"><strong>Matériel de l'objet :</strong></label>
                 <span></span>
             </div>
         </div>
     </div>
 
-    <div id="ijorger" className='form-field'>
+    <div id="xbanolm" className="form-field" style={{flexDirection: "row"}}>
+        <label style={{color: "white"}}>Encombrant ?</label>
+        <Switch id="controller" name="checkbox" off="NON" on="OUI" disabled={false} theme="swi-origin" event={event}/>
+    </div>
+
+    <div id="fpvzmxn" className="form-field" disabled={checked ? false : true}>
         <div className="first-design">
             <div className="first-design-content">
                 <input className="design-field" type="text" name="zip" minLength = "1" maxLength="5" 
@@ -39,7 +50,7 @@ const GBuild = ({event}) => (
         </div>
     </div>
 
-    <div id="zoenzc" className="form-field">
+    <div id="ibizbef" className="form-field" disabled={locChecked ? true : checked ? false : true}>
         <div className="first-design">
             <div className="first-design-content">
                 <select id="city" className="design-field" name="city" onChange={event} required>
@@ -53,4 +64,4 @@ const GBuild = ({event}) => (
 </>
 )
 
-export default GBuild;
+export default Discard;

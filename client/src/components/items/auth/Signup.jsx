@@ -1,9 +1,9 @@
-const Signup = ({submit, event}) => (
+const SignUp = ({submit, data, event}) => (
     <div className="signup">
         <div className="signup__title">
             <h2>Créer votre compte</h2>
         </div>
-        <form className="signup__form" onSubmit={(e) => { e.preventDefault(); submit()}}>
+        <form className="signup__form" onSubmit={(e) => { e.preventDefault(); submit(data)}}>
             <div className="signup-field">
                 <div className="second-design">
                     <div className="second-design-content">
@@ -55,4 +55,4 @@ const Signup = ({submit, event}) => (
     </div>
 )
 
-export default Signup;
+export default SignUp;

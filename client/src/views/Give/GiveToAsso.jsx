@@ -1,5 +1,5 @@
 import { useLocation } from "react-router";
-import Map from "../../components/others/Map";
+import { Map } from "../../components/~items";
 
 
 const GiveToAsso = () => (

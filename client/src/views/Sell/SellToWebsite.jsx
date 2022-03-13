@@ -1,5 +1,4 @@
-import WebsiteCells from "../../components/others/WebsiteCells";
-
+import { WebsiteCells } from "../../components/~items";
 
 const SellToWebsite = () => (
         <main className="website" id="main-content">

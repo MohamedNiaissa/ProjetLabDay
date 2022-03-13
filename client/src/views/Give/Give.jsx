@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import GiveLayout from "../../components/forms/GiveLayout";
-import Background from "../../components/layout/Background";
-import Switch from "../../components/others/Switch";
+import { Background } from "../../components/~items";
 import { Formulaire } from "../../utils/functions/FormManagement";
+import { FormLayout } from "../../components/~layout";
 
 
 const form = new Formulaire("give");
@@ -11,17 +9,22 @@ const form = new Formulaire("give");
 const Give = () => {
     const [formState, setFormState] = useState({product: null, state: null, zip: null, city: null});
     const [geoLState, setGeoLState] = useState(false);
-    
-    const handleUserInput = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        const nodes = e.currentTarget.parentNode.childNodes;
 
-             if(name === "location") setGeoLState(valid => valid = !geoLState);
-        else if(name === "product" ) setFormState(valid => ({...valid, product: form.verifyProductName(value, nodes)}));
-        else if(name === "state"   ) setFormState(valid => ({...valid, state: form.verifyProductCondition(value)}));
-        else if(name === "zip"     ) setFormState(valid => ({...valid, zip: form.verifyZipValidity(value, nodes)}));
-        else if(name === "city"    ) setFormState(valid => ({...valid, city: form.verifyCityValidity(value)}));
+    const fieldState = (name, $value, $nodes) => ({
+        location: () => setGeoLState(valid => valid = !geoLState),
+        product : () => setFormState(valid => ({...valid, product: form.verifyProductName($value, $nodes)})),
+        state   : () => setFormState(valid => ({...valid, state: form.verifyProductCondition($value)})),
+        zip     : () => setFormState(valid => ({...valid, zip: form.verifyZipValidity($value, $nodes)})),
+        city    : () => setFormState(valid => ({...valid, city: form.verifyCityValidity($value)})),
+    })[name]()
+
+    const userInput = (e) => {
+        try {
+            const { name, value } = e.target, nodes = e.currentTarget.parentNode.childNodes;
+            fieldState(name, value, nodes);
+        }catch (error) {
+            console.log("%c An internal error occured in the form, please do not change the html attributes.", "color:red;");
+        }
     }
 
     return (
@@ -29,32 +32,8 @@ const Give = () => {
             <main className="functionality" id="main-content">
                 <div className="marg" />
                 <div className="functionality-content">
-                    <div className="functionality-content__title">
-                        <h1>Formulaire Donner</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet dolore sunt est maxime fugiat omnis ea commodi debitis, repellat illum libero tempore odio ex, molestias recusandae placeat ad et.</p>
-                    </div>
-                    <div className="functionality-content__form">
-                        <div className="form-wrapper">
-                            <form className="form">
-                                <GiveLayout event={handleUserInput}/>
-
-                                <div className="form-button">
-                                { 
-                                    form.verifyFormValidity(formState) ?
-                                    <Link to="/donner/resultats" state={{product: form.fetchProduct(), city: form.fetchCity(), location: geoLState}}>
-                                        <button className="button col-origin valid"><span>Chercher</span></button>
-                                    </Link>
-                                    :
-                                    <Link to="#"><button className="button col-disabled" disabled><span>Chercher</span></button></Link>
-                                }
-                                    <div className="geo-switch">
-                                        <label>Activer la geolocalisation ? </label>
-                                        <Switch event={handleUserInput} name={"location"} off="NON" on="OUI" nameID={"geo"} state={false} color="swi-origin"/>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <FormLayout name="give" userInput={userInput} validity={form.verifyFormValidity(formState)}
+                        state={{product: form.fetchProduct(), city: form.fetchCity(), location: geoLState}} cbox={true}/>
                 </div>
             </main>
             <Background color={"page-background purple"}/>

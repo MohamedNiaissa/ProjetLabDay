@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-
-const Footer = () => (
+const Footer = ({renderNav}) => (
     <footer className="footer">
         <div className="footer-waves">
             <svg viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
@@ -17,7 +16,7 @@ const Footer = () => (
             </svg>
         </div>
         <div className="footer-content">
-            <Link id="fetchBug" to="/contact">Contactez nous</Link>
+            <Link id="fetchBug" to="/contact" onClick={renderNav}>Contactez nous</Link>
         </div>
     </footer>
 )

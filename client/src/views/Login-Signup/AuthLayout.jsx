@@ -1,70 +1,47 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Login from "./Login";
-import Signup from "./Signup";
-import AuthSwitch from "./AuthSwitch";
-import Background from "../../components/layout/Background";
+import { Login, SignUp, AuthSwitch, Background } from "../../components/~items";
 import { slide, init } from "../../utils/functions/AuthManagement";
-import axios from 'axios';
+import { login, signup } from "../../utils/functions/AuthManagement";
 
-const AuthLayout = ({event}) => {
+const AuthLayout = ({refresh}) => {
     const [signUpData, setSignUpData] = useState({username: null, email: null, password: null, passwordVerif: null});
-    const [loginData, setLogInData] = useState({username: null, password: null});
+    const [logInData, setLogInData] = useState({username: null, password: null});
     const navigate = useNavigate();
 
-    const handleSignUp = async () => {
-        const {username, email, password, passwordVerif} = signUpData;
-        const body = {username: `${username}`, email: `${email}`, password: `${password}`, passwordVerif: `${passwordVerif}`};
+    const updateLogIn = (name, value) => ({
+        username: () => setLogInData(input => ({...input, username: value})),
+        password: () => setLogInData(input => ({...input, password: value})),
+    })[name]()
 
-        await axios.post("http://localhost:5001/api/user/create", body)
-        .then(res => console.log(res.data))
-        .catch(function(error) { console.error(error.response.data.message) } );
+    const updateSignUp = (name, value) => ({
+        username     : () => setSignUpData(input => ({...input, username: value})),
+        email        : () => setSignUpData(input => ({...input, email: value})),
+        password     : () => setSignUpData(input => ({...input, password: value})),
+        passwordVerif: () => setSignUpData(input => ({...input, passwordVerif: value})),
+    })[name]()
+
+    const userInput = (e) => {
+        try {
+            const { name, value } = e.target, form = e.target.closest("form").className;
+            form === 'login__form' ? updateLogIn(name, value) : updateSignUp(name, value);
+        }catch (error) {
+            console.log("%c An internal error occured in the form, please do not change the html attributes.", "color:red;");
+        }
     }
 
-    const handleLogIn = async () => {
-        const {username, password} = loginData;
-        const body = {username: `${username}`, password: `${password}`};
-
-        await axios.post("http://localhost:5001/api/user/open-session", body)
-        .then(res => {
-            if(res.status !== 201) return console.error(res.data.message);
-
-            localStorage.setItem('user', res.data.user);
-            document.cookie = `token=${res.data.set.token};max-age=604800;domain=localhost`;
-            navigate("/home", {replace: true});
-            event();
-        })
-        .catch(error => {return error});
-    }
-
-    const handleSignUpInput = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-
-             if(name === "username") setSignUpData(input => ({...input, username: value}));
-        else if(name === "email") setSignUpData(input => ({...input, email: value}));
-        else if(name === "password" ) setSignUpData(input => ({...input, password: value}));
-        else if(name === "passwordVerif") setSignUpData(input => ({...input, passwordVerif: value}));
-    }
-
-    const handleLogInInput = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-
-             if(name === "username") setLogInData(input => ({...input, username: value}));
-        else if(name === "password" ) setLogInData(input => ({...input, password: value}));
-    }
-
+    //! Need to fix this
     useEffect(() => slide(), []);
+    //!
 
     return (
         <>
             <main className="auth">
                 <div className="marg" />
                 <div className="auth-content">
-                    <Login submit={handleLogIn} event={handleLogInInput}/>
+                    <Login submit={login} refresh={refresh} data={logInData} event={userInput} navigate={navigate}/>
                     <AuthSwitch {...init(useLocation().hash)} />
-                    <Signup submit={handleSignUp} event={handleSignUpInput}/>
+                    <SignUp submit={signup} data={signUpData} event={userInput}/>
                 </div>
             </main>
             <Background color={"darkblue"}/>
