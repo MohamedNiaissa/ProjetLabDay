@@ -12,7 +12,9 @@ const Settings = ({event}) => {
 
     const deleteAccount = async () => { 
         await axios.post("http://localhost:5001/api/user/delete", {token : getToken()}).then(res => {
-            event();  return res;
+            event();
+            console.log(`%c User account was successfully deleted`, "color: gold;");
+            return res;
         }).catch(function(error) { console.error(error.response.data.message) } );
     }
 
