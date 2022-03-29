@@ -7,6 +7,7 @@ import { login, signup } from "../../utils/functions/AuthManagement";
 const AuthLayout = ({refresh}) => {
     const [signUpData, setSignUpData] = useState({username: null, email: null, password: null, passwordVerif: null});
     const [logInData, setLogInData] = useState({username: null, password: null});
+    const [shift, setShift] = useState({direction: null});
     const navigate = useNavigate();
 
     const updateLogIn = (name, value) => ({
@@ -30,9 +31,9 @@ const AuthLayout = ({refresh}) => {
         }
     }
 
-    //! Need to fix this
-    useEffect(() => slide(), []);
-    //!
+    const triggerShift = (e) => {
+        window.location.hash = window.location.hash === "#signUp" ? "#logIn" : "#signUp"
+    }
 
     return (
         <>
@@ -40,7 +41,7 @@ const AuthLayout = ({refresh}) => {
                 <div className="marg" />
                 <div className="auth-content">
                     <Login submit={login} refresh={refresh} data={logInData} event={userInput} navigate={navigate}/>
-                    <AuthSwitch {...init(useLocation().hash)} />
+                    <AuthSwitch data={init(useLocation().hash)} event={triggerShift}/>
                     <SignUp submit={signup} data={signUpData} event={userInput}/>
                 </div>
             </main>

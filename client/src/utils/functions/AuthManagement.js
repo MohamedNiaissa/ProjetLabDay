@@ -1,16 +1,17 @@
 import axios from 'axios';
 import { setAuth } from "./Functions";
 
-export function slide() {
-    document.getElementById("slider").addEventListener("click", () => {
-        const el = document.getElementById("switch").classList;
-        if(el.contains("right")) el.remove("right");
-        if(el.contains("left")) el.remove("left");
+export function slide(e) {
+    console.log(e.target);
+    
+        // document.getElementById("shift-cbx").addEventListener("click", () => {
+        // const el = document.getElementById("switch").classList;
+        // if(el.contains("right")) el.remove("right");
+        // if(el.contains("left")) el.remove("left");
         
-        const animationDirection = window.location.hash === "#signUp" ? "right" : "left";
-        el.add(animationDirection);
-        setTimeout(() => {el.remove(animationDirection)}, 2500);
-    })
+        // const animationDirection = window.location.hash === "#signUp" ? "right" : "left";
+        // el.add(animationDirection);
+        // setTimeout(() => {el.remove(animationDirection)}, 2500);
 }
 
 export async function signup(body) {
@@ -31,7 +32,6 @@ export function init(hash) {
             right: "50%",
             radius: "10px 0 0 10px",
             title: "Vous avez un compte ?",
-            href: "#logIn",
             text: "Log in"
         }
     } else {
@@ -40,7 +40,6 @@ export function init(hash) {
             right: "0",
             radius: "0 10px 10px 0",
             title: "Vous n'avez pas de compte ?",
-            href: "#signUp",
             text: "Sign up"
         }
     }

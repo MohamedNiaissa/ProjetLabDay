@@ -6,8 +6,7 @@ export const getUserById = async (req, res) => {
     const { email } = req.body;
 
     try {
-        const result = await dbFetch.query("SELECT id FROM users WHERE email = $1", [email]);
-        console.log(result);
+        await dbFetch.query("SELECT id FROM users WHERE email = $1", [email]);
         res.status(201).json({ message: 'User successfully fetched' });
     } catch (error) {
         res.status(409).json({ message: error.message });
@@ -26,24 +25,35 @@ export const createUser = async (req, res) => {
     }
 }
 
-export const updateUser = async (req, res) => {
-    const id = parseInt(req.params.id);
-    const { name, email } = req.body;
+export const updateUserEmail = async (req, res) => {
+    const user = res.locals.user;
+    const { email } = req.body;
 
     try {
-        await dbFetch.query('UPDATE users SET name = $1, email = $2 WHERE id = $3', [name, email, id]);
-        res.status(201).send(`User modified with ID: ${id}`);
+        await dbFetch.query('UPDATE users SET email = $1 WHERE name = $2', [email, user]);
+        res.status(201).send(`User data successfully modified.`);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
+export const updateUserPwd = async (req, res) => {
+    const user = res.locals.user;
+    const { newPassword } = req.body;
+    const password = encrypt(newPassword, randomBytes(16));
+
+    try {
+        await dbFetch.query('UPDATE users SET password = $1 WHERE name = $2', [password, user]);
+        res.status(201).send(`User data successfully modified.`);
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
 }
 
 export const deleteUser = async (req, res) => {
-    const id = parseInt(req.params.id);
-
     try {
-        await dbFetch.query('DELETE FROM users WHERE id = $1', [id]);
-        res.status(201).send(`User deleted with ID: ${id}`);
+        await dbFetch.query('DELETE FROM users WHERE name = $1', [res.locals.user]);
+        res.status(201).send(`User deleted with ID: ${res.locals.user}`);
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
@@ -64,5 +74,16 @@ export const doesUserExist = async (value, query) => {
         } catch {
             res.status(409).json({ message: error.message });
         }
+    }
+}
+
+export const doesUserAuthExist = async (user, pass) => {
+    try {
+        const result = await dbFetch.query("SELECT password FROM users WHERE name = $1", [user]);
+        const {id, token} = JSON.parse(result.rows[0].password)
+        const password = decrypt({id: id, token: token});
+        return pass === password ? true : false;
+    } catch (error) {
+        res.status(409).json({ message: error.message });
     }
 }

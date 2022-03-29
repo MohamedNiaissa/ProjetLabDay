@@ -123,5 +123,5 @@ export function setAuth({user, set}) {
 }
 
 export function getToken() {
-    return { token: document.cookie?.slice(6,) };
+    return document.cookie?.slice(6,);
 }
