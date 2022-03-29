@@ -45,7 +45,7 @@ export function triggerBurgerMenu() {
             burgerMenu.classList.add("open");
             burgerNut.style.transform = "rotate(90deg)";
             addForceClose();
-
+            
         } else {
             navBar.style.width = "100%";
             burgerMenu.style.width = "0%";

@@ -31,7 +31,7 @@ const Sell = ({event}) => (
         </div>
     </div>
 
-    <div id="nbzajcr" className='form-field'>
+    {/* <div id="nbzajcr" className='form-field'>
         <div className="first-design">
             <div className="first-design-content">
                 <input className="design-field" type="text" name="zip" minLength = "1" maxLength="5" 
@@ -52,7 +52,7 @@ const Sell = ({event}) => (
                 <span></span>
             </div>
         </div>
-    </div>
+    </div> */}
 </>
 )
 

@@ -49,7 +49,7 @@ async function fetchDumpMarkers(leaflet, location, map) {
         let marker = leaflet.marker([el.lat, el.lon], {icon: red_icon}).addTo(map);
         marker.bindPopup(el.name);
         marker.on("click", function(e) {
-            L.Routing.control({
+            let itineraire = L.Routing.control({
                 language: 'fr',
                 waypoints: [
                     L.latLng(result.coords.latitude,result.coords.longitude),
@@ -58,8 +58,35 @@ async function fetchDumpMarkers(leaflet, location, map) {
                 collapsible: true,
                 createMarker: function() { return null; },
             }).addTo(map);
+            itinerary(map,itineraire);
+
+        // itineraire.spliceWaypoints(0, 2); // <-- removes your route
         });
     });
+}
+
+function itinerary(map,itineraire){
+    let icon = document.getElementsByTagName('img')
+    console.log(icon);
+    let itineraryDesc = document.querySelectorAll["leaflet-bar"];
+    console.log(itineraryDesc);
+
+    document.body.addEventListener("dblclick",function(){
+        map.removeControl(itineraire);
+        // itineraire.spliceWaypoints(0, 2); 
+    })
+
+    for (let i =0;i<icon.length;i++){
+        icon.addEventListener("click",function(){
+            if (icon.length > 1){
+                if(itineraryDesc.length > 1){
+                    for(let l = 0;l<itineraryDesc.length-1;l++){
+                        map.removeControl(itineraire);
+                    }
+                }
+            }
+        })
+    }
 }
 
 function fromZip(leaflet, map, location, blue_icon) {

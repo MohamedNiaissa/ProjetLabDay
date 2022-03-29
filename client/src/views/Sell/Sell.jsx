@@ -7,7 +7,7 @@ import { FormLayout } from "../../components/~layout";
 const form = new Formulaire("sell");
 
 const Sell = () => {
-    const [formState, setFormState] = useState({product: null, material: null, zip: null, city: null});
+    const [formState, setFormState] = useState({product: null, material: null});
 
     const fieldState = (name, $value, $nodes) => ({
         product  : () => setFormState(valid => ({...valid, product: form.verifyProductName($value, $nodes)})),
@@ -31,7 +31,7 @@ const Sell = () => {
                 <div className="marg"/>
                 <div className="functionality-content">
                     <FormLayout name="sell" userInput={userInput} validity={form.verifyFormValidity(formState)}
-                        state={{product: form.fetchProduct(), city: form.fetchCity()}} cbox={null}/>
+                    state={{product: form.fetchProduct(), city: form.fetchCity()}} cbox={null}/>
                 </div>
             </main>
             <Background color={"page-background purple"}/>
