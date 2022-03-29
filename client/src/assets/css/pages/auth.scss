@@ -92,9 +92,7 @@
             box-shadow: inset 0 0 30px 5px rgba(0, 0, 0, 0.397);
             background-color: #e2d5d5;
             z-index: 10;
-
-            &.left { animation: animate-left 2.5s ease-in-out forwards; }
-            &.right { animation: animate-right 2.5s ease-in-out forwards; }
+            transition: 1.5s ease-in-out; 
 
             &__title {
                 display: flex;

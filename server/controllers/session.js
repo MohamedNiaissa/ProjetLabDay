@@ -9,7 +9,7 @@ export const setSession = async (req, res) => {
     const rad = randomBytes(16);
     const iv = randomBytes(16);
     session.user = req.body.username;
-    session.card = encrypt(rad, iv).token;    
+    session.card = encrypt(rad, iv).token;
     const first = encrypt(session.user, iv);
     const second = encrypt(session.card, iv);
     const token = glue(first, second);
@@ -33,9 +33,6 @@ export const getSession =  async (req, res, next) => {
 }
 
 export const delSession = async (req, res) => {
-    console.log(res.locals.user);
-    console.log(res.locals.card);
-    console.log(res.locals.sid);
     try {
         const result = await dbFetch.query("DELETE FROM sessions WHERE sid = $1;",[res.locals.sid]);
         if(result.rowCount === 0) throw new Error("User not found");
@@ -63,4 +60,12 @@ export const validateCookie = (req, res, next) => {
         res.status(409).json({ message: error.message });
     }
     next();
+}
+
+export const getData = (req, res) => {
+    try {
+        console.log(req.body);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
 }

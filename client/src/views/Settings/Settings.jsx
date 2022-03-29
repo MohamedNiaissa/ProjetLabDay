@@ -1,52 +1,72 @@
-import { Link } from "react-router-dom";
-import { importImages } from "../../utils/functions/Functions";
+import axios from "axios";
+import { useState } from "react";
+import { UserUI, Credentials, Theme } from "../../components/~items";
+import { getToken } from "../../utils/functions/Functions";
 
-const Settings = () => (
-    <main className="settings" id="main-content">
-        <div className="marg" />
-        
-        <div className="settings-content">
-            <section className="settings-user">
-                <div className="user-wrapper">
+const Settings = ({event}) => {
+    const [options, setOptions] = useState("#account");
 
-                    <div className="user-header">
-                        <div className="user-picture">
-                            <img className="u-pic" src={importImages("sell.webp")} alt="user" />
-                        </div>
+    const handleOption = (e) => {
+        setOptions(prevVal => prevVal = window.location.hash)
+    }
 
-                        <div className="user-pseudo">
-                            <span className="username">Name</span>
-                        </div>
+    const deleteAccount = async () => { 
+        await axios.post("http://localhost:5001/api/user/delete", {token : getToken()}).then(res => {
+            event();  return res;
+        }).catch(function(error) { console.error(error.response.data.message) } );
+    }
+
+    const updateAccountEmail = async (e) => {
+        e.preventDefault();
+
+        const newEmail = document.getElementById("new-email");
+        const pwdVerif1 = document.getElementById("current-password-one");
+
+        if(newEmail.value !== "" && pwdVerif1.value !== "") {
+            const data = {token: getToken(), email: newEmail.value, password: pwdVerif1.value};
+            await axios.post("http://localhost:5001/api/user/update-email", data)
+            .then(res => { return res } )
+            .catch(function(error) { console.error(error.response.data.message) } );
+        }
+    }
+
+    const updateAccountPwd = async (e) => {
+        e.preventDefault();
+
+        const oldPwd = document.getElementById("current-password-two");
+        const newPwd = document.getElementById("new-password");
+        const pwdVerif2 = document.getElementById("new-password-verif");
+
+        if(oldPwd.value !== "" && newPwd.value === pwdVerif2.value && newPwd.value !== "" && pwdVerif2.value !== "") {
+            const data = {token: getToken(), password: oldPwd.value, newPassword: newPwd.value, verif: pwdVerif2.value};
+            console.log("bitch")
+            await axios.post("http://localhost:5001/api/user/update-pwd", data)
+            .then(res => { return res } )
+            .catch(function(error) { console.error(error.response.data.message) } );
+        }
+    }
+
+    return (
+        <main className="settings" id="main-content">
+            <div className="marg" />
+            
+            <div className="settings-content">
+                <UserUI event={handleOption} del={deleteAccount}/>
+
+                <section className="settings-options">
+                    <div className="options-wrapper">
+                        <div className="marg" />
+                        {
+                            options === "#account" ? 
+                                <Credentials upEmail={updateAccountEmail} upPwd={updateAccountPwd}/> 
+                            : 
+                                <Theme />
+                         }
                     </div>
-
-                    <div className="user-choices">
-                        <ul className="choices-wrapper">
-                            <li><Link to="/settings">Something</Link></li>
-                            <li><Link to="/settings">Something</Link></li>
-                            <li><Link to="/settings">Something</Link></li>
-                            <li><Link to="/settings">Something</Link></li>
-                            <li className="choices-bottom"><Link to="/settings">Delete Account</Link></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section className="settings-options">
-                <div className="options-wrapper">
-                    <div className="marg" />
-                    <div className="options">
-                        <div className="options-title">
-                            <h1>Some title</h1>
-                        </div>
-
-                        <div className="options-content">
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-)
+                </section>
+            </div>
+        </main>
+    )
+}
 
 export default Settings;

@@ -11,7 +11,7 @@ const App = ({hideLoader}) => {
     const refreshOnLogIn  = () => { setUser(prevState => prevState = true);  }
 
     const refreshOnLogOut = async () => { 
-        await axios.post("http://localhost:5001/api/user/close-session", getToken()).then(res => {
+        await axios.post("http://localhost:5001/api/user/close-session", {token : getToken()}).then(res => {
             axios.post("http://localhost:5001/api/user/sanitize-session").then(resolve => { return resolve });
             clearAuth(); setUser(prevState => prevState = false);
             console.log(`%c ${res.data.message}`, "color: gold;");
@@ -25,14 +25,12 @@ const App = ({hideLoader}) => {
         }
     },[hideLoader]);
 
-    console.log(user)
-
     return (
         <Router>
             <UserInterfaceLayout user={user} event={refreshOnLogOut}>
                 <Switch>
                     {user ?
-                        <Route path="/settings"                    element={<get.Settings/>         }/>
+                        <Route path="/settings"                    element={<get.Settings event={refreshOnLogOut}/> }/>
                         :
                         <Route path="/auth"                        element={<get.AuthLayout refresh={refreshOnLogIn}/> }/>
                     }
