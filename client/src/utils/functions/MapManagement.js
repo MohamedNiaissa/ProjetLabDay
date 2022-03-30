@@ -23,11 +23,18 @@ function fetchMarker(leaflet, location, map) {
 }
 
 async function fetchDumpMarkers(leaflet, location, map) {
+    async function getPosition() {
+        return new Promise((res, rej) => {
+            navigator.geolocation.getCurrentPosition(res, rej)
+        }).then(res => { return res }).catch(error => {console.log(error)});
+    }
+
     const red_icon = leaflet.icon({ iconSize: [25, 41], iconAnchor: [10, 41], popupAnchor: [2, -40],
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
     });
 
+    const result = await getPosition();
     let fetchedDump;
 
     try {
@@ -37,56 +44,52 @@ async function fetchDumpMarkers(leaflet, location, map) {
         console.log(error.message);
     }
 
-    function getPosition() {
-        return new Promise((res, rej) => {
-            navigator.geolocation.getCurrentPosition(res, rej)
-        }).then(res => { return res }).catch(error => {console.log(error)});
-    }
+    let routes = [];
+    fetchedDump.forEach(function (el, i) {
+        routes[i] = {route: null, mode: 1, await: undefined, icon: false};
 
-    const result = await getPosition();
-
-    fetchedDump.forEach(el => {
         let marker = leaflet.marker([el.lat, el.lon], {icon: red_icon}).addTo(map);
         marker.bindPopup(el.name);
         marker.on("click", function(e) {
-            let itineraire = L.Routing.control({
-                language: 'fr',
-                waypoints: [
-                    L.latLng(result.coords.latitude,result.coords.longitude),
-                    L.latLng(e.latlng.lat,e.latlng.lng)
-                ],
-                collapsible: true,
-                createMarker: function() { return null; },
-            }).addTo(map);
-            itinerary(map,itineraire);
+            if(routes[i].await) routes[i].await = false;
 
-        // itineraire.spliceWaypoints(0, 2); // <-- removes your route
+            if(routes[i].mode === 1 && routes[i].await === undefined) {
+                let route = L.Routing.control({
+                    language: 'fr',
+                    waypoints: [
+                        L.latLng(result.coords.latitude,result.coords.longitude),
+                        L.latLng(e.latlng.lat,e.latlng.lng)
+                    ],
+                    collapsible: true,
+                    createMarker: function() { return null; },
+                }).addTo(map);
+
+                routes[i] = {route: route, mode: 2, await: true, icon: true};
+                
+                routes.forEach(obj => {
+                    if(obj.icon && obj.route !== route) {
+                        map.removeControl(obj.route);
+                        obj.route = null;
+                        obj.mode = 1;
+                        obj.await = undefined;
+                        obj.icon = false;
+                    }
+                })
+            }
+
+            if(routes[i].mode === 2 && !routes[i].await) {
+                routes.forEach(obj => {
+                    if(obj.route !== null) {
+                        map.removeControl(obj.route);
+                        obj.route = null;
+                        obj.mode = 1;
+                        obj.await = undefined;
+                        obj.icon = false;
+                    }
+                })
+            }
         });
     });
-}
-
-function itinerary(map,itineraire){
-    let icon = document.getElementsByTagName('img')
-    console.log(icon);
-    let itineraryDesc = document.querySelectorAll["leaflet-bar"];
-    console.log(itineraryDesc);
-
-    document.body.addEventListener("dblclick",function(){
-        map.removeControl(itineraire);
-        // itineraire.spliceWaypoints(0, 2); 
-    })
-
-    for (let i =0;i<icon.length;i++){
-        icon.addEventListener("click",function(){
-            if (icon.length > 1){
-                if(itineraryDesc.length > 1){
-                    for(let l = 0;l<itineraryDesc.length-1;l++){
-                        map.removeControl(itineraire);
-                    }
-                }
-            }
-        })
-    }
 }
 
 function fromZip(leaflet, map, location, blue_icon) {
