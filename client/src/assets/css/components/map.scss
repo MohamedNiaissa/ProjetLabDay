@@ -19,3 +19,48 @@
         }
     }
 }
+
+.saved{
+    height: 500px;
+    //margin-top: 150px;
+
+    &-div{
+        background-color: white;
+        margin: 10px;
+        border-radius: 10px;
+        height: 95%;
+
+        &-item{
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-top-color: rgb(207, 207, 207);
+            border-top-style: solid;
+            border-top-width: 1px;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            max-width: 100%;
+            
+            h5{
+               
+            }
+
+        }
+
+        &-buttons{
+            margin-top:auto;
+            display: flex;
+            justify-content: space-around;
+
+            button{
+                padding:1px;
+                border-radius: 5px;
+                border-color: rgb(207, 207, 207);
+                box-shadow: 0;
+            }
+        }
+    }
+}

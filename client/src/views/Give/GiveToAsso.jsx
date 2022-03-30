@@ -9,6 +9,22 @@ const GiveToAsso = () => (
                 <Map location={useLocation().state.city}/>
             </div>
         </div>
+        <div className="saved">
+            <div className="saved-div">
+                <h3>Association sélectionnée</h3>
+                <div className="saved-div-item">
+                    <h5>Secours Populaire Annecy</h5>
+                    <p>18 rue de Charlemagne</p>
+                    <p>0601405802</p>
+                    <p>Annecy</p>
+                </div>
+                <div className="saved-div-buttons">
+                    <button>
+                        Sauvegarder la sélection
+                    </button>
+                </div>
+            </div>
+        </div>
     </main>
 )
 
