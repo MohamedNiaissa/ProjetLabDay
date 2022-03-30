@@ -29,6 +29,7 @@
         margin: 10px;
         border-radius: 10px;
         height: 95%;
+        width: 235px;
 
         &-item{
             border-radius: 5px;
@@ -45,7 +46,10 @@
             max-width: 100%;
             
             h5{
-               
+               font-size: larger;
+            }
+            p{
+                font-size: larger;
             }
 
         }

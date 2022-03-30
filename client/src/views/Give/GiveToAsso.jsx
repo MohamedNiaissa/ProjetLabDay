@@ -15,7 +15,7 @@ const GiveToAsso = () => (
                 <div className="saved-div-item">
                     <h5>Secours Populaire Annecy</h5>
                     <p>18 rue de Charlemagne</p>
-                    <p>0601405802</p>
+                    <p>06 01 40 58 02</p> 
                     <p>Annecy</p>
                 </div>
                 <div className="saved-div-buttons">
