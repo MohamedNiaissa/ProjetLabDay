@@ -76,17 +76,17 @@ function itinerary(map,itineraire){
         // itineraire.spliceWaypoints(0, 2); 
     })
 
-    for (let i =0;i<icon.length;i++){
-        icon.addEventListener("click",function(){
-            if (icon.length > 1){
-                if(itineraryDesc.length > 1){
-                    for(let l = 0;l<itineraryDesc.length-1;l++){
-                        map.removeControl(itineraire);
-                    }
-                }
-            }
-        })
-    }
+    // for (let i =0;i<icon.length;i++){
+    //     icon.addEventListener("click",function(){
+    //         if (icon.length > 1){
+    //             if(itineraryDesc.length > 1){
+    //                 for(let l = 0;l<itineraryDesc.length-1;l++){
+    //                     map.removeControl(itineraire);
+    //                 }
+    //             }
+    //         }
+    //     })
+    // }
 }
 
 function fromZip(leaflet, map, location, blue_icon) {

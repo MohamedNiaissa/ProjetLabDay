@@ -19,11 +19,11 @@ const Sell = ({event}) => (
                     <option value="metal">Métal</option>
                     <option value="ceramique">Céramique</option>
                     <option value="verre">Verre</option>
-                    <option value="plastique">Plastique</option>
-                    <option value="textile">Textiles</option>
-                    <option value="cuir">Cuir</option>
-                    <option value="papier_carton">Papier ou Carton</option> 
-                    <option value="caoutchouc">Caoutchouc</option>
+                    <option value="plastique">Véhicule</option>
+                    <option value="textile">Vêtements</option>
+                    <option value="cuir">Meuble</option>
+                    <option value="papier_carton">Sport</option> 
+                    <option value="bebe">Bébé</option>
                 </select>
                 <label htmlFor="design-field"><strong>Matériel de l'objet :</strong></label>
                 <span></span>

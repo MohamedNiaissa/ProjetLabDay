@@ -8,7 +8,7 @@ const WebsiteCells = ({mat}) => {
     return(
         
         website.map(el => { 
-            console.log(el.mat)
+            console.log("mat / "+el.mat)
             if(el.mat == mat || el.mat == "general"){
                 return (
                     <div className="web-item" key={null} >
