@@ -1,14 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { WebsiteCells } from "../../components/~items";
 
+
 const SellToWebsite = () => {
+    const {material} = useLocation().state.product;
 
-    const { material } = useLocation().state.product;
-    console.log(material);
-
-    return (
+    return(
         <main className="website" id="main-content">
-            <WebsiteCells mat={material}/>
+            <div className="marg" />
+            <div className="website-list">
+                <WebsiteCells mat = {material}/>
+            </div>
         </main>
     )
 }

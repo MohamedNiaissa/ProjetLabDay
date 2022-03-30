@@ -3,7 +3,8 @@ const Sell = ({event}) => (
     <div id="zeacnvv" className="form-field">
         <div className="first-design">
             <div className="first-design-content">
-                <input className="design-field" type="text" name="product" minLength = "1" maxLength="40" onChange={event} required/>
+                <input className="design-field" type="text" name="product" minLength = "1" maxLength="40" 
+                    onChange={event} autoComplete="off" required/>
                 <label htmlFor="design-field"><strong>Nom de l'objet :</strong></label>
                 <span></span>
             </div>
@@ -26,29 +27,6 @@ const Sell = ({event}) => (
                     <option value="caoutchouc">Caoutchouc</option>
                 </select>
                 <label htmlFor="design-field"><strong>Matériel de l'objet :</strong></label>
-                <span></span>
-            </div>
-        </div>
-    </div>
-
-    <div id="nbzajcr" className='form-field'>
-        <div className="first-design">
-            <div className="first-design-content">
-                <input className="design-field" type="text" name="zip" minLength = "1" maxLength="5" 
-                        onChange={event} required/>
-                <label htmlFor="design-field"><strong>Code Postal :</strong></label>
-                <span></span>
-            </div>
-        </div>
-    </div>
-
-    <div id="jzbfkjb" className="form-field">
-        <div className="first-design">
-            <div className="first-design-content">
-                <select id="city" className="design-field" name="city" onChange={event} required>
-                    <option value="" defaultValue hidden/>
-                </select>
-                <label htmlFor="design-field"><strong>Ville :</strong></label>
                 <span></span>
             </div>
         </div>
