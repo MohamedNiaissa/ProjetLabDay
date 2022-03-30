@@ -9,7 +9,7 @@ const GiveResearch = () => {
     let key = 0;
     const json = fetchResearch();
     return (
-        <li><span className="tree">Mes recherches donner</span>
+        <li><span className="tree">Ce que je dois donner</span>
             <ul className="nested">
             {
                 json.map(el => {

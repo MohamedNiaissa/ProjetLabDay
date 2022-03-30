@@ -4,10 +4,10 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 import "leaflet-control-geocoder";
 
-export const DisplayMarker = ({leaflet, location}) => {
+export const DisplayMarker = ({leaflet, location, event}) => {
     const map = useMap();
 
-    if(location?.form === "discard") fetchDumpMarkers(leaflet, location, map);
+    if(location?.form === "discard") fetchDumpMarkers(leaflet, location, map, event);
     fetchMarker(leaflet, location, map);
 
     return null;
@@ -22,7 +22,7 @@ function fetchMarker(leaflet, location, map) {
     location.loc ? fromGps(leaflet, map, blue_icon) : fromZip(leaflet, map, location, blue_icon);
 }
 
-async function fetchDumpMarkers(leaflet, location, map) {
+async function fetchDumpMarkers(leaflet, location, map, event) {
     async function getPosition() {
         return new Promise((res, rej) => {
             navigator.geolocation.getCurrentPosition(res, rej)
@@ -46,10 +46,14 @@ async function fetchDumpMarkers(leaflet, location, map) {
 
     let routes = [];
     fetchedDump.forEach(function (el, i) {
-        routes[i] = {route: null, mode: 1, await: undefined, icon: false};
+        let { name, address, zip } = el;
+        name = name.replaceAll(" ", "+");
+        address = address.replaceAll(" ", "+");
+        zip = zip.replaceAll(" ", "+");
 
+        routes[i] = {route: null, mode: 1, await: undefined, icon: false};
         let marker = leaflet.marker([el.lat, el.lon], {icon: red_icon}).addTo(map);
-        marker.bindPopup(el.name);
+        marker.bindPopup(`${el.name}` + "</br>" + "<a href=" + `https://www.google.com/search?q=${name}+${address}+${zip}` + ' target="_blank">En savoir plus =></a>');
         marker.on("click", function(e) {
             if(routes[i].await) routes[i].await = false;
 
@@ -64,6 +68,7 @@ async function fetchDumpMarkers(leaflet, location, map) {
                     createMarker: function() { return null; },
                 }).addTo(map);
 
+                event(el.name, el.zip, el.address);
                 routes[i] = {route: route, mode: 2, await: true, icon: true};
                 
                 routes.forEach(obj => {
@@ -78,6 +83,8 @@ async function fetchDumpMarkers(leaflet, location, map) {
             }
 
             if(routes[i].mode === 2 && !routes[i].await) {
+                event("Non choisie", "Non choisie", null);
+
                 routes.forEach(obj => {
                     if(obj.route !== null) {
                         map.removeControl(obj.route);
