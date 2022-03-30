@@ -27,6 +27,10 @@ import UserUI from "./items/settings/UserUI";
 import Credentials from "./items/settings/Credentials";
 import Theme from "./items/settings/Theme";
 
+import GiveResearch from "./items/list/GiveResearch";
+import DiscardResearch from "./items/list/DiscardResearch";
+import HeaderList from "./items/list/HeaderList";
+
 export {
     Login, SignUp, AuthSwitch,
     Contact, Discard, Give, Sell, Title,
@@ -34,5 +38,6 @@ export {
     BurgerNoUser, BurgerUser, Footer, Header,
     Background, Map, Switch, 
     WebsiteCells,
-    UserUI, Credentials, Theme
+    UserUI, Credentials, Theme,
+    HeaderList, GiveResearch, DiscardResearch
 };
