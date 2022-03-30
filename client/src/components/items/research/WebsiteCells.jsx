@@ -9,7 +9,7 @@ const WebsiteCells = ({mat}) => {
         
         website.map(el => { 
             console.log("mat / "+el.mat)
-            if(el.mat == mat || el.mat == "general"){
+            if(el.cat.includes(mat) || el.cat == "general"){
                 return (
                     <div className="web-item" key={null} >
                         <div className="web-item-logo" >  
