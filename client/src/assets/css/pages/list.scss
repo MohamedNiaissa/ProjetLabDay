@@ -1,4 +1,4 @@
-.mylist {
+ .mylist {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -131,5 +131,16 @@
                 }
             }
         }
+    }
+}
+
+
+@media all and (max-width:855px){
+    .mylist-tree{
+        flex-direction: column;
+    }
+
+    .mylist-header-title h1{
+        text-align: center;
     }
 }
