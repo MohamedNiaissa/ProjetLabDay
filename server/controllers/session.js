@@ -22,7 +22,7 @@ export const setSession = async (req, res) => {
     }
 }
 
-export const getSession =  async (req, res, next) => {
+export const getSession = async (req, res, next) => {
     try {
         const result = await dbFetch.query("SELECT SID FROM sessions as s WHERE s.sess::jsonb -> 'user' ? $1 and s.sess::jsonb -> 'card' ? $2;", [res.locals.user, res.locals.card]);
         res.locals.sid = result.rows[0].sid;

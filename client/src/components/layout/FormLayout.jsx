@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { Sell, Give, Discard, Contact, Title, Switch } from "../~items";
 
-const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
-
-    
+const FormLayout = ({name, userInput, validity, email, state, cbox, valueMat}) => {
     const validButton    = text => <button className="button col-origin valid">{text}</button>
     const disabledButton = text => <button className="button col-disabled" disabled>{text}</button>
     const validSwitch    = ()   => <Switch id={"geo"} name={"location"} off="NON" on="OUI" disabled={false} theme="swi-origin"   event={userInput}/>

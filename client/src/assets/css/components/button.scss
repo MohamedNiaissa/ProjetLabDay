@@ -1,17 +1,35 @@
 @mixin button-color($border, $background, $text) {
-    border: solid 3px $border;
+    border: $border;
     background-color: $background;
     color: $text;
 }
 
 .button, .auth-button {
-    padding: 7px 30px;
+    padding: 5px 30px;
     border-radius: 20px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
     font-size: small;
     text-align: center;
     text-transform: uppercase;
     transition: 0.3s ease-in-out;
+}
+
+.small-button {
+    padding: 7px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.37);
+    font-size: small;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(80, 53, 155);
+        color: white;
+        transform: scale(1.03);
+    }
 }
 
 .valid, .auth-button {
@@ -24,6 +42,12 @@
     }
 }
 
-.col-origin   { @include button-color(#37a8ac, #213546, #37a8ac); }
-.col-disabled { @include button-color(#c0c0c0, #5f5f5f, #8f8f8f); }
-.col-white    { @include button-color(#37a8ac, #e2d5d5, #37a8ac); }
+.cursor {
+    cursor: pointer;
+}
+
+.col-origin   { @include button-color(solid 3px #37a8ac, #213546, #37a8ac); }
+.col-disabled { @include button-color(solid 3px #c0c0c0, #5f5f5f, #8f8f8f); }
+.col-white    { @include button-color(solid 3px #37a8ac, #e2d5d5, #37a8ac); }
+.col-simple   { @include button-color(none, #e2d5d5, none)}
+.col-simple-disabled { @include button-color(none, #5f5f5f, none)}

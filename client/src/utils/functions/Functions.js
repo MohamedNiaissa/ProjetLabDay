@@ -125,3 +125,32 @@ export function setAuth({user, set}) {
 export function getToken() {
     return document.cookie?.slice(6,);
 }
+
+export function actionOverlay(toggle) {
+    const overlay = document.getElementById("overlay");
+    const cbox = document.getElementById("overlay-cbox");
+    toggle ? openOverlay(overlay, cbox) : closeOverlay(overlay, cbox);
+}
+
+function closeOverlay(overlay, cbox) {
+    cbox.checked = false;
+    overlay.style.display = "none";
+}
+
+function openOverlay(overlay, cbox) {
+    cbox.checked = true;
+    overlay.style.display = "flex";
+}
+
+export function addEventOnTree() {
+    document.querySelectorAll(".tree").forEach(el => {
+        el.addEventListener("click", toggleActive);
+    })
+}
+
+function toggleActive() {
+    this.parentElement.childNodes.forEach(el => {
+        if(el.tagName === "UL") el.classList.toggle("active");
+        if(el.tagName === "DIV") el.classList.toggle("active");
+    })
+}

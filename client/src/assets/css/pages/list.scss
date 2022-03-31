@@ -1,0 +1,135 @@
+.mylist {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+
+    width: 100%;
+    min-height: 88vh;
+    padding: 20px 0px;
+    transition-delay: 1.3s;
+    transition-duration: 0.4s;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+
+        .marg {
+            width: 100%;
+            height: 8vh;
+        }
+    
+        &-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            height: 150px;
+            background-color: rgb(117, 76, 161);
+            border-radius: 20px;
+    
+            h1 {
+                color: white;
+            }
+        }
+    }
+
+    &-content {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        height: 90%;
+    }
+
+    &-tree {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 5rem;
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            background-color: rgba(118, 106, 131, 0.301);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+
+            span {
+                width: 100%;
+                height: 50px;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;
+                color: white;
+                background-color: rgb(117, 76, 161);
+                border-radius: 20px 20px 0px 0px;
+                font-weight: 700;
+            }
+
+            .nested {
+                width: 95%;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: .8rem;
+                padding: .4rem 0;
+
+                &.active {
+                    display: flex;
+                }
+    
+                li {
+                    span {
+                        background-color: rgb(94, 75, 114);
+                        height: 40px;
+                    }
+
+                    .tree-content {
+                        width: 100%;
+                        height: 120px;
+                        display: none;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        background-color: rgb(173, 164, 207);
+                        box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.363), 
+                        inset 0px 5px 10px 1px rgba(0, 0, 0, 0.411);
+                        border-radius: 0 0 20px 20px;
+
+                        &.active {
+                            display: flex;
+                        }
+
+                        &-location {
+                            width: 100%;
+                            height: 60%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            gap: .5rem;
+                        }
+
+                        &-controller {
+                            width: 100%;
+                            height: 40%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

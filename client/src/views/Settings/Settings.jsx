@@ -12,7 +12,9 @@ const Settings = ({event}) => {
 
     const deleteAccount = async () => { 
         await axios.post("http://localhost:5001/api/user/delete", {token : getToken()}).then(res => {
-            event();  return res;
+            event();
+            console.log(`%c User account was successfully deleted`, "color: gold;");
+            return res;
         }).catch(function(error) { console.error(error.response.data.message) } );
     }
 
@@ -56,12 +58,13 @@ const Settings = ({event}) => {
                 <section className="settings-options">
                     <div className="options-wrapper">
                         <div className="marg" />
-                        {
+                        <Credentials upEmail={updateAccountEmail} upPwd={updateAccountPwd}/> 
+                        {/* {
                             options === "#account" ? 
-                                <Credentials upEmail={updateAccountEmail} upPwd={updateAccountPwd}/> 
+                            <Credentials upEmail={updateAccountEmail} upPwd={updateAccountPwd}/> 
                             : 
                                 <Theme />
-                         }
+                         } */}
                     </div>
                 </section>
             </div>
