@@ -1,16 +1,16 @@
 import { importImages } from "../../../utils/functions/Functions"
 import { Link } from "react-router-dom"
 
-const UserUI = ({event, del}) => (
+const UserUI = ({event, del, imageEvent, picture}) => (
     <section className="settings-user">
         <div className="user-wrapper">
 
             <div className="user-header">
                 <div className="user-picture">
                     <label htmlFor="user_pic">
-                        <img className="u-pic" src={importImages("unknown.webp")} alt="user" />
+                        <img className="u-pic" src={picture !== null ? picture : importImages("unknown.webp")} alt="user" />
                     </label>
-                    <input id="user_pic" type="file" accept="image/*" />
+                    <input id="user_pic" type="file" accept="image/jpeg, image/png, image/jpg, image/webp" onChange={imageEvent}/>
                 </div>
 
                 <div className="user-pseudo">

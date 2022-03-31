@@ -21,7 +21,7 @@ const UserInterfaceLayout = props => {
             </div>
             <div className="burger" id="burger-side">
                 {props.user ? 
-                    <BurgerUser event={props.event} renderNav={renderNavigation}/> 
+                    <BurgerUser event={props.event} renderNav={renderNavigation} picture={props.picture}/> 
                     : 
                     <BurgerNoUser renderNav={renderNavigation}/>
                 }

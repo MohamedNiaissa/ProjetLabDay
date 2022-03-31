@@ -8,12 +8,26 @@ import { get } from "./views";
 const App = ({hideLoader}) => {
     const loading = useRef(true);
     const [user, setUser] = useState(isLogged);
-    const refreshOnLogIn  = () => { setUser(prevState => prevState = true);  }
+    const [pic, setPic] = useState(null);
+
+    const refreshOnNewPic = (image) => {
+        setPic(prevVal => prevVal = image);
+    }
+
+    const refreshOnLogIn  = async () => {
+        await axios.post("http://localhost:5001/api/user/fetch-pic", {token: getToken()})
+        .then(res => { setPic(prevVal => prevVal = res.data[0].image); return res})
+        .catch(function(error) { console.error(error.response.data.message) } );
+
+        setUser(prevState => prevState = true);  
+    }
 
     const refreshOnLogOut = async () => { 
         await axios.post("http://localhost:5001/api/user/close-session", {token : getToken()}).then(res => {
             axios.post("http://localhost:5001/api/user/sanitize-session").then(resolve => { return resolve });
-            clearAuth(); setUser(prevState => prevState = false);
+            clearAuth();
+            setPic(prevVal => prevVal = null);
+            setUser(prevState => prevState = false);
             console.log(`%c ${res.data.message}`, "color: gold;");
         }).catch(function(error) { console.error(error.response.data.message) } ); 
     }
@@ -27,11 +41,11 @@ const App = ({hideLoader}) => {
 
     return (
         <Router>
-            <UserInterfaceLayout user={user} event={refreshOnLogOut}>
+            <UserInterfaceLayout user={user} event={refreshOnLogOut} picture={pic}>
                 <Switch>
                     {user ?
                         <>
-                        <Route path="/settings"                    element={<get.Settings event={refreshOnLogOut}/> }/>
+                        <Route path="/settings"                    element={<get.Settings event={refreshOnLogOut} eventPic={refreshOnNewPic} picture={pic}/> }/>
                         <Route path="/ma-liste"                    element={<get.UserList/> }/>
                         </>
                         :

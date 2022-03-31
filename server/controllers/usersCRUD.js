@@ -50,6 +50,29 @@ export const updateUserPwd = async (req, res) => {
     }
 }
 
+export const updateUserPic = async (req, res) => {
+    const user = res.locals.user;
+    const { pic } = req.body;
+
+    try {
+        await dbFetch.query('UPDATE users SET image = $1 WHERE name = $2', [pic, user]);
+        res.status(201).send(`User data successfully modified.`);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
+export const fetchUserPic = async (req, res) => {
+    const user = res.locals.user;
+
+    try {
+        const { rows } = await dbFetch.query('SELECT image FROM users WHERE name = $1', [user]);
+        res.status(201).send(rows);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
 export const deleteUser = async (req, res) => {
     try {
         await dbFetch.query('DELETE FROM users WHERE name = $1', [res.locals.user]);

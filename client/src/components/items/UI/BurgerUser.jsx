@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { importImages, burgerOverride } from "../../../utils/functions/Functions";
 
-const BurgerUser = ({event, renderNav}) => (
+const BurgerUser = ({event, renderNav, picture}) => (
     <nav className="burger-content" id="burger-content">
 
         <div className="burger-content-account">
-            <div className="account__pic"><img src={importImages("unknown.webp")} alt="user-pic"/></div>
+            <div className="account__pic"><img src={picture !== null ? picture : importImages("unknown.webp")} alt="user-pic"/></div>
             <div className="account__name"><span>{localStorage.getItem("user")}</span></div>
             <div className="account__goto">
                 <Link to="/settings" className="auth-button col-origin" onMouseDown={burgerOverride} onMouseUp={renderNav}>Settings</Link>
