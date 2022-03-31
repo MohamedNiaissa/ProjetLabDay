@@ -28,8 +28,7 @@ const Contact = ({event}) => (
     <div id="ijconxa" className="form-field">
         <div className="first-design">
             <div className="first-design-content">
-                <textarea className="design-field" type="text" name="textarea" placeholder="Description de votre requête :" 
-                            minLength="1" maxLength={1000} onChange={event} required/>
+                <textarea className="design-field" type="text" name="textarea" placeholder="Description de votre requête :"minLength="1" maxLength={1000} onChange={event} required/>
             </div>
         </div>
     </div>

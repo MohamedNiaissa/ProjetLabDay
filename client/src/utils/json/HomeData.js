@@ -1,11 +1,11 @@
 export const homeData = {
     intro: {
-        title: "Some title",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio amet praesentium, sequi explicabo non neque. Quos corrupti incidunt culpa, fugit eligendi perferendis assumenda eveniet repellat consequuntur, accusantium, rem aliquam nam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae perferendis doloremque voluptate natus, aut a molestias libero corrupti rerum quo harum vero, necessitatibus aliquid ullam maiores distinctio. Reiciendis, quam omnis?",
+        title: "Introduction",
+        text: "NextStep vous donne l'occasion de donnée une seconde vie à vos objets que vous n'utilisez plus. Selon votre besoin spécifique, l'objet en question est redirigé vers l'endroit le plus approprié. ",
     },
     desc: {
-        title: "Some title",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio amet praesentium, sequi explicabo non neque. Quos corrupti incidunt culpa, fugit eligendi perferendis assumenda eveniet repellat consequuntur, accusantium, rem aliquam nam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae perferendis doloremque voluptate natus, aut a molestias libero corrupti rerum quo harum vero, necessitatibus aliquid ullam maiores distinctio. Reiciendis, quam omnis?",
+        title: "Fonctionnalités",
+        text: "Plusieurs options sont à votre disposition dans le tri de vos objets. Vous avez la possibilité de le donner, vendre ou jeter. Pour pouvoir effectuer ces actions le remplissement d'un formulaire est nécessaire. Ainsi le traitement de cet objet répondra le plus à vos attente.",
     },
     sell: {
         title: "Vendre",

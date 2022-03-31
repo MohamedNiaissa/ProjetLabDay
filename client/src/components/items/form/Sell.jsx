@@ -16,17 +16,19 @@ const Sell = ({event}) => (
             <div className="first-design-content">
                 <select className="design-field" name="material" onChange={event} required>
                     <option value="" defaultValue hidden/>
-                    <option value="bois">Bois</option>
-                    <option value="metal">Métal</option>
-                    <option value="ceramique">Céramique</option>
-                    <option value="verre">Verre</option>
-                    <option value="plastique">Plastique</option>
-                    <option value="textile">Textiles</option>
-                    <option value="cuir">Cuir</option>
-                    <option value="papier_carton">Papier ou Carton</option> 
-                    <option value="caoutchouc">Caoutchouc</option>
+                    <option value="smartphone">Smartphone</option>
+                    <option value="electronique">Électronique</option>
+                    <option value="livre">livre</option>
+                    <option value="vehicule">Véhicule</option>
+                    <option value="immobilier">Immobilier</option>
+                    <option value="jeux-video">Jeux-Video</option>
+                    <option value="vetement">Vêtements</option>
+                    <option value="esthetique">Ésthetique</option>
+                    <option value="meuble">Meuble</option>
+                    <option value="sport">Sport</option> 
+                    <option value="bebe">Bébé</option>
                 </select>
-                <label htmlFor="design-field"><strong>Matériel de l'objet :</strong></label>
+                <label htmlFor="design-field"><strong>Catégorie de l'objet :</strong></label>
                 <span></span>
             </div>
         </div>

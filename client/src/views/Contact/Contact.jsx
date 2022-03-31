@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Formulaire } from "../../utils/functions/FormManagement";
 import { Background } from "../../components/~items";
 import { FormLayout } from "../../components/~layout";
-
+// import ContactRedirect from './ContactRedirect';
+import { Notif } from '../../utils/functions/Popup'; 
 const form = new Formulaire("contact");
 
 const Contact = () => {
@@ -30,8 +31,10 @@ const Contact = () => {
 
         emailjs.init("user_AKLQ6hVQAACxiGu2duCFr");
         emailjs.send(serviceId, templateId, {topic: topic, user:'User_Name_Template', content: msg, reply_to: email})
-        .then(res => console.log('Email successfully sent!'))
+        .then(res => {console.log('Email successfully sent!');Notif()})
         .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err));
+        <script src="/Users/mohamed/Documents/ProjetLabDay/client/src/utils/functions/Popup.js"></script>
+
     }
 
     return (
@@ -43,6 +46,7 @@ const Contact = () => {
                         email={handleSubmit} cbox={null}/>
                 </div>
             </main>
+            {/* <ContactRedirect /> */}
             <Background color={"page-background purple"}/>
         </>
     )

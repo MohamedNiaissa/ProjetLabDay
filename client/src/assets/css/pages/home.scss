@@ -254,3 +254,16 @@
     background-repeat: no-repeat;
     background-clip: border-box;
 }
+
+@media all and (max-width: 600px){
+    .home .intro{
+        width: 100%;
+    }
+}
+
+@media all and (max-width:880px){
+    .home-content .description__presentation > p{
+        width: 100%;
+        // font-size: 13px;
+    }
+}
