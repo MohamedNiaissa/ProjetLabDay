@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Sell, Give, Discard, Contact, Title, Switch } from "../~items";
 
-const FormLayout = ({name, userInput, validity, email, state, cbox, valueMat}) => {
+const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
 
     
     const validButton    = text => <button className="button col-origin valid">{text}</button>
@@ -44,7 +44,7 @@ const FormLayout = ({name, userInput, validity, email, state, cbox, valueMat}) =
         sell   : () => <ResearchLink link="/vendre/resultats" state={state}/>,
         give   : () => <ResearchLink link="/donner/resultats" state={state}/>,
         discard: () => <ResearchLink link={cbox ? "/jeter/decharge" : "/jeter/poubelles-ecologiques"} state={state}/>,
-        contact: () => <ContactLink  link="/contact/redirect/" event={email}/>,
+        contact: () => <ContactLink  link="/contact/" event={email}/>, // /redirect  
     })[form]()
 
     const RenderSwitch = cbox => ({
@@ -67,6 +67,7 @@ const FormLayout = ({name, userInput, validity, email, state, cbox, valueMat}) =
                     </form>
                 </div>
             </div>
+         
         </>
     )
 }

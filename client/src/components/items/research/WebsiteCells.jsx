@@ -2,13 +2,10 @@ import website from "../../../utils/json/Website";
 import materialTab from "../../../views/Sell/Sell.jsx";
 import getTab from "../../../views/Sell/Sell.jsx";
 const WebsiteCells = ({mat}) => {
-    console.log('mat = '+ mat);
-
 
     return(
         
         website.map(el => { 
-            console.log("mat / "+el.mat)
             if(el.cat.includes(mat) || el.cat == "general"){
                 return (
                     <div className="web-item" key={null} >

@@ -23,11 +23,8 @@ const website =
     {name: "Ebay", url:"https://www.ebay.fr/sl/sell", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/EBay_logo.png", cat:"general"},
     {name: "Etsy", url:"https://www.etsy.com/", logo:"http://assets.stickpng.com/images/5847f395cef1014c0b5e487f.png", cat:"general"},
     {name: "Selency", url:"https://www.selency.fr/list-item", logo:"https://assets.selency.co/img/main-logo.png?version=1579258796",cat:"general"},
-    {name: "Topannonce", url:"https://www.topannonces.fr/", logo:"https://pbs.twimg.com/profile_images/463980220022661121/hthCsJoy_400x400.png", cat:"general"},
+    {name: "Topannonce", url:"https://www.topannonces.fr/", logo:"https://pbs.twimg.com/profile_images/463980220022661121/hthCsJoy_400x400.png", cat:"general"}
 
-
-
-    
 ]
 
 export default website;
