@@ -25,3 +25,15 @@ export const getDumpPerDepartment = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+
+export const getAssociationPerDepartement = async (req, res) => {
+    let department = req.params.id;
+
+    try {
+        department = department.slice(0,2);
+        const { rows } = await dbFetch.query('SELECT * FROM associations WHERE dep = $1', [department]);
+        res.status(201).send(rows);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
