@@ -14,6 +14,12 @@ const App = ({hideLoader}) => {
         setPic(prevVal => prevVal = image);
     }
 
+    const refreshOnRefresh  = async () => {
+        await axios.post("http://localhost:5001/api/user/fetch-pic", {token: getToken()})
+        .then(res => { setPic(prevVal => prevVal = res.data[0].image); return res})
+        .catch(function(error) { console.error(error.response.data.message) } );
+    }
+
     const refreshOnLogIn  = async () => {
         await axios.post("http://localhost:5001/api/user/fetch-pic", {token: getToken()})
         .then(res => { setPic(prevVal => prevVal = res.data[0].image); return res})
@@ -35,6 +41,8 @@ const App = ({hideLoader}) => {
     useEffect(() => { 
         if(loading.current) {
             hideLoader();
+
+            if(user) refreshOnRefresh();
             loading.current = false;
             if(user) refreshOnRefresh();
         }
