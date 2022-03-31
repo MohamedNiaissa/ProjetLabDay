@@ -1,27 +1,25 @@
 import axios from 'axios';
 import { setAuth } from "./Functions";
 
-export function slide(e) {
-    console.log(e.target);
-    
-        // document.getElementById("shift-cbx").addEventListener("click", () => {
-        // const el = document.getElementById("switch").classList;
-        // if(el.contains("right")) el.remove("right");
-        // if(el.contains("left")) el.remove("left");
-        
-        // const animationDirection = window.location.hash === "#signUp" ? "right" : "left";
-        // el.add(animationDirection);
-        // setTimeout(() => {el.remove(animationDirection)}, 2500);
+export async function signup(e, body) {
+    e.preventDefault();
+    await axios.post("http://localhost:5001/api/user/create", body)
+    .then(res => { 
+        e.target.reset(); 
+        console.log(`%c ${res.data.message}`, "color: gold;");
+        window.location.hash = "#LogIn";
+    }).catch(function(error) { console.error(error.response.data.message) } );
 }
 
-export async function signup(body) {
-    await axios.post("http://localhost:5001/api/user/create", body).then(res => console.log(res.data))
-    .catch(function(error) { console.error(error.response.data.message) } );
-}
-
-export async function login(body, navigate, refresh) {
-    await axios.post("http://localhost:5001/api/user/open-session", body).then(res => { 
-        setAuth(res.data); navigate("/home", {replace: true}); refresh();
+export async function login(e, body, navigate, refresh) {
+    e.preventDefault();
+    await axios.post("http://localhost:5001/api/user/open-session", body)
+    .then(res => { 
+        e.target.reset();
+        setAuth(res.data); 
+        navigate("/home", {replace: true});
+        console.log(`%c Session for user started`, "color: gold;");
+        refresh();
     }).catch(error => {return error});
 }
 

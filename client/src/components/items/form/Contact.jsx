@@ -18,7 +18,7 @@ const Contact = ({event}) => (
         <div className="first-design">
             <div className="first-design-content">
                 <input className="design-field" type="email" name="email" minLength = "1" maxLength="40" 
-                        onChange={event} required/>
+                        onChange={event} autoComplete="off" required/>
                 <label htmlFor="design-field"><strong>Adresse email :</strong></label>
                 <span></span>
             </div>

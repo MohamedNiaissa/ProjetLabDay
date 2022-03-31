@@ -21,7 +21,7 @@ const UserUI = ({event, del}) => (
             <div className="user-choices">
                 <ul className="choices-wrapper">
                     <li><Link to="/settings#account" onClick={event}>Compte</Link></li>
-                    <li><Link to="/settings#affichage" onClick={event}>Affichage</Link></li>
+                    {/* <li><Link to="/settings#affichage" onClick={event}>Affichage</Link></li> */}
                     <li className="choices-bottom"><Link to="/home" onClick={del}>Supprimer le compte</Link></li>
                 </ul>
             </div>

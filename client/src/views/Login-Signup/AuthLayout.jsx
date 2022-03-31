@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Login, SignUp, AuthSwitch, Background } from "../../components/~items";
-import { slide, init } from "../../utils/functions/AuthManagement";
+import { init } from "../../utils/functions/AuthManagement";
 import { login, signup } from "../../utils/functions/AuthManagement";
 
 const AuthLayout = ({refresh}) => {
     const [signUpData, setSignUpData] = useState({username: null, email: null, password: null, passwordVerif: null});
     const [logInData, setLogInData] = useState({username: null, password: null});
-    const [shift, setShift] = useState({direction: null});
     const navigate = useNavigate();
 
     const updateLogIn = (name, value) => ({

@@ -1,6 +1,5 @@
 import dbFetch from "../config/config.js";
 
-
 export const getCitiesWithZip = async (req, res) => {
     let department = req.params.id;
     const { zip } = req.query;

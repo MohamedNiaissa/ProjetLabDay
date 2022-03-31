@@ -1,14 +1,13 @@
 import website from "../../../utils/json/Website";
-import materialTab from "../../../views/Sell/Sell.jsx";
-import getTab from "../../../views/Sell/Sell.jsx";
+
 const WebsiteCells = ({mat}) => {
+    let key = 0;
 
     return(
-        
-        website.map(el => { 
-            if(el.cat.includes(mat) || el.cat == "general"){
+        website.map(el => {
+            if(el.mat === mat || el.mat === "general") {
                 return (
-                    <div className="web-item" key={null} >
+                    <div className="web-item" key={key++}>
                         <div className="web-item-logo" >  
                             <img className="item-logo"src={el.logo} alt="#"/>
                         </div>
@@ -20,8 +19,6 @@ const WebsiteCells = ({mat}) => {
                     </div>
                 )
             }
-    
-            
         })
     )
 }

@@ -3,12 +3,12 @@ const SignUp = ({submit, data, event}) => (
         <div className="signup__title">
             <h2>Créer votre compte</h2>
         </div>
-        <form className="signup__form" onSubmit={(e) => { e.preventDefault(); submit(data)}}>
+        <form className="signup__form" onSubmit={(e) => submit(e, data)} autoComplete="off">
             <div className="signup-field">
                 <div className="second-design">
                     <div className="second-design-content">
                         <input className="design-field" type="text" name="username" minLength = "1" maxLength="40" 
-                            onChange={event} required/>
+                            onChange={event} autoComplete="off" required/>
                         <label htmlFor="design-field">Pseudo :</label>
                         <span className="simple-underline"></span>
                     </div>
@@ -19,7 +19,7 @@ const SignUp = ({submit, data, event}) => (
                 <div className="second-design">
                     <div className="second-design-content">
                         <input className="design-field" type="email" name="email" minLength = "1" maxLength="40" 
-                            onChange={event} required/>
+                            onChange={event} autoComplete="off" required/>
                         <label htmlFor="design-field">Adresse email :</label>
                         <span className="simple-underline"></span>
                     </div>
@@ -30,7 +30,7 @@ const SignUp = ({submit, data, event}) => (
                 <div className="second-design">
                     <div className="second-design-content">
                         <input className="design-field" type="password" name="password" minLength = "1" maxLength="40" 
-                            onChange={event} required/>
+                            onChange={event} autoComplete="off" required/>
                         <label htmlFor="design-field">Mot de passe :</label>
                         <span className="simple-underline"></span>
                     </div>
@@ -41,7 +41,7 @@ const SignUp = ({submit, data, event}) => (
                 <div className="second-design">
                     <div className="second-design-content">
                         <input className="design-field" type="password" name="passwordVerif" minLength = "1" maxLength="40" 
-                            onChange={event}required/>
+                            onChange={event} autoComplete="off" required/>
                         <label htmlFor="design-field">Verification du mot de passe :</label>
                         <span className="simple-underline"></span>
                     </div>

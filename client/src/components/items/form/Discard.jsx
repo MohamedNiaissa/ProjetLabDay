@@ -6,7 +6,7 @@ const Discard = ({event, locChecked, checked}) => (
         <div className="first-design">
             <div className="first-design-content">
                 <input className="design-field" type="text" name="product" minLength = "1" maxLength="40" 
-                        onChange={event} required/>
+                        onChange={event} autoComplete="off" required/>
                 <label htmlFor="design-field"><strong>Nom de l'objet :</strong></label>
                 <span></span>
             </div>
@@ -43,7 +43,7 @@ const Discard = ({event, locChecked, checked}) => (
         <div className="first-design">
             <div className="first-design-content">
                 <input className="design-field" type="text" name="zip" minLength = "1" maxLength="5" 
-                        onChange={event} required/>
+                        onChange={event} autoComplete="off" required/>
                 <label htmlFor="design-field"><strong>Code Postal :</strong></label>
                 <span></span>
             </div>
