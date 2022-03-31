@@ -6,15 +6,18 @@ import "leaflet-control-geocoder";
 
 export const DisplayMarker = ({leaflet, location, event}) => {
     const map = useMap();
+    console.log(location)
 
     if(location?.form === "discard") {
         fetchDumpMarkers(leaflet, location, map, event);
         fetchMarker(leaflet, location, map);
+    }else if(location?.form === "give") {
+        fetchMarker(leaflet, location, map);
+        // fetchAssoMarkers(leaflet, location, map, event);
     }else if(location?.form === "disList") {
         fetchDiscardMapList(leaflet, location, map);
         fetchListMarker(leaflet, location, map);
-    }else fetchMarker(leaflet, location, map);
-
+    }
 
     return null;
 }

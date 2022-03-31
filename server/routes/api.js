@@ -1,5 +1,5 @@
 import express from 'express';
-import { getCitiesWithZip, getDumpPerDepartment } from "../controllers/map.js";
+import { getAssociationPerDepartement, getCitiesWithZip, getDumpPerDepartment } from "../controllers/map.js";
 import { createUser, deleteUser, fetchUserPic, updateUserEmail, updateUserPic, updateUserPwd } from '../controllers/usersCRUD.js';
 import { verify, validate } from '../middleware/checkForm.js';
 import { setSession, getSession, delSession, delTrace, validateCookie } from '../controllers/session.js';
@@ -9,6 +9,7 @@ const router = express.Router();
 
 router.get('/department/:id/dumps', getDumpPerDepartment);
 router.get('/department/:id/cities', getCitiesWithZip);
+router.get('/department/:id/assos', getAssociationPerDepartement)
 router.post('/user/create', verify("SIGNUP"), validate, createUser);
 router.post('/user/open-session', verify("LOGIN"), validate, setSession);
 router.post('/user/close-session', validateCookie, getSession, delSession);
