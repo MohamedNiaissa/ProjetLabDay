@@ -19,7 +19,7 @@ export const createUser = async (req, res) => {
 
     try {
         await dbFetch.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)', [username, email, password]);
-        res.status(201).send(`User successfully added`);
+        res.status(201).json({ message: 'User successfully added' });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }

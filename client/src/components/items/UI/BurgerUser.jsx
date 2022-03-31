@@ -15,7 +15,7 @@ const BurgerUser = ({event, renderNav}) => (
         <ul className="burger-content-nav nav-bottom">
             <li><Link to="/home" onMouseDown={burgerOverride} onMouseUp={renderNav}>Home</Link></li>
             <li><Link to="/contact" onMouseDown={burgerOverride} onMouseUp={renderNav}>Contact</Link></li>
-            <li><Link to="/home" onMouseDown={burgerOverride} onMouseUp={renderNav}>Liste</Link></li>
+            <li><Link to="/ma-liste" onMouseDown={burgerOverride} onMouseUp={renderNav}>Liste</Link></li>
             <li><Link to="/home" name="logout" onClick={event} onMouseDown={burgerOverride} onMouseUp={renderNav}>Log out</Link></li>
         </ul>
 

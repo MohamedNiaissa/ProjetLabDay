@@ -1,9 +1,7 @@
 import website from "../../../utils/json/Website";
-import materialTab from "../../../views/Sell/Sell.jsx";
-import getTab from "../../../views/Sell/Sell.jsx";
-const WebsiteCells = ({mat}) => {
-    console.log('mat = '+ mat);
 
+const WebsiteCells = ({mat}) => {
+    let key = 0;
 
     return(
         
@@ -11,7 +9,7 @@ const WebsiteCells = ({mat}) => {
             console.log("mat / "+el.mat)
             if(el.cat.includes(mat) || el.cat == "general"){
                 return (
-                    <div className="web-item" key={null} >
+                    <div className="web-item" key={key++}>
                         <div className="web-item-logo" >  
                             <img className="item-logo"src={el.logo} alt="#"/>
                         </div>
@@ -23,8 +21,6 @@ const WebsiteCells = ({mat}) => {
                     </div>
                 )
             }
-    
-            
         })
     )
 }

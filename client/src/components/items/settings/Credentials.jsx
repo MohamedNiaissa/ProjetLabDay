@@ -12,11 +12,11 @@ const Credentials = ({upEmail, upPwd}) => (
                 <div className="email-fields">
                     <div className="email-field">
                         <label htmlFor="new-email">Email :</label>
-                        <input id="new-email" name="email" type="email" />
+                        <input id="new-email" name="email" type="email" autoComplete="off" required/>
                     </div>
                     <div className="email-field">
                         <label htmlFor="current-password-one">Mot de passe :</label>
-                        <input id="current-password-one" name="password" type="password"/>
+                        <input id="current-password-one" name="password" type="password" autoComplete="off" required/>
                     </div>
                 </div >
 
@@ -32,15 +32,15 @@ const Credentials = ({upEmail, upPwd}) => (
                 <div className="password-fields">
                     <div className="password-field">
                         <label htmlFor="current-password-two">Ancien mot de passe :</label>
-                        <input id="current-password-two" name="oldpassword" type="password"></input>
+                        <input id="current-password-two" name="oldpassword" type="password" autoComplete="off" required></input>
                     </div>
                     <div className="password-field">
                         <label htmlFor="new-password">Nouveau mot de passe :</label>
-                        <input id="new-password" name="newpassword" type="password"></input>
+                        <input id="new-password" name="newpassword" type="password" autoComplete="off" required></input>
                     </div>
                     <div className="password-field">
                         <label htmlFor="new-password-verif">Vérification :</label>
-                        <input id="new-password-verif" name="verifpassword" type="password"></input>
+                        <input id="new-password-verif" name="verifpassword" type="password" autoComplete="off" required></input>
                     </div>
                 </div>
 

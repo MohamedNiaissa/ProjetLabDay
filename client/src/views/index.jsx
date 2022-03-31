@@ -11,8 +11,9 @@ import Sell from "./Sell/Sell";
 import SellToWebsite from "./Sell/SellToWebsite";
 import Settings from "./Settings/Settings";
 import Error404 from "./Error/Error404";
+import UserList from "./List/UserList";
 
 export const get = { 
-    Contact, ContactRedirect, Discard, DiscardToDump, DiscardToTrash, 
-    Give, GiveToAsso, Home, AuthLayout, Sell, SellToWebsite, Settings, Error404 
+    Contact, ContactRedirect, Discard, DiscardToDump, DiscardToTrash, UserList,
+    Give, GiveToAsso, Home, AuthLayout, Sell, SellToWebsite, Settings, Error404
 };
