@@ -20,6 +20,17 @@ export const fetchDiscardResearch = async (req, res) => {
     }
 }
 
+export const deleteDiscardResearch = async (req, res) => {
+    const { dump, research } = req.body;
+
+    try {
+        await dbFetch.query('DELETE FROM dumpresearch WHERE name = $1 and research::jsonb = $2::jsonb and dump::jsonb = $3::jsonb', [res.locals.user, research, dump]);
+        res.status(201).send("Success");
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
 export const createGiveResearch = async (req, res) => {
 
 }

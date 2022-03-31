@@ -1,0 +1,58 @@
+.overlay {
+    width:100%;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(128, 128, 128, 0.5);
+    z-index:9998;
+
+    &-valor {
+        width: 70%;
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: white;
+        position: relative;
+        border-radius: 30px;
+
+        &-window {
+            width: 95%;
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            transform: translateY(10px);
+            top: 0;
+            z-index: 9999;
+
+            input {
+                display: none;
+            }
+
+            label {
+                
+                font-size: 25px;
+                cursor: pointer;
+                z-index: 200;
+            }
+        }
+
+        &-content {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            .map-field-wrapper {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+

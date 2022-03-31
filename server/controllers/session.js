@@ -54,7 +54,6 @@ export const delTrace = async (req, res) => {
 export const validateCookie = (req, res, next) => {
     try {
         const unglued = unglue(req.body);
-        console.log(unglued)
         res.locals.user = decrypt({id: unglued.id, token: unglued.user});
         res.locals.card = decrypt({id: unglued.id, token: unglued.token});
     } catch (error) {

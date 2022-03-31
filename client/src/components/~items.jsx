@@ -30,6 +30,7 @@ import Theme from "./items/settings/Theme";
 import GiveResearch from "./items/list/GiveResearch";
 import DiscardResearch from "./items/list/DiscardResearch";
 import HeaderList from "./items/list/HeaderList";
+import Overlay from "./items/list/Overlay";
 
 export {
     Login, SignUp, AuthSwitch,
@@ -39,5 +40,5 @@ export {
     Background, Map, Switch, 
     WebsiteCells,
     UserUI, Credentials, Theme,
-    HeaderList, GiveResearch, DiscardResearch
+    HeaderList, GiveResearch, DiscardResearch, Overlay
 };

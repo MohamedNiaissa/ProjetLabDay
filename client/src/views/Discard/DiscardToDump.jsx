@@ -10,13 +10,13 @@ const DiscardToDump = () => {
     const [iconData, setIconData] = useState({name: "Non choisie", zip: "Non choisie", address: null});
     const { product, city, location } = useLocation().state;
     const data = {...city, loc: location};
-    const dataResearch = {name: product.name, material: product.material, zip: city.zip};
+    const dataResearch = {name: product.name, material: product.material, zip: city.zip, lat: city.lat, lon: city.long};
 
-    const handleIconData = (name, zip, address) => {
+    const handleIconData = (name, zip, address, lat, lon) => {
         if(name === "Non choisie") disabled.current = true;
         else disabled.current = false;
 
-        setIconData(prevVal => ({...prevVal, name: name, zip: zip, address: address}));
+        setIconData(prevVal => ({...prevVal, name: name, zip: zip, address: address, lat: lat, lon: lon}));
     }
 
     const saveResearch = async () => {

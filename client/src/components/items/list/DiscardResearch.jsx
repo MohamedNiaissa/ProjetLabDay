@@ -1,4 +1,4 @@
-const DiscardResearch = ({discardCaret, key = 0}) => (
+const DiscardResearch = ({discardCaret, discardDel, event, key = 0}) => (
     <li><span className="tree">Ce que je dois jeter</span>
         <ul className="nested">
         {
@@ -12,8 +12,8 @@ const DiscardResearch = ({discardCaret, key = 0}) => (
                                 <p>{dump.address}</p>
                             </div>
                             <div className="tree-content-controller">
-                                <button className="small-button">Afficher la carte</button>
-                                <button className="small-button">Supprimer la tâche</button>
+                                <button className="small-button" onClick={e => event(research, dump, true)}>Afficher la carte</button>
+                                <button className="small-button" onClick={e => discardDel(research, dump, e)}>Supprimer la tâche</button>
                             </div>
                         </div>
                     </li>

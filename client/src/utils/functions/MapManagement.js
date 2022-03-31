@@ -7,8 +7,14 @@ import "leaflet-control-geocoder";
 export const DisplayMarker = ({leaflet, location, event}) => {
     const map = useMap();
 
-    if(location?.form === "discard") fetchDumpMarkers(leaflet, location, map, event);
-    fetchMarker(leaflet, location, map);
+    if(location?.form === "discard") {
+        fetchDumpMarkers(leaflet, location, map, event);
+        fetchMarker(leaflet, location, map);
+    }else if(location?.form === "disList") {
+        fetchDiscardMapList(leaflet, location, map);
+        fetchListMarker(leaflet, location, map);
+    }else fetchMarker(leaflet, location, map);
+
 
     return null;
 }
@@ -20,6 +26,15 @@ function fetchMarker(leaflet, location, map) {
     });
 
     location.loc ? fromGps(leaflet, map, blue_icon) : fromZip(leaflet, map, location, blue_icon);
+}
+
+function fetchListMarker(leaflet, location, map) {
+    const blue_icon = leaflet.icon({ iconSize: [25, 41], iconAnchor: [10, 41], popupAnchor: [2, -40],
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    });
+
+    fromZipList(leaflet, map, location, blue_icon);
 }
 
 async function fetchDumpMarkers(leaflet, location, map, event) {
@@ -68,7 +83,7 @@ async function fetchDumpMarkers(leaflet, location, map, event) {
                     createMarker: function() { return null; },
                 }).addTo(map);
 
-                event(el.name, el.zip, el.address);
+                event(el.name, el.zip, el.address, el.lat, el.lon);
                 routes[i] = {route: route, mode: 2, await: true, icon: true};
                 
                 routes.forEach(obj => {
@@ -83,7 +98,7 @@ async function fetchDumpMarkers(leaflet, location, map, event) {
             }
 
             if(routes[i].mode === 2 && !routes[i].await) {
-                event("Non choisie", "Non choisie", null);
+                event("Non choisie", "Non choisie", null, null, null);
 
                 routes.forEach(obj => {
                     if(obj.route !== null) {
@@ -99,8 +114,20 @@ async function fetchDumpMarkers(leaflet, location, map, event) {
     });
 }
 
+
 function fromZip(leaflet, map, location, blue_icon) {
     const position = { lat : location.lat, lng: location.long } 
+
+    const approx_radius = 2000;
+    const circle = leaflet.circle(position, approx_radius);
+    const marker = leaflet.marker(position, {icon: blue_icon}).addTo(map);
+    marker.bindPopup("You are here.");
+    map.flyTo(position, map.getZoom());
+    circle.addTo(map);
+}
+
+function fromZipList(leaflet, map, location, blue_icon) {
+    const position = { lat : location.research.lat, lng: location.research.lon } 
 
     const approx_radius = 2000;
     const circle = leaflet.circle(position, approx_radius);
@@ -121,4 +148,29 @@ function fromGps(leaflet, map, blue_icon) {
         map.flyTo(e.latlng, map.getZoom());
         circle.addTo(map);
     })
+}
+
+function fetchDiscardMapList(leaflet, location, map) {
+    const red_icon = leaflet.icon({ iconSize: [25, 41], iconAnchor: [10, 41], popupAnchor: [2, -40],
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    });
+
+    let { name, address, zip, lat, lon } = location.dump;
+    name = name.replaceAll(" ", "+");
+    address = address.replaceAll(" ", "+");
+    zip = zip.replaceAll(" ", "+");
+
+    const routes = {route: null, mode: 1, await: undefined, icon: false};
+    let marker = leaflet.marker([lat, lon], {icon: red_icon}).addTo(map);
+    marker.bindPopup(`${location.dump.name}` + "</br>" + "<a href=" + `https://www.google.com/search?q=${name}+${address}+${zip}` + ' target="_blank">En savoir plus =></a>');
+    L.Routing.control({
+        language: 'fr',
+        waypoints: [
+            L.latLng(location.research.lat, location.research.lon),
+            L.latLng(location.dump.lat, location.dump.lon)
+        ],
+        collapsible: true,
+        createMarker: function() { return null; },
+    }).addTo(map);
 }
