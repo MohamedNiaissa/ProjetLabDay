@@ -32,5 +32,32 @@ export const deleteDiscardResearch = async (req, res) => {
 }
 
 export const createGiveResearch = async (req, res) => {
+    const { assos, research } = req.body;
 
+    try {
+        await dbFetch.query('INSERT INTO assosresearch (name, research, assos) VALUES ($1, $2, $3)', [res.locals.user, research, assos]);
+        res.status(201).json({ message: 'Research successfully added' });
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
+export const fetchGiveResearch = async (req, res) => {
+    try {
+        const { rows } = await dbFetch.query('SELECT research, assos FROM assosresearch WHERE name = $1', [res.locals.user]);
+        res.status(201).send(rows);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
+export const deleteGiveResearch = async (req, res) => {
+    const { assos, research } = req.body;
+
+    try {
+        await dbFetch.query('DELETE FROM assosresearch WHERE name = $1 and research::jsonb = $2::jsonb and assos::jsonb = $3::jsonb', [res.locals.user, research, assos]);
+        res.status(201).send("Success");
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
 }

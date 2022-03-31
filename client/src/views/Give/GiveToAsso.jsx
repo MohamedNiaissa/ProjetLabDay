@@ -1,26 +1,17 @@
+import axios from "axios";
 import { useLocation } from "react-router";
 import { useRef, useMemo, useState } from "react";
 import { Map } from "../../components/~items";
+import { getToken } from "../../utils/functions/Functions";
 
 
 const GiveToAsso = () => {
-
-    // return (
-    //     <main className="map" id="main-content">
-    //         <div className="map-field">
-    //             <div className="map-field-wrapper">
-    //                 <Map location={useLocation().state.city}/>
-    //             </div>
-    //         </div>
-    //     </main>
-    // )
-
     const save = useRef(true);
     const disabled = useRef(true);
     const [iconData, setIconData] = useState({name: "Non choisie", zip: "Non choisie", address: null});
     const { product, city, location } = useLocation().state;
     const data = {...city, loc: location};
-    // const dataResearch = {name: product.name, material: product.material, zip: city.zip, lat: city.lat, lon: city.long};
+    const dataResearch = {name: product.name, material: product.material, zip: city.zip, lat: city.lat, lon: city.long};
 
     const handleIconData = (name, zip, address, lat, lon) => {
         if(name === "Non choisie") disabled.current = true;
@@ -30,15 +21,14 @@ const GiveToAsso = () => {
     }
 
     const saveResearch = async () => {
-        console.log("mdr");
-        // if(iconData.name !== "Non choisie" || iconData.zip !== "Non choisie") {
-        //     await axios.post("http://localhost:5001/api/user/save-discard-research", {token : getToken(), dump: iconData, research: dataResearch})
-        //     .then(res => { console.log(res.data.message); return res;})
-        //     .catch(function(error) { console.error(error.response.data.message) } ); 
-        // }
+        if(iconData.name !== "Non choisie" || iconData.zip !== "Non choisie") {
+            await axios.post("http://localhost:5001/api/user/save-give-research", {token : getToken(), assos: iconData, research: dataResearch})
+            .then(res => { console.log(res.data.message); return res;})
+            .catch(function(error) { console.error(error.response.data.message) } ); 
+        }
     }
 
-    const map = useMemo(() => {
+    const map = useMemo(() => {
         return (
             <div className="map-field-wrapper">
                 <Map location={data} event={handleIconData}/>
@@ -61,7 +51,7 @@ const GiveToAsso = () => {
                             <span>{city.zip}</span>
                         </div>
                         <div className="location-info">
-                            <h3>Décharge choisie</h3>
+                            <h3>Association choisie</h3>
                             <span>{iconData.name}</span>
                             <span>{iconData.zip}</span>
                         </div>

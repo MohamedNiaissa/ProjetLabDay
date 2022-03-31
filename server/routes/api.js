@@ -3,7 +3,7 @@ import { getAssociationPerDepartement, getCitiesWithZip, getDumpPerDepartment } 
 import { createUser, deleteUser, fetchUserPic, updateUserEmail, updateUserPic, updateUserPwd } from '../controllers/usersCRUD.js';
 import { verify, validate } from '../middleware/checkForm.js';
 import { setSession, getSession, delSession, delTrace, validateCookie } from '../controllers/session.js';
-import { createDiscardResearch, createGiveResearch, deleteDiscardResearch, fetchDiscardResearch } from '../controllers/research.js';
+import { createDiscardResearch, createGiveResearch, deleteDiscardResearch, deleteGiveResearch, fetchDiscardResearch, fetchGiveResearch } from '../controllers/research.js';
 
 const router = express.Router();
 
@@ -23,5 +23,7 @@ router.post('/user/save-discard-research', validateCookie, createDiscardResearch
 router.post('/user/fetch-discard-research', validateCookie, fetchDiscardResearch)
 router.post('/user/delete-discard-research', validateCookie, deleteDiscardResearch)
 router.post('/user/save-give-research', validateCookie, createGiveResearch);
+router.post('/user/fetch-give-research', validateCookie, fetchGiveResearch);
+router.post('/user/delete-give-research', validateCookie, deleteGiveResearch);
 
 export default router;

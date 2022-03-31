@@ -12,8 +12,6 @@ const Sell = () => {
     const fieldState = (name, $value, $nodes) => ({
         product  : () => setFormState(valid => ({...valid, product: form.verifyProductName($value, $nodes)})),
         material : () => setFormState(valid => ({...valid, material: form.verifyProductCondition($value)})),
-        zip      : () => setFormState(valid => ({...valid, zip: form.verifyZipValidity($value, $nodes)})),
-        city     : () => setFormState(valid => ({...valid, city: form.verifyCityValidity($value)})),
     })[name]()
 
     const userInput = (e) => {

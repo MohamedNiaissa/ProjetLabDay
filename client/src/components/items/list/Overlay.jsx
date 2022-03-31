@@ -3,7 +3,6 @@ import { importImages } from "../../../utils/functions/Functions";
 import Map from "../utils/Map";
 
 const Overlay = ({event, show, data}) => {
-    const save = useRef(show);
     const map = useMemo(() => {
         return (
             <div className="map-field-wrapper">
