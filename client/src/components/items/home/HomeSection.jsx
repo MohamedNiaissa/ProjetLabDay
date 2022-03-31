@@ -26,8 +26,8 @@ const HomeSection = ({link, img, title, text}) => (
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">
-                                <h4>Random title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sed asperiores consequatur?</p>
+                                <h4>Nom de l'objet</h4>
+                                <p> Renseignez le nom de l'objet que vous n'utilisez plus</p>
                             </div>
                         </div>
                     </div>
@@ -39,8 +39,8 @@ const HomeSection = ({link, img, title, text}) => (
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">
-                                <h4>Random title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sed asperiores consequatur?</p>
+                                <h4>État de l'objet</h4>
+                                <p>Renseignez l'état de l'objet que vous n'utilisez plus</p>
                             </div>
                         </div>
                     </div>
@@ -52,8 +52,8 @@ const HomeSection = ({link, img, title, text}) => (
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">
-                                <h4>Random title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sed asperiores consequatur?</p>
+                                <h4>Code Postal</h4>
+                                <p>Renseignez votre code postal pour que l'on puisse vous proposez les services à proximité de vous</p>
                             </div>
                         </div>
                     </div>
@@ -65,8 +65,8 @@ const HomeSection = ({link, img, title, text}) => (
                                 <label>Hover me to flip !</label>
                             </div>
                             <div className="back">
-                                <h4>Random title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sed asperiores consequatur?</p>
+                                <h4>Ville</h4>
+                                <p>Sélectionnez la ville qui correspond pour une meilleur précision dans votre localisation</p>
                             </div>
                         </div>
                     </div>
