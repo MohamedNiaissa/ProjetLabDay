@@ -143,7 +143,6 @@ function openOverlay(overlay, cbox) {
 }
 
 export function addEventOnTree() {
-    console.log(document.querySelectorAll(".tree"));
     document.querySelectorAll(".tree").forEach(el => {
         el.addEventListener("click", toggleActive);
     })

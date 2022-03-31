@@ -1,29 +1,35 @@
-import { Header, Footer, BurgerUser, BurgerNoUser } from "../~items";
-import { useState } from "react";
+import { Header, Footer } from "../~items";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { burgerOverride } from "../../utils/functions/Functions";
+import { BurgerNoUser, BurgerUser } from "../~items";
 
 const UserInterfaceLayout = props => {
-    const [render, setRender] = useState(null);
+    const location = useLocation();
 
-    const renderNavigation = (e, path) => {
-        const validPath = {"/vendre":'', "/donner":'', "/jeter":'', "/home":''};
-        path = new URL(e.target.closest("a").href).pathname;
-
-        if(!(path in validPath)) path = null;
-        setRender(prevState => prevState = path);
+    const renderFooter = () => {
+        const routes = ["/home", "/vendre", "/vendre/resultats", "/donner", "/donner/resultats", 
+        "/jeter", "/jeter/poubelles-ecologiques", "/jeter/decharge", "/auth", "/ma-liste"];
+        return routes.includes(location.pathname.toLowerCase());
     }
+
+    useEffect(() => {
+        document.querySelector(".header").classList.remove("scrolled");
+        burgerOverride();
+    }, [location]);
 
     return (
         <>
             <div className="view" id="root-content">
-                <Header render={render} renderNav={renderNavigation}/>
+                <Header loc={location}/>
                     { props.children }
-                <Footer renderNav={renderNavigation}/>
+                {renderFooter() && <Footer/>}
             </div>
             <div className="burger" id="burger-side">
                 {props.user ? 
-                    <BurgerUser event={props.event} renderNav={renderNavigation} picture={props.picture}/> 
+                    <BurgerUser event={props.event} picture={props.picture}/> 
                     : 
-                    <BurgerNoUser renderNav={renderNavigation}/>
+                    <BurgerNoUser/>
                 }
             </div>
         </>

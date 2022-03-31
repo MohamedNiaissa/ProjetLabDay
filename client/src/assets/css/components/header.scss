@@ -8,6 +8,11 @@
     box-shadow: inset 5px 0 40px -20px #ffffff;
     z-index: 10;
 
+    &.scrolled {
+        background-color: #1c1149;
+        box-shadow: none;
+    }
+
     &-logo {
         width: 30%;
         height: 100%;
