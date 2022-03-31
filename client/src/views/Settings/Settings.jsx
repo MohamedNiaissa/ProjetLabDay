@@ -58,12 +58,13 @@ const Settings = ({event}) => {
                 <section className="settings-options">
                     <div className="options-wrapper">
                         <div className="marg" />
-                        {
+                        <Credentials upEmail={updateAccountEmail} upPwd={updateAccountPwd}/> 
+                        {/* {
                             options === "#account" ? 
-                                <Credentials upEmail={updateAccountEmail} upPwd={updateAccountPwd}/> 
+                            <Credentials upEmail={updateAccountEmail} upPwd={updateAccountPwd}/> 
                             : 
                                 <Theme />
-                         }
+                         } */}
                     </div>
                 </section>
             </div>

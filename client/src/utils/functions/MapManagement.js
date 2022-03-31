@@ -66,6 +66,7 @@ async function fetchDumpMarkers(leaflet, location, map, event) {
         address = address.replaceAll(" ", "+");
         zip = zip.replaceAll(" ", "+");
 
+        const data = location.loc ? {lat : result.coords.latitude, lon: result.coords.longitude} : {lat: location.lat, lon: location.long}
         routes[i] = {route: null, mode: 1, await: undefined, icon: false};
         let marker = leaflet.marker([el.lat, el.lon], {icon: red_icon}).addTo(map);
         marker.bindPopup(`${el.name}` + "</br>" + "<a href=" + `https://www.google.com/search?q=${name}+${address}+${zip}` + ' target="_blank">En savoir plus =></a>');
@@ -76,7 +77,7 @@ async function fetchDumpMarkers(leaflet, location, map, event) {
                 let route = L.Routing.control({
                     language: 'fr',
                     waypoints: [
-                        L.latLng(result.coords.latitude,result.coords.longitude),
+                        L.latLng(data.lat, data.lon),
                         L.latLng(e.latlng.lat,e.latlng.lng)
                     ],
                     collapsible: true,

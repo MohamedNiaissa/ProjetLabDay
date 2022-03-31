@@ -28,7 +28,7 @@ const App = ({hideLoader}) => {
     return (
         <Router>
             <UserInterfaceLayout user={user} event={refreshOnLogOut}>
-                <Switch>@
+                <Switch>
                     {user ?
                         <>
                         <Route path="/settings"                    element={<get.Settings event={refreshOnLogOut}/> }/>

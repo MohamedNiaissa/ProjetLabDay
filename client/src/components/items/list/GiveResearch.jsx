@@ -15,8 +15,15 @@ const GiveResearch = () => {
                 json.map(el => {
                     return (
                         <li key={key++}><span className="tree">{el.research}</span>
-                            <div>
-                                {el.text}
+                            <div className="tree-content">
+                                <div className="tree-content-location">
+                                    <p>NULL</p>
+                                    <p>NULL</p>
+                                </div>
+                                <div className="tree-content-controller">
+                                    <button className="small-button">Afficher la carte</button>
+                                    <button className="small-button">Supprimer la tâche</button>
+                                </div>
                             </div>
                         </li>
                     )
