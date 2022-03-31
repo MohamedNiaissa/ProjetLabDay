@@ -1,10 +1,12 @@
 import website from "../../../utils/json/Website";
+import materialTab from "../../../views/Sell/Sell.jsx";
+import getTab from "../../../views/Sell/Sell.jsx";
 
 const WebsiteCells = ({mat}) => {
     let key = 0;
 
     return(
-        
+
         website.map(el => { 
             console.log("mat / "+el.mat)
             if(el.cat.includes(mat) || el.cat == "general"){
@@ -18,11 +20,11 @@ const WebsiteCells = ({mat}) => {
                             <p className="item-text">Consultez le site marchand répondant le plus à vos attente</p>
                             <a className="item-btn" href={el.url} target="_blank" rel="noreferrer noopener">Fly to it</a>
                         </div>
-                    </div>
-                )
-            }
-        })
+                    </div>   
+                )}
+    })
     )
 }
+
 
 export default WebsiteCells;
