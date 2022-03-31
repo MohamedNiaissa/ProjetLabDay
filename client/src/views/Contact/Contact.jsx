@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Formulaire } from "../../utils/functions/FormManagement";
 import { Background } from "../../components/~items";
 import { FormLayout } from "../../components/~layout";
-import ContactRedirect from './ContactRedirect';
+// import ContactRedirect from './ContactRedirect';
 import { Notif } from '../../utils/functions/Popup'; 
 const form = new Formulaire("contact");
 
