@@ -11,7 +11,7 @@ export const verify = (method) => {
                     .isLength({min: 1, max: 40}).withMessage('Username must be between 1 to 40 characters.').bail()
                     .custom(async (value, { req }) => {
                         const result = await doesUserExist(req.body.username, "username");
-                        if(result) throw new Error("User already exist, please use another username.");
+                        if(result) {throw new Error("User already exist, please use another username."); Notif("User already exist, please use another username.") }
                         else return value;
                     }),
                 body('email')
@@ -19,10 +19,10 @@ export const verify = (method) => {
                     .isEmail().withMessage('Provide a valid email.').bail()
                     .custom(async (value, { req }) => {
                         const result = await doesUserExist(req.body.email, "email");
-                        if(result) throw new Error("User already exist, please use another email.");
+                        if(result){ throw new Error("User already exist, please use another email."); Notif("User already exist, please use another email.")};
                         else return value;
                     }),
-                body('password')
+                body('password') 
                     .exists().withMessage('Password is required.').bail()
                     .isLength({min:8, max:40}).withMessage("Password must be between 8 to 40 characters.").bail()
                     .custom((value, { req }) => {

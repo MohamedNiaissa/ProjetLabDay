@@ -1,4 +1,4 @@
-export function Notif(){
+export function Notif(message){
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -34,7 +34,7 @@ export function Notif(){
     
     p.style.color = "white";
     p.style.fontSize = "22px";
-    p.innerHTML = "Merci de nous avoir contacté, votre requête sera pris en compte par notre équipe";
+    p.innerHTML = message;
     
         transition();
     
