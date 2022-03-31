@@ -9,7 +9,8 @@ export async function signup(e, body) {
         e.target.reset(); 
         console.log(`%c ${res.data.message}`, "color: gold;");
         window.location.hash = "#LogIn";
-    }).catch(function(error) { console.error(error.response.data.message) } );
+        Notif("Bienvenue !")
+    }).catch(function(error) {  Notif("Problème lors de l'inscription"); console.error(error.response.data.message) } );
 }
 
 export async function login(e, body, navigate, refresh) {
