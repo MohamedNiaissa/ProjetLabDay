@@ -11,7 +11,7 @@ export const verify = (method) => {
                     .isLength({min: 1, max: 40}).withMessage('Username must be between 1 to 40 characters.').bail()
                     .custom(async (value, { req }) => {
                         const result = await doesUserExist(req.body.username, "username");
-                        if(result) throw new Error("User already exist, please use another username.");
+                        if(result) {throw new Error("User already exist, please use another username.")}
                         else return value;
                     }),
                 body('email')

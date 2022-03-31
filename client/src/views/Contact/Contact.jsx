@@ -31,7 +31,7 @@ const Contact = () => {
 
         emailjs.init("user_AKLQ6hVQAACxiGu2duCFr");
         emailjs.send(serviceId, templateId, {topic: topic, user:'User_Name_Template', content: msg, reply_to: email})
-        .then(res => {console.log('Email successfully sent!');Notif()})
+        .then(res => {console.log('Email successfully sent!');Notif("Merci de nous avoir contacté, votre requête sera pris en compte par notre équipe")})
         .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err));
         <script src="/Users/mohamed/Documents/ProjetLabDay/client/src/utils/functions/Popup.js"></script>
 

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setAuth } from "./Functions";
+import { Notif } from './Popup';
 
 export async function signup(e, body) {
     e.preventDefault();
@@ -19,8 +20,9 @@ export async function login(e, body, navigate, refresh) {
         setAuth(res.data); 
         navigate("/home", {replace: true});
         console.log(`%c Session for user started`, "color: gold;");
+        Notif("Bon retour parmi nous !")
         refresh();
-    }).catch(error => {return error});
+    }).catch(error =>  { Notif("Problème d'authentification"); return error});
 }
 
 export function init(hash) {

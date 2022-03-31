@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-dom";
 import { UserInterfaceLayout } from "./components/~layout";
 import { isLogged, clearAuth, getToken } from './utils/functions/Functions';
+import { Notif } from './utils/functions/Popup';
 import { get } from "./views";
 
 const App = ({hideLoader}) => {
@@ -35,7 +36,8 @@ const App = ({hideLoader}) => {
             setPic(prevVal => prevVal = null);
             setUser(prevState => prevState = false);
             console.log(`%c ${res.data.message}`, "color: gold;");
-        }).catch(function(error) { console.error(error.response.data.message) } ); 
+            Notif("A bientôt !")
+        }).catch(function(error) { console.error(error.response.data.message); Notif("Echec lors de la tentative de deconnexion") } ); 
     }
     
     useEffect(() => { 
