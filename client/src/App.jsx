@@ -50,12 +50,6 @@ const App = ({hideLoader}) => {
     
     },[hideLoader]);
 
-    const refreshOnRefresh  = async () => {
-        await axios.post("http://localhost:5001/api/user/fetch-pic", {token: getToken()})
-        .then(res => { setPic(prevVal => prevVal = res.data[0].image); return res})
-        .catch(function(error) { console.error(error.response.data.message) } );
-    }
-
     return (
         <Router>
             <UserInterfaceLayout user={user} event={refreshOnLogOut} picture={pic}>
