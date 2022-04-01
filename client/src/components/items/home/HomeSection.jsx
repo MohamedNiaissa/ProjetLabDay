@@ -25,7 +25,7 @@ const HomeSection = ({link, img, title, text, card}) => (
                                 <div className="card-content">
                                     <div className="front">
                                         <img src={importImages(cd.img)} alt="icon-func1"/>
-                                        <label>Survolé pour retourner</label>
+                                        <label>Survolez pour retourner</label>
                                     </div>
                                     <div className="back">
                                         <h4>{cd.title}</h4>
