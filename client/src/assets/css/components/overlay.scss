@@ -16,7 +16,7 @@
         justify-content: flex-end;
         overflow: hidden;
         flex-direction: column;
-        background-color: white;
+        background-color: #dac2c2f6;
         position: relative;
         border-radius: 30px;
 
@@ -48,6 +48,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            border-top: 1px solid rgba(0, 0, 0, 0.452);
 
             .map-field-wrapper {
                 width: 100%;

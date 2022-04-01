@@ -3,6 +3,7 @@ import { useState } from "react";
 import { UserUI, Credentials, Theme } from "../../components/~items";
 import { getToken } from "../../utils/functions/Functions";
 import { Notif } from "../../utils/functions/Popup";
+import { Background } from "../../components/~items";
 
 const Settings = ({event, eventPic, picture}) => {
     const [options, setOptions] = useState("#account");
@@ -68,6 +69,7 @@ const Settings = ({event, eventPic, picture}) => {
     }
 
     return (
+        <>
         <main className="settings" id="main-content">
             <div className="marg" />
             
@@ -88,6 +90,7 @@ const Settings = ({event, eventPic, picture}) => {
                 </section>
             </div>
         </main>
+        </>
     )
 }
 
