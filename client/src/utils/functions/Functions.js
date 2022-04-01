@@ -10,15 +10,15 @@ export function stateOnPage(page) {
     return page ===  "/home" ? "underline active" : "underline inactive";
 }
 
-export function getTrashColor(p) {
-    const regx = new RegExp('\\b' + p.material + '\\b', 'i');
-    const green = "bois";
-    const yellow = "metal plastique caoutchouc papier_carton";
-    const blue = "ceramique cuir textile";
+export function getTrashColor(mat) {
+    const regx = new RegExp('\\b' + mat + '\\b', 'i');
+    const green = "verre";
+    const yellow = "plastique papier_carton";
+    const red = "ceramique cuir textile metal bois caoutchouc";
 
-    return regx.test(green)  ? "T green"  :
-           regx.test(yellow) ? "T yellow" :
-           regx.test(blue)   ? "T blue"   : "T";
+    if(regx.test(green)) return {green: "green", red: "grey", yellow: "grey", selected: "verte !"}
+    if(regx.test(yellow)) return {green: "grey", red: "grey", yellow: "yellow", selected: "jaune et (bleu pour le papier)!"}
+    if(regx.test(red)) return {green: "grey", red: "red", yellow: "grey", selected: "rouge (préference en décharge) !"}
 }
 
 export function smoothAnimation() {

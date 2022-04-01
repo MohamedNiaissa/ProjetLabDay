@@ -28,11 +28,11 @@
             justify-content: center;
             width: 90%;
             height: 150px;
-            background-color: rgb(117, 76, 161);
             border-radius: 20px;
     
             h1 {
                 color: white;
+                font-size: 40px;
             }
         }
     }
@@ -57,7 +57,7 @@
             justify-content: center;
             flex-direction: column;
             width: 100%;
-            background-color: rgba(118, 106, 131, 0.301);
+            background-color: rgb(0 0 0 / 13%);
             border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
@@ -69,7 +69,7 @@
                 display: flex;
                 align-items: center;
                 color: white;
-                background-color: rgb(117, 76, 161);
+                background-color: #7870b5;
                 border-radius: 20px 20px 0px 0px;
                 font-weight: 700;
             }
@@ -80,7 +80,7 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                gap: .8rem;
+                gap: 2rem;
                 padding: .4rem 0;
 
                 &.active {
@@ -89,7 +89,7 @@
     
                 li {
                     span {
-                        background-color: rgb(94, 75, 114);
+                        background-color: #594dc4;
                         height: 40px;
                     }
 
@@ -100,7 +100,7 @@
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
-                        background-color: rgb(173, 164, 207);
+                        background-color: #87ffd24d;
                         box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.363), 
                         inset 0px 5px 10px 1px rgba(0, 0, 0, 0.411);
                         border-radius: 0 0 20px 20px;
@@ -117,6 +117,7 @@
                             justify-content: center;
                             flex-direction: column;
                             gap: .5rem;
+                            color: white;
                         }
 
                         &-controller {

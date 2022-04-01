@@ -2,38 +2,80 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     width: 100%;
-    height: 84vh;
+    height: 88vh;
     transition-delay: 1.3s;
     transition-duration: 0.4s;
-    background-color: rgb(53, 53, 53);
 
-    &-wrapper {
+    .marg {
+        width: 100%;
+        height: 8vh;
+        margin-bottom: 10%;
+    }
+
+    &-title {
+        width: 100%;
+        height: 20%;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 75%;
-        height: 72.5%;
 
-        & > .trash-color {
+        h1 {
+            color: white;
+        }
+    }
+
+    &-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &-list {
+        width: 100%;
+        height: 65%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &-items {
+            width: 25%;
+            height: 80%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            height: 100%;
+            background-color: rgb(230, 214, 214);
+            border-radius: 20px;
+            box-shadow: 0 0 1px 5px rgba(0, 0, 0, 0.253);
+            padding: 40px 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &-message {
+        width: 60%;
+        height: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            font-size: 25px;
+            color: white;
+            text-align: center;
         }
     }
 }
 
-.blue {
-    filter: opacity(0.5) drop-shadow(0 0 0.001rem blue) saturate(1000%);
-}
-
-.yellow {
-    filter: opacity(0.5) drop-shadow(0 0 0.001rem yellow) saturate(1850%);
-}
-
-.green {
-    filter: opacity(0.5) drop-shadow(0 0 0.001rem green) saturate(1000%);
+.grey {
+    filter: opacity(0.2) drop-shadow(0 0 0.001rem grey) grayscale(1);
 }

@@ -5,7 +5,7 @@
     flex-direction: column;
 
     width: 100%;
-    height: 88vh;
+    height: 100vh;
     transition-duration: 0.4s;
 
     & > .marg {
@@ -34,7 +34,7 @@
 
             & > .user-wrapper {
                 width: 75%;
-                height: 90%;
+                height: 100%;
                 display: flex;
                 flex-direction: column;
                 border: 1px solid #333;
@@ -151,7 +151,7 @@
 
             & > .options-wrapper {
                 width: 90%;
-                height: 85%;
+                height: 95%;
                 display: flex;
                 flex-direction: row;
                 border-radius: 20px;
@@ -172,7 +172,7 @@
 
                     & > .options-title {
                         width: 100%;
-                        height: 15%;
+                        height: 10%;
                         display: flex;
                         align-items: flex-end;
                         justify-content: center;
@@ -198,7 +198,7 @@
                             align-items: center;
                             justify-content: center;
                             flex-direction: column;
-                            gap: 2rem;
+                            gap: 1.3rem;
 
                             .email, .password {
                                 &-title {
@@ -212,7 +212,7 @@
                                     align-items: center;
                                     justify-content: center;
                                     flex-direction: column;
-                                    gap: .2rem;
+                                    gap: .6rem;
                                 }
 
                                 &-field {

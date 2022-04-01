@@ -21,7 +21,7 @@ const Credentials = ({upEmail, upPwd}) => (
                 </div >
 
                 <div className="options-content-button">
-                    <button className="button col-white" onClick={upEmail}>Sauvegarder les modifications</button>
+                    <button className="settings-btn col-simple" onClick={upEmail}>Sauvegarder les modifications</button>
                 </div>
             </form>
 
@@ -45,7 +45,7 @@ const Credentials = ({upEmail, upPwd}) => (
                 </div>
 
                 <div className="options-content-button">
-                    <button className="button col-white" onClick={upPwd}>Sauvegarder les modifications</button>
+                    <button className="settings-btn col-simple" onClick={upPwd}>Sauvegarder les modifications</button>
                 </div>
             </form>
         </div>

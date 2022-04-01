@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { HeaderList, GiveResearch, DiscardResearch, Overlay } from "../../components/~items";
 import { getToken, actionOverlay, addEventOnTree} from "../../utils/functions/Functions";
+import { Background } from "../../components/~items";
 
 const UserList = () => {
     const doneLoading = useRef(0);
@@ -122,6 +123,7 @@ const UserList = () => {
                 </ul>
             </section>
         </main>
+        <Background color={"page-image rad-bg"}/>
         <Overlay event={whichMap.current === "discard" ? showDiscardMap : showGiveMap} show={overlay} data={whichMap.current === "discard" ? discardMap : givedMap}/>
         </>
     )
