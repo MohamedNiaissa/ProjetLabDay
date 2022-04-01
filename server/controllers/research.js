@@ -5,7 +5,7 @@ export const createDiscardResearch = async (req, res) => {
 
     try {
         await dbFetch.query('INSERT INTO dumpresearch (name, research, dump) VALUES ($1, $2, $3)', [res.locals.user, research, dump]);
-        res.status(201).json({ message: 'Research successfully added' });
+        res.status(201).json({ message: 'Recherche sauvegarder !' });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
@@ -36,7 +36,7 @@ export const createGiveResearch = async (req, res) => {
 
     try {
         await dbFetch.query('INSERT INTO assosresearch (name, research, assos) VALUES ($1, $2, $3)', [res.locals.user, research, assos]);
-        res.status(201).json({ message: 'Research successfully added' });
+        res.status(201).json({ message: 'Recherche sauvegarder !' });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }

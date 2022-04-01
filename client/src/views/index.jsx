@@ -1,5 +1,4 @@
 import Contact from "./Contact/Contact";
-import ContactRedirect from "./Contact/ContactRedirect";
 import Discard from "./Discard/Discard";
 import DiscardToDump from "./Discard/DiscardToDump";
 import DiscardToTrash from "./Discard/DiscardToTrash";
@@ -14,6 +13,6 @@ import Error404 from "./Error/Error404";
 import UserList from "./List/UserList";
 
 export const get = { 
-    Contact, ContactRedirect, Discard, DiscardToDump, DiscardToTrash, UserList,
+    Contact, Discard, DiscardToDump, DiscardToTrash, UserList,
     Give, GiveToAsso, Home, AuthLayout, Sell, SellToWebsite, Settings, Error404
 };

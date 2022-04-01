@@ -16,7 +16,7 @@ export const setSession = async (req, res) => {
 
     try {
         await dbFetch.query('INSERT INTO sessions (SID, expire, sess) VALUES ($1, $2, $3)', [id, _expires, session]);
-        res.status(201).json({ message: 'Session for user started', user: `${session.user}`, set: token });
+        res.status(201).json({ message: `Bienvenue ${session.user} !`, user: `${session.user}`, set: token });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
@@ -36,7 +36,7 @@ export const delSession = async (req, res) => {
     try {
         const result = await dbFetch.query("DELETE FROM sessions WHERE sid = $1;",[res.locals.sid]);
         if(result.rowCount === 0) throw new Error("User not found");
-        res.status(201).json({ message: 'Session for user closed' });
+        res.status(201).json({ message: `Au plaisir de vous revoir ${res.locals.user} !` });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }

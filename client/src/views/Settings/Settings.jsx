@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { UserUI, Credentials, Theme } from "../../components/~items";
 import { getToken } from "../../utils/functions/Functions";
+import { Notif } from "../../utils/functions/Popup";
 
 const Settings = ({event, eventPic, picture}) => {
     const [options, setOptions] = useState("#account");
@@ -11,11 +12,9 @@ const Settings = ({event, eventPic, picture}) => {
     }
 
     const deleteAccount = async () => { 
-        await axios.post("http://localhost:5001/api/user/delete", {token : getToken()}).then(res => {
-            event();
-            console.log(`%c User account was successfully deleted`, "color: gold;");
-            return res;
-        }).catch(function(error) { console.error(error.response.data.message) } );
+        await axios.post("http://localhost:5001/api/user/delete", {token : getToken()})
+        .then(res => event(true))
+        .catch(function(error) { console.error(error.response.data.message) } );
     }
 
     const updateAccountEmail = async (e) => {
@@ -27,8 +26,8 @@ const Settings = ({event, eventPic, picture}) => {
         if(newEmail.value !== "" && pwdVerif1.value !== "") {
             const data = {token: getToken(), email: newEmail.value, password: pwdVerif1.value};
             await axios.post("http://localhost:5001/api/user/update-email", data)
-            .then(res => { return res } )
-            .catch(function(error) { console.error(error.response.data.message) } );
+            .then(res => Notif("#d4c465", res.data.message) )
+            .catch(function(error) { Notif("crimson", error.response.data.message) } );
         }
     }
 
@@ -42,8 +41,8 @@ const Settings = ({event, eventPic, picture}) => {
         if(oldPwd.value !== "" && newPwd.value === pwdVerif2.value && newPwd.value !== "" && pwdVerif2.value !== "") {
             const data = {token: getToken(), password: oldPwd.value, newPassword: newPwd.value, verif: pwdVerif2.value};
             await axios.post("http://localhost:5001/api/user/update-pwd", data)
-            .then(res => { return res } )
-            .catch(function(error) { console.error(error.response.data.message) } );
+            .then(res => Notif("#d4c465", res.data.message) )
+            .catch(function(error) { Notif("crimson", error.response.data.message) } );
         }
     }
 

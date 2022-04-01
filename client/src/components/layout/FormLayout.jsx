@@ -13,7 +13,7 @@ const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
     }
 
     const ContactLink = ({link, event}) => {
-        if(validity) return <Link to={link} onClick={event}>{validButton("Envoyer")}</Link>
+        if(validity) return <Link to="#" onClick={event}>{validButton("Envoyer")}</Link>
         else         return <Link to="#">{disabledButton("Envoyer")}</Link>
     }
 
@@ -42,7 +42,7 @@ const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
         sell   : () => <ResearchLink link="/vendre/resultats" state={state}/>,
         give   : () => <ResearchLink link="/donner/resultats" state={state}/>,
         discard: () => <ResearchLink link={cbox ? "/jeter/decharge" : "/jeter/poubelles-ecologiques"} state={state}/>,
-        contact: () => <ContactLink  link="/contact/" event={email}/>, // /redirect  
+        contact: () => <ContactLink  link="/contact/" event={email}/>,
     })[form]()
 
     const RenderSwitch = cbox => ({

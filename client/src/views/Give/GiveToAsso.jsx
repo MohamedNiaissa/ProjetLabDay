@@ -3,7 +3,7 @@ import { useLocation } from "react-router";
 import { useRef, useMemo, useState } from "react";
 import { Map } from "../../components/~items";
 import { getToken } from "../../utils/functions/Functions";
-
+import { Notif } from "../../utils/functions/Popup";
 
 const GiveToAsso = () => {
     const save = useRef(true);
@@ -23,7 +23,7 @@ const GiveToAsso = () => {
     const saveResearch = async () => {
         if(iconData.name !== "Non choisie" || iconData.zip !== "Non choisie") {
             await axios.post("http://localhost:5001/api/user/save-give-research", {token : getToken(), assos: iconData, research: dataResearch})
-            .then(res => { console.log(res.data.message); return res;})
+            .then(res => { Notif("#786489", res.data.message); return res;})
             .catch(function(error) { console.error(error.response.data.message) } ); 
         }
     }

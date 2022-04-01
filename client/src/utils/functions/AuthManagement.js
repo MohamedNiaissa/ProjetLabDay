@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setAuth } from "./Functions";
+import { Notif } from './Popup';
 
 export async function signup(e, body) {
     e.preventDefault();
@@ -8,7 +9,7 @@ export async function signup(e, body) {
         e.target.reset(); 
         console.log(`%c ${res.data.message}`, "color: gold;");
         window.location.hash = "#LogIn";
-    }).catch(function(error) { console.error(error.response.data.message) } );
+    }).catch(function(error) { Notif("crimson", error.response.data.message) });
 }
 
 export async function login(e, body, navigate, refresh) {
@@ -18,9 +19,9 @@ export async function login(e, body, navigate, refresh) {
         e.target.reset();
         setAuth(res.data); 
         navigate("/home", {replace: true});
-        console.log(`%c Session for user started`, "color: gold;");
+        Notif("#d4c465", res.data.message);
         refresh();
-    }).catch(error => {return error});
+    }).catch(function(error) { Notif("crimson", error.response.data.message) });
 }
 
 export function init(hash) {

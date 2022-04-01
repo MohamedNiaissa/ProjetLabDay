@@ -1,0 +1,16 @@
+.notif {
+    position: absolute;
+    left: 100%;
+    top: 14%;
+    background: black;
+    width: 282px;
+    text-align: center;
+    border-radius: 29px;
+    padding: 20px;
+    transition: all 1s ease;
+
+    p {
+        color: white;
+        font-size: 22px;
+    }
+}

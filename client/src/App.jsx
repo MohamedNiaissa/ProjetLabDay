@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes as Switch, Route } from "react-router-d
 import { UserInterfaceLayout } from "./components/~layout";
 import { isLogged, clearAuth, getToken } from './utils/functions/Functions';
 import { get } from "./views";
+import { Notif } from './utils/functions/Popup';
 
 const App = ({hideLoader}) => {
     const loading = useRef(true);
@@ -22,19 +23,19 @@ const App = ({hideLoader}) => {
 
     const refreshOnLogIn  = async () => {
         await axios.post("http://localhost:5001/api/user/fetch-pic", {token: getToken()})
-        .then(res => { setPic(prevVal => prevVal = res.data[0].image); return res})
+        .then(res => { setPic(prevVal => prevVal = res.data[0].image);})
         .catch(function(error) { console.error(error.response.data.message) } );
 
-        setUser(prevState => prevState = true);  
+        setUser(prevState => prevState = true);
     }
 
-    const refreshOnLogOut = async () => { 
+    const refreshOnLogOut = async (del) => { 
         await axios.post("http://localhost:5001/api/user/close-session", {token : getToken()}).then(res => {
             axios.post("http://localhost:5001/api/user/sanitize-session").then(resolve => { return resolve });
             clearAuth();
             setPic(prevVal => prevVal = null);
             setUser(prevState => prevState = false);
-            console.log(`%c ${res.data.message}`, "color: gold;");
+            Notif("#d4c465", del === true ? "Votre compte a été supprimé, au plasir de vous revoir." : res.data.message);
         }).catch(function(error) { console.error(error.response.data.message) } ); 
     }
     
@@ -71,7 +72,6 @@ const App = ({hideLoader}) => {
                     <Route path="/jeter/poubelles-ecologiques" element={<get.DiscardToTrash />  }/>
                     <Route path="/jeter/decharge"              element={<get.DiscardToDump />   }/>
                     <Route path="/contact"                     element={<get.Contact />         }/>
-                    <Route path="/contact/redirect"            element={<get.ContactRedirect /> }/>
                     <Route path="*"                            element={<get.Error404 />        }/>
                 </Switch>
             </UserInterfaceLayout>

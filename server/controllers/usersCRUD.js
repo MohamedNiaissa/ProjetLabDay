@@ -31,7 +31,7 @@ export const updateUserEmail = async (req, res) => {
 
     try {
         await dbFetch.query('UPDATE users SET email = $1 WHERE name = $2', [email, user]);
-        res.status(201).send(`User data successfully modified.`);
+        res.status(201).json({ message: "Votre email a bien été modifié" });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
@@ -44,7 +44,7 @@ export const updateUserPwd = async (req, res) => {
 
     try {
         await dbFetch.query('UPDATE users SET password = $1 WHERE name = $2', [password, user]);
-        res.status(201).send(`User data successfully modified.`);
+        res.status(201).json({ message: "Votre mot de passe a bien été modifié" });
     } catch (error) {
         res.status(409).json({ message: error.message });
     }

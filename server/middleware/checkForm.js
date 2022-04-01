@@ -7,90 +7,90 @@ export const verify = (method) => {
         case 'SIGNUP':
             return [
                 body('username')
-                    .exists().withMessage('Username is required').bail()
-                    .isLength({min: 1, max: 40}).withMessage('Username must be between 1 to 40 characters.').bail()
+                    .exists().withMessage('Le pseudo est obligatoire').bail()
+                    .isLength({min: 1, max: 40}).withMessage('Le pseudo doit être compris entre 0 et 40 caractères').bail()
                     .custom(async (value, { req }) => {
                         const result = await doesUserExist(req.body.username, "username");
-                        if(result) throw new Error("User already exist, please use another username.");
+                        if(result) throw new Error("Un utilisateur existe déjà avec ce pseudo, choisissez en un autre");
                         else return value;
                     }),
                 body('email')
-                    .exists().withMessage('Email is required.').bail()
-                    .isEmail().withMessage('Provide a valid email.').bail()
+                    .exists().withMessage("L'email est obligatoire").bail()
+                    .isEmail().withMessage("Cet email n'est pas valide").bail()
                     .custom(async (value, { req }) => {
                         const result = await doesUserExist(req.body.email, "email");
-                        if(result) throw new Error("User already exist, please use another email.");
+                        if(result) throw new Error("Un utilisateur utilise déjà cet email, choisissez en un autre");
                         else return value;
                     }),
                 body('password')
-                    .exists().withMessage('Password is required.').bail()
-                    .isLength({min:8, max:40}).withMessage("Password must be between 8 to 40 characters.").bail()
+                    .exists().withMessage('Le mot de passe est obligatoire').bail()
+                    .isLength({min:8, max:40}).withMessage("Le mot de passe doit être compris entre 8 et 40 caractères").bail()
                     .custom((value, { req }) => {
                         if (value === req.body.passwordVerif) return value;
-                        else throw new Error("Passwords does not match.");
+                        else throw new Error("Les mots de passe ne sont pas identiques.");
                     })
             ]
         case 'LOGIN':
             return [
                 body('username')
-                    .exists().withMessage('Username is required').bail()
-                    .isLength({min: 1, max: 40}).withMessage('Username must be between 1 to 40 characters.').bail()
+                    .exists().withMessage('Le pseudo est obligatoire').bail()
+                    .isLength({min: 1, max: 40}).withMessage('Le pseudo doit être compris entre 0 et 40 caractères').bail()
                     .custom(async (value, { req }) => {
                         const result = await doesUserExist(req.body.username, "username");
                         if(result) return value;
-                        else throw new Error("User not found");
+                        else throw new Error(`L'utilisateur ${req.body.username} n'existe pas`);
                     }),
                 body('password')
-                    .exists().withMessage('Password is required.').bail()
-                    .isLength({min:8, max:40}).withMessage("Password must be between 8 to 40 characters.")
+                    .exists().withMessage('Le mot de passe est obligatoire').bail()
+                    .isLength({min:8, max:40}).withMessage("Le mot de passe doit être compris entre 8 et 40 caractères")
                     .custom(async (value, { req }) => {
                         const result = await doesUserAuthExist(req.body.username, value);
                         console.log(result)
-                        if(!result) throw new Error("Credentials are incorrect.");
+                        if(!result) throw new Error("Le mot de passe est invalide");
                         else return value;
                     }),
             ]
         case 'EMAIL':
             return [
                 body('email')
-                    .exists().withMessage('Email is required.').bail()
-                    .isEmail().withMessage('Provide a valid email.').bail()
+                    .exists().withMessage("L'email est obligatoire").bail()
+                    .isEmail().withMessage("Cet email n'est pas valide").bail()
                     .custom(async (value) => {
                         const result = await doesUserExist(value, "email");
-                        if(result) throw new Error("User already exist with this email, please use another email.");
+                        if(result) throw new Error("Un utilisateur utilise déjà cet email, choisissez en un autre");
                         else return value;
                     }),
                 body('password')
-                    .exists().withMessage('Password is required.').bail()
-                    .isLength({min:8, max:40}).withMessage("Password must be between 8 to 40 characters.").bail()
+                    .exists().withMessage('Le mot de passe est obligatoire').bail()
+                    .isLength({min:8, max:40}).withMessage("Le mot de passe doit être compris entre 8 et 40 caractères").bail()
                     .custom(async (value, {req}) => {
                         const unglued = unglue(req.body);
                         const user = decrypt({id: unglued.id, token: unglued.user});
 
                         const result = await doesUserAuthExist(user, value);
-                        if(!result) throw new Error("Credentials are incorrect.");
+                        if(!result) throw new Error("Le mot de passe est invalide");
                         else return value;
                     }),
             ]
         case 'PWD':
             return [
                 body('password')
-                    .exists().withMessage('Password is required.').bail()
-                    .isLength({min:8, max:40}).withMessage("Password must be between 8 to 40 characters.").bail()
+                    .exists().withMessage('Le mot de passe est obligatoire').bail()
+                    .isLength({min:8, max:40}).withMessage("Le mot de passe doit être compris entre 8 et 40 caractères").bail()
                     .custom(async (value, {req}) => {
                         const unglued = unglue(req.body);
                         const user = decrypt({id: unglued.id, token: unglued.user});
 
                         const result = await doesUserAuthExist(user, value);
-                        if(!result) throw new Error("Credentials are incorrect.");
+                        if(!result) throw new Error("Le mot de passe actuel est invalide");
                         else return value;
                     }),
                 body('newPassword')
-                    .exists().withMessage('Password is required.').bail()
-                    .isLength({min:8, max:40}).withMessage("Password must be between 8 to 40 characters.")
+                    .exists().withMessage('Le mot de passe est obligatoire').bail()
+                    .isLength({min:8, max:40}).withMessage("Le mot de passe doit être compris entre 8 et 40 caractères")
                     .custom((value, { req }) => {
                         if (value === req.body.verif) return value;
-                        else throw new Error("Passwords does not match.");
+                        else throw new Error("Les mots de passe ne sont pas identiques.");
                     })
             ]
         default: return;

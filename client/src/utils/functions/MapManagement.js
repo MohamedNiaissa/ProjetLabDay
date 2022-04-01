@@ -6,7 +6,6 @@ import "leaflet-control-geocoder";
 
 export const DisplayMarker = ({leaflet, location, event}) => {
     const map = useMap();
-    console.log(location)
 
     if(location?.form === "discard") {
         fetchDumpMarkers(leaflet, location, map, event);
@@ -31,7 +30,6 @@ function fetchMarker(leaflet, location, map) {
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
     });
 
-    console.log(location.loc)
     location.loc ? fromGps(leaflet, map, blue_icon) : fromZip(leaflet, map, location, blue_icon);
 }
 
