@@ -26,18 +26,18 @@ export const homeData = {
         text: "Apprenez à trier vos déchets et encombrants dans les poubelles écologiques et déchetteries locales.",
     },
     cardSell: [
-        {title: "Type de l'objet", desc: "Renseignez la catégorie de l'objet que vous n'utilisez plus", img: "nut.webp"},
-        {title: "Liste de sites de vente", desc: "Lancez une recherche et obtenez un résultat spécifique selon cette catégorie", img: "nut.webp"},
+        {title: "Type de l'objet", desc: "Renseignez la catégorie de l'objet que vous n'utilisez plus", img: "paquet-casse.png"},
+        {title: "Liste de sites de vente", desc: "Lancez une recherche et obtenez un résultat spécifique selon cette catégorie", img: "list.png"},
     ],
     cardGive: [
-        {title: "L'état de l'objet", desc: "Renseignez l'état de l'objet que vous n'utilisez plus", img: "nut.webp"},
-        {title: "Liste des associations", desc: "Lancez une recherche et obtenez un résultat sur une carte des associations proches de chez vous", img: "nut.webp"},
-        {title: "Sauvegarder votre recherche", desc: "Créer un compte NextStep pour sauvegarder et organiser vos recherches", img: "nut.webp"},
+        {title: "L'état de l'objet", desc: "Renseignez l'état de l'objet que vous n'utilisez plus", img: "paquet-casse.png"},
+        {title: "Liste des associations", desc: "Lancez une recherche et obtenez un résultat sur une carte des associations proches de chez vous", img: "list.png"},
+        {title: "Sauvegarder votre recherche", desc: "Créer un compte NextStep pour sauvegarder et organiser vos recherches", img: "sauvegarder.png"},
     ],
     cardDiscard: [
-        {title: "Type de l'objet", desc: "Renseignez la catégorie de l'objet que vous n'utilisez plus", img: "nut.webp"},
-        {title: "Trie sélectif", desc: "Lancez une recherche (non encombrant) à fin d'afficher une aide pour le trie sélectif", img: "nut.webp"},
-        {title: "Liste des décharges", desc: "Lancez une recherche (encombrant) et obtenez un résultat sur une carte des décharges proches de chez vous", img: "nut.webp"},
-        {title: "Sauvegarder votre recherche", desc: "Créer un compte NextStep pour sauvegarder et organiser vos recherches", img: "nut.webp"},
+        {title: "Type de l'objet", desc: "Renseignez la catégorie de l'objet que vous n'utilisez plus", img: "paquet-casse.png"},
+        {title: "Trie sélectif", desc: "Lancez une recherche (non encombrant) à fin d'afficher une aide pour le trie sélectif", img: "trash.png"},
+        {title: "Liste des décharges", desc: "Lancez une recherche (encombrant) et obtenez un résultat sur une carte des décharges proches de chez vous", img: "list.png"},
+        {title: "Sauvegarder votre recherche", desc: "Créer un compte NextStep pour sauvegarder et organiser vos recherches", img: "sauvegarder.png"},
     ]
 }
