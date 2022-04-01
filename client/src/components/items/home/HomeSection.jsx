@@ -22,8 +22,8 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} alt="icon-func1"/>
-                                <label>Hover me to flip !</label>
+                                <img src={importImages("identification.png")} alt="icon-func1"/>
+                                <label>Survoler moi pour retourner !</label>
                             </div>
                             <div className="back">
                                 <h4>Nom de l'objet</h4>
@@ -35,8 +35,8 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} alt="icon-func2"/>
-                                <label>Hover me to flip !</label>
+                                <img src={importImages("paquet-casse.png")} alt="icon-func2"/>
+                                <label>Survoler moi pour retourner !</label>
                             </div>
                             <div className="back">
                                 <h4>État de l'objet</h4>
@@ -48,8 +48,8 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} alt="icon-func3"/>
-                                <label>Hover me to flip !</label>
+                                <img src={importImages("zip-code.png")} alt="icon-func3"/>
+                                <label>Survoler moi pour retourner !</label>
                             </div>
                             <div className="back">
                                 <h4>Code Postal</h4>
@@ -61,8 +61,8 @@ const HomeSection = ({link, img, title, text}) => (
                     <div className="card">
                         <div className="card-content">
                             <div className="front">
-                                <img src={importImages("nut2.webp")} alt="icon-func4"/>
-                                <label>Hover me to flip !</label>
+                                <img src={importImages("cityscape.png")} alt="icon-func4"/>
+                                <label> Survoler moi pour retourner !</label>                                
                             </div>
                             <div className="back">
                                 <h4>Ville</h4>
