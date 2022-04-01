@@ -53,7 +53,6 @@ const Discard = () => {
                         state={{product: form.fetchProduct(), city: form.fetchCity(), location: geoLState}} cbox={cboxState}/>
                 </div>
             </main>
-            <Background color={"page-background purple"}/>
             <Background color={"page-image discard-bg"}/>
         </>
     )

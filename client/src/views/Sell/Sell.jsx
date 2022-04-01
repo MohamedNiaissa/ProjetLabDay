@@ -32,7 +32,6 @@ const Sell = () => {
                     state={{product: form.fetchProduct(), city: form.fetchCity()}} cbox={null} form={"sell"}/>
                 </div>
             </main>
-            {/* <Background color={"page-background purple"}/> */}
             <Background color={"page-image sell-bg"}/>
         </>
     )

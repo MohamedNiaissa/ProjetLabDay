@@ -44,7 +44,6 @@ const Give = () => {
                         state={{product: form.fetchProduct(), city: form.fetchCity(), location: geoLState}} cbox={true}/>
                 </div>
             </main>
-            <Background color={"page-background purple"}/>
             <Background color={"page-image give-bg"}/>
         </>
     )

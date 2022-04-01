@@ -38,8 +38,9 @@
                 width: 80%;
                 height: 10%;
         
-                & > h1 {
+                h1 {
                     color:white;
+                    font-size: 56px;
                 }
             }
         
@@ -50,9 +51,10 @@
                 width: 80%;
                 height: 20%;
         
-                & > * {
+                p {
                     color:white;
                     text-align: center;
+                    font-size: 24px;
                 }
             }
         
@@ -94,7 +96,7 @@
                 align-items: center;
 
                 & > img {
-                    width: 100%;
+                    width: 80%;
                     height: 70%;
                 }
             }
@@ -107,14 +109,17 @@
                 align-items: center;
                 flex-direction: column;
 
-                & > * {
+                h1 {
                     color: white;
+                    font-size: 34px;
                 }
 
-                & > p {
+                p {
                     width: 80%;
                     height: 25%;
                     text-align: center;
+                    color: white;
+                    font-size: 20px;
 
                     display: flex;
                     align-items: center;
@@ -231,7 +236,9 @@
                             height: 80%;
                             display: flex;
                             flex-flow: row wrap;
-                            justify-content: space-between;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 1.5rem;
                         }
                         
                         .goto {

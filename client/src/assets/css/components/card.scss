@@ -40,7 +40,11 @@
         .back {
             transform: rotateY(180deg);
 
-            & > p {
+            h4 {
+                text-align: center;
+            }
+
+            p {
                 text-align: center;
                 padding: 10px;
             }

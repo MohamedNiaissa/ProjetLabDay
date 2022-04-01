@@ -1,7 +1,6 @@
 import { useLocation } from "react-router";
 import { importImages, getTrashColor } from "../../utils/functions/Functions";
 
-
 const DiscardToTrash = () => {
     const { product: { material } } = useLocation().state;
     const trash = getTrashColor(material);
@@ -10,7 +9,7 @@ const DiscardToTrash = () => {
         <main className="trash" id="main-content">
             <div className="marg" />
             <div className="trash-title">
-                <h1>Lorem Ipsum Dolor</h1>
+                <h1>Les différents type de poubelles</h1>
             </div>
             <div className="trash-content">
                 <div className="trash-list">

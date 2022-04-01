@@ -4,7 +4,7 @@ import { homeData } from "../../utils/json/HomeData";
 import { smoothAnimation } from "../../utils/functions/Functions";
 
 const Home = () => {
-    const { intro, desc, sell, give, discard } = homeData;
+    const { intro, desc, sell, give, discard, cardSell, cardGive, cardDiscard } = homeData;
     useEffect(smoothAnimation, []);
 
     return (
@@ -16,9 +16,9 @@ const Home = () => {
                 <HomeSectionDesc title={desc.title} text={desc.text}/>
 
                 <div className="service-wrapper svg-bg">
-                    <HomeSection title={sell.title} link={sell.link} img={sell.img} text={sell.text} />
-                    <HomeSection title={give.title} link={give.link} img={give.img} text={give.text} />
-                    <HomeSection title={discard.title} link={discard.link} img={discard.img} text={discard.text} />
+                    <HomeSection title={sell.title} link={sell.link} img={sell.img} text={sell.text} card={cardSell}/>
+                    <HomeSection title={give.title} link={give.link} img={give.img} text={give.text} card={cardGive}/>
+                    <HomeSection title={discard.title} link={discard.link} img={discard.img} text={discard.text} card={cardDiscard}/>
                 </div>
             </div>
         </main>
