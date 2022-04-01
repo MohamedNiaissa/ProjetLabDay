@@ -65,6 +65,7 @@ async function fetchDumpMarkers(leaflet, location, map, event) {
     }
 
     let routes = [];
+
     fetchedDump.forEach(function (el, i) {
         let { name, address, zip } = el;
         name = name.replaceAll(" ", "+");
@@ -167,7 +168,6 @@ function fetchMapList(leaflet, result, research, map) {
     address = address.replaceAll(" ", "+");
     zip = zip.replaceAll(" ", "+");
 
-    const routes = {route: null, mode: 1, await: undefined, icon: false};
     let marker = leaflet.marker([lat, lon], {icon: red_icon}).addTo(map);
     marker.bindPopup(`${result.name}` + "</br>" + "<a href=" + `https://www.google.com/search?q=${name}+${address}+${zip}` + ' target="_blank">En savoir plus =></a>');
     L.Routing.control({

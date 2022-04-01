@@ -16,11 +16,11 @@ const Give = ({event, locChecked}) => (
             <div className="first-design-content">
                 <select className="design-field" name="state" onChange={event} required>
                     <option value="" defaultValue hidden/>
-                    <option value="casse">Cassé</option>
-                    <option value="mauvaisetat">Mauvaise état</option>
+                    <option value="cassé/e">Cassé</option>
+                    <option value="mauvais etat">Mauvaise état</option>
                     <option value="moyen">Moyen</option>
                     <option value="bon">Bon état</option> 
-                    <option value="tresbon">Très bon état</option>
+                    <option value="tres bon etat">Très bon état</option>
                 </select>
                 <label htmlFor="design-field"><strong>Etat de l'objet :</strong></label>
                 <span></span>

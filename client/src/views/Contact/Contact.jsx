@@ -46,6 +46,7 @@ const Contact = () => {
                 </div>
             </main>
             <Background color={"page-background purple"}/>
+            <Background color={"page-image contact-bg"}/>
         </>
     )
 }

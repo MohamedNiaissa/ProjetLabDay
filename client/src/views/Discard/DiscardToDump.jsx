@@ -5,7 +5,7 @@ import { Map } from "../../components/~items";
 import { getToken } from "../../utils/functions/Functions";
 import { Notif } from "../../utils/functions/Popup";
 
-const DiscardToDump = () => {
+const DiscardToDump = ({user}) => {
     const save = useRef(true);
     const disabled = useRef(true);
     const [iconData, setIconData] = useState({name: "Non choisie", zip: "Non choisie", address: null});
@@ -23,7 +23,7 @@ const DiscardToDump = () => {
     const saveResearch = async () => {
         if(iconData.name !== "Non choisie" || iconData.zip !== "Non choisie") {
             await axios.post("http://localhost:5001/api/user/save-discard-research", {token : getToken(), dump: iconData, research: dataResearch})
-            .then(res => { Notif("#786489", res.data.message);; return res;})
+            .then(res => { Notif("#786489", res.data.message); return res;})
             .catch(function(error) { console.error(error.response.data.message) } ); 
         }
     }
@@ -35,6 +35,8 @@ const DiscardToDump = () => {
             </div>
         )
     }, [save]);
+
+    console.log(user)
 
     return (
         <main className="research" id="main-content">
@@ -56,13 +58,17 @@ const DiscardToDump = () => {
                             <span>{iconData.zip}</span>
                         </div>
                     </div>
-                    <div className="icon-info-save">
-                        {disabled.current ? 
-                            <button className="button col-simple-disabled cursor">Choisissez une décharge</button>
-                            :
-                            <button className="button col-simple cursor" onClick={saveResearch}>Sauvergarder cette recherche</button>
-                        }
-                    </div>
+                    {user ? 
+                        <div className="icon-info-save">
+                            {disabled.current ? 
+                                <button className="button col-simple-disabled cursor">Choisissez une décharge</button>
+                                :
+                                <button className="button col-simple cursor" onClick={saveResearch}>Sauvergarder cette recherche</button>
+                            }
+                        </div>
+                        :
+                        null
+                    }
                 </div>
             </div>
         </main>

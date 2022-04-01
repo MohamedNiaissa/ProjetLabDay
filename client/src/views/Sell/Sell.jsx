@@ -29,7 +29,7 @@ const Sell = () => {
                 <div className="marg"/>
                 <div className="functionality-content">
                     <FormLayout name="sell" userInput={userInput} validity={form.verifyFormValidity(formState)}
-                    state={{product: form.fetchProduct(), city: form.fetchCity()}} cbox={null}/>
+                    state={{product: form.fetchProduct(), city: form.fetchCity()}} cbox={null} form={"sell"}/>
                 </div>
             </main>
             <Background color={"page-background purple"}/>

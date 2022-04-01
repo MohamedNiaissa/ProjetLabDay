@@ -67,10 +67,10 @@ const App = ({hideLoader}) => {
                     <Route path="/vendre"                      element={<get.Sell />            }/>
                     <Route path="/vendre/resultats"            element={<get.SellToWebsite />   }/>
                     <Route path="/donner"                      element={<get.Give />            }/>
-                    <Route path="/donner/resultats"            element={<get.GiveToAsso />      }/>
+                    <Route path="/donner/resultats"            element={<get.GiveToAsso user={user}/> }/>
                     <Route path="/jeter"                       element={<get.Discard />         }/>
                     <Route path="/jeter/poubelles-ecologiques" element={<get.DiscardToTrash />  }/>
-                    <Route path="/jeter/decharge"              element={<get.DiscardToDump />   }/>
+                    <Route path="/jeter/decharge"              element={<get.DiscardToDump user={user}/> }/>
                     <Route path="/contact"                     element={<get.Contact />         }/>
                     <Route path="*"                            element={<get.Error404 />        }/>
                 </Switch>

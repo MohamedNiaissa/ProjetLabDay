@@ -68,6 +68,11 @@
     height: 75%;
     padding-top: 5%;
 
+    &.sell {
+        justify-content: flex-end;
+        gap: 4rem;
+    }
+
     &-field {
         display: flex;
         align-items: center;
@@ -113,5 +118,10 @@
 
 .discard-bg {
     background-image: url("../../img/discard.svg");
+    background-repeat: no-repeat;
+}
+
+.contact-bg {
+    background-image: url("../../img/contact.svg");
     background-repeat: no-repeat;
 }

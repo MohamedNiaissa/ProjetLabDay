@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Sell, Give, Discard, Contact, Title, Switch } from "../~items";
 
-const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
+const FormLayout = ({name, userInput, validity, email, state, cbox, form}) => {
     const validButton    = text => <button className="button col-origin valid">{text}</button>
     const disabledButton = text => <button className="button col-disabled" disabled>{text}</button>
     const validSwitch    = ()   => <Switch id={"geo"} name={"location"} off="NON" on="OUI" disabled={false} theme="swi-origin"   event={userInput}/>
@@ -12,7 +12,7 @@ const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
         else         return <Link to="#">{disabledButton("Chercher")}</Link>
     }
 
-    const ContactLink = ({link, event}) => {
+    const ContactLink = ({event}) => {
         if(validity) return <Link to="#" onClick={event}>{validButton("Envoyer")}</Link>
         else         return <Link to="#">{disabledButton("Envoyer")}</Link>
     }
@@ -42,7 +42,7 @@ const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
         sell   : () => <ResearchLink link="/vendre/resultats" state={state}/>,
         give   : () => <ResearchLink link="/donner/resultats" state={state}/>,
         discard: () => <ResearchLink link={cbox ? "/jeter/decharge" : "/jeter/poubelles-ecologiques"} state={state}/>,
-        contact: () => <ContactLink  link="/contact/" event={email}/>,
+        contact: () => <ContactLink  event={email}/>,
     })[form]()
 
     const RenderSwitch = cbox => ({
@@ -56,7 +56,7 @@ const FormLayout = ({name, userInput, validity, email, state, cbox}) => {
             {RenderTitle(name)}
             <div className="functionality-content__form">
                 <div className="form-wrapper">
-                    <form className="form">
+                    <form className={`form ${form}`}>
                         {RenderForm(name)}
                         <div className="form-button">
                             {RenderBtn(name)}

@@ -1,9 +1,8 @@
 import dbFetch from "../config/config.js";
 
 export const createDiscardResearch = async (req, res) => {
-    const { dump, research } = req.body;
-
     try {
+        const { dump, research } = req.body;
         await dbFetch.query('INSERT INTO dumpresearch (name, research, dump) VALUES ($1, $2, $3)', [res.locals.user, research, dump]);
         res.status(201).json({ message: 'Recherche sauvegarder !' });
     } catch (error) {
@@ -21,9 +20,8 @@ export const fetchDiscardResearch = async (req, res) => {
 }
 
 export const deleteDiscardResearch = async (req, res) => {
-    const { dump, research } = req.body;
-
     try {
+        const { dump, research } = req.body;
         await dbFetch.query('DELETE FROM dumpresearch WHERE name = $1 and research::jsonb = $2::jsonb and dump::jsonb = $3::jsonb', [res.locals.user, research, dump]);
         res.status(201).send("Success");
     } catch (error) {
@@ -32,9 +30,8 @@ export const deleteDiscardResearch = async (req, res) => {
 }
 
 export const createGiveResearch = async (req, res) => {
-    const { assos, research } = req.body;
-
     try {
+        const { assos, research } = req.body;
         await dbFetch.query('INSERT INTO assosresearch (name, research, assos) VALUES ($1, $2, $3)', [res.locals.user, research, assos]);
         res.status(201).json({ message: 'Recherche sauvegarder !' });
     } catch (error) {
@@ -52,9 +49,8 @@ export const fetchGiveResearch = async (req, res) => {
 }
 
 export const deleteGiveResearch = async (req, res) => {
-    const { assos, research } = req.body;
-
     try {
+        const { assos, research } = req.body;
         await dbFetch.query('DELETE FROM assosresearch WHERE name = $1 and research::jsonb = $2::jsonb and assos::jsonb = $3::jsonb', [res.locals.user, research, assos]);
         res.status(201).send("Success");
     } catch (error) {

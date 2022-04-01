@@ -3,18 +3,18 @@ import { encrypt, decrypt, glue, unglue } from "../middleware/crypto.js";
 import { randomBytes } from 'crypto';
 
 export const setSession = async (req, res) => {
-    const session = req.session;
-    const { id, cookie: { _expires } } = session;
-    
-    const rad = randomBytes(16);
-    const iv = randomBytes(16);
-    session.user = req.body.username;
-    session.card = encrypt(rad, iv).token;
-    const first = encrypt(session.user, iv);
-    const second = encrypt(session.card, iv);
-    const token = glue(first, second);
-
     try {
+        const session = req.session;
+        const { id, cookie: { _expires } } = session;
+        
+        const rad = randomBytes(16);
+        const iv = randomBytes(16);
+        session.user = req.body.username;
+        session.card = encrypt(rad, iv).token;
+        const first = encrypt(session.user, iv);
+        const second = encrypt(session.card, iv);
+        const token = glue(first, second);
+
         await dbFetch.query('INSERT INTO sessions (SID, expire, sess) VALUES ($1, $2, $3)', [id, _expires, session]);
         res.status(201).json({ message: `Bienvenue ${session.user} !`, user: `${session.user}`, set: token });
     } catch (error) {

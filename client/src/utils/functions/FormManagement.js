@@ -102,8 +102,10 @@ export class Formulaire {
         return valid;
     }
 
-    verifyDiscardValidity(states, cbox, geo) {
-        if(geo) return (states.product && states.material && states.zip) ? true : false;
+    verifyFormMapValidity(states, cbox, geo, form) {
+        if(geo && form === "discard") return (states.product && states.material && states.zip) ? true : false;
+        else if(geo && form === "give") return (states.product && states.state && states.zip) ? true : false;
+        else if(form === "give") return Object.values(states).every(Boolean);
         else if(cbox) return Object.values(states).every(Boolean);
         else return (states.product && states.material) ? true : false;
     }

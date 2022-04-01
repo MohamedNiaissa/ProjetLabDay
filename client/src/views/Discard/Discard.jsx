@@ -16,9 +16,17 @@ const Discard = () => {
         location: () => setGeoLState(valid => valid = !geoLState),
         product : () => setFormState(valid => ({...valid, product: form.verifyProductName($value, $nodes)})),
         material: () => setFormState(valid => ({...valid, material: form.verifyProductCondition($value)})),
-        zip     : () => setFormState(valid => ({...valid, zip: form.verifyZipValidity($value, $nodes)})),
+        zip     : () => resolveZip($value, $nodes),
         city    : () => setFormState(valid => ({...valid, city: form.verifyCityValidity($value)})),
     })[name]()
+
+    const resolveZip = (value, nodes) => {
+        const zipPromise = new Promise ((res) => {
+            res(form.verifyZipValidity(value, nodes))
+        })
+
+        zipPromise.then(res => setFormState(valid => ({...valid, zip: res})))
+    }
 
     const userInput = (e) => {
         try {
@@ -41,7 +49,7 @@ const Discard = () => {
             <main className="functionality" id="main-content">
                 <div className="marg" />
                 <div className="functionality-content">
-                    <FormLayout name="discard" userInput={userInput} validity={form.verifyDiscardValidity(formState, cboxState, geoLState)}
+                    <FormLayout name="discard" userInput={userInput} validity={form.verifyFormMapValidity(formState, cboxState, geoLState, "discard")}
                         state={{product: form.fetchProduct(), city: form.fetchCity(), location: geoLState}} cbox={cboxState}/>
                 </div>
             </main>

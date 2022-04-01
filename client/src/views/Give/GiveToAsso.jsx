@@ -5,7 +5,7 @@ import { Map } from "../../components/~items";
 import { getToken } from "../../utils/functions/Functions";
 import { Notif } from "../../utils/functions/Popup";
 
-const GiveToAsso = () => {
+const GiveToAsso = ({user}) => {
     const save = useRef(true);
     const disabled = useRef(true);
     const [iconData, setIconData] = useState({name: "Non choisie", zip: "Non choisie", address: null});
@@ -56,13 +56,17 @@ const GiveToAsso = () => {
                             <span>{iconData.zip}</span>
                         </div>
                     </div>
-                    <div className="icon-info-save">
-                        {disabled.current ? 
-                            <button className="button col-simple-disabled cursor">Choisissez une association</button>
-                            :
-                            <button className="button col-simple cursor" onClick={saveResearch}>Sauvergarder cette recherche</button>
-                        }
-                    </div>
+                    {user ? 
+                        <div className="icon-info-save">
+                            {disabled.current ? 
+                                <button className="button col-simple-disabled cursor">Choisissez une association</button>
+                                :
+                                <button className="button col-simple cursor" onClick={saveResearch}>Sauvergarder cette recherche</button>
+                            }
+                        </div>
+                        :
+                        null
+                    }
                 </div>
             </div>
         </main>

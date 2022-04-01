@@ -29,8 +29,8 @@ export const glue = (hash1, hash2) => {
 
 export const unglue = (hash) => {
     return {
-        id: hash.token.substring(0,32),
-        token: hash.token.substring(32,96),
-        user: hash.token.substring(96)
+        id: hash?.token?.substring(0,32),
+        token: hash?.token?.substring(32,96),
+        user: hash?.token?.substring(96)
     }
 }

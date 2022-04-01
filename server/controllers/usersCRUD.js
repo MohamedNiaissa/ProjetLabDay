@@ -3,9 +3,8 @@ import { encrypt, decrypt, glue, unglue } from "../middleware/crypto.js";
 import { randomBytes } from 'crypto';
 
 export const getUserById = async (req, res) => {
-    const { email } = req.body;
-
     try {
+        const { email } = req.body;
         await dbFetch.query("SELECT id FROM users WHERE email = $1", [email]);
         res.status(201).json({ message: 'User successfully fetched' });
     } catch (error) {
@@ -14,10 +13,9 @@ export const getUserById = async (req, res) => {
 }
 
 export const createUser = async (req, res) => {
-    const { username, email } = req.body;
-    const password = encrypt(req.body.password, randomBytes(16));
-
     try {
+        const { username, email } = req.body;
+        const password = encrypt(req.body.password, randomBytes(16));
         await dbFetch.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)', [username, email, password]);
         res.status(201).json({ message: 'User successfully added' });
     } catch (error) {
@@ -26,10 +24,10 @@ export const createUser = async (req, res) => {
 }
 
 export const updateUserEmail = async (req, res) => {
-    const user = res.locals.user;
-    const { email } = req.body;
-
     try {
+        const user = res.locals.user;
+        const { email } = req.body;
+
         await dbFetch.query('UPDATE users SET email = $1 WHERE name = $2', [email, user]);
         res.status(201).json({ message: "Votre email a bien été modifié" });
     } catch (error) {
@@ -38,11 +36,10 @@ export const updateUserEmail = async (req, res) => {
 }
 
 export const updateUserPwd = async (req, res) => {
-    const user = res.locals.user;
-    const { newPassword } = req.body;
-    const password = encrypt(newPassword, randomBytes(16));
-
     try {
+        const user = res.locals.user;
+        const { newPassword } = req.body;
+        const password = encrypt(newPassword, randomBytes(16));
         await dbFetch.query('UPDATE users SET password = $1 WHERE name = $2', [password, user]);
         res.status(201).json({ message: "Votre mot de passe a bien été modifié" });
     } catch (error) {
@@ -51,10 +48,9 @@ export const updateUserPwd = async (req, res) => {
 }
 
 export const updateUserPic = async (req, res) => {
-    const user = res.locals.user;
-    const { pic } = req.body;
-
     try {
+        const user = res.locals.user;
+        const { pic } = req.body;
         await dbFetch.query('UPDATE users SET image = $1 WHERE name = $2', [pic, user]);
         res.status(201).send(`User data successfully modified.`);
     } catch (error) {
@@ -63,9 +59,8 @@ export const updateUserPic = async (req, res) => {
 }
 
 export const fetchUserPic = async (req, res) => {
-    const user = res.locals.user;
-
     try {
+        const user = res.locals.user;
         const { rows } = await dbFetch.query('SELECT image FROM users WHERE name = $1', [user]);
         res.status(201).send(rows);
     } catch (error) {
