@@ -59,5 +59,13 @@
 .col-origin   { @include button-color(solid 3px #37a8ac, #213546, #37a8ac); }
 .col-disabled { @include button-color(solid 3px #c0c0c0, #5f5f5f, #8f8f8f); }
 .col-white    { @include button-color(solid 3px #37a8ac, #e2d5d5, #37a8ac); }
-.col-simple   { @include button-color(none, #e2d5d5, none)}
+.col-simple   { 
+    @include button-color(none, #e2d5d5, none);
+    &:hover{
+        background-color: rgb(59, 16, 140);
+        color: white;
+        cursor: pointer;
+    }
+}
 .col-simple-disabled { @include button-color(none, #5f5f5f, none)}
+
